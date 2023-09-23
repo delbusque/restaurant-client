@@ -9,6 +9,5 @@ export const useFetchOrders = () => {
         {
             select: data => data.data,
             refetchOnWindowFocus: true,
-            refetchInterval: 10000
         })
 }
