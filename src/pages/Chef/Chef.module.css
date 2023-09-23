@@ -1,0 +1,44 @@
+.chef-orders {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  margin: 35px 30px;
+  /* margin-right: 130px; */
+  overflow: hidden;
+  height: 80vh;
+  gap: 140px;
+}
+
+.waiting,
+.ready {
+  overflow: auto;
+}
+
+.waiting::-webkit-scrollbar,
+.ready::-webkit-scrollbar {
+  width: 24px;
+  /* width of the entire scrollbar */
+}
+
+.waiting::-webkit-scrollbar-track,
+.ready::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+}
+
+.waiting::-webkit-scrollbar-thumb {
+  background-color: goldenrod;
+  /* color of the scroll thumb */
+  border-radius: 16px;
+  /* roundness of the scroll thumb */
+  border: 6px solid lightgray;
+  /* creates padding around scroll thumb */
+}
+
+.ready::-webkit-scrollbar-thumb {
+  background-color: darkseagreen;
+  /* color of the scroll thumb */
+  border-radius: 16px;
+  /* roundness of the scroll thumb */
+  border: 6px solid lightgray;
+  /* creates padding around scroll thumb */
+}

@@ -1,0 +1,85 @@
+.order-cont,
+.order-cont-1 {
+  border-radius: 10px;
+  margin-bottom: 13px;
+  padding: 10px 15px 25px 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.order-cont {
+  border: solid 2px darkgoldenrod;
+}
+
+.order-cont-1 {
+  border: solid 2px rgba(46, 139, 86, 0.636);
+}
+
+.order-info {
+  display: flex;
+  gap: 30px;
+  align-items: baseline;
+}
+
+.order-name {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.order-ready,
+.order-ready-1 {
+  background-color: #fff;
+  border-color: transparent;
+  border-radius: 10px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  font-size: 18px;
+  font-weight: 500;
+  padding: 0 20px;
+  box-shadow: 0px -2px 5px 1px rgba(0, 255, 255, 0.7);
+}
+
+.order-ready:hover {
+  background-color: darkgoldenrod;
+  color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.order-ready:active {
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0px 8px 16px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+  transform: translateY(2px);
+  background-color: darkgoldenrod;
+}
+
+.order-ready-1:hover {
+  background-color: rgb(46, 139, 86);
+  color: white;
+  box-shadow: none;
+  border: none;
+}
+
+.order-ready-1:active {
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0px 8px 16px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+  transform: translateY(2px);
+  background-color: rgb(46, 139, 86);
+}
+
+.order-table {
+  font-family: "Dosis", sans-serif;
+}
+
+.order-count {
+  font-size: 14px;
+  font-weight: 400;
+  display: inline;
+}
+
+.order-ingr {
+  display: flex;
+}

@@ -1,0 +1,51 @@
+.tables-cont {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  padding: 50px 380px 50px 170px;
+}
+
+.table-btn {
+  border: 1px solid grey;
+  text-align: center;
+  border-radius: 3px;
+}
+
+.table-btn-opened {
+  border: 1px solid grey;
+  background-color: rgba(46, 139, 86, 0.358);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.table-btn-unpaid {
+  border: 1px solid grey;
+  background-color: rgba(220, 20, 60, 0.364);
+  text-align: center;
+  border-radius: 3px;
+}
+
+.table-btn-text {
+  font-family: "Dosis", sans-serif;
+  font-weight: 500;
+  font-size: 46px;
+  transform: scale(1.001);
+}
+
+.table-btn:hover {
+  box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.24);
+}
+
+.table-btn-opened:hover {
+  box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
+  cursor: pointer;
+  background-color: rgba(46, 139, 86, 0.617);
+}
+
+.table-btn-unpaid:hover {
+  box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
+  cursor: pointer;
+  background-color: rgba(220, 20, 60, 0.559);
+}
