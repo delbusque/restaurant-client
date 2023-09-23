@@ -28,6 +28,10 @@
     justify-content: flex-start;
   }
 
+  .nav__auth {
+    flex-direction: column;
+  }
+
   .deli {
     display: none;
   }
