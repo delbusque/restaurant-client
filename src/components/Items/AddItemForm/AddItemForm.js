@@ -3,6 +3,7 @@ import styles from './AddItemForm.module.css'
 import { useContext } from "react";
 import ItemsContext from "../../../contexts/ItemsContext";
 import { useAuthContext } from "../../../hooks/useAuthContext";
+import { baseUrl } from "../../../config";
 
 const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
 
@@ -37,7 +38,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
         let name = inputName.charAt(0).toUpperCase() + inputName.slice(1).toLowerCase();
         const newItem = { name, family, ingredients, price, type, quantity }
 
-        const response = await fetch('/items/add', {
+        const response = await fetch(`${baseUrl}/items/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useState } from "react";
+import { baseUrl } from "../config";
 
 const Messages = () => {
 
@@ -10,7 +11,7 @@ const Messages = () => {
     const messageHandler = async (e) => {
         e.preventDefault();
 
-        const response = await fetch('/messages/add', {
+        const response = await fetch(`${baseUrl}/messages/add`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

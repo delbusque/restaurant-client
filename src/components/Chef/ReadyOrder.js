@@ -2,6 +2,7 @@ import styles from './ReadyOrder.module.css'
 import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
+import { baseUrl } from '../../config';
 
 const ReadyOrder = ({ ready, refetch, orders }) => {
 
@@ -11,7 +12,7 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
     let time = Math.round(duration / 1000 / 60);
 
     const deleteReadyOrder = (clicked) => {
-        axios.post('/chef/delete-ready-order', { _id: clicked._id }).then(() => refetch())
+        axios.post(`${baseUrl}/chef/delete-ready-order`, { _id: clicked._id }).then(() => refetch())
     }
 
     useQuery('delete-ready-order', deleteReadyOrder, { enabled: false })

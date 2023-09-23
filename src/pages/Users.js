@@ -1,5 +1,6 @@
 import UserDetails from "../components/UserDetails/UserDetails";
 import { useEffect, useState } from 'react'
+import { baseUrl } from "../config";
 
 const Users = () => {
 
@@ -7,7 +8,7 @@ const Users = () => {
 
     useEffect(() => {
         const fetchUsers = () => {
-            fetch('/staff').then(res => res.json()).then(data => setUsers(data));
+            fetch(`${baseUrl}/staff`).then(res => res.json()).then(data => setUsers(data));
         }
         fetchUsers();
     }, [])

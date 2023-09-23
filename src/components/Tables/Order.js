@@ -1,11 +1,12 @@
 import styles from './Order.module.css'
 import axios from 'axios'
+import { baseUrl } from '../../config'
 
 const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setTables }) => {
     const { name, ingredients, quantity, quantityType, count, sent } = order
 
     const addOrders = () => {
-        axios.post('/chef/add-orders', { name, ingredients, quantity, quantityType, count: (count - sent), tableNum })
+        axios.post(`${baseUrl}/chef/add-orders`, { name, ingredients, quantity, quantityType, count: (count - sent), tableNum })
     }
 
 

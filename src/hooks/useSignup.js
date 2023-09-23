@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 import { useAuthContext } from "./useAuthContext";
+import { baseUrl } from "../config";
 
 export const useSignup = () => {
 
@@ -14,7 +15,7 @@ export const useSignup = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('/user/signup', {
+        const response = await fetch(`${baseUrl}/user/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

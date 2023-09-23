@@ -3,6 +3,7 @@ import { useState, useContext } from 'react';
 import ItemsContext from '../../../contexts/ItemsContext';
 import { useAuthContext } from '../../../hooks/useAuthContext';
 import StockItemModal from './StockItemModal';
+import { baseUrl } from '../../../config';
 
 const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo }) => {
 
@@ -22,7 +23,7 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
             return;
         }
 
-        const responce = await fetch(`/items/${item._id}`, {
+        const responce = await fetch(`${baseUrl}/items/${item._id}`, {
             method: 'DELETE',
             headers: {
                 'Authorization': `Bearer ${user.token}`

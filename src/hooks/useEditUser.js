@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useAuthContext } from "./useAuthContext";
+import { baseUrl } from "../config";
 
 export const useEditUser = () => {
 
@@ -14,7 +15,7 @@ export const useEditUser = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch(`/user/edit`, {
+        const response = await fetch(`${baseUrl}/user/edit`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

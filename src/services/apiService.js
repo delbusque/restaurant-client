@@ -1,6 +1,8 @@
+import { baseUrl } from "../config";
+
 export const fetchTables = async (setTables) => {
     try {
-        let responce = await fetch('/tables');
+        let responce = await fetch(`${baseUrl}/tables`);
         let result = await responce.json();
         if (responce.ok) {
             setTables(result);
@@ -12,7 +14,7 @@ export const fetchTables = async (setTables) => {
 
 export const fetchItems = async (setItems) => {
     try {
-        let responce = await fetch('/items');
+        let responce = await fetch(`${baseUrl}/items`);
         let result = await responce.json();
         if (responce.ok) {
             setItems(result);

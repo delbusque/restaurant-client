@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 import { useNavigate } from 'react-router-dom';
+import { baseUrl } from '../config';
 
 export const useLogin = () => {
     const [error, setError] = useState(null);
@@ -14,7 +15,7 @@ export const useLogin = () => {
         setIsLoading(true);
         setError(null);
 
-        const response = await fetch('/user/login', {
+        const response = await fetch(`${baseUrl}/user/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

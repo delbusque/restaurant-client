@@ -2,6 +2,7 @@ import styles from './StockItemEdit.module.css'
 import { useState, useContext, useEffect } from 'react';
 import ItemsContext from '../../../contexts/ItemsContext';
 import { useAuthContext } from "../../../hooks/useAuthContext";
+import { baseUrl } from '../../../config';
 
 
 const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFoodIsActive }) => {
@@ -51,7 +52,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
         let ingredients = inputIngredients?.split(',').map(i => (i.trim())).filter(i => i)
         const editedItem = { name, family, ingredients, price, type, quantity, quantityType, _id: item._id }
 
-        const response = await fetch(`/items/edit/${item._id}`, {
+        const response = await fetch(`${baseUrl}/items/edit/${item._id}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
