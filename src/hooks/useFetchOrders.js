@@ -8,6 +8,7 @@ export const useFetchOrders = () => {
     return useQuery('waiting-orders', fetchOrders,
         {
             select: data => data.data,
-            refetchOnWindowFocus: false,
+            refetchOnWindowFocus: true,
+            refetchInterval: 10000
         })
 }
