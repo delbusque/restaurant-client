@@ -31,20 +31,21 @@ function App() {
   const [tables, setTables] = useState([]);
   const [items, setItems] = useState([]);
 
-  const [flag, setFlag] = useState(true) // !!! TODO
-
   useEffect(() => {
-    let local_Tables = window.localStorage.getItem('tables');
-    let local_Items = window.localStorage.getItem('items');
+    // let local_Tables = window.localStorage.getItem('tables');
+    // let local_Items = window.localStorage.getItem('items');
 
-    if (local_Tables && local_Items) {
+    // if (local_Tables && local_Items) {
 
-      setTables(JSON.parse(local_Tables));
-      setItems(JSON.parse(local_Items));
-    } else {
-      apiService.fetchTables(setTables);
-      apiService.fetchItems(setItems);
-    }
+    //   setTables(JSON.parse(local_Tables));
+    //   setItems(JSON.parse(local_Items));
+    // } else {
+    //   apiService.fetchTables(setTables);
+    //   apiService.fetchItems(setItems);
+    // }
+
+    apiService.fetchTables(setTables);
+    apiService.fetchItems(setItems);
   }, [])
 
   useEffect(() => {
@@ -64,7 +65,7 @@ function App() {
               <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />
               <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />
 
-              <Route path='/chef' element={user && <Chef flag={flag} />} />
+              <Route path='/chef' element={user && <Chef />} />
               <Route path='/staff' element={user && <Users />} />
               <Route path='/messages' element={<Messages />} />
 
