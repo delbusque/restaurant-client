@@ -1,5 +1,8 @@
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import { baseUrl } from '../../config.js';
 
 import ItemsContext from '../../contexts/ItemsContext.js';
 
@@ -22,15 +25,25 @@ const TableView = ({ tables, setTables }) => {
     const { number } = useParams();
 
     let table;
+    // const [table, setTable] = useState(null)
 
+    let current;
     if (tables) {
         table = tables.find(t => t.number === number);
+        current = tables.find(t => t.number === number)
     }
+
+    const fetchTable = () => axios.get(`${baseUrl}/tables/${current._id}`)
+
+    let { data } = useQuery('fetch-table', fetchTable, { select: data => data.data })
+
+    // useEffect(() => {
+    //     setTable(data)
+    // }, [data])
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
     drinkTypes.sort((a, b) => a.localeCompare(b));
     foodTypes.sort((a, b) => a.localeCompare(b));
-
 
     const addItemHandler = (item) => {
         table.opened = true;
