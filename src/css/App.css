@@ -23,9 +23,13 @@
 }
 
 @media screen and (max-width: 900px) {
+  .main {
+    margin: 0 7px;
+  }
   .header {
     flex-direction: column;
     justify-content: flex-start;
+    margin: 7px 7px;
   }
 
   .nav__auth {
@@ -44,12 +48,6 @@
   .iL-items,
   iL-form {
     width: 100%;
-  }
-}
-
-@media screen and (max-width: 600px) {
-  .main {
-    max-width: 400px;
   }
 }
 
@@ -126,7 +124,7 @@ button.nav__item-auth {
   cursor: auto;
 }
 
-.nav__auth>.links {
+.nav__auth > .links {
   margin: auto;
 }
 
@@ -244,5 +242,4 @@ button.nav__item-auth {
 .tables:hover {
   color: white;
   background-color: rgb(46, 139, 86);
-  ;
 }

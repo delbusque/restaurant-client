@@ -5,6 +5,16 @@
   padding: 50px 380px 50px 170px;
 }
 
+@media screen and (max-width: 900px) {
+  .tables-cont {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 10px;
+    margin: 0 auto;
+  }
+}
+
 .table-btn {
   border: 1px solid grey;
   text-align: center;
