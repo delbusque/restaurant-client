@@ -32,18 +32,6 @@ function App() {
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    // let local_Tables = window.localStorage.getItem('tables');
-    // let local_Items = window.localStorage.getItem('items');
-
-    // if (local_Tables && local_Items) {
-
-    //   setTables(JSON.parse(local_Tables));
-    //   setItems(JSON.parse(local_Items));
-    // } else {
-    //   apiService.fetchTables(setTables);
-    //   apiService.fetchItems(setItems);
-    // }
-
     apiService.fetchTables(setTables);
     apiService.fetchItems(setItems);
   }, [])

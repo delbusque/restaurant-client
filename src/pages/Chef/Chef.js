@@ -2,7 +2,6 @@ import styles from './Chef.module.css'
 import ChefOrder from '../../components/Chef/ChefOrder';
 import ReadyOrder from '../../components/Chef/ReadyOrder';
 import { useFetchOrders } from '../../hooks/useFetchOrders.js';
-import { useEffect } from 'react';
 
 const Chef = () => {
 
