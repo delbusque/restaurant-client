@@ -109,6 +109,8 @@ const TableView = ({ tables, setTables }) => {
 
                         <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />
 
+
+
                         <section className='family-sect'>
                             {families.length > 0 &&
                                 families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
@@ -149,6 +151,10 @@ const TableView = ({ tables, setTables }) => {
                                         addItemHandler={addItemHandler} />)
                                 }
                             </section>}
+
+
+                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />
+
 
                     </>
                     :
