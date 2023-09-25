@@ -152,8 +152,8 @@ const TableView = ({ tables, setTables }) => {
                                 }
                             </section>}
 
+                        {window.innerWidth < 900 && <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />}
 
-                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />
 
 
                     </>
