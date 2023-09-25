@@ -70,9 +70,12 @@
   }
 
   .type-btn-drinks,
-  .type-btn-food,
+  .type-btn-food {
+    margin: 5px;
+  }
+
   .family-btn-drinks,
   .family-btn-food {
-    margin: 5px;
+    margin-top: 27px;
   }
 }

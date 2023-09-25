@@ -294,11 +294,6 @@ button.nav__item-auth {
     flex-direction: column;
   }
 
-  .iL-items,
-  iL-form {
-    width: 100%;
-  }
-
   .nav__item:hover:nth-child(1),
   .nav__item-auth:hover {
     box-shadow: none;

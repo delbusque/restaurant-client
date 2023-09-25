@@ -64,9 +64,10 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
                         <button className={styles['stock-item__edit']} onClick={() => editHandler(item)}>
                             <i className="fa-solid fa-marker marker"></i>
                         </button>
-                        <button className={styles['stock-item__delete']} onClick={() => setOpenModal(true)}>
+                        {window.innerWidth > 900 && <button className={styles['stock-item__delete']} onClick={() => setOpenModal(true)}>
                             <i className="fa-solid fa-trash-arrow-up trash"></i>
-                        </button>
+                        </button>}
+
                     </>}
             </div>
 

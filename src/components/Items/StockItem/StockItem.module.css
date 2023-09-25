@@ -1,63 +1,73 @@
 .stock-item {
-    background-color: #ddd7c6;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-areas: "name name quantity price . . .";
-    margin-bottom: 2.5px;
-    /* position: sticky; */
-    border: 1px solid rgba(128, 128, 128, 0.479);
-    border-radius: 3px;
+  background-color: #ddd7c6;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-areas: "name name quantity price . . .";
+  margin-bottom: 2.5px;
+  /* position: sticky; */
+  border: 1px solid rgba(128, 128, 128, 0.479);
+  border-radius: 3px;
 }
 
 .stock-item__name {
-    display: inline;
-    grid-area: name;
-    margin: 5px 10px;
+  display: inline;
+  grid-area: name;
+  margin: 5px 10px;
 }
 
 .stock-item__info {
-    display: inline;
-    border: none;
-    cursor: pointer;
-    justify-self: right;
-    background-color: #ddd7c6;
-    margin-left: 30px;
-    margin-right: 3px;
+  display: inline;
+  border: none;
+  cursor: pointer;
+  justify-self: right;
+  background-color: #ddd7c6;
+  margin-left: 30px;
+  margin-right: 3px;
 }
 
 .stock-item__edit {
+  display: inline;
+  border: none;
+  cursor: pointer;
+  justify-self: center;
+  background-color: #ddd7c6;
+}
+
+.stock-item__delete {
+  display: inline;
+  border: none;
+  cursor: pointer;
+  justify-self: right;
+  background-color: #ddd7c6;
+}
+
+.stock-item__quantity {
+  display: inline;
+  grid-area: quantity;
+  margin: 5px 10px;
+  font-style: italic;
+  font-weight: 300;
+}
+
+.stock-item__quantityType {
+  display: inline;
+  margin: 5px 4px;
+}
+
+.stock-item__price {
+  display: inline;
+  grid-area: price;
+  margin: 5px 10px;
+  text-align: right;
+}
+
+@media screen and (max-width: 900px) {
+  .stock-item__edit {
     display: inline;
     border: none;
     cursor: pointer;
     justify-self: center;
     background-color: #ddd7c6;
-}
-
-.stock-item__delete {
-    display: inline;
-    border: none;
-    cursor: pointer;
-    justify-self: right;
-    background-color: #ddd7c6;
-}
-
-
-.stock-item__quantity {
-    display: inline;
-    grid-area: quantity;
-    margin: 5px 10px;
-    font-style: italic;
-    font-weight: 300;
-}
-
-.stock-item__quantityType {
-    display: inline;
-    margin: 5px 4px;
-}
-
-.stock-item__price {
-    display: inline;
-    grid-area: price;
-    margin: 5px 10px;
-    text-align: right;
+    padding-right: 10px;
+  }
 }

@@ -131,4 +131,9 @@
   .family-sect {
     margin-right: 0px;
   }
+
+  .type-btn-food,
+  .type-btn-drinks {
+    width: 80px;
+  }
 }
