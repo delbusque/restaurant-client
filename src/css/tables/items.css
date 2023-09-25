@@ -56,3 +56,23 @@
   margin: 5px 10px;
   text-align: right;
 }
+
+@media screen and (max-width: 900px) {
+  .items-sect {
+    overflow: unset;
+    width: 95vw;
+    margin: 20px auto;
+    max-height: fit-content;
+  }
+
+  .type-sect {
+    overflow: unset;
+  }
+
+  .type-btn-drinks,
+  .type-btn-food,
+  .family-btn-drinks,
+  .family-btn-food {
+    margin: 5px;
+  }
+}

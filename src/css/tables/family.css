@@ -46,7 +46,7 @@
   /* box-shadow: 0px 1px 9px 0px rgba(0, 255, 255, 0.7); */
 }
 
-.iL-family-sect>.family-btn-food {
+.iL-family-sect > .family-btn-food {
   margin: 17px 5px 0px 15px;
 }
 
@@ -125,4 +125,10 @@
   transition: 0.2s;
   transform: translateY(2px);
   background-color: cadetblue;
+}
+
+@media screen and (max-width: 900px) {
+  .family-sect {
+    margin-right: 0px;
+  }
 }

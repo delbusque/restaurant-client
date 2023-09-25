@@ -182,3 +182,32 @@
   transform: translateY(2px);
   background-color: steelblue;
 }
+
+@media screen and (max-width: 900px) {
+  .tb-orders {
+    margin: 0 8px;
+    padding: 1px 5px;
+    display: grid;
+    gap: 5px;
+    grid-template-columns: 50px 50px 10px 70px;
+    /* grid-template-columns: repeat(7, 1fr); */
+    grid-template-areas: " . . . bluebtn bluebtn count count total";
+    font-family: "Lato", sans-serif;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .ord-total {
+    grid-area: total;
+    margin-right: 0;
+    text-align: right;
+  }
+
+  .ord-name {
+    margin-left: 15px;
+  }
+
+  .button-53-blue {
+    grid-area: bluebtn;
+  }
+}
