@@ -24,7 +24,7 @@ const Signup = () => {
 
     return (
         <form className={styles['signup']} onSubmit={signupHandler}>
-            <h3>Sign Up</h3>
+            <h3>Sign up</h3>
 
             <label>Email:</label>
             <input type='email'
@@ -41,7 +41,7 @@ const Signup = () => {
                 onChange={(e) => setRepeatPassword(e.target.value)}
                 value={repeatPassword} />
 
-            <button disabled={isLoading}>Sign Up</button>
+            <button disabled={isLoading}>Sign up</button>
 
             {error && <div className={styles['error']}>{error}</div>}
 

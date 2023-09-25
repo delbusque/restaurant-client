@@ -44,10 +44,11 @@ const Navigation = () => {
                 <button className="links nav__item-auth" onClick={logoutHandler}>Logout</button>
             </div>)}
 
-            {!user && (<div className="nav__auth">
-                <Link id='login' className='links' to='/login'><li className="nav__item-auth">Login</li></Link>
-                <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">Sign Up</li></Link>
-            </div>)}
+            {!user && <>
+
+                <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">Sign up</li></Link>
+                <Link id='login' className='links' to='/login'><li className="nav__item-auth">Log in</li></Link>
+            </>}
 
         </header>
     )
