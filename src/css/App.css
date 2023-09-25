@@ -250,6 +250,18 @@ button.nav__item-auth {
     background-color: darkgoldenrod;
   }
 
+  #login {
+    margin: 0 7px;
+    text-align: center;
+  }
+
+  #signup {
+    margin: 0 7px;
+    text-align: center;
+    color: white;
+    background-color: #0089ba;
+  }
+
   .chef {
     color: white;
   }
