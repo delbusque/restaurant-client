@@ -22,35 +22,6 @@
   z-index: 100;
 }
 
-@media screen and (max-width: 900px) {
-  .main {
-    margin: 0 7px;
-  }
-  .header {
-    flex-direction: column;
-    justify-content: flex-start;
-    margin: 7px 7px;
-  }
-
-  .nav__auth {
-    flex-direction: column;
-  }
-
-  .deli {
-    display: none;
-  }
-
-  .iL-buttons-sect,
-  .iL-main {
-    flex-direction: column;
-  }
-
-  .iL-items,
-  iL-form {
-    width: 100%;
-  }
-}
-
 .deli {
   font-family: "Dancing Script", cursive;
   font-weight: 400;
@@ -242,4 +213,84 @@ button.nav__item-auth {
 .tables:hover {
   color: white;
   background-color: rgb(46, 139, 86);
+}
+
+@media screen and (max-width: 900px) {
+  .main {
+    margin: 0 7px;
+  }
+  .header {
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 7px auto;
+    padding: 20px 0px;
+    padding-bottom: 3px;
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    position: inherit;
+    width: 95vw;
+  }
+
+  #tables {
+    margin: 0 7px;
+    text-align: center;
+    color: white;
+    background-color: rgb(46, 139, 86);
+  }
+
+  #items {
+    margin: 0 7px;
+    text-align: center;
+  }
+
+  #chef {
+    margin: 0 7px;
+    text-align: center;
+    color: white;
+    background-color: darkgoldenrod;
+  }
+
+  .chef {
+    color: white;
+  }
+
+  #staff {
+    display: none;
+  }
+
+  #auth {
+    flex-direction: row;
+    margin: 0 7px;
+    padding: 3px 0;
+  }
+
+  .u-email:hover {
+    box-shadow: none;
+    /* background-color: rgba(255, 255, 255, 0.24); */
+  }
+
+  .nav__auth {
+    flex-direction: column;
+  }
+
+  .deli {
+    display: none;
+  }
+
+  .iL-buttons-sect,
+  .iL-main {
+    flex-direction: column;
+  }
+
+  .iL-items,
+  iL-form {
+    width: 100%;
+  }
+
+  .nav__item:hover:nth-child(1),
+  .nav__item-auth:hover {
+    box-shadow: none;
+    cursor: pointer;
+    /* background-color: rgba(255, 255, 255, 0.24); */
+  }
 }

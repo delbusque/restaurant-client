@@ -30,14 +30,14 @@ const Navigation = () => {
 
                 {user &&
                     <>
-                        <Link className='links' to='/chef'><li className="nav__item chef">Chef</li></Link>
+                        <Link id='chef' className='links' to='/chef'><li className="nav__item chef">Chef</li></Link>
                         {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
                         <Link id='staff' className='links' to='/staff'><li className="nav__item">Staff</li></Link>
 
                     </>}
             </div>
 
-            {user && (<div className="nav__auth">
+            {user && (<div id='auth' className="nav__auth">
 
                 <Link id='u-email' className='links' to='/my-account'><span className='u-email'>{user.email}</span></Link>
 
