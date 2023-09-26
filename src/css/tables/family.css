@@ -127,6 +127,21 @@
   background-color: cadetblue;
 }
 
+@media screen and (max-width: 1400px) {
+
+  .family-btn-food,
+  .family-btn-drinks {
+    width: 100px;
+    margin-left: 0;
+  }
+
+  .type-btn-drinks,
+  .type-btn-food {
+    width: 80px;
+    margin-left: 0;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .family-sect {
     margin-right: 0px;
@@ -135,14 +150,18 @@
   .type-btn-food,
   .type-btn-drinks {
     width: 80px;
+    font-size: 18px;
   }
 
   .family-btn-drinks {
     margin: 30px 0px 0px 0px;
+    font-size: 20px;
   }
 
-  .iL-family-sect>.family-btn-food {
+  .family-btn-food {
     margin: 30px 0px 0px 15px;
+    font-size: 20px;
+
   }
 
   .type-btn-drinks,
