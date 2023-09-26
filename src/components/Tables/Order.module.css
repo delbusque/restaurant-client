@@ -153,6 +153,7 @@
   -webkit-user-select: none;
   touch-action: manipulation;
   margin-right: 5px;
+  font-size: 16px;
 }
 
 .button-53-blue:focus {
@@ -183,13 +184,18 @@
   background-color: steelblue;
 }
 
+
+.lv {
+  margin-left: 3px;
+}
+
 @media screen and (max-width: 900px) {
   .tb-orders {
     margin: 0 8px;
     padding: 1px 5px;
     display: grid;
     gap: 5px;
-    grid-template-columns: 50px 50px 10px 70px;
+    grid-template-columns: 40px 40px 10px 60px;
     /* grid-template-columns: repeat(7, 1fr); */
     grid-template-areas: " . . . bluebtn bluebtn count count total";
     font-family: "Lato", sans-serif;
@@ -201,13 +207,24 @@
     grid-area: total;
     margin-right: 0;
     text-align: right;
+    font-size: 15px;
   }
 
   .ord-name {
     margin-left: 15px;
+    margin-bottom: 5px;
+  }
+
+  .button-53,
+  .button-53-green {
+    padding-top: 5px;
+    padding-bottom: 10px;
   }
 
   .button-53-blue {
     grid-area: bluebtn;
+    padding-top: 5px;
+    padding-bottom: 10px;
   }
+
 }

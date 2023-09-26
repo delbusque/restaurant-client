@@ -249,4 +249,26 @@
     bottom: 0;
     width: 95vw;
   }
+
+  .tb-foot,
+  .tb-num,
+  .tb-total {
+    margin-right: 12px;
+  }
+
+  .tb-num {
+    margin-right: 20px;
+  }
+
+  .tb-title,
+  .tb-foot {
+    margin-left: 12px;
+  }
+
+  .btn-paid,
+  .btn-tables,
+  .btn-clear {
+    padding: 10px 20px;
+  }
+
 }

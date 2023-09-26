@@ -41,7 +41,7 @@ const Navigation = () => {
 
                 <Link id='u-email' className='links' to='/my-account'><span className='u-email'>{user.email}</span></Link>
 
-                <button className="links nav__item-auth" onClick={logoutHandler}>Logout</button>
+                <button className="links nav__item-auth out" onClick={logoutHandler}>Logout</button>
             </div>)}
 
             {!user && <>
