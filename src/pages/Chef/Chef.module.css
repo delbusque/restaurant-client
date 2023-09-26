@@ -61,5 +61,6 @@
   .chef-orders {
     display: block;
     margin: 35px 5px;
+    overflow: auto;
   }
 }
