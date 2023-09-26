@@ -42,3 +42,10 @@
   border: 6px solid lightgray;
   /* creates padding around scroll thumb */
 }
+
+@media screen and (max-width: 900px) {
+  .chef-orders {
+    display: block;
+    margin: 35px 5px;
+  }
+}
