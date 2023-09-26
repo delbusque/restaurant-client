@@ -144,4 +144,23 @@
   .iL-family-sect>.family-btn-food {
     margin: 30px 0px 0px 15px;
   }
+
+  .type-btn-drinks,
+  .type-btn-drinks:hover,
+  .type-btn-drinks:active,
+  .family-btn-drinks,
+  .family-btn-drinks:hover,
+  .family-btn-drinks:active {
+    background-color: #A6AE9D;
+  }
+
+  .type-btn-food,
+  .type-btn-food:hover,
+  .type-btn-food:active,
+  .family-btn-food,
+  .family-btn-food:hover,
+  .family-btn-food:active {
+    background-color: #677381;
+  }
+
 }

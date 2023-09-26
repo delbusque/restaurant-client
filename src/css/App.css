@@ -236,7 +236,9 @@ button.nav__item-auth {
     margin: 0 7px;
     text-align: center;
     color: white;
-    background-color: rgb(46, 139, 86);
+    /* background-color: rgb(46, 139, 86); */
+    background-color: #B0A8B9;
+
   }
 
   #items {
@@ -248,7 +250,9 @@ button.nav__item-auth {
     margin: 0 7px;
     text-align: center;
     color: white;
-    background-color: darkgoldenrod;
+    /* background-color: darkgoldenrod; */
+    background-color: #D5CABD;
+
   }
 
   #login {
@@ -263,8 +267,16 @@ button.nav__item-auth {
     background-color: #0089ba;
   }
 
-  .chef {
+  .tables,
+  .tables:hover {
     color: white;
+    background-color: #B0A8B9;
+  }
+
+  .chef,
+  .chef:hover {
+    color: white;
+    background-color: #D5CABD;
   }
 
   #staff {

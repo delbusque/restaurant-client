@@ -6,7 +6,6 @@
   display: flex;
   justify-content: space-between;
   border: solid 2px darkseagreen;
-  align-items: baseline;
 }
 
 .order-info {
@@ -116,26 +115,18 @@
   }
 
   .order-name {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .order-ready {
     border-radius: 3px;
     font-size: 16px;
     font-weight: 500;
-    padding: 0 8px;
+    padding: 8px;
     margin-top: 10px;
   }
 }
 
-@media screen and (max-width: 430px) {
-
-  .order-name {
-    font-size: 16px;
-    text-align: left;
-  }
-
-}
 
 
 
