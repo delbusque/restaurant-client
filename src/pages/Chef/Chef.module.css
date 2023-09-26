@@ -6,6 +6,7 @@
   overflow: hidden;
   height: 80vh;
   gap: 140px;
+  font-family: 'Exo 2', sans-serif;
 }
 
 .waiting,

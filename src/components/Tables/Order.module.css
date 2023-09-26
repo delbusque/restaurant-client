@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
+
 .tb-orders {
   margin: 2px 5px;
   margin-left: 25px;
@@ -12,9 +14,9 @@
 
 .ord-name {
   grid-area: name;
-  font-family: "Dosis", sans-serif;
+  font-family: 'Exo 2', sans-serif;
   font-size: large;
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .button-53 {
