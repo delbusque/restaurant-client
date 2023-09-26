@@ -46,7 +46,7 @@
   /* box-shadow: 0px 1px 9px 0px rgba(0, 255, 255, 0.7); */
 }
 
-.iL-family-sect > .family-btn-food {
+.iL-family-sect>.family-btn-food {
   margin: 17px 5px 0px 15px;
 }
 
@@ -135,5 +135,13 @@
   .type-btn-food,
   .type-btn-drinks {
     width: 80px;
+  }
+
+  .family-btn-drinks {
+    margin: 30px 0px 0px 0px;
+  }
+
+  .iL-family-sect>.family-btn-food {
+    margin: 30px 0px 0px 15px;
   }
 }

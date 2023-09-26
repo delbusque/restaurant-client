@@ -95,7 +95,7 @@ button.nav__item-auth {
   cursor: auto;
 }
 
-.nav__auth > .links {
+.nav__auth>.links {
   margin: auto;
 }
 
@@ -219,10 +219,11 @@ button.nav__item-auth {
   .main {
     margin: 0 7px;
   }
+
   .header {
     flex-direction: column;
     justify-content: flex-start;
-    margin: 7px auto;
+    margin: 7px auto 0px auto;
     padding: 20px 0px;
     padding-bottom: 3px;
     border-top-right-radius: 5px;

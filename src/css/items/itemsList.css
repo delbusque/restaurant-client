@@ -41,8 +41,9 @@
     margin: auto;
   }
 
-  .family-btn-drinks {
-    margin-top: 17px;
+  .family-btn-drinks,
+  .family-btn-food {
+    margin-top: 30px;
   }
 
   .iL-buttons-sect {
@@ -59,10 +60,11 @@
   .iL-main {
     display: flex;
     grid-template-columns: repeat(2, 1fr);
+    margin-top: 25px;
   }
 
   .iL-items {
-    margin: 25px 40px;
+    margin: 0;
     margin-bottom: 0px;
     max-height: 100vh;
 
