@@ -122,3 +122,9 @@
 .form-group textarea {
   height: 200px;
 }
+
+@media screen and (max-width: 900px) {
+  #u-email {
+    pointer-events: none;
+  }
+}
