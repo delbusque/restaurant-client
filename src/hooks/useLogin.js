@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { useAuthContext } from './useAuthContext';
 import { useNavigate } from 'react-router-dom';
 import { baseUrl } from '../config';
+import { encrypt } from '../utils.js';
 
 export const useLogin = () => {
     const [error, setError] = useState(null);
@@ -10,7 +11,9 @@ export const useLogin = () => {
 
     const navigate = useNavigate();
 
-    const login = async (email, password) => {
+    const login = async (email, textPassword) => {
+
+        const password = encrypt(textPassword)
 
         setIsLoading(true);
         setError(null);

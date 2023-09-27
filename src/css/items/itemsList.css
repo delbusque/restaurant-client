@@ -28,7 +28,8 @@
   overflow: auto;
   display: inline-block;
   width: 85%;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
+  font-size: 18px;
 }
 
 .iL-form {
@@ -52,7 +53,7 @@
   }
 
   .iL-type-sect {
-    text-align: left;
+    text-align: center;
     margin-top: 12px;
     margin-left: 0px;
     padding-left: 0px;
