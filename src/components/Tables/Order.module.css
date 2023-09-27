@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;500;600;700&display=swap");
 
 .tb-orders {
   margin: 2px 5px;
@@ -14,7 +14,7 @@
 
 .ord-name {
   grid-area: name;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
   font-size: large;
   font-weight: 400;
 }
@@ -186,7 +186,6 @@
   background-color: steelblue;
 }
 
-
 .lv {
   margin-left: 3px;
 }
@@ -213,6 +212,7 @@
   }
 
   .ord-name {
+    font-size: 17px;
     margin-left: 15px;
     margin-bottom: 5px;
   }
@@ -228,5 +228,4 @@
     padding-top: 5px;
     padding-bottom: 10px;
   }
-
 }
