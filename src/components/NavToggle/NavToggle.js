@@ -1,10 +1,10 @@
 import styles from "./NavToggle.module.css"
 import { Link, useNavigate } from 'react-router-dom';
-import { useLogout } from '../hooks/useLogout';
-import { useAuthContext } from '../hooks/useAuthContext';
+import { useLogout } from '../../hooks/useLogout';
+import { useAuthContext } from '../../hooks/useAuthContext';
 import { FiMenu } from 'react-icons/fi'
 
-const NavToggle = () => {
+const NavToggle = ({ setToggle }) => {
     const { logout } = useLogout();
     const { user } = useAuthContext();
     const navigate = useNavigate();
@@ -14,11 +14,16 @@ const NavToggle = () => {
         navigate('/login')
     }
 
+    const toggleHandler = () => {
+        setToggle(toggle => !toggle)
+    }
+
     return (
         <header id='header' className={styles["header"]}>
             <h1 className={styles["deli"]}><Link id='deli' className='links' to='/'>Deli</Link></h1>
 
-            <FiMenu className={styles["btn-toggle"]} />
+            <FiMenu className={styles["btn-toggle"]}
+                onClick={toggleHandler} />
 
             <div className={styles["nav-cont"]}>
                 <h1 className={styles["deli-desktop"]}><Link className='links' to='/'>Deli</Link></h1>

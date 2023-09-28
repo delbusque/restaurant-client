@@ -135,15 +135,12 @@ button.nav__item-auth {
         display: block;
         font-size: 36px;
         padding: 5px;
+        cursor: pointer;
     }
 
     #tables {
         margin: 0 7px;
         text-align: center;
-        color: white;
-        /* background-color: rgb(46, 139, 86); */
-        background-color: #B0A8B9;
-
     }
 
     #items {

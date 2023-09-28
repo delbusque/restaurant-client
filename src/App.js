@@ -21,7 +21,8 @@ import Signup from './pages/Signup';
 import Users from './pages/Users';
 import Messages from './pages/Messages';
 import Chef from './pages/Chef/Chef.js';
-import NavToggle from './components/NavToggle';
+import NavToggle from './components/NavToggle/NavToggle';
+import NavSidebar from './components/NavToggle/NavSidebar';
 
 const queryClient = new QueryClient()
 
@@ -31,6 +32,8 @@ function App() {
 
   const [tables, setTables] = useState([]);
   const [items, setItems] = useState([]);
+
+  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     let local_Tables = window.localStorage.getItem('tables');
@@ -60,28 +63,34 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="App">
         {/* <Navigation /> */}
-        <NavToggle />
-        <div className="main">
-          <ItemsContext.Provider value={{ items, setItems }}>
-            <Routes>
-              <Route path='/' element={<Home />} />
-              <Route path='/items' element={<ItemsList />} />
-              <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />
-              <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />
 
-              <Route path='/chef' element={user && <Chef />} />
-              <Route path='/staff' element={user && <Users />} />
-              <Route path='/messages' element={<Messages />} />
+        {!toggle && <NavToggle setToggle={setToggle} />}
+
+        {toggle && <NavSidebar setToggle={setToggle} />}
+
+        {!toggle &&
+          <div className="main">
+            <ItemsContext.Provider value={{ items, setItems }}>
+
+              <Routes>
+                <Route path='/' element={<Home />} />
+                <Route path='/items' element={<ItemsList />} />
+                <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />
+                <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />
+
+                <Route path='/chef' element={user && <Chef />} />
+                <Route path='/staff' element={user && <Users />} />
+                <Route path='/messages' element={<Messages />} />
 
 
-              <Route path='/my-account' element={user && <Account />} />
+                <Route path='/my-account' element={user && <Account />} />
 
-              <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
-              <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
+                <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
+                <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
 
-            </Routes>
-          </ItemsContext.Provider>
-        </div>
+              </Routes>
+            </ItemsContext.Provider>
+          </div>}
       </div>
     </QueryClientProvider>
   );
