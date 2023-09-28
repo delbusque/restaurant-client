@@ -65,6 +65,13 @@
   }
 }
 
+@media screen and (max-width: 1400px) {
+  .items-sect {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .items-sect {
     overflow: unset;
