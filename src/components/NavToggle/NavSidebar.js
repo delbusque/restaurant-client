@@ -39,9 +39,9 @@ const NavSidebar = ({ setToggle }) => {
                             <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Chef</Link>
                             </li>
-                            <li className={styles['sidebar-item']}>
+                            {/* <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>Staff</Link>
-                            </li>
+                            </li> */}
                         </>}
 
                     {user && (<div>
