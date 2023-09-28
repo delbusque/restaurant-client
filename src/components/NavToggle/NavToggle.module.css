@@ -17,7 +17,11 @@
 
 .deli-desktop {
     font-family: "Dancing Script", cursive;
-    font-weight: 400;
+    font-weight: 900;
+}
+
+.deli-desktop:hover {
+    text-decoration: none;
 }
 
 .nav-cont {

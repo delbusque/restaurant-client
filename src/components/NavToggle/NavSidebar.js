@@ -12,7 +12,8 @@ const NavSidebar = ({ setToggle }) => {
 
     const logoutHandler = () => {
         logout();
-        navigate('/login')
+        setToggle(toggle => !toggle)
+        navigate('/')
     }
 
     const toggleHandler = () => {
@@ -23,31 +24,50 @@ const NavSidebar = ({ setToggle }) => {
             <div className={styles['sidebar-cont']}>
                 <MdClose className={styles['sidebar-close']} onClick={toggleHandler} />
 
+                <div className={styles['sidebar-menu']}>
 
-                <Link className='links' to='/tables' onClick={toggleHandler}>
-                    <li className="nav__item">Tables</li>
-                </Link>
-                <Link className='links' to='/items'>
-                    <li className="nav__item">Items</li>
-                </Link>
+                    <li className={styles['sidebar-item']}>
+                        <Link className={styles['sidebar-link']} to='/tables' onClick={toggleHandler}>Tables</Link>
+                    </li>
 
-                {user &&
-                    <>
-                        <Link className='links' to='/chef'><li className="nav__item">Chef</li></Link>
-                        {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
-                        <Link className='links' to='/staff' ><li className="nav__item">Staff</li></Link>
+                    <li className={styles['sidebar-item']}>
+                        <Link className={styles['sidebar-link']} to='/items' onClick={toggleHandler}>Items</Link>
+                    </li>
+
+                    {user &&
+                        <>
+                            <li className={styles['sidebar-item']}>
+                                <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Chef</Link>
+                            </li>
+                            <li className={styles['sidebar-item']}>
+                                <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>Staff</Link>
+                            </li>
+                        </>}
+
+                    {user && (<div>
+                        <li className={styles['sidebar-user']}>
+                            <Link className={styles['sidebar-link']} to='/my-account'><span>{user.email}</span></Link>
+                        </li>
+
+                        <div className={styles['sidebar-btn-cont']}>
+                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Logout</button>
+                        </div>
+
+                    </div>)}
+
+                    {!user && <>
+                        <li className={styles['sidebar-item']}>
+                            <Link className={styles['sidebar-link']} to='/signup' onClick={toggleHandler}>Sign up</Link></li>
+
+                        <div className={styles['sidebar-btn-login-cont']}>
+                            <Link className={styles['sidebar-btn-login']} to='/login' onClick={toggleHandler}>Log in</Link>
+                        </div>
                     </>}
 
-                {user && (<div>
-                    <Link className='links' to='/my-account'><span className='u-email'>{user.email}</span></Link>
-                    <button className="links nav__item-auth out" onClick={logoutHandler}>Logout</button>
-                </div>)}
+                </div>
 
-                {!user && <>
-                    <Link className='links' to='/signup'><li className="nav__item-auth">Sign up</li></Link>
-                    <Link className='links' to='/login'><li className="nav__item-auth">Log in</li></Link>
-                </>}
             </div>
+
 
 
         </>

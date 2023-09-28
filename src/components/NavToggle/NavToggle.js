@@ -55,11 +55,11 @@ const NavToggle = ({ setToggle }) => {
                     <button className="links nav__item-auth out" onClick={logoutHandler}>Logout</button>
                 </div>)}
 
-                {!user && <>
+                {!user && <div>
 
                     <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">Sign up</li></Link>
                     <Link id='login' className='links' to='/login'><li className="nav__item-auth">Log in</li></Link>
-                </>}
+                </div>}
             </div>
         </header>
     )
