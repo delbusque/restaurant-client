@@ -21,6 +21,7 @@ import Signup from './pages/Signup';
 import Users from './pages/Users';
 import Messages from './pages/Messages';
 import Chef from './pages/Chef/Chef.js';
+import NavToggle from './components/NavToggle';
 
 const queryClient = new QueryClient()
 
@@ -58,7 +59,8 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="App">
-        <Navigation />
+        {/* <Navigation /> */}
+        <NavToggle />
         <div className="main">
           <ItemsContext.Provider value={{ items, setItems }}>
             <Routes>
