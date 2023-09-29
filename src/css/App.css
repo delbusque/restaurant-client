@@ -1,6 +1,6 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Dosis:wght@200;400;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,300&display=swap");
 @import url("tables/tables.css");
 @import url("tables/table.css");
 @import url("tables/family.css");
@@ -104,7 +104,7 @@ button.nav__item-auth {
   cursor: pointer;
 }
 
-.nav__auth>.links {
+.nav__auth > .links {
   margin: auto;
 }
 
@@ -226,18 +226,15 @@ button.nav__item-auth {
 }
 
 @media screen and (max-width: 1100px) {
-
   .nav__item,
   .nav__item-auth {
     width: 110px;
   }
-
 }
 
 @media screen and (max-width: 900px) {
-
   .main {
-    margin: 0 7px;
+    margin: 0;
   }
 
   .header {
@@ -257,8 +254,7 @@ button.nav__item-auth {
     text-align: center;
     color: white;
     /* background-color: rgb(46, 139, 86); */
-    background-color: #B0A8B9;
-
+    background-color: #b0a8b9;
   }
 
   #items {
@@ -271,8 +267,7 @@ button.nav__item-auth {
     text-align: center;
     color: white;
     /* background-color: darkgoldenrod; */
-    background-color: #D5CABD;
-
+    background-color: #d5cabd;
   }
 
   #login {
@@ -290,13 +285,13 @@ button.nav__item-auth {
   .tables,
   .tables:hover {
     color: white;
-    background-color: #B0A8B9;
+    background-color: #b0a8b9;
   }
 
   .chef,
   .chef:hover {
     color: white;
-    background-color: #D5CABD;
+    background-color: #d5cabd;
   }
 
   #staff {
