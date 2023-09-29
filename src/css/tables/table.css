@@ -257,6 +257,10 @@
     margin-right: 10px;
   }
 
+  .tb-total {
+    font-size: 18px;
+  }
+
   .tb-num {
     margin-right: 9px;
   }
@@ -269,6 +273,9 @@
   .btn-paid,
   .btn-tables,
   .btn-clear {
-    padding: 10px 20px;
+    padding: 5px 15px 7px 15px;
+  }
+  .btn-paid {
+    margin-right: 15px;
   }
 }
