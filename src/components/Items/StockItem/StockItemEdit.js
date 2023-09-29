@@ -49,7 +49,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
             quantityType = quantity < 1 ? 'gr' : 'kg';
         }
 
-        let ingredients = inputIngredients?.split(',').map(i => (i.trim())).filter(i => i)
+        let ingredients = inputIngredients?.split(/[,./';]/).map(i => (i.trim())).filter(i => i)
         const editedItem = { name, family, ingredients, price, type, quantity, quantityType, _id: item._id }
 
         const response = await fetch(`${baseUrl}/items/edit/${item._id}`, {
