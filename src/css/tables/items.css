@@ -75,8 +75,7 @@
 @media screen and (max-width: 900px) {
   .items-sect {
     overflow: unset;
-    width: 95vw;
-    margin: 30px auto;
+    margin: 30px 15px;
     max-height: fit-content;
   }
 

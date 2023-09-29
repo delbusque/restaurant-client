@@ -242,6 +242,7 @@
     background-color: antiquewhite;
     margin: 0 auto;
     border-radius: 0px;
+    border-top-left-radius: 20px;
     display: block;
     height: fit-content;
     max-height: fit-content;
@@ -253,16 +254,16 @@
   .tb-foot,
   .tb-num,
   .tb-total {
-    margin-right: 12px;
+    margin-right: 10px;
   }
 
   .tb-num {
-    margin-right: 20px;
+    margin-right: 9px;
   }
 
   .tb-title,
   .tb-foot {
-    margin-left: 12px;
+    margin-left: 10px;
   }
 
   .btn-paid,
@@ -270,5 +271,4 @@
   .btn-clear {
     padding: 10px 20px;
   }
-
 }

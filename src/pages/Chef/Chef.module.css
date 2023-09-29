@@ -6,7 +6,7 @@
   overflow: hidden;
   height: 80vh;
   gap: 140px;
-  font-family: 'Exo 2', sans-serif;
+  font-family: "Exo 2", sans-serif;
 }
 
 .waiting,
@@ -51,7 +51,6 @@
 }
 
 @media screen and (max-width: 1100px) {
-
   .chef-orders {
     grid-template-columns: 3fr 4fr;
     gap: 50px;
@@ -61,7 +60,7 @@
 @media screen and (max-width: 900px) {
   .chef-orders {
     display: block;
-    margin: 35px 5px;
+    margin: 35px 15px;
     overflow: auto;
     height: fit-content;
   }

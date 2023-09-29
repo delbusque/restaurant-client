@@ -192,7 +192,7 @@
 
 @media screen and (max-width: 900px) {
   .tb-orders {
-    margin: 0 8px;
+    margin: 0 10px;
     padding: 1px 5px;
     display: grid;
     gap: 5px;
@@ -219,13 +219,13 @@
 
   .button-53,
   .button-53-green {
-    padding-top: 5px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 7px;
   }
 
   .button-53-blue {
     grid-area: bluebtn;
-    padding-top: 5px;
-    padding-bottom: 10px;
+    padding-top: 3px;
+    padding-bottom: 6px;
   }
 }
