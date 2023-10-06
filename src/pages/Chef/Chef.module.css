@@ -60,7 +60,7 @@
 @media screen and (max-width: 900px) {
   .chef-orders {
     display: block;
-    margin: 35px 15px;
+    margin: 30px 15px;
     overflow: auto;
     height: fit-content;
   }
