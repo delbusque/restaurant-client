@@ -65,8 +65,7 @@ button.nav__item-auth {
   margin-left: 10px;
 }
 
-.nav__item:hover:nth-child(1),
-.nav__item-auth:hover {
+.nav__item:hover:nth-child(1) {
   box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   /* background-color: rgba(255, 255, 255, 0.24); */
