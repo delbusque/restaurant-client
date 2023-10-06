@@ -57,6 +57,7 @@
   text-align: center;
   max-height: 80vh;
   overflow: auto;
+  margin: 17px 5px 0 5px;
 }
 
 .type-sect::-webkit-scrollbar {

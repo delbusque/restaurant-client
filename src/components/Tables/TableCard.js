@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
+import { RiTakeawayLine } from 'react-icons/ri'
 
 const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
 
@@ -30,7 +31,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
-                <div className='tb-title'>TABLE</div>
+                <div className='tb-title'>{table.type === 'table' ? 'TABLE' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
                 {table.paid && <button className='btn-green'>PAID</button>}
                 <div className='tb-num'>{table.number}</div>
             </div>

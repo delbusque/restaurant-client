@@ -29,22 +29,25 @@
 
 .tb-head {
   margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .tb-title {
   display: inline-block;
   font-family: "Poppins", sans-serif;
-  margin: 5px 25px;
-  margin-right: 0px;
-  margin-bottom: 25px;
   padding: 1px 5px;
+}
+
+.icon-wrap {
+  font-size: 26px;
+  color: gray;
 }
 
 .tb-num {
   display: inline-block;
   font-family: "Dancing Script", cursive;
   border: 1px solid grey;
-  margin: 5px 5px;
+  margin: 0 5px;
   margin-right: 25px;
   padding: 1px 5px;
   position: absolute;
@@ -248,7 +251,7 @@
     max-height: fit-content;
     overflow: auto;
     bottom: 0;
-    width: 95vw;
+    width: 92vw;
   }
 
   .tb-foot,
