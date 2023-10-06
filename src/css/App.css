@@ -13,6 +13,10 @@
   padding: 30px 30px;
 }
 
+.body {
+  min-height: 90vh;
+}
+
 .header {
   position: sticky;
   top: 0;
@@ -105,6 +109,10 @@ button.nav__item-auth {
 
 .nav__auth > .links {
   margin: auto;
+}
+
+.main {
+  height: 100%;
 }
 
 .marker {
