@@ -5,20 +5,14 @@
   padding: 50px 380px 50px 170px;
 }
 
-@media screen and (max-width: 900px) {
-  .tables-cont {
-    display: flex;
-    flex-direction: column;
-    padding: 0;
-    gap: 10px;
-    margin: 30px 15px;
-  }
-}
-
 .table-btn {
   border: 1px solid grey;
   text-align: center;
   border-radius: 3px;
+}
+
+.table-btn.away {
+  border: 1px solid darkorange;
 }
 
 .table-btn-opened {
@@ -35,9 +29,13 @@
   border-radius: 3px;
 }
 
+.table-btn-unpaid.away {
+  background-color: rgba(255, 140, 0, 0.662);
+}
+
 .table-btn-text {
-  font-family: "Dosis", sans-serif;
-  font-weight: 500;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
   font-size: 46px;
   transform: scale(1.001);
 }
@@ -58,4 +56,20 @@
   box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
   cursor: pointer;
   background-color: rgba(220, 20, 60, 0.559);
+}
+
+.table-btn-unpaid.away:hover {
+  box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
+  cursor: pointer;
+  background-color: rgba(255, 140, 0, 0.815);
+}
+
+@media screen and (max-width: 900px) {
+  .tables-cont {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 10px;
+    margin: 30px 15px;
+  }
 }
