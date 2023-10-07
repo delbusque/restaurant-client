@@ -44,7 +44,8 @@
 }
 
 .sidebar-link,
-.sidebar-link:hover {
+.sidebar-link:hover,
+.sidebar-link.reg {
   text-decoration: none;
   color: black;
 }
@@ -55,7 +56,6 @@
   text-align: center;
   font-size: 16px;
   margin-top: 10rem;
-  cursor: none;
   font-weight: 300;
 }
 
