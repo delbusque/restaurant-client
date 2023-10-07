@@ -45,7 +45,8 @@ const Signup = () => {
 
             {error && <div className={styles['error']}>{error}</div>}
 
-            <p>* Password must be at least 8 characters long with minimum 1 uppercase and lowercase letter, 1 digit and 1 symbol !</p>
+            {/* <p>* Password must be at least 8 characters long with minimum 1 uppercase and lowercase letter, 1 digit and 1 symbol !</p> */}
+            <p>* Password must be at least four characters long</p>
         </form >
     )
 }
