@@ -201,7 +201,7 @@
     grid-template-areas: " . . . bluebtn bluebtn count count total";
     font-family: "Lato", sans-serif;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px;
   }
 
   .ord-counter {
@@ -218,18 +218,17 @@
   .ord-name {
     font-size: 18px;
     margin-left: 15px;
-    margin-bottom: 3px;
+    margin-bottom: 1.5px;
   }
 
   .button-53,
   .button-53-green {
-    padding-top: 3px;
     padding-bottom: 7px;
   }
 
   .button-53-blue {
     grid-area: bluebtn;
-    padding-top: 3px;
-    padding-bottom: 6px;
+    padding-top: 1.5px;
+    padding-bottom: 3px;
   }
 }

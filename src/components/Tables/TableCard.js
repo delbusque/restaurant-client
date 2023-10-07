@@ -31,19 +31,19 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
-                <div className='tb-title'>{table.type === 'table' ? 'TABLE' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
-                {table.paid && <button className='btn-green'>PAID</button>}
+                <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
+                {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 <div className='tb-num'>{table.number}</div>
             </div>
 
             <div className='ord-footer'>
-                <div className='tb-foot'>DUE AMOUNT</div>
+                <div className='tb-foot'>СМЕТКА</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} lv.</div>
                 <div className="btn-cont">
-                    <button className='btn-tables' onClick={tabHandler}>TABLES</button>
+                    <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
                     {!table.paid
-                        ? <button className={table.orders.length > 0 ? 'btn-paid' : 'btn-dis'} onClick={payHandler}>PAY</button>
-                        : <button className='btn-clear' onClick={clearHandler}>CLEAR</button>
+                        ? <button className={table.orders.length > 0 ? 'btn-paid' : 'btn-dis'} onClick={payHandler}>ПЛАТИ</button>
+                        : <button className='btn-clear' onClick={clearHandler}>ИЗЧИСТИ</button>
                     }
                 </div>
             </div>

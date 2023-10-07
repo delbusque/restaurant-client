@@ -167,6 +167,17 @@
   .msform {
     margin-right: 0px;
     display: block;
+  }
+}
 
+@media screen and (max-width: 300px) {
+  .msform {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .msform {
+    width: 220px;
   }
 }

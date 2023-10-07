@@ -79,3 +79,18 @@
     justify-self: start;
   }
 }
+
+@media screen and (max-width: 220px) {
+  .iL-family-sect {
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .family-btn-food {
+    margin: 10px auto;
+  }
+
+  .iL-items {
+    margin: 0 5px;
+  }
+}

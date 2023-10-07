@@ -53,3 +53,15 @@
     margin-right: 0px;
   }
 }
+
+@media screen and (max-width: 300px) {
+  .show-form {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 250px) {
+  .show-form {
+    width: 95vw;
+  }
+}

@@ -74,9 +74,60 @@
   .stock-item__name {
     font-size: 17px;
   }
+
   .stock-item__quantity,
   .stock-item__quantityType,
   .stock-item__price {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 360px) {
+
+  .stock-item__name {
+    margin: 5px 10px;
+  }
+
+  .stock-item__quantity {
+    margin: 5px 0px;
+  }
+
+  .stock-item__quantityType {
+    margin: 5px 4px;
+  }
+
+  .stock-item__price {
+    margin: 5px;
+  }
+
+  .stock-item__edit {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    padding-top: 7px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+  .stock-item {
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-areas: "name name name price price";
+    margin-bottom: 2.5px;
+    /* position: sticky; */
+    border: 1px solid rgba(128, 128, 128, 0.479);
+    border-radius: 3px;
+  }
+
+  .stock-item__quantity,
+  .stock-item__quantityType {
+    display: none;
+  }
+
+  .stock-item__price {
+    margin: 5px 0;
+  }
+
+  .stock-item__edit {
+    padding-right: 0;
   }
 }

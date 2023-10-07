@@ -18,7 +18,7 @@
 .table-btn {
   border: 1px solid rgba(128, 128, 128, 0.375);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   height: 120px;
@@ -50,7 +50,7 @@
   border: none;
   background-color: rgba(46, 139, 86, 0.358);
   text-align: center;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .table-btn.opened:hover {
@@ -63,7 +63,7 @@
   border: none;
   background-color: rgba(220, 20, 60, 0.364);
   text-align: center;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .table-btn.unpaid:hover {
@@ -99,7 +99,7 @@
   transform: scale(1.001);
 }
 
-.table-btn.away > .table-btn-text {
+.table-btn.away>.table-btn-text {
   font-size: 40px;
 }
 
@@ -118,23 +118,100 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
+
+  .inside-cont {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
   .tables-cont {
     margin: 30px 15px;
   }
 
   .inside-cont {
     gap: 10px;
+    align-content: center;
   }
 
-  .table-btn-text {
+  .inside-cont>.links,
+  .inside-cont>.add {
+    justify-self: center;
+  }
+
+  .table-btn {
+    height: 90px;
+    width: 90px;
+  }
+
+  .table-btn-text,
+  .table-btn.away>.table-btn-text {
     font-size: 36px;
+    align-items: center;
   }
 }
 
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 420px) {
+
+  .tables-cont {
+    margin: 30px;
+  }
+
+  .inside-cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+}
+
+
+@media screen and (max-width: 360px) {
+
+  .tables-cont {
+    margin: 30px;
+  }
+
+  .inside-cont {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .table-btn {
+    height: 80px;
+    width: 80px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+
+  .tables-cont {
+    margin: 30ppx 15px;
+  }
+}
+
+@media screen and (max-width: 290px) {
+
   .inside-cont,
   .inside-cont.away {
     grid-template-columns: repeat(2, 1fr);
   }
+
+  .table-btn {
+    height: 90px;
+    width: 90px;
+  }
+}
+
+@media screen and (max-width: 220px) {
+
+  .inside-cont,
+  .inside-cont.away {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .table-btn {
+    height: 120px;
+    width: 120px;
+  }
+
 }
