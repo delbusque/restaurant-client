@@ -37,7 +37,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
             </div>
 
             <div className='ord-footer'>
-                <div className='tb-foot'>DUE AMOUNT</div>
+                <div className='tb-foot'>DUE</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} lv.</div>
                 <div className="btn-cont">
                     <button className='btn-tables' onClick={tabHandler}>TABLES</button>

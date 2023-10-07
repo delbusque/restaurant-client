@@ -18,7 +18,7 @@
 .table-btn {
   border: 1px solid rgba(128, 128, 128, 0.375);
   text-align: center;
-  border-radius: 5px;
+  border-radius: 10px;
   display: flex;
   justify-content: center;
   height: 120px;
@@ -50,7 +50,7 @@
   border: none;
   background-color: rgba(46, 139, 86, 0.358);
   text-align: center;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .table-btn.opened:hover {
@@ -63,7 +63,7 @@
   border: none;
   background-color: rgba(220, 20, 60, 0.364);
   text-align: center;
-  border-radius: 3px;
+  border-radius: 10px;
 }
 
 .table-btn.unpaid:hover {
