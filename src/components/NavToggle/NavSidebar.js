@@ -46,11 +46,11 @@ const NavSidebar = ({ setToggle }) => {
 
                     {user && (<div>
                         <li className={styles['sidebar-user']}>
-                            <Link className={styles['sidebar-link']} to='/my-account'><span>{user.email}</span></Link>
+                            <Link className={styles['sidebar-link']} to='/my-account' onClick={toggleHandler}><span>{user.email}</span></Link>
                         </li>
 
                         <div className={styles['sidebar-btn-cont']}>
-                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Изход</button>
+                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Sign out</button>
                         </div>
 
                     </div>)}
