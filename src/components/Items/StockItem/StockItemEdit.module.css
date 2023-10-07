@@ -184,3 +184,21 @@
     display: inline-block;
   }
 }
+
+@media screen and (max-width: 300px) {
+  .msform {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 260px) {
+  .msform {
+    width: 220px;
+  }
+}
+
+@media screen and (max-width: 220px) {
+  .msform {
+    width: 100vw;
+  }
+}
