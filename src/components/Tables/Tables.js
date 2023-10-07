@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 import TableError from './TableError';
-import { RiTakeawayLine } from 'react-icons/ri'
 
 const Tables = ({ tables }) => {
 
