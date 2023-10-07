@@ -27,17 +27,17 @@ const NavSidebar = ({ setToggle }) => {
                 <div className={styles['sidebar-menu']}>
 
                     <li className={styles['sidebar-item']}>
-                        <Link className={styles['sidebar-link']} to='/tables' onClick={toggleHandler}>Tables</Link>
+                        <Link className={styles['sidebar-link']} to='/tables' onClick={toggleHandler}>Маси</Link>
                     </li>
 
                     <li className={styles['sidebar-item']}>
-                        <Link className={styles['sidebar-link']} to='/items' onClick={toggleHandler}>Items</Link>
+                        <Link className={styles['sidebar-link']} to='/items' onClick={toggleHandler}>Меню</Link>
                     </li>
 
                     {user &&
                         <>
                             <li className={styles['sidebar-item']}>
-                                <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Chef</Link>
+                                <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Кухня</Link>
                             </li>
                             {/* <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>Staff</Link>
@@ -50,7 +50,7 @@ const NavSidebar = ({ setToggle }) => {
                         </li>
 
                         <div className={styles['sidebar-btn-cont']}>
-                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Logout</button>
+                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Изход</button>
                         </div>
 
                     </div>)}

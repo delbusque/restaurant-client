@@ -15,7 +15,7 @@ const FamilyButton = ({ family, setFoodIsActive, setDrinkIsActive, setTypeIsActi
 
     return (
         <button className={family === 'drinks' ? 'family-btn-drinks' : 'family-btn-food'}
-            onClick={(e) => familyHandler(e)} name={family}>{family.toUpperCase()}</button>
+            onClick={(e) => familyHandler(e)} name={family}>{family === 'drinks' ? 'НАПИТКИ' : 'ХАПВАНЕ'}</button>
     )
 }
 

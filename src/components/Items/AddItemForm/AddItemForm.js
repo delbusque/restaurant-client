@@ -107,16 +107,16 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                             setFamily(e.target.value)
                             setType('');
                         }}>
-                        <option selected disabled>Choose here :</option>
-                        <option value='drinks'>Drinks</option>
-                        <option value='food'>Food</option>
+                        <option selected disabled>Избери тук :</option>
+                        <option value='drinks'>Напитки</option>
+                        <option value='food'>Хапване</option>
                     </select>
 
                     {family === 'drinks' &&
                         <select onChange={(e) => typeHandler(e)}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
-                            <option selected disabled>Choose from drinks :</option>
-                            <option value='beer'>Beer</option>
+                            <option selected disabled>Избери от напитки :</option>
+                            <option value='топли'>Топли</option>
                             <option value='vodka'>Vodka</option>
                             <option value='wine'>Wine</option>
                             <option value='whiskey'>Whiskey</option>
@@ -135,7 +135,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                     {family === 'food' &&
                         <select onChange={(e) => typeHandler(e)}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
-                            <option selected disabled>Choose from food :</option>
+                            <option selected disabled>Избери от хапване :</option>
                             <option value='salad'>Salad</option>
                             <option value='grill'>Grill</option>
                             <option value='burgers'>Burgers</option>
