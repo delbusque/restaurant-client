@@ -107,7 +107,7 @@ button.nav__item-auth {
   cursor: pointer;
 }
 
-.nav__auth>.links {
+.nav__auth > .links {
   margin: auto;
 }
 
@@ -233,7 +233,6 @@ button.nav__item-auth {
 }
 
 @media screen and (max-width: 1100px) {
-
   .nav__item,
   .nav__item-auth {
     width: 110px;
@@ -243,6 +242,7 @@ button.nav__item-auth {
 @media screen and (max-width: 900px) {
   .main {
     margin: 0;
+    overflow: scroll;
   }
 
   .header {
@@ -346,5 +346,4 @@ button.nav__item-auth {
     width: auto;
     margin: 40px 10px;
   }
-
 }

@@ -14,7 +14,6 @@ import ItemsList from './components/Items/ItemsList.js';
 
 import * as apiService from './services/apiService.js'
 
-import Navigation from './components/Navigation.js';
 import Account from './pages/Account';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
@@ -35,6 +34,10 @@ function App() {
 
   const [toggle, setToggle] = useState(false)
 
+  const handleScroll = (e) => {
+    console.log(window.scrollY);
+  }
+
   useEffect(() => {
     let local_Tables = window.localStorage.getItem('tables');
     let local_Items = window.localStorage.getItem('items');
@@ -47,6 +50,9 @@ function App() {
       apiService.fetchTables(setTables);
       apiService.fetchItems(setItems);
     }
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, [])
 
   // useEffect(() => {
@@ -61,7 +67,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="body">
+      <div className="body" >
         {/* <Navigation /> */}
 
         {!toggle && <NavToggle setToggle={setToggle} />}
