@@ -6,6 +6,7 @@
   justify-content: space-between;
   /* border: solid 2px darkolivegreen; */
   background-color: rgb(190, 190, 190);
+  border-bottom-left-radius: 40px;
 }
 
 .order-cont-away {
@@ -16,6 +17,7 @@
   justify-content: space-between;
   /* border: solid 2px darkgoldenrod; */
   background-color: rgba(184, 135, 11, 0.444);
+  border-bottom-left-radius: 40px;
 }
 
 .order-info {
@@ -86,6 +88,7 @@
 
 .order-ingr {
   display: flex;
+  text-transform: lowercase;
 }
 
 @media screen and (max-width: 1300px) {
@@ -122,9 +125,11 @@
 
   .order-cont,
   .order-cont-away {
-    border-radius: 5px;
+    border-radius: 10px;
     margin-bottom: 13px;
     padding: 10px 10px 15px 10px;
+    border-bottom-left-radius: 30px;
+    border-top-right-radius: 3px;
   }
 
   .order-info {

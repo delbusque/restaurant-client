@@ -6,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   border: solid 2px grey;
+  border-top-left-radius: 20px;
 }
 
 .order-cont-away {
@@ -16,6 +17,7 @@
   display: flex;
   justify-content: space-between;
   border: solid 2px darkgoldenrod;
+  border-top-left-radius: 20px;
 }
 
 .order-info {
@@ -100,6 +102,8 @@
     padding: 10px 10px 20px 10px;
     display: flex;
     justify-content: space-between;
+    border-top-left-radius: 20px;
+
   }
 
   .order-name {
