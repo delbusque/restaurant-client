@@ -106,7 +106,6 @@
 }
 
 .order-ingr {
-
   text-transform: lowercase;
 }
 
@@ -122,7 +121,6 @@
 }
 
 @media screen and (max-width: 1100px) {
-
 
   .order-ready,
   .order-ready-away {
@@ -148,15 +146,6 @@
     border-top-right-radius: 3px;
   }
 
-  .order-info {
-    display: grid;
-    grid-template-columns: 8% 15% 23% 50%;
-    gap: 1%;
-    text-align: left;
-    align-items: baseline;
-  }
-
-
   .order-name {
     font-size: 18px;
     font-weight: 600;
@@ -180,15 +169,61 @@
   }
 }
 
-@media screen and (max-width: 430px) {
+
+@media screen and (max-width: 510px) {
 
   .order-info {
-    grid-template-columns: 8% 18% 22% 50%;
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-areas: "tabl time time quant quant quant quant info info info info info info info";
+    align-items: baseline;
+    gap: 8px;
+    width: 90%;
   }
+
+  .order-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .order-ingr {
+    width: 140px;
+  }
+
+}
+
+@media screen and (max-width: 430px) {
+  .order-table {
+    font-size: 15px;
+  }
+
+  .order-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .order-ingr {
+    width: 120px;
+  }
+
+  .order-ready,
+  .order-ready-away {
+    font-size: 14px;
+    padding: 0 4px;
+  }
+}
+
+@media screen and (max-width: 340px) {
 
   .order-cont,
   .order-cont-away {
     flex-direction: column;
+  }
+
+  .order-table {
+    font-size: 16px;
   }
 
   .order-ready,
@@ -199,70 +234,42 @@
     padding: 8px;
     margin-top: 20px;
     margin-right: 5px;
-    width: 47%;
+    width: 79%;
     align-self: end;
   }
 }
 
-@media screen and (max-width: 330px) {
 
-  .order-table {
-    font-size: 16px;
-  }
-
-  .order-info {
-    grid-template-columns: 8% 18% 23% 50%;
-    font-size: 14px;
-  }
-
-  .order-ready,
-  .order-ready-away {
-    width: 46%;
-  }
-}
-
-@media screen and (max-width: 295px) {
+@media screen and (max-width: 285px) {
 
   .order-quantity {
     display: none;
   }
 
   .order-info {
-    grid-template-columns: 12% 26% 65%;
-    font-size: 14px;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas: "tabl time time info info info info info info info";
+    align-items: baseline;
+    gap: 7px;
+    width: 90%;
   }
 
   .order-ingr {
-    width: 100px;
+    width: 130px;
   }
 
   .order-ready,
   .order-ready-away {
     font-size: 12px;
-    width: 58%;
+    width: 68%;
     padding: 3px 2px;
   }
 }
 
+
 @media screen and (max-width: 220px) {
-  .order-info {
-    align-self: left;
-    font-size: 12px;
-  }
-
-  .order-table {
-    font-size: 12px;
-  }
-
-  .order-name {
-    font-size: 12px;
-  }
-
   .order-ingr {
-    font-size: 10px;
-  }
-
-  .order-ready {
+    width: 90px;
     font-size: 12px;
   }
 }

@@ -21,20 +21,15 @@
 }
 
 .order-info {
-  display: flex;
-  gap: 30px;
+  display: grid;
+  grid-template-columns: 15% 30% 40%;
+  width: 60%;
   align-items: baseline;
 }
 
 .order-name {
   font-size: 20px;
   font-weight: 500;
-}
-
-.order-count {
-  font-size: 14px;
-  font-weight: 400;
-  display: inline;
 }
 
 .order-ready {
@@ -51,7 +46,6 @@
 .order-ready:hover {
   background-color: rgba(220, 20, 60, 0.829);
   color: white;
-
   box-shadow: none;
 }
 
@@ -135,7 +129,8 @@
   }
 
   .order-name {
-    font-size: 16px;
+    font-size: 18px;
+    font-weight: 600;
   }
 
   .order-ready {
@@ -150,32 +145,15 @@
 
 
 
-@media screen and (max-width: 330px) {
-
-  .order-info {
-    gap: 15px;
-  }
-
-}
 
 @media screen and (max-width: 220px) {
-  .order-info {
-    gap: 5px;
-    margin-left: 10px;
-    flex-direction: column;
-    align-self: left;
-  }
-
   .order-name {
-    font-size: 12px;
+    font-size: 13px;
   }
 
-  .order-ingr {
-    font-size: 10px;
-  }
 
   .order-ready {
-    font-size: 12px;
+    font-size: 13px;
   }
 
 }
