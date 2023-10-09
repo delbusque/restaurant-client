@@ -4,10 +4,18 @@
   padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
+  /* border: solid 2px darkolivegreen; */
+  background-color: rgb(190, 190, 190);
 }
 
-.order-cont {
-  border: solid 2px darkgoldenrod;
+.order-cont-away {
+  border-radius: 7px;
+  margin-bottom: 13px;
+  padding: 10px 15px 25px 15px;
+  display: flex;
+  justify-content: space-between;
+  /* border: solid 2px darkgoldenrod; */
+  background-color: rgba(184, 135, 11, 0.444);
 }
 
 .order-info {
@@ -21,7 +29,8 @@
   font-weight: 500;
 }
 
-.order-ready {
+.order-ready,
+.order-ready-away {
   background-color: #fff;
   border-color: transparent;
   border-radius: 10px;
@@ -33,6 +42,13 @@
 }
 
 .order-ready:hover {
+  background-color: lightslategray;
+  color: white;
+  border: none;
+  box-shadow: none;
+}
+
+.order-ready-away:hover {
   background-color: darkgoldenrod;
   color: white;
   border: none;
@@ -40,6 +56,15 @@
 }
 
 .order-ready:active {
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0px 8px 16px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+  transform: translateY(2px);
+  background-color: lightslategray;
+}
+
+.order-ready-away:active {
   box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
     inset 0px 4px 8px rgba(0, 0, 0, 0.15),
     inset 0px 8px 16px rgba(0, 0, 0, 0.15);
@@ -80,7 +105,8 @@
     width: 200px;
   }
 
-  .order-ready {
+  .order-ready,
+  .order-ready-away {
     background-color: #fff;
     border-color: transparent;
     border-radius: 5px;
@@ -92,7 +118,9 @@
 }
 
 @media screen and (max-width: 900px) {
-  .order-cont {
+
+  .order-cont,
+  .order-cont-away {
     border-radius: 5px;
     margin-bottom: 13px;
     padding: 10px 10px 15px 10px;
@@ -105,6 +133,7 @@
     align-items: baseline;
   }
 
+
   .order-name {
     font-size: 18px;
     font-weight: 600;
@@ -116,7 +145,8 @@
     width: 200px;
   }
 
-  .order-ready {
+  .order-ready,
+  .order-ready-away {
     background-color: #fff;
     border-color: transparent;
     border-radius: 5px;
@@ -128,11 +158,14 @@
 }
 
 @media screen and (max-width: 430px) {
-  .order-cont {
+
+  .order-cont,
+  .order-cont-away {
     flex-direction: column;
   }
 
-  .order-ready {
+  .order-ready,
+  .order-ready-away {
     border-radius: 3px;
     font-size: 18px;
     font-weight: 500;
