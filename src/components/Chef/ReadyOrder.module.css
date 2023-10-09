@@ -5,7 +5,19 @@
   padding-bottom: 20px;
   display: flex;
   justify-content: space-between;
-  border: solid 2px darkseagreen;
+  border: solid 2px grey;
+  border-top-left-radius: 20px;
+}
+
+.order-cont-away {
+  border-radius: 7px;
+  margin-bottom: 7px;
+  padding: 10px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  border: solid 2px darkgoldenrod;
+  border-top-left-radius: 20px;
 }
 
 .order-info {
@@ -32,14 +44,14 @@
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   font-size: 18px;
   font-weight: 500;
-  padding: 0 20px;
+  padding: 3px 20px;
   /* box-shadow: 0px -2px 5px 1px rgba(255, 0, 72, 0.7); */
 }
 
 .order-ready:hover {
-  background-color: rgb(184, 11, 57);
+  background-color: rgba(220, 20, 60, 0.829);
   color: white;
-  border: none;
+
   box-shadow: none;
 }
 
@@ -49,11 +61,12 @@
     inset 0px 8px 16px rgba(0, 0, 0, 0.15);
   transition: 0.2s;
   transform: translateY(2px);
-  background-color: rgb(184, 11, 49);
+  background-color: crimson;
 }
 
 .order-table {
   font-family: "Dosis", sans-serif;
+  font-weight: 600;
 }
 
 @media screen and (max-width: 1300px) {
@@ -89,6 +102,8 @@
     padding: 10px 10px 20px 10px;
     display: flex;
     justify-content: space-between;
+    border-top-left-radius: 20px;
+
   }
 
   .order-name {

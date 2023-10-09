@@ -3,6 +3,8 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
+import { RiTakeawayLine } from 'react-icons/ri'
+
 
 const ReadyOrder = ({ ready, refetch, orders }) => {
 
@@ -27,9 +29,9 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
 
     return (
         <>
-            <div className={styles['order-cont']}>
+            <div className={ready.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']}>
                 <div className={styles['order-info']}>
-                    <div className={styles['order-table']}>{ready.tableNum}</div>
+                    <div className={styles['order-table']}>{ready.tableNum < 100 ? ready.tableNum : <RiTakeawayLine />}</div>
                     <div className={styles['order-time']}>{time} min</div>
 
                     <div>
