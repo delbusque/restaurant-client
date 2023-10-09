@@ -118,6 +118,7 @@
     font-weight: 500;
     padding: 0 10px;
     box-shadow: 0px -1px 1px 1px rgba(0, 255, 255, 0.7);
+
   }
 }
 
@@ -176,7 +177,10 @@
     font-size: 18px;
     font-weight: 500;
     padding: 8px;
-    margin-top: 10px;
+    margin-top: 20px;
+    margin-right: 5px;
+    width: 50vw;
+    align-self: end;
   }
 }
 
@@ -188,14 +192,46 @@
   .order-ingr {
     width: 150px;
   }
+
+  .order-ready,
+  .order-ready-away {
+    width: 42vw;
+  }
 }
 
-@media screen and (max-width: 280px) {
+@media screen and (max-width: 290px) {
   .order-quantity {
     display: none;
   }
 
   .order-ingr {
     width: 100px;
+  }
+
+  .order-ready,
+  .order-ready-away {
+    width: 50vw;
+    font-size: 12px;
+  }
+}
+
+@media screen and (max-width: 220px) {
+  .order-info {
+    gap: 5px;
+    margin-left: 10px;
+    flex-direction: column;
+    align-self: left;
+  }
+
+  .order-name {
+    font-size: 12px;
+  }
+
+  .order-ingr {
+    font-size: 10px;
+  }
+
+  .order-ready {
+    font-size: 12px;
   }
 }

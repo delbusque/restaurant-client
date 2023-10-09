@@ -96,7 +96,8 @@
 
 @media screen and (max-width: 900px) {
 
-  .order-cont {
+  .order-cont,
+  .order-cont-away {
     border-radius: 5px;
     margin-bottom: 13px;
     padding: 10px 10px 20px 10px;
@@ -124,9 +125,13 @@
 }
 
 @media screen and (max-width: 430px) {
-  .order-cont {
+
+  .order-cont,
+  .order-cont-away {
     flex-direction: column;
     padding-bottom: 15px;
+    border-radius: 3px;
+    border-top-left-radius: 20px;
   }
 
   .order-name {
@@ -134,10 +139,10 @@
   }
 
   .order-ready {
-    border-radius: 3px;
+    border-radius: 4px;
     font-size: 16px;
     font-weight: 500;
-    padding: 8px;
+    padding: 4px;
     margin-top: 10px;
   }
 }
@@ -149,6 +154,28 @@
 
   .order-info {
     gap: 15px;
+  }
+
+}
+
+@media screen and (max-width: 220px) {
+  .order-info {
+    gap: 5px;
+    margin-left: 10px;
+    flex-direction: column;
+    align-self: left;
+  }
+
+  .order-name {
+    font-size: 12px;
+  }
+
+  .order-ingr {
+    font-size: 10px;
+  }
+
+  .order-ready {
+    font-size: 12px;
   }
 
 }

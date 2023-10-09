@@ -64,4 +64,8 @@
     overflow: auto;
     height: fit-content;
   }
+
+  .waiting {
+    margin-bottom: 20px;
+  }
 }
