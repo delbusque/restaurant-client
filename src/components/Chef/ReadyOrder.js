@@ -32,13 +32,12 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
             <div className={ready.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']}>
                 <div className={styles['order-info']}>
                     <div className={styles['order-table']}>{ready.tableNum < 100 ? ready.tableNum : <RiTakeawayLine />}</div>
-                    <div className={styles['order-time']}>{time} min</div>
+                    <div className={styles['order-time']}>{time} '</div>
 
-                    <div>
-                        <div className={styles['order-name']}>{ready.name}
-                            {/* <div className={styles['order-count']}>{count}</div> */}
-                        </div>
+                    <div className={styles['order-name']}>{ready.name}
+                        {/* <div className={styles['order-count']}>{count}</div> */}
                     </div>
+
                 </div>
                 <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}>ИЗТРИЙ</button>
             </div>

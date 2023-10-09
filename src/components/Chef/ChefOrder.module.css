@@ -20,12 +20,6 @@
   border-bottom-left-radius: 40px;
 }
 
-.order-info {
-  display: flex;
-  gap: 30px;
-  align-items: baseline;
-}
-
 .order-name {
   font-size: 20px;
   font-weight: 500;
@@ -74,10 +68,29 @@
   background-color: darkgoldenrod;
 }
 
+.order-info {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-areas: "tabl time quant info info info info";
+  align-items: baseline;
+  gap: 10px;
+  width: 80%;
+}
+
 .order-table {
   font-family: "Dosis", sans-serif;
   font-size: 18px;
   font-weight: 600;
+  grid-area: tabl;
+
+}
+
+.order-time {
+  grid-area: time;
+}
+
+.order-quantity {
+  grid-area: quant;
 }
 
 .order-count {
@@ -86,28 +99,28 @@
   display: inline;
 }
 
-.order-ingr {
+.order-name-wrapper {
   display: flex;
+  flex-direction: column;
+  grid-area: info;
+}
+
+.order-ingr {
   text-transform: lowercase;
 }
 
 @media screen and (max-width: 1300px) {
-  .order-ingr {
-    width: 250px;
+  .order-info {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas: "tabl time time  quant quant info info info info info";
+    align-items: baseline;
+    gap: 5px;
+    width: 80%;
   }
 }
 
 @media screen and (max-width: 1100px) {
-  .order-info {
-    display: flex;
-    gap: 15px;
-    text-align: left;
-    align-items: baseline;
-  }
-
-  .order-ingr {
-    width: 200px;
-  }
 
   .order-ready,
   .order-ready-away {
@@ -133,14 +146,6 @@
     border-top-right-radius: 3px;
   }
 
-  .order-info {
-    display: flex;
-    gap: 15px;
-    text-align: left;
-    align-items: baseline;
-  }
-
-
   .order-name {
     font-size: 18px;
     font-weight: 600;
@@ -164,11 +169,61 @@
   }
 }
 
+
+@media screen and (max-width: 510px) {
+
+  .order-info {
+    display: grid;
+    grid-template-columns: repeat(14, 1fr);
+    grid-template-areas: "tabl time time quant quant quant quant info info info info info info info";
+    align-items: baseline;
+    gap: 8px;
+    width: 90%;
+  }
+
+  .order-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .order-ingr {
+    width: 140px;
+  }
+
+}
+
 @media screen and (max-width: 430px) {
+  .order-table {
+    font-size: 15px;
+  }
+
+  .order-name {
+    font-size: 18px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  .order-ingr {
+    width: 120px;
+  }
+
+  .order-ready,
+  .order-ready-away {
+    font-size: 14px;
+    padding: 0 4px;
+  }
+}
+
+@media screen and (max-width: 340px) {
 
   .order-cont,
   .order-cont-away {
     flex-direction: column;
+  }
+
+  .order-table {
+    font-size: 16px;
   }
 
   .order-ready,
@@ -179,59 +234,42 @@
     padding: 8px;
     margin-top: 20px;
     margin-right: 5px;
-    width: 50vw;
+    width: 79%;
     align-self: end;
   }
 }
 
-@media screen and (max-width: 330px) {
-  .order-name {
-    font-size: 16px;
-  }
 
-  .order-ingr {
-    width: 150px;
-  }
+@media screen and (max-width: 285px) {
 
-  .order-ready,
-  .order-ready-away {
-    width: 42vw;
-  }
-}
-
-@media screen and (max-width: 290px) {
   .order-quantity {
     display: none;
   }
 
+  .order-info {
+    grid-template-columns: repeat(10, 1fr);
+    grid-template-areas: "tabl time time info info info info info info info";
+    align-items: baseline;
+    gap: 7px;
+    width: 90%;
+  }
+
   .order-ingr {
-    width: 100px;
+    width: 130px;
   }
 
   .order-ready,
   .order-ready-away {
-    width: 50vw;
     font-size: 12px;
+    width: 68%;
+    padding: 3px 2px;
   }
 }
 
+
 @media screen and (max-width: 220px) {
-  .order-info {
-    gap: 5px;
-    margin-left: 10px;
-    flex-direction: column;
-    align-self: left;
-  }
-
-  .order-name {
-    font-size: 12px;
-  }
-
   .order-ingr {
-    font-size: 10px;
-  }
-
-  .order-ready {
+    width: 90px;
     font-size: 12px;
   }
 }
