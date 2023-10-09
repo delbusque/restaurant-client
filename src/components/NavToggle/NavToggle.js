@@ -29,10 +29,10 @@ const NavToggle = ({ setToggle }) => {
                 <h1 className={styles["deli-desktop"]}><Link className='links' to='/'>Deli</Link></h1>
                 <div className="nav__auth">
                     <Link id='tables' className='links' to='/tables'>
-                        <li className="nav__item tables">Tables</li>
+                        <li className="nav__item tables">МАСИ</li>
                     </Link>
                     <Link id='items' className='links' to='/items'>
-                        <li className="nav__item">Items</li>
+                        <li className="nav__item">МЕНЮ</li>
                     </Link>
                 </div>
 
@@ -41,9 +41,9 @@ const NavToggle = ({ setToggle }) => {
 
                     {user &&
                         <>
-                            <Link id='chef' className='links' to='/chef'><li className="nav__item chef">Chef</li></Link>
+                            <Link id='chef' className='links' to='/chef'><li className="nav__item chef">КУХНЯ</li></Link>
                             {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
-                            <Link id='staff' className='links' to='/staff'><li className="nav__item">Staff</li></Link>
+                            <Link id='staff' className='links' to='/staff'><li className="nav__item">ЕКИП</li></Link>
 
                         </>}
                 </div>
