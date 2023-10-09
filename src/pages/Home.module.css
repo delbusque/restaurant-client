@@ -27,9 +27,7 @@
   .image {
     animation: moveInRight 3s ease-out;
     border-top-left-radius: 30px;
-
     height: calc(100vh - 72px);
-
   }
 
   .title {
