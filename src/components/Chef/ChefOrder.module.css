@@ -185,6 +185,8 @@
     font-size: 18px;
     font-weight: 600;
     text-align: left;
+    width: 145px;
+
   }
 
   .order-ingr {
@@ -193,7 +195,7 @@
 
 }
 
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 440px) {
   .order-table {
     font-size: 15px;
   }
@@ -202,6 +204,7 @@
     font-size: 18px;
     font-weight: 600;
     text-align: left;
+    width: 110px;
   }
 
   .order-ingr {
