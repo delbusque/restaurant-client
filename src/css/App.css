@@ -243,6 +243,7 @@ button.nav__item-auth {
 @media screen and (max-width: 900px) {
   .main {
     margin: 0;
+    overflow: scroll;
   }
 
   .header {
@@ -346,5 +347,4 @@ button.nav__item-auth {
     width: auto;
     margin: 40px 10px;
   }
-
 }

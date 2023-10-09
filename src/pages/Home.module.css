@@ -1,7 +1,7 @@
 .image {
   background: url("../../public/images/home.jpg");
   width: 100vw;
-  height: calc(100vh - 94px);
+  height: calc(100vh - 89px);
   background-size: cover;
   background-position: center;
 }
@@ -25,12 +25,10 @@
 
 @media screen and (max-width: 900px) {
   .image {
-    width: 100%;
-    animation: moveInRight 1s ease-out;
+    animation: moveInRight 3s ease-out;
     border-top-left-radius: 30px;
-    object-fit: contain;
-    position: relative;
-    transform: translateY(1.6em);
+    width: 100%;
+    height: calc(100vh - 72px);
   }
 
   .title {

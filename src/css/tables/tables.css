@@ -7,7 +7,7 @@
 
 .inside-cont {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 10px;
 }
 
@@ -99,7 +99,7 @@
   transform: scale(1.001);
 }
 
-.table-btn.away>.table-btn-text {
+.table-btn.away > .table-btn-text {
   font-size: 40px;
 }
 
@@ -113,13 +113,12 @@
 
   .inside-cont {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 25px;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
   }
 }
 
 @media screen and (max-width: 500px) {
-
   .inside-cont {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -134,8 +133,8 @@
     align-content: center;
   }
 
-  .inside-cont>.links,
-  .inside-cont>.add {
+  .inside-cont > .links,
+  .inside-cont > .add {
     justify-self: center;
   }
 
@@ -145,14 +144,13 @@
   }
 
   .table-btn-text,
-  .table-btn.away>.table-btn-text {
+  .table-btn.away > .table-btn-text {
     font-size: 36px;
     align-items: center;
   }
 }
 
 @media screen and (max-width: 420px) {
-
   .tables-cont {
     margin: 30px;
   }
@@ -161,12 +159,9 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
-
 }
 
-
 @media screen and (max-width: 360px) {
-
   .tables-cont {
     margin: 30px;
   }
@@ -183,14 +178,12 @@
 }
 
 @media screen and (max-width: 320px) {
-
   .tables-cont {
     margin: 30ppx 15px;
   }
 }
 
 @media screen and (max-width: 290px) {
-
   .inside-cont,
   .inside-cont.away {
     grid-template-columns: repeat(2, 1fr);
@@ -203,7 +196,6 @@
 }
 
 @media screen and (max-width: 220px) {
-
   .inside-cont,
   .inside-cont.away {
     grid-template-columns: repeat(1, 1fr);
@@ -213,5 +205,4 @@
     height: 120px;
     width: 120px;
   }
-
 }
