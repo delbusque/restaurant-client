@@ -129,7 +129,6 @@
 }
 
 @media screen and (max-width: 1400px) {
-
   .family-btn-food,
   .family-btn-drinks {
     width: 100px;
@@ -138,7 +137,6 @@
 
   .type-btn-drinks,
   .type-btn-food {
-    width: 80px;
     margin-left: 0;
   }
 }
