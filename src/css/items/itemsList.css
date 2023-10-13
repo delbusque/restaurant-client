@@ -24,12 +24,31 @@
 .iL-items {
   margin: 25px 40px;
   margin-bottom: 0px;
-  max-height: 56vh;
+  max-height: 64vh;
   overflow: auto;
   display: inline-block;
   width: 85%;
   font-family: "Exo 2", sans-serif;
   font-size: 18px;
+}
+
+.iL-items::-webkit-scrollbar {
+  width: 24px;
+  /* width of the entire scrollbar */
+}
+
+.iL-items::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+}
+
+.iL-items::-webkit-scrollbar-thumb {
+  background-color: #a599778d;
+  /* color of the scroll thumb */
+  border-radius: 16px;
+  /* roundness of the scroll thumb */
+  border: 6px solid lightgray;
+  /* creates padding around scroll thumb */
 }
 
 .iL-form {
