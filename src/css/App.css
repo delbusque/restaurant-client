@@ -1,7 +1,7 @@
 @import url("reset.css");
 @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Dosis:wght@200;400;700&family=Lato:ital,wght@0,300;0,400;0,700;1,300;1,400&family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,500;0,700;1,100;1,300&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
 
 @import url("tables/tables.css");
 @import url("tables/table.css");
@@ -41,6 +41,7 @@
 
 .nav__auth {
   display: flex;
+  align-self: flex-start;
 }
 
 .nav__item,
@@ -50,7 +51,7 @@
   padding: 5px 0;
   /* font-family: "Dosis", sans-serif; */
   font-family: "Exo 2", sans-serif;
-  font-weight: 500;
+  font-weight: 300;
   border-radius: 2px;
   display: inline-block;
   /* margin-right: 40px; */
@@ -61,7 +62,7 @@
 
 .nav__item-auth {
   padding: 5px 15px;
-  width: 100px;
+  width: 110px;
   border: none;
 }
 
@@ -110,7 +111,7 @@ button.nav__item-auth {
   cursor: pointer;
 }
 
-.nav__auth>.links {
+.nav__auth > .links {
   margin: auto;
 }
 
@@ -236,7 +237,6 @@ button.nav__item-auth {
 }
 
 @media screen and (max-width: 1100px) {
-
   .nav__item,
   .nav__item-auth {
     width: 110px;
