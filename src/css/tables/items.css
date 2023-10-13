@@ -6,6 +6,25 @@
   overflow: auto;
 }
 
+.items-sect::-webkit-scrollbar {
+  width: 24px;
+  /* width of the entire scrollbar */
+}
+
+.items-sect::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+}
+
+.items-sect::-webkit-scrollbar-thumb {
+  background-color: #a5997798;
+  /* color of the scroll thumb */
+  border-radius: 16px;
+  /* roundness of the scroll thumb */
+  border: 6px solid lightgray;
+  /* creates padding around scroll thumb */
+}
+
 .item {
   background-color: #ddd7c6;
   display: grid;
