@@ -4,9 +4,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
 import { RiTakeawayLine } from 'react-icons/ri'
+import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 
 const ChefOrder = ({ waiting, refetch, orders, data }) => {
+
+    const { user } = useAuthContext();
 
     const createdAt = new Date(Date.parse(waiting.createdAt));
     let dateNow = new Date(Date.now());
@@ -30,7 +33,10 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
         <>
             <div className={waiting.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']}>
                 <div className={styles['order-info']}>
-                    <div className={styles['order-table']}>{waiting.tableNum < 100 ? waiting.tableNum : <RiTakeawayLine />}</div>
+                    <div className={styles['order-table']}>
+                        {waiting.tableNum < 100 ? waiting.tableNum : <RiTakeawayLine />}
+                        {waiting.tableNum >= 100 && <div className={styles['order-table-num']}>{waiting.tableNum}</div>}
+                    </div>
                     <div className={styles['order-time']}>{time} '</div>
                     <div className={styles['order-quantity']}>{waiting.quantity.toFixed(3)} {waiting.quantityType}</div>
 
@@ -40,7 +46,10 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
                     </div>
 
                 </div>
-                <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>ГОТОВА</button>
+                {user?.role === 1984 &&
+                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>ГОТОВА</button>
+                }
+
             </div>
         </>
     )
