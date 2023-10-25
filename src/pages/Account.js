@@ -27,7 +27,9 @@ const Account = () => {
             <div className={styles['acc-details']}>
                 <div className={styles['acc__name']}>
                     <div className={styles['acc__name-icon']}>
-                        {user?.role === 1984 ? <i className="fa-regular fa-user"></i> : <i className="fa-solid fa-lock"></i>}
+                        {user?.role === 1984 && <i className="fa-regular fa-user"></i>}
+                        {user?.role === 401 && <i className="fa-solid fa-lock"></i>}
+                        {user?.role === 5051 && <i className="fa-solid fa-chess-bishop"></i>}
                     </div>
                     <div className={styles['acc__name-label']}>Name:</div>
                     <div className={styles['acc__name-name']}>{user.firstName} {user.lastName}</div>
