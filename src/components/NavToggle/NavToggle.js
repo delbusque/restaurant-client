@@ -38,14 +38,15 @@ const NavToggle = ({ setToggle }) => {
 
 
                 <div className="nav__auth">
-
-                    {user &&
-                        <>
+                    <>
+                        {user &&
                             <Link id='chef' className='links' to='/chef'><li className="nav__item chef">КУХНЯ</li></Link>
-                            {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
+                        }
+                        {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
+                        {(user && user?.role === 1984) &&
                             <Link id='staff' className='links' to='/staff'><li className="nav__item">ЕКИП</li></Link>
-
-                        </>}
+                        }
+                    </>
                 </div>
 
                 {user && (<div id='auth' className="nav__auth">
