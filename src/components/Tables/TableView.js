@@ -113,24 +113,24 @@ const TableView = ({ tables, setTables }) => {
                         <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />
 
                         <section className='family-sect'>
-                            {families.length > 0 &&
+                            {families.length > 0 && user.role !== 5051 &&
                                 families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
                                     setTypeIsActive={setTypeIsActive} />)}
                         </section>
 
-                        {drinkIsActive && <section className='type-sect'>
+                        {drinkIsActive && user.role !== 5051 && <section className='type-sect'>
                             {drinkTypes.length > 0 && drinkTypes.map(t => <TypeButton key={t} type={t}
                                 drinkIsActive={drinkIsActive} setTypeIsActive={setTypeIsActive}
                                 setByType={setByType} />)}
                         </section>}
 
-                        {foodIsActive && <section className='type-sect'>
+                        {foodIsActive && user.role !== 5051 && <section className='type-sect'>
                             {foodTypes.length > 0 && foodTypes.map(t => <TypeButton key={t} type={t}
                                 setTypeIsActive={setTypeIsActive} setByType={setByType} />)}
 
                         </section>}
 
-                        {(!typeIsActive && drinkIsActive) &&
+                        {(!typeIsActive && drinkIsActive && user.role !== 5051) &&
                             <section className='items-sect'>
                                 {
                                     items && items.map(i => i.family === 'drinks' && <ItemLine key={i._id} item={i}
@@ -138,14 +138,14 @@ const TableView = ({ tables, setTables }) => {
                                 }
                             </section>}
 
-                        {(!typeIsActive && foodIsActive) &&
+                        {(!typeIsActive && foodIsActive && user.role !== 5051) &&
                             <section className='items-sect'>
                                 {
                                     items && items.map(i => i.family === 'food' && <ItemLine key={i._id} item={i}
                                         addItemHandler={addItemHandler} />)
                                 }
                             </section>}
-                        {typeIsActive &&
+                        {typeIsActive && user.role !== 5051 &&
                             <section className='items-sect'>
                                 {
                                     items && items.map(i => i.type === byType && <ItemLine key={i._id} item={i}
