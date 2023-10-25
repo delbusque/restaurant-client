@@ -82,7 +82,9 @@
   font-size: 18px;
   font-weight: 600;
   grid-area: tabl;
-
+}
+.order-table-num {
+  font-size: 12px;
 }
 
 .order-time {
@@ -121,7 +123,6 @@
 }
 
 @media screen and (max-width: 1100px) {
-
   .order-ready,
   .order-ready-away {
     background-color: #fff;
@@ -131,12 +132,10 @@
     font-weight: 500;
     padding: 0 10px;
     box-shadow: 0px -1px 1px 1px rgba(0, 255, 255, 0.7);
-
   }
 }
 
 @media screen and (max-width: 900px) {
-
   .order-cont,
   .order-cont-away {
     border-radius: 10px;
@@ -169,9 +168,7 @@
   }
 }
 
-
 @media screen and (max-width: 510px) {
-
   .order-info {
     display: grid;
     grid-template-columns: repeat(14, 1fr);
@@ -186,13 +183,11 @@
     font-weight: 600;
     text-align: left;
     width: 145px;
-
   }
 
   .order-ingr {
     width: 140px;
   }
-
 }
 
 @media screen and (max-width: 440px) {
@@ -219,7 +214,6 @@
 }
 
 @media screen and (max-width: 340px) {
-
   .order-cont,
   .order-cont-away {
     flex-direction: column;
@@ -242,9 +236,7 @@
   }
 }
 
-
 @media screen and (max-width: 285px) {
-
   .order-quantity {
     display: none;
   }
@@ -268,7 +260,6 @@
     padding: 3px 2px;
   }
 }
-
 
 @media screen and (max-width: 220px) {
   .order-ingr {
