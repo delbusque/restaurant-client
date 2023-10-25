@@ -5,6 +5,7 @@ import axios from 'axios';
 import { baseUrl } from '../../config.js';
 
 import ItemsContext from '../../contexts/ItemsContext.js';
+import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 import TableCard from './TableCard.js';
 import FamilyButton from '../Buttons/FamilyButton.js';
@@ -23,6 +24,8 @@ const TableView = ({ tables, setTables }) => {
 
     const { items } = useContext(ItemsContext);
     const { number } = useParams();
+
+    const { user } = useAuthContext()
 
     let table;
     // const [table, setTable] = useState(null)
