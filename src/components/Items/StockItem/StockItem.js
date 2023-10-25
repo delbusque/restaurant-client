@@ -59,7 +59,7 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
                 {/* <button className={styles['stock-item__info']} onClick={() => infoHandler(item)}>
                     <i className="fa-solid fa-info info"></i>
                 </button> */}
-                {user &&
+                {(user && user.role === 1984) &&
                     <>
                         <button className={styles['stock-item__edit']} onClick={() => editHandler(item)}>
                             <i className="fa-solid fa-marker marker"></i>

@@ -26,7 +26,9 @@ const Account = () => {
         <div className={styles['acc']}>
             <div className={styles['acc-details']}>
                 <div className={styles['acc__name']}>
-                    <div className={styles['acc__name-icon']}><i className="fa-regular fa-user"></i></div>
+                    <div className={styles['acc__name-icon']}>
+                        {user?.role === 1984 ? <i className="fa-regular fa-user"></i> : <i className="fa-solid fa-lock"></i>}
+                    </div>
                     <div className={styles['acc__name-label']}>Name:</div>
                     <div className={styles['acc__name-name']}>{user.firstName} {user.lastName}</div>
                 </div>
@@ -36,6 +38,8 @@ const Account = () => {
                     <div className={styles['acc__name-label']}>Phone:</div>
                     <div className={styles['acc__name-name']}>{user.phone}</div>
                 </div>
+
+
             </div>
 
             <div className={styles['acc-form']}>

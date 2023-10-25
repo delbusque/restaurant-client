@@ -4,9 +4,12 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
 import { RiTakeawayLine } from 'react-icons/ri'
+import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 
 const ReadyOrder = ({ ready, refetch, orders }) => {
+
+    const { user } = useAuthContext()
 
     const createdAt = new Date(Date.parse(ready.createdAt));
     let dateNow = new Date(Date.now());
@@ -31,7 +34,10 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
         <>
             <div className={ready.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']}>
                 <div className={styles['order-info']}>
-                    <div className={styles['order-table']}>{ready.tableNum < 100 ? ready.tableNum : <RiTakeawayLine />}</div>
+                    <div className={styles['order-table']}>
+                        {ready.tableNum < 100 ? ready.tableNum : <RiTakeawayLine />}
+                        {ready.tableNum >= 100 && <div className={styles['order-table-num']}>{ready.tableNum}</div>}
+                    </div>
                     <div className={styles['order-time']}>{time} '</div>
 
                     <div className={styles['order-name']}>{ready.name}
@@ -39,7 +45,10 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
                     </div>
 
                 </div>
-                <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}>ИЗТРИЙ</button>
+                {user?.role === 1984 &&
+                    <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}>ИЗТРИЙ</button>
+                }
+
             </div>
         </>
     )
