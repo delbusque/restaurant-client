@@ -84,15 +84,18 @@ function App() {
                 <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />
                 <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />
 
-                <Route path='/chef' element={user && <Chef />} />
-                <Route path='/staff' element={user && <Users />} />
-                <Route path='/messages' element={<Messages />} />
+                {user && <Route path='/chef' element={user?.role === 1984 ? <Chef /> : <Account />} />}
+                {user && <Route path='/staff' element={user?.role === 1984 ? <Users /> : <Account />} />}
+                {user && <Route path='/messages' element={<Messages />} />}
 
 
                 <Route path='/my-account' element={user && <Account />} />
 
                 <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
                 <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
+
+                <Route path='/*' element={!user ? <Login /> : <Navigate to='/' />} />
+
 
               </Routes>
             </ItemsContext.Provider>
