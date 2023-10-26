@@ -26,8 +26,9 @@ const NavToggle = ({ setToggle }) => {
                 onClick={toggleHandler} />
 
             <div className={styles["nav-cont"]}>
-                <h1 className={styles["deli-desktop"]}><Link className='links' to='/'>Deli</Link></h1>
                 <div className="nav__auth">
+                    {/* <h1 className={styles["deli-desktop"]}><Link className='links' to='/'>Deli</Link></h1> */}
+
                     {user?.role !== 401 && <Link id='tables' className='links' to='/tables'>
                         <li className="nav__item tables">МАСИ</li>
                     </Link>}
@@ -53,13 +54,13 @@ const NavToggle = ({ setToggle }) => {
 
                     <Link id='u-email' className='links' to='/my-account'><span className='u-email'>{user.email}</span></Link>
 
-                    <button className="links nav__item-auth out" onClick={logoutHandler}>Logout</button>
+                    <button className="links nav__item-auth out" onClick={logoutHandler}>Изход</button>
                 </div>)}
 
-                {!user && <div>
+                {!user && <div className="nav__auth">
 
-                    <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">Sign up</li></Link>
-                    <Link id='login' className='links' to='/login'><li className="nav__item-auth">Log in</li></Link>
+                    <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">Регистрация</li></Link>
+                    <Link id='login' className='links' to='/login'><li className="nav__item-auth">Вход</li></Link>
                 </div>}
             </div>
         </header>

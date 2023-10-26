@@ -1,10 +1,12 @@
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:wght@400;500;600&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 form.login {
     max-width: 400px;
     margin: 40px auto;
     padding: 20px;
     border-radius: 4px;
-    font-family: "Poppins", sans-serif;
-
+    /* font-family: "Poppins", sans-serif; */
+    font-family: "Exo 2", sans-serif;
 }
 
 form.login h3 {
@@ -27,8 +29,8 @@ form.login input {
 }
 
 form.login button {
-    font-family: "Poppins", sans-serif;
-    width: 100px;
+    font-family: "Exo 2", sans-serif;
+    width: 110px;
     background: #27AE60;
     font-weight: bold;
     color: white;
@@ -38,7 +40,7 @@ form.login button {
     padding: 10px;
     margin: 10px auto;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
 }
 
 form.login button:hover {
