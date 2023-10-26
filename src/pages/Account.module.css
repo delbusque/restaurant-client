@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas: "blog blog form form details";
+  margin-left: 100px;
 }
 
 .acc-details {
@@ -15,6 +16,7 @@
   grid-area: form;
   text-align: right;
   margin-top: 50px;
+
 }
 
 .acc__name {
@@ -135,7 +137,7 @@
   flex-direction: column;
   font-family: "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-  width: 100%;
+  width: 90%;
   margin: 50px auto 20px 40px;
 }
 
@@ -185,15 +187,29 @@
   cursor: pointer;
 }
 
+@media screen and (max-width: 1400px) {
+  .acc {
+    margin-left: 60px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .acc {
+    margin-left: 30px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .acc {
+    margin-left: 10px;
+  }
+}
+
 @media screen and (max-width: 900px) {
   .acc {
     font-family: Dosis, sans-serif;
     display: flex;
     justify-content: center;
-  }
-
-  .posts-cont {
-    display: none;
   }
 
   .acc-details {
@@ -220,6 +236,7 @@
 
   .posts-cont {
     display: none;
+    margin-top: 80px;
   }
 
   .acc__name {

@@ -7,7 +7,7 @@
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 25px;
+  margin-left: 80px;
 }
 
 .iL-type-sect {
@@ -19,11 +19,13 @@
 .iL-main {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
+  margin-bottom: 30px;
 }
 
 .iL-items {
   margin: 25px 40px;
   margin-bottom: 0px;
+  margin-left: 80px;
   max-height: 64vh;
   overflow: auto;
   display: inline-block;
@@ -53,7 +55,17 @@
 
 .iL-form {
   margin-top: 25px;
-  justify-self: start;
+  justify-self: center;
+}
+
+@media screen and (max-width: 1200px) {
+  .iL-family-sect {
+    margin-left: 50px;
+  }
+
+  .iL-items {
+    margin-left: 50px;
+  }
 }
 
 @media screen and (max-width: 900px) {

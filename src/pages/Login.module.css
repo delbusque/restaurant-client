@@ -26,6 +26,7 @@ form.login input {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-sizing: border-box;
+    font-family: "Lato", sans-serif;
 }
 
 form.login button {
