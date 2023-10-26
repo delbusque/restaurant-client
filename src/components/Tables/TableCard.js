@@ -1,8 +1,11 @@
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
+import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
+
+    const { user } = useAuthContext();
 
     const navigate = useNavigate();
 
@@ -39,13 +42,16 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
             <div className='ord-footer'>
                 <div className='tb-foot'>СМЕТКА</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} lv.</div>
-                <div className="btn-cont">
-                    <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
-                    {!table.paid
-                        ? <button className={table.orders.length > 0 ? 'btn-paid' : 'btn-dis'} onClick={payHandler}>ПЛАТИ</button>
-                        : <button className='btn-clear' onClick={clearHandler}>ИЗЧИСТИ</button>
-                    }
-                </div>
+                {user.role !== 5051 &&
+                    <div className="btn-cont">
+                        <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
+                        {!table.paid
+                            ? <button className={table.orders.length > 0 ? 'btn-paid' : 'btn-dis'} onClick={payHandler}>ПЛАТИ</button>
+                            : <button className='btn-clear' onClick={clearHandler}>ИЗЧИСТИ</button>
+                        }
+                    </div>
+                }
+
             </div>
 
             {

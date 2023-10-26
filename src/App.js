@@ -81,12 +81,12 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/items' element={<ItemsList />} />
-                <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />
-                <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />
+                {user?.role !== 401 && <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />}
+                {user && user?.role !== 401 && <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />}
 
-                {user && <Route path='/chef' element={<Chef />} />}
+                {user && user?.role !== 401 && <Route path='/chef' element={<Chef />} />}
                 {user && <Route path='/staff' element={user?.role === 1984 ? <Users /> : <Navigate to='/my-account' />} />}
-                {user && <Route path='/messages' element={<Messages />} />}
+                {user && user?.role !== 401 && <Route path='/messages' element={<Messages />} />}
 
 
                 <Route path='/my-account' element={user && <Account />} />

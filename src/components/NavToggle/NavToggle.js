@@ -28,9 +28,9 @@ const NavToggle = ({ setToggle }) => {
             <div className={styles["nav-cont"]}>
                 <h1 className={styles["deli-desktop"]}><Link className='links' to='/'>Deli</Link></h1>
                 <div className="nav__auth">
-                    <Link id='tables' className='links' to='/tables'>
+                    {user?.role !== 401 && <Link id='tables' className='links' to='/tables'>
                         <li className="nav__item tables">МАСИ</li>
-                    </Link>
+                    </Link>}
                     <Link id='items' className='links' to='/items'>
                         <li className="nav__item">МЕНЮ</li>
                     </Link>
@@ -38,14 +38,15 @@ const NavToggle = ({ setToggle }) => {
 
 
                 <div className="nav__auth">
-
-                    {user &&
-                        <>
+                    <>
+                        {user && user?.role !== 401 &&
                             <Link id='chef' className='links' to='/chef'><li className="nav__item chef">КУХНЯ</li></Link>
-                            {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
+                        }
+                        {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
+                        {(user && user?.role === 1984) &&
                             <Link id='staff' className='links' to='/staff'><li className="nav__item">ЕКИП</li></Link>
-
-                        </>}
+                        }
+                    </>
                 </div>
 
                 {user && (<div id='auth' className="nav__auth">

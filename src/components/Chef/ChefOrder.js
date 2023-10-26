@@ -46,7 +46,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
                     </div>
 
                 </div>
-                {user?.role === 1984 &&
+                {(user?.role === 1984 || user?.role === 5051) &&
                     <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>ГОТОВА</button>
                 }
 
