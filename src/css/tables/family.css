@@ -76,7 +76,7 @@
 
 .type-btn-drinks {
   width: 100px;
-  margin: 15px 5px 0px 15px;
+  margin: 15px 5px 0px 5px;
   padding-top: 10px;
   padding-bottom: 10px;
   cursor: pointer;
@@ -129,6 +129,7 @@
 }
 
 @media screen and (max-width: 1400px) {
+
   .family-btn-food,
   .family-btn-drinks {
     width: 100px;
