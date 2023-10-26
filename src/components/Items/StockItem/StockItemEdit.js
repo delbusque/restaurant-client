@@ -109,7 +109,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                     <h2 className={styles['fs-title']}>{item.name}</h2>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Name</label>
+                        <label className={styles["label"]}>Име</label>
                         <input className={emptyFields.includes('name') ? styles['input-error'] : ''}
                             type="text" name="name"
                             onChange={(e) => {
@@ -127,9 +127,9 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                             setType('');
                             setEmptyFields(old => old.filter(f => f !== 'family'));
                         }}>
-                        <option selected disabled>Choose here :</option>
-                        <option value='drinks'>Drinks</option>
-                        <option value='food'>Food</option>
+                        <option selected disabled>Избери тук :</option>
+                        <option value='drinks'>Напитки</option>
+                        <option value='food'>Хапване</option>
                     </select>
 
                     {family === 'drinks' &&
@@ -140,7 +140,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                                 setEmptyFields(old => old.filter(f => f !== 'type'));
                             }}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
-                            <option selected disabled>Choose from drinks :</option>
+                            <option selected disabled>Избери от напитки :</option>
                             <option value='beer'>Beer</option>
                             <option value='vodka'>Vodka</option>
                             <option value='wine'>Wine</option>
@@ -162,7 +162,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                                 setEmptyFields(old => old.filter(f => f !== 'type'));
                             }}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
-                            <option selected disabled>Choose from food :</option>
+                            <option selected disabled>Избери от хапване :</option>
                             <option value='salad'>Salad</option>
                             <option value='grill'>Grill</option>
                             <option value='burgers'>Burgers</option>
@@ -170,7 +170,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                         </select>}
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Ingredients</label>
+                        <label className={styles["label"]}>Продукти / Състав</label>
                         <textarea name="inputIngredients"
                             // className={(emptyFields?.includes('inputIngredients') || negZero?.includes('inputIngredients')) ? styles['input-error'] : ''}
                             onChange={(e) => setInputIngredients(e.target.value)}
@@ -179,7 +179,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                     </div>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Price</label>
+                        <label className={styles["label"]}>Цена</label>
                         <input type="number" name="price"
                             className={(emptyFields.includes('price') || negZero.includes('price')) ? styles['input-error'] : ''}
                             onChange={(e) => {
@@ -192,7 +192,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                     </div>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Quantity</label>
+                        <label className={styles["label"]}>Количество</label>
                         <input type="number" name="quantity"
                             className={(emptyFields.includes('quantity') || negZero.includes('quantity')) ? styles['input-error'] : ''}
                             onChange={(e) => {
@@ -204,7 +204,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                         />
                     </div>
 
-                    <button className={styles['action-button']}>Edit</button>
+                    <button className={styles['action-button']}>Промени</button>
 
                 </fieldset>
             </form>

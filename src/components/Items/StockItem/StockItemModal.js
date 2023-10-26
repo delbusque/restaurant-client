@@ -8,15 +8,15 @@ const StockItemModal = ({ item, setOpenModal, deleteHandler }) => {
             <div className={styles['modal-container']} >
                 <div className={styles['modal-body']}>
                     <h1 className={styles['modal-title']}>
-                        Do you really want to delete {item.name} ?
+                        Наистина ли искате да изтриете {item.name} ?
                     </h1>
                     <p className={styles['modal-text']}>
-                        You can proceed with deletion by clicking Yes or Cancel it !
+                        Продължете с изтриването чрез Потвърждавам или направете Отказ !
                     </p>
                 </div>
                 <div className={styles['modal-buttons']}>
-                    <button className={styles['modal-buttons__cancel']} onClick={() => setOpenModal(false)}>Cancel</button>
-                    <button className={styles['modal-buttons__proceed']} onClick={deleteHandler}>Yes</button>
+                    <button className={styles['modal-buttons__cancel']} onClick={() => setOpenModal(false)}>Отказ</button>
+                    <button className={styles['modal-buttons__proceed']} onClick={deleteHandler}>Потвърждавам</button>
                 </div>
             </div>
         </div>

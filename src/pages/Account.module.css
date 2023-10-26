@@ -4,6 +4,8 @@
   grid-template-columns: repeat(5, 1fr);
   grid-template-areas: "blog blog form form details";
   margin-left: 100px;
+  font-family: "Exo 2", sans-serif;
+
 }
 
 .acc-details {

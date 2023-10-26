@@ -114,7 +114,7 @@ const ItemsList = () => {
                         editInfo && <StockItemEdit item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} />
                     }
 
-                    {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Add New Item</button>}
+                    {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Добави нов артикул</button>}
 
                     {
                         (user && !showInfo && !editInfo && showAddItem) && <AddItemForm setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} setShowAddItem={setShowAddItem} />

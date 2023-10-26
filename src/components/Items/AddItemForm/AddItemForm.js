@@ -89,10 +89,10 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
 
             <form className={styles['msform']} onSubmit={addNewStockItemHandler}>
                 <fieldset>
-                    <h2 className={styles['fs-title']}>Add new item</h2>
+                    <h2 className={styles['fs-title']}>Добави нов артикул</h2>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Name</label>
+                        <label className={styles["label"]}>Име</label>
                         <input className={emptyFields.includes('name') ? styles['input-error'] : ''}
                             type="text" name="name"
                             onChange={(e) => setInputName(e.target.value)}
@@ -144,7 +144,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
 
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Ingredients</label>
+                        <label className={styles["label"]}>Продукти / Състав</label>
                         <textarea name="inputIngredients"
                             // className={(emptyFields?.includes('inputIngredients') || negZero?.includes('inputIngredients')) ? styles['input-error'] : ''}
                             onChange={(e) => setInputIngredients(e.target.value)}
@@ -153,7 +153,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                     </div>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Price</label>
+                        <label className={styles["label"]}>Цена</label>
                         <input type="number" name="price"
                             className={(emptyFields?.includes('price') || negZero?.includes('price')) ? styles['input-error'] : ''}
                             onChange={(e) => setPrice(e.target.value)}
@@ -162,7 +162,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                     </div>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Quantity</label>
+                        <label className={styles["label"]}>Количество</label>
                         <input type="number" name="quantity"
                             className={(emptyFields?.includes('quantity') || negZero?.includes('quantity')) ? styles['input-error'] : ''}
                             onChange={(e) => setQuantity(e.target.value)}
@@ -174,6 +174,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                         type="submit"
                         className={styles['action-button']}
                         defaultValue="Previous"
+                        value="Въведи"
                     />
 
 
