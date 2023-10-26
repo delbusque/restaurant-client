@@ -89,10 +89,10 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
 
             <form className={styles['msform']} onSubmit={addNewStockItemHandler}>
                 <fieldset>
-                    <h2 className={styles['fs-title']}>Add new item</h2>
+                    <h2 className={styles['fs-title']}>Добави нов артикул</h2>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Name</label>
+                        <label className={styles["label"]}>Име</label>
                         <input className={emptyFields.includes('name') ? styles['input-error'] : ''}
                             type="text" name="name"
                             onChange={(e) => setInputName(e.target.value)}
@@ -116,35 +116,30 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                         <select onChange={(e) => typeHandler(e)}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
                             <option selected disabled>Избери от напитки :</option>
-                            <option value='топли'>Топли</option>
-                            <option value='vodka'>Vodka</option>
-                            <option value='wine'>Wine</option>
-                            <option value='whiskey'>Whiskey</option>
-                            <option value='gin'>Gin</option>
-                            <option value='rum'>Rum</option>
-                            <option value='ouzo'>Ouzo</option>
-                            <option value='mastika'>Mastika</option>
-                            <option value='rum'>Rum</option>
-                            <option value='juice'>Juice</option>
-                            <option value='fresh'>Fresh</option>
-                            <option value='water'>Water</option>
-                            <option value='coctails'>Coctails</option>
-                            <option value='other'>Other</option>
+                            <option value='Топли'>Топли</option>
+                            <option value='Студени'>Студени</option>
+                            <option value='Бира'>Бира</option>
+                            <option value='Водка'>Водка</option>
+                            <option value='Уиски'>Уиски</option>
+                            <option value='Ракия'>Ракия</option>
+                            <option value='Други'>Други</option>
                         </select>}
 
                     {family === 'food' &&
                         <select onChange={(e) => typeHandler(e)}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
                             <option selected disabled>Избери от хапване :</option>
-                            <option value='salad'>Salad</option>
-                            <option value='grill'>Grill</option>
-                            <option value='burgers'>Burgers</option>
-                            <option value='pizza'>Pizza</option>
+                            <option value='Топла'>Топла</option>
+                            <option value='Салати'>Салати</option>
+                            <option value='Скара'>Скара</option>
+                            <option value='Пици'>Пици</option>
+                            <option value='Ядки'>Ядки</option>
+                            <option value='Други'>Други</option>
                         </select>}
 
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Ingredients</label>
+                        <label className={styles["label"]}>Продукти / Състав</label>
                         <textarea name="inputIngredients"
                             // className={(emptyFields?.includes('inputIngredients') || negZero?.includes('inputIngredients')) ? styles['input-error'] : ''}
                             onChange={(e) => setInputIngredients(e.target.value)}
@@ -153,7 +148,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                     </div>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Price</label>
+                        <label className={styles["label"]}>Цена</label>
                         <input type="number" name="price"
                             className={(emptyFields?.includes('price') || negZero?.includes('price')) ? styles['input-error'] : ''}
                             onChange={(e) => setPrice(e.target.value)}
@@ -162,7 +157,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                     </div>
 
                     <div className={styles['label-input']}>
-                        <label className={styles["label"]}>Quantity</label>
+                        <label className={styles["label"]}>Количество</label>
                         <input type="number" name="quantity"
                             className={(emptyFields?.includes('quantity') || negZero?.includes('quantity')) ? styles['input-error'] : ''}
                             onChange={(e) => setQuantity(e.target.value)}
@@ -174,6 +169,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                         type="submit"
                         className={styles['action-button']}
                         defaultValue="Previous"
+                        value="Въведи"
                     />
 
 

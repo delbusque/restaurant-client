@@ -31,13 +31,13 @@ const Account = () => {
                         {user?.role === 401 && <i className="fa-solid fa-lock"></i>}
                         {user?.role === 5051 && <i className="fa-solid fa-chess-bishop"></i>}
                     </div>
-                    <div className={styles['acc__name-label']}>Name:</div>
+                    <div className={styles['acc__name-label']}>Име:</div>
                     <div className={styles['acc__name-name']}>{user.firstName} {user.lastName}</div>
                 </div>
 
                 <div className={styles['acc__phone']}>
                     <div className={styles['acc__name-icon']}><i className="fa-solid fa-mobile-retro"></i></div>
-                    <div className={styles['acc__name-label']}>Phone:</div>
+                    <div className={styles['acc__name-label']}>Телефон:</div>
                     <div className={styles['acc__name-name']}>{user.phone}</div>
                 </div>
 
@@ -47,9 +47,9 @@ const Account = () => {
             <div className={styles['acc-form']}>
                 <form className={styles['msform']} onSubmit={editUserHandler}>
                     <fieldset>
-                        <h2 className={styles['fs-title']}>Add / Edit your details</h2>
+                        <h2 className={styles['fs-title']}>Добави / Промени данни</h2>
                         <input className={emptyFields.includes('firstName') ? styles['input-error'] : ''}
-                            type="text" name="firstName" placeholder="First Name"
+                            type="text" name="firstName" placeholder="Име"
                             onChange={(e) => {
                                 setFirstName(e.target.value)
                                 setEmptyFields(old => old.filter(f => f !== 'firstName'));
@@ -57,7 +57,7 @@ const Account = () => {
                             value={firstName}
                         />
                         <input className={emptyFields.includes('lastName') ? styles['input-error'] : ''}
-                            type="text" name="lastName" placeholder="Last Name"
+                            type="text" name="lastName" placeholder="Фамилия"
                             onChange={(e) => {
                                 setLastName(e.target.value)
                                 setEmptyFields(old => old.filter(f => f !== 'lastName'));
@@ -65,7 +65,7 @@ const Account = () => {
                             value={lastName}
                         />
                         <input className={emptyFields.includes('phone') ? styles['input-error'] : ''}
-                            type="text" name="phone" placeholder="Phone number"
+                            type="text" name="phone" placeholder="Телефонен номер"
                             onChange={(e) => {
                                 setPhone(e.target.value)
                                 setEmptyFields(old => old.filter(f => f !== 'phone'));
@@ -75,7 +75,7 @@ const Account = () => {
                         <input
                             type="submit"
                             className={styles['action-button']}
-                            value='Edit'
+                            value='Потвърди'
                         />
                     </fieldset>
                 </form>

@@ -7,7 +7,7 @@ const ItemLine = ({ item, addItemHandler }) => {
                 <span className='item-quantityType'>{item.quantityType}</span>
             </div>
 
-            <div className='item-price'>{item.price.toFixed(2)}<span className='lv'> lv.</span></div>
+            <div className='item-price'>{item.price.toFixed(2)}<span className='lv'> лв.</span></div>
         </div>
     )
 }

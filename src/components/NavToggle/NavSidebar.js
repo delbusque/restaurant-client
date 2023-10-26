@@ -57,10 +57,10 @@ const NavSidebar = ({ setToggle }) => {
 
                     {!user && <>
                         <li className={styles['sidebar-item']}>
-                            <Link className={styles['sidebar-link']} to='/signup' onClick={toggleHandler}>Sign up</Link></li>
+                            <Link className={styles['sidebar-link']} to='/signup' onClick={toggleHandler}>Регистрация</Link></li>
 
                         <div className={styles['sidebar-btn-login-cont']}>
-                            <Link className={styles['sidebar-btn-login']} to='/login' onClick={toggleHandler}>Log in</Link>
+                            <Link className={styles['sidebar-btn-login']} to='/login' onClick={toggleHandler}>Вход</Link>
                         </div>
                     </>}
 

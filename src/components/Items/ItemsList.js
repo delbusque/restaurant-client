@@ -53,56 +53,99 @@ const ItemsList = () => {
 
     return (
         <>
-            <div className='iL-buttons-sect'>
-                <section className='iL-family-sect'>
-                    {families.length > 0 &&
-                        families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
-                            setTypeIsActive={setTypeIsActive} />)}
-                </section>
-
-                {drinkIsActive && <section className='iL-type-sect'>
-                    {drinkTypes.length > 0 && drinkTypes.map(t => <TypeButton key={t} type={t}
-                        drinkIsActive={drinkIsActive} setTypeIsActive={setTypeIsActive}
-                        setByType={setByType} />)}
-                </section>}
-
-                {foodIsActive && <section className='iL-type-sect'>
-                    {foodTypes.length > 0 && foodTypes.map(t => <TypeButton key={t} type={t}
-                        setTypeIsActive={setTypeIsActive} setByType={setByType} />)}
-
-                </section>}
-            </div>
-
-
             <div className='iL-main'>
                 {(!typeIsActive && drinkIsActive) &&
-                    <section className='iL-items'>
+                    <section>
+                        <div className='iL-buttons-sect'>
+                            <section className='iL-family-sect'>
+                                {families.length > 0 &&
+                                    families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
+                                        setTypeIsActive={setTypeIsActive} />)}
+                            </section>
 
-                        {(!user && items.length < 1) && <div className={styles['table-error']}>Please add an item after <Link to='/login' className={styles['err-login']}> login</Link> or <Link to='/signup' className={styles['err-signup']}> sign up</Link> !</div>}
+                            {drinkIsActive && <section className='iL-type-sect'>
+                                {drinkTypes.length > 0 && drinkTypes.map(t => <TypeButton key={t} type={t}
+                                    drinkIsActive={drinkIsActive} setTypeIsActive={setTypeIsActive}
+                                    setByType={setByType} />)}
+                            </section>}
 
-                        {(user && !items) && <div className={styles['table-error']}>Please add an item to stock !</div>}
+                            {foodIsActive && <section className='iL-type-sect'>
+                                {foodTypes.length > 0 && foodTypes.map(t => <TypeButton key={t} type={t}
+                                    setTypeIsActive={setTypeIsActive} setByType={setByType} />)}
 
-                        {
-                            items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo}
-                                setEditInfo={setEditInfo} infoHandler={infoHandler} editHandler={editHandler} />)
-                        }
+                            </section>}
+                        </div>
+                        <section className='iL-items'>
+                            {(!user && items.length < 1) && <div className={styles['table-error']}>Please add an item after <Link to='/login' className={styles['err-login']}> login</Link> or <Link to='/signup' className={styles['err-signup']}> sign up</Link> !</div>}
+
+                            {(user && !items) && <div className={styles['table-error']}>Please add an item to stock !</div>}
+
+                            {
+                                items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo}
+                                    setEditInfo={setEditInfo} infoHandler={infoHandler} editHandler={editHandler} />)
+                            }
+                        </section>
                     </section>}
 
                 {(!typeIsActive && foodIsActive) &&
-                    <section className='iL-items'>
-                        {
-                            items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i}
-                                setShowInfo={setShowInfo} setEditInfo={setEditInfo}
-                                infoHandler={infoHandler} editHandler={editHandler} />)
-                        }
+                    <section>
+                        <div className='iL-buttons-sect'>
+                            <section className='iL-family-sect'>
+                                {families.length > 0 &&
+                                    families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
+                                        setTypeIsActive={setTypeIsActive} />)}
+                            </section>
+
+                            {drinkIsActive && <section className='iL-type-sect'>
+                                {drinkTypes.length > 0 && drinkTypes.map(t => <TypeButton key={t} type={t}
+                                    drinkIsActive={drinkIsActive} setTypeIsActive={setTypeIsActive}
+                                    setByType={setByType} />)}
+                            </section>}
+
+                            {foodIsActive && <section className='iL-type-sect'>
+                                {foodTypes.length > 0 && foodTypes.map(t => <TypeButton key={t} type={t}
+                                    setTypeIsActive={setTypeIsActive} setByType={setByType} />)}
+
+                            </section>}
+                        </div>
+                        <section className='iL-items'>
+                            {
+                                items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i}
+                                    setShowInfo={setShowInfo} setEditInfo={setEditInfo}
+                                    infoHandler={infoHandler} editHandler={editHandler} />)
+                            }</section>
                     </section>}
+
                 {typeIsActive &&
-                    <section className='iL-items'>
-                        {
-                            items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setShowInfo={setShowInfo}
-                                setEditInfo={setEditInfo}
-                                infoHandler={infoHandler} editHandler={editHandler} />)
-                        }
+                    <section>
+                        <div className='iL-buttons-sect'>
+                            <section className='iL-family-sect'>
+                                {families.length > 0 &&
+                                    families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
+                                        setTypeIsActive={setTypeIsActive} />)}
+                            </section>
+
+                            {drinkIsActive && <section className='iL-type-sect'>
+                                {drinkTypes.length > 0 && drinkTypes.map(t => <TypeButton key={t} type={t}
+                                    drinkIsActive={drinkIsActive} setTypeIsActive={setTypeIsActive}
+                                    setByType={setByType} />)}
+                            </section>}
+
+                            {foodIsActive && <section className='iL-type-sect'>
+                                {foodTypes.length > 0 && foodTypes.map(t => <TypeButton key={t} type={t}
+                                    setTypeIsActive={setTypeIsActive} setByType={setByType} />)}
+
+                            </section>}
+                        </div>
+
+                        <section className='iL-items'>
+                            {
+                                items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setShowInfo={setShowInfo}
+                                    setEditInfo={setEditInfo}
+                                    infoHandler={infoHandler} editHandler={editHandler} />)
+                            }
+                        </section>
+
                     </section>}
 
                 <section id='iL-form' className='iL-form'>
@@ -114,7 +157,7 @@ const ItemsList = () => {
                         editInfo && <StockItemEdit item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} />
                     }
 
-                    {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Add New Item</button>}
+                    {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Добави нов артикул</button>}
 
                     {
                         (user && !showInfo && !editInfo && showAddItem) && <AddItemForm setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} setShowAddItem={setShowAddItem} />
@@ -135,10 +178,7 @@ const ItemsList = () => {
                             : <StockItemInfo item={currentItem} setShowInfo={setShowInfo} />
                     }
                 </section> */}
-
-
             </div>
-
         </>
     )
 }

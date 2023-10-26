@@ -17,19 +17,19 @@ const Login = () => {
 
     return (
         <form className={styles['login']} onSubmit={loginHandler}>
-            <h3>Log in</h3>
+            <h3>Вписване</h3>
 
-            <label>Email:</label>
+            <label>Имейл:</label>
             <input type='email'
                 onChange={(e) => setEmail(e.target.value)}
                 value={email} />
 
-            <label>Password:</label>
+            <label>Парола:</label>
             <input type='password'
                 onChange={(e) => setPassword(e.target.value)}
                 value={password} />
 
-            <button disabled={isLoading}>Log in</button>
+            <button disabled={isLoading}>Напред</button>
             {error && <div className={styles['error']}>{error}</div>}
         </form >
     )

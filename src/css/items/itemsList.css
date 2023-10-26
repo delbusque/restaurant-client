@@ -1,30 +1,33 @@
 .iL-buttons-sect {
   display: flex;
-  width: 75%;
+  width: 90%;
 }
 
 .iL-family-sect {
   display: flex;
   flex-direction: column;
   text-align: left;
-  margin-left: 25px;
+  margin-left: 95px;
+  margin-bottom: 10px;
 }
 
 .iL-type-sect {
   text-align: left;
   margin-top: 12px;
-  margin-left: 35px;
+  margin-left: 65px;
 }
 
 .iL-main {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 70% 30%;
+  margin-bottom: 30px;
 }
 
 .iL-items {
   margin: 25px 40px;
   margin-bottom: 0px;
-  max-height: 64vh;
+  margin-left: 80px;
+  max-height: 56vh;
   overflow: auto;
   display: inline-block;
   width: 85%;
@@ -52,8 +55,19 @@
 }
 
 .iL-form {
-  margin-top: 25px;
-  justify-self: start;
+  margin-top: 33px;
+  justify-self: left;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .iL-items {
+    margin-left: 50px;
+  }
+
+  .iL-family-sect {
+    margin-left: 50px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -73,23 +87,22 @@
 
   .iL-type-sect {
     text-align: center;
-    margin-top: 12px;
-    margin-left: 0px;
+    margin: 15px 0;
     padding-left: 0px;
   }
 
   .iL-main {
     display: flex;
     grid-template-columns: repeat(2, 1fr);
-    margin-top: 25px;
+    margin-top: 5px;
   }
 
   .iL-items {
-    margin: 0 15px;
+    margin: 0 20px;
     margin-bottom: 0px;
     max-height: 100%;
-
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
     width: inherit;
   }
 

@@ -24,29 +24,29 @@ const Signup = () => {
 
     return (
         <form className={styles['signup']} onSubmit={signupHandler}>
-            <h3>Sign up</h3>
+            <h3>Регистрирай се</h3>
 
-            <label>Email:</label>
+            <label>Имейл:</label>
             <input type='email'
                 onChange={(e) => setEmail(e.target.value)}
                 value={email} />
 
-            <label>Password:</label>
+            <label>Парола:</label>
             <input type='password'
                 onChange={(e) => setPassword(e.target.value)}
                 value={password} />
 
-            <label>Repeat password:</label>
+            <label>Повтори парола:</label>
             <input type='password'
                 onChange={(e) => setRepeatPassword(e.target.value)}
                 value={repeatPassword} />
 
-            <button disabled={isLoading}>Sign up</button>
+            <button disabled={isLoading}>Потвърди</button>
 
             {error && <div className={styles['error']}>{error}</div>}
 
             {/* <p>* Password must be at least 8 characters long with minimum 1 uppercase and lowercase letter, 1 digit and 1 symbol !</p> */}
-            <p>* Password must be at least four characters long</p>
+            <p>* Паролата трябва да бъде най-малко 4 символа</p>
         </form >
     )
 }
