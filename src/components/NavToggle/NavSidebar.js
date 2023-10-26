@@ -26,15 +26,15 @@ const NavSidebar = ({ setToggle }) => {
 
                 <div className={styles['sidebar-menu']}>
 
-                    <li className={styles['sidebar-item']}>
+                    {user?.role !== 401 && <li className={styles['sidebar-item']}>
                         <Link className={styles['sidebar-link']} to='/tables' onClick={toggleHandler}>Маси</Link>
-                    </li>
+                    </li>}
 
                     <li className={styles['sidebar-item']}>
                         <Link className={styles['sidebar-link']} to='/items' onClick={toggleHandler}>Меню</Link>
                     </li>
 
-                    {user &&
+                    {user && user?.role !== 401 &&
                         <>
                             <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Кухня</Link>
