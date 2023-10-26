@@ -116,30 +116,25 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                         <select onChange={(e) => typeHandler(e)}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
                             <option selected disabled>Избери от напитки :</option>
-                            <option value='топли'>Топли</option>
-                            <option value='vodka'>Vodka</option>
-                            <option value='wine'>Wine</option>
-                            <option value='whiskey'>Whiskey</option>
-                            <option value='gin'>Gin</option>
-                            <option value='rum'>Rum</option>
-                            <option value='ouzo'>Ouzo</option>
-                            <option value='mastika'>Mastika</option>
-                            <option value='rum'>Rum</option>
-                            <option value='juice'>Juice</option>
-                            <option value='fresh'>Fresh</option>
-                            <option value='water'>Water</option>
-                            <option value='coctails'>Coctails</option>
-                            <option value='other'>Other</option>
+                            <option value='Топли'>Топли</option>
+                            <option value='Студени'>Студени</option>
+                            <option value='Бира'>Бира</option>
+                            <option value='Водка'>Водка</option>
+                            <option value='Уиски'>Уиски</option>
+                            <option value='Ракия'>Ракия</option>
+                            <option value='Други'>Други</option>
                         </select>}
 
                     {family === 'food' &&
                         <select onChange={(e) => typeHandler(e)}
                             className={emptyFields.includes('type') ? styles['input-error'] : ''}>
                             <option selected disabled>Избери от хапване :</option>
-                            <option value='salad'>Salad</option>
-                            <option value='grill'>Grill</option>
-                            <option value='burgers'>Burgers</option>
-                            <option value='pizza'>Pizza</option>
+                            <option value='Топла'>Топла</option>
+                            <option value='Салати'>Салати</option>
+                            <option value='Скара'>Скара</option>
+                            <option value='Пици'>Пици</option>
+                            <option value='Ядки'>Ядки</option>
+                            <option value='Други'>Други</option>
                         </select>}
 
 
