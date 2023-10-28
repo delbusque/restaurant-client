@@ -7,6 +7,7 @@
   /* position: sticky; */
   border: 1px solid rgba(128, 128, 128, 0.479);
   border-radius: 3px;
+  align-items: baseline;
 }
 
 .stock-item__name {
@@ -47,6 +48,7 @@
   margin: 5px 10px;
   font-style: italic;
   font-weight: 300;
+  text-align: right;
 }
 
 .stock-item__quantityType {
@@ -79,6 +81,29 @@
   .stock-item__quantityType,
   .stock-item__price {
     font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 460px) {
+  .stock-item__name {
+    font-size: 16px;
+  }
+
+  .stock-item__price {
+    font-size: 15px;
+  }
+
+  .stock-item__quantity {
+    font-size: 14px;
+  }
+
+  .stock-item__edit {
+    font-size: 16px;
+  }
+
+  .lv,
+  .stock-item__quantityType {
+    font-size: 10px;
   }
 }
 

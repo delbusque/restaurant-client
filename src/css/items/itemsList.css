@@ -112,6 +112,12 @@
   }
 }
 
+@media screen and (max-width: 460px) {
+  .iL-items {
+    margin: 0 10px;
+  }
+}
+
 @media screen and (max-width: 220px) {
   .iL-family-sect {
     flex-direction: column;
