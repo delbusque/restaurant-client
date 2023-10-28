@@ -46,7 +46,7 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
 
                     {(order.family === 'food' && user?.role !== 5051) && <button className={styles['button-53-blue']} onClick={toChefHandler}> {sent} / {count}</button>}
 
-                    <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}<span className={styles['lv']}>lv.</span>
+                    <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}<span className={styles['lv']}>лв.</span>
                     </div>
                 </div >
                 : <>
@@ -61,7 +61,7 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                         {(order.family === 'food' && user?.role !== 5051) && <button className={styles['button-53-blue']} onClick={toChefHandler}> {sent} / {count}</button>}
 
                         <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}
-                            <span className={styles['lv']}>lv.</span>
+                            <span className={styles['lv']}>лв.</span>
                         </div>
                     </div >
                 </>}
