@@ -44,9 +44,9 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
         let quantityType;
 
         if (family === 'drinks') {
-            quantityType = quantity < 1 ? 'мл' : 'л';
+            quantityType = quantity < 1000 ? 'мл' : 'л';
         } else if (family === 'food') {
-            quantityType = quantity < 1 ? 'гр' : 'кг';
+            quantityType = quantity < 1000 ? 'гр' : 'кг';
         }
 
         let ingredients = inputIngredients?.split(/[,./';]/).map(i => (i.trim())).filter(i => i)

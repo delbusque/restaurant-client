@@ -50,11 +50,11 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
             <div className={styles['stock-item']}>
 
                 <div className={styles['stock-item__name']}>{item.name}</div>
-                <div className={styles['stock-item__quantity']}>{item.quantity.toFixed(3)}
+                <div className={styles['stock-item__quantity']}>{item.quantity < 1000 ? item.quantity : item.quantity / 1000}
                     <span className={styles['stock-item__quantityType']}>{item.quantityType}</span>
                 </div>
                 <div className={styles['stock-item__price']}>{item.price.toFixed(2)}
-                    <span className='lv'> лв.</span></div>
+                    <span className={styles['lv']}> лв.</span></div>
 
                 {/* <button className={styles['stock-item__info']} onClick={() => infoHandler(item)}>
                     <i className="fa-solid fa-info info"></i>
