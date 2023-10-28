@@ -41,7 +41,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
 
             <div className='ord-footer'>
                 <div className='tb-foot'>СМЕТКА</div>
-                <div className='tb-total'>{totalSum.toFixed(2)} lv.</div>
+                <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
                 {user.role !== 5051 &&
                     <div className="btn-cont">
                         <button className='btn-tables' onClick={tabHandler}>МАСИ</button>

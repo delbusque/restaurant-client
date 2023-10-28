@@ -8,7 +8,7 @@
   gap: 5px;
   grid-template-columns: repeat(8, 1fr);
   grid-template-areas: "name name . . count count . total";
-  font-family: "Lato", sans-serif;
+  font-family: "Exo 2", sans-serif;
   align-items: center;
 }
 
@@ -128,6 +128,8 @@
 
 .ord-price {
   grid-area: price;
+  font-family: "Lato", sans-serif;
+
 }
 
 .ord-total {
@@ -188,6 +190,8 @@
 
 .lv {
   margin-left: 3px;
+  font-family: "Exo 2", sans-serif;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 900px) {

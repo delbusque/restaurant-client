@@ -2,6 +2,7 @@
   display: grid;
   grid-template-columns: repeat(11, 1fr);
   grid-template-areas: "orders orders orders orders orders orders family type  items items items";
+  font-family: "Exo 2", sans-serif;
 }
 
 .orders-sect {
@@ -34,7 +35,6 @@
 
 .tb-title {
   display: inline-block;
-  font-family: "Poppins", sans-serif;
   padding: 1px 5px;
   margin-left: 10px;
 }
@@ -59,18 +59,18 @@
 
 .tb-total {
   display: inline-block;
-  font-family: "Lato", sans-serif;
   font-size: larger;
   margin: 5px 10px;
   margin-right: 15px;
   padding: 5px;
   position: absolute;
   right: 1px;
+  font-family: "Lato", sans-serif;
+
 }
 
 .tb-foot {
   display: inline-block;
-  font-family: "Poppins", sans-serif;
   font-size: larger;
   margin: 5px 5px;
   margin-left: 25px;
@@ -263,6 +263,11 @@
 
   .tb-total {
     font-size: 18px;
+  }
+
+  .tb-total-lv {
+    font-size: 15px;
+    font-family: "Exo 2", sans-serif;
   }
 
   .tb-num {

@@ -85,10 +85,6 @@
 }
 
 @media screen and (max-width: 460px) {
-  .stock-item__name {
-    font-size: 16px;
-  }
-
   .stock-item__price {
     font-size: 15px;
   }

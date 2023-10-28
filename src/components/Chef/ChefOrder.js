@@ -38,7 +38,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
                         {waiting.tableNum >= 100 && <div className={styles['order-table-num']}>{waiting.tableNum}</div>}
                     </div>
                     <div className={styles['order-time']}>{time} '</div>
-                    <div className={styles['order-quantity']}>{waiting.quantity.toFixed(3)} {waiting.quantityType}</div>
+                    <div className={styles['order-quantity']}>{waiting.quantity < 1000 ? waiting.quantity : (waiting.quantity / 1000).toFixed(3)} {waiting.quantityType}</div>
 
                     <div className={styles['order-name-wrapper']}>
                         <div className={styles['order-name']}>{waiting.name} <div className={styles['order-count']}>{count}</div></div>
