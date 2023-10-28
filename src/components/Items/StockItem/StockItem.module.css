@@ -14,6 +14,7 @@
   display: inline;
   grid-area: name;
   margin: 5px 10px;
+  text-transform: capitalize;
 }
 
 .stock-item__info {
