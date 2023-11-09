@@ -50,7 +50,7 @@ const NavSidebar = ({ setToggle }) => {
                         </li>
 
                         <div className={styles['sidebar-btn-cont']}>
-                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Sign out</button>
+                            <button className={styles['sidebar-btn-logout']} onClick={logoutHandler}>Изход</button>
                         </div>
 
                     </div>)}
