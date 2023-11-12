@@ -39,6 +39,12 @@
   margin-left: 10px;
 }
 
+.owner {
+  font-size: 15px;
+  color: #00896f;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
 .icon-wrap {
   font-size: 26px;
   color: gray;
