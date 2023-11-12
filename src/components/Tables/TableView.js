@@ -1,8 +1,5 @@
 import { useState, useContext, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
-import axios from 'axios';
-import { baseUrl } from '../../config.js';
 
 import ItemsContext from '../../contexts/ItemsContext.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
@@ -28,21 +25,12 @@ const TableView = ({ tables, setTables }) => {
     const { user } = useAuthContext()
 
     let table;
-    // const [table, setTable] = useState(null)
 
     let current;
     if (tables) {
         table = tables.find(t => t.number === number);
         current = tables.find(t => t.number === number)
     }
-
-    const fetchTable = () => axios.get(`${baseUrl}/tables/${current._id}`)
-
-    let { data } = useQuery('fetch-table', fetchTable, { select: data => data.data })
-
-    // useEffect(() => {
-    //     setTable(data)
-    // }, [data])
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
     drinkTypes.sort((a, b) => a.localeCompare(b));
@@ -152,11 +140,6 @@ const TableView = ({ tables, setTables }) => {
                                         addItemHandler={addItemHandler} />)
                                 }
                             </section>}
-
-                        {/* {window.innerWidth < 900 && <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />} */}
-
-
-
                     </>
                     :
                     <div className='error'>No such table !</div>
