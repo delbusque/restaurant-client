@@ -24,6 +24,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
         table.orders = [];
         table.paid = false;
         table.opened = false;
+        table.ownerId = undefined
         setTables(oldState => [...oldState], table);
     }
 
@@ -35,6 +36,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
                 <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
+                {table.ownerId && <div className='tb-title firstName'>{user.firstName.toUpperCase()}</div>}
                 {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 <div className='tb-num'>{table.number}</div>
             </div>

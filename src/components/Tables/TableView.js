@@ -26,10 +26,8 @@ const TableView = ({ tables, setTables }) => {
 
     let table;
 
-    let current;
     if (tables) {
         table = tables.find(t => t.number === number);
-        current = tables.find(t => t.number === number)
     }
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
@@ -41,7 +39,7 @@ const TableView = ({ tables, setTables }) => {
 
         if (!table.paid) {
 
-            let alreadyItem = table.orders.find((order, i) => {
+            let alreadyItem = table.orders.find(order => {
                 if (order.name === item.name) {
                     return order;
                 }
@@ -54,6 +52,8 @@ const TableView = ({ tables, setTables }) => {
                     sent: 0
                 }
                 table.orders.unshift(alreadyItem);
+
+                if (table.orders.length > 0) { table.ownerId = user.id }
                 setTables(oldState => [...oldState], table);
 
             } else {
@@ -80,6 +80,10 @@ const TableView = ({ tables, setTables }) => {
 
             if (alreadyItem.count === 1) {
                 table.orders.splice(index, 1);
+                if (table.orders.length === 0) {
+                    table.ownerId = undefined
+                    table.opened = false
+                }
                 setTables(oldState => [...oldState], table);
             }
 
