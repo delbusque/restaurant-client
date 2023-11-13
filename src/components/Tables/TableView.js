@@ -124,7 +124,7 @@ const TableView = ({ tables, setTables }) => {
                 table ?
                     <>
 
-                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} setTableOwner={setTableOwner} data={data} />
+                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} />
 
                         <section className='family-sect'>
                             {families.length > 0 && user.role !== 5051 &&

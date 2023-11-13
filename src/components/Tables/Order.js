@@ -1,10 +1,9 @@
-import { useEffect } from 'react'
 import styles from './Order.module.css'
 import axios from 'axios'
 import { baseUrl } from '../../config'
 import { useAuthContext } from '../../hooks/useAuthContext'
 
-const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setTables, tableOwner, setTableOwner, data }) => {
+const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setTables, tableOwner }) => {
 
     const { user } = useAuthContext()
     const { name, ingredients, quantity, quantityType, count, sent } = order
@@ -32,11 +31,6 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
             }
         })
     }
-
-    useEffect(() => {
-        const owner = data?.find(user => user._id === table.ownerId)
-        setTableOwner(owner)
-    }, [data, setTableOwner, table.ownerId])
 
     return (
         <>

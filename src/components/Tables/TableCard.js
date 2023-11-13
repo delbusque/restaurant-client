@@ -1,10 +1,9 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
-const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableOwner, setTableOwner, data }) => {
+const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableOwner }) => {
 
     const { user } = useAuthContext();
 
@@ -33,11 +32,6 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
         navigate('/tables')
     }
 
-    useEffect(() => {
-        const owner = data?.find(user => user._id === table.ownerId)
-        setTableOwner(owner)
-    }, [data, setTableOwner, table.ownerId])
-
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
@@ -63,7 +57,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
             </div>
 
             {
-                table.orders && table.orders.map((o, i) => <Order tableNum={table.number} order={o} key={i} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} table={table} setTables={setTables} tableOwner={tableOwner} setTableOwner={setTableOwner} data={data} />)
+                table.orders && table.orders.map((o, i) => <Order tableNum={table.number} order={o} key={i} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} table={table} setTables={setTables} tableOwner={tableOwner} />)
             }
             <br />
 
