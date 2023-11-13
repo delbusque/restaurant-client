@@ -1,12 +1,10 @@
+import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
-import { baseUrl } from '../../config.js';
-import { useQuery } from 'react-query'
-import axios from 'axios';
 
-const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
+const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableOwner, setTableOwner, data }) => {
 
     const { user } = useAuthContext();
 
@@ -35,18 +33,16 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
         navigate('/tables')
     }
 
-    const fetchUsers = () => axios.get(`${baseUrl}/user`)
-
-    const { data } = useQuery('users', fetchUsers, {
-        select: data => data.data,
-        refetchOnWindowFocus: false,
-    })
+    useEffect(() => {
+        const owner = data?.find(user => user._id === table.ownerId)
+        setTableOwner(owner)
+    }, [])
 
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
                 <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
-                {table.ownerId && <div className='tb-title firstName'>{user.firstName.toUpperCase() || user.email}</div>}
+                {table.ownerId && <div className='tb-title firstName'>{tableOwner?.firstName || tableOwner?.email}</div>}
                 {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 <div className='tb-num'>{table.number}</div>
             </div>
@@ -54,7 +50,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
             <div className='ord-footer'>
                 <div className='tb-foot'>СМЕТКА</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
-                {user.role !== 5051 &&
+                {(user.role !== 5051 && user.id === tableOwner?._id) &&
                     <div className="btn-cont">
                         <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
                         {!table.paid
@@ -67,7 +63,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
             </div>
 
             {
-                table.orders && table.orders.map((o, i) => <Order tableNum={table.number} order={o} key={i} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} table={table} setTables={setTables} />)
+                table.orders && table.orders.map((o, i) => <Order tableNum={table.number} order={o} key={i} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} table={table} setTables={setTables} tableOwner={tableOwner} setTableOwner={setTableOwner} data={data} />)
             }
             <br />
 

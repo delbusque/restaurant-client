@@ -4,6 +4,10 @@ import { useParams } from 'react-router-dom';
 import ItemsContext from '../../contexts/ItemsContext.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
+import { baseUrl } from '../../config.js';
+import { useQuery } from 'react-query'
+import axios from 'axios';
+
 import TableCard from './TableCard.js';
 import FamilyButton from '../Buttons/FamilyButton.js';
 import ItemLine from './ItemLine.js';
@@ -24,6 +28,8 @@ const TableView = ({ tables, setTables }) => {
 
     const { user } = useAuthContext()
 
+    const [tableOwner, setTableOwner] = useState('')
+
     let table;
 
     if (tables) {
@@ -34,35 +40,45 @@ const TableView = ({ tables, setTables }) => {
     drinkTypes.sort((a, b) => a.localeCompare(b));
     foodTypes.sort((a, b) => a.localeCompare(b));
 
+    const fetchUsers = () => axios.get(`${baseUrl}/user`)
+
+    const { data } = useQuery('users', fetchUsers, {
+        select: data => data.data,
+        refetchOnWindowFocus: false,
+    })
+
     const addItemHandler = (item) => {
-        table.opened = true;
+        if (table.ownerId === user.id || table.ownerId === undefined) {
 
-        if (!table.paid) {
+            table.opened = true;
 
-            let alreadyItem = table.orders.find(order => {
-                if (order.name === item.name) {
-                    return order;
-                }
-            })
+            if (!table.paid) {
 
-            if (!alreadyItem) {
-                alreadyItem = {
-                    ...item,
-                    count: 1,
-                    sent: 0
-                }
-                table.orders.unshift(alreadyItem);
-
-                if (table.orders.length > 0) { table.ownerId = user.id }
-                setTables(oldState => [...oldState], table);
-
-            } else {
-                table.orders.find((order, i) => {
-                    if (order._id === alreadyItem._id) {
-                        table.orders[i].count++;
-                        setTables(oldState => [...oldState], table);
+                let alreadyItem = table.orders.find(order => {
+                    if (order.name === item.name) {
+                        return order;
                     }
                 })
+
+                if (!alreadyItem) {
+                    alreadyItem = {
+                        ...item,
+                        count: 1,
+                        sent: 0
+                    }
+                    table.orders.unshift(alreadyItem);
+
+                    if (table.orders.length > 0) { table.ownerId = user.id }
+                    setTables(oldState => [...oldState], table);
+
+                } else {
+                    table.orders.find((order, i) => {
+                        if (order._id === alreadyItem._id) {
+                            table.orders[i].count++;
+                            setTables(oldState => [...oldState], table);
+                        }
+                    })
+                }
             }
         }
     }
@@ -82,6 +98,7 @@ const TableView = ({ tables, setTables }) => {
                 table.orders.splice(index, 1);
                 if (table.orders.length === 0) {
                     table.ownerId = undefined
+                    setTableOwner('')
                     table.opened = false
                 }
                 setTables(oldState => [...oldState], table);
@@ -96,13 +113,18 @@ const TableView = ({ tables, setTables }) => {
         }
     }
 
+    useEffect(() => {
+        const owner = data?.find(user => user._id === table.ownerId)
+        setTableOwner(owner)
+    }, [])
+
     return (
         < div className='table-card' >
             {
                 table ?
                     <>
 
-                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} />
+                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} setTableOwner={setTableOwner} data={data} />
 
                         <section className='family-sect'>
                             {families.length > 0 && user.role !== 5051 &&
