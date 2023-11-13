@@ -1,8 +1,10 @@
-
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
+import { baseUrl } from '../../config.js';
+import { useQuery } from 'react-query'
+import axios from 'axios';
 
 const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
 
@@ -32,6 +34,13 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
     const tabHandler = () => {
         navigate('/tables')
     }
+
+    const fetchUsers = () => axios.get(`${baseUrl}/user`)
+
+    const { data } = useQuery('users', fetchUsers, {
+        select: data => data.data,
+        refetchOnWindowFocus: false,
+    })
 
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
