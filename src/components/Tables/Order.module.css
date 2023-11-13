@@ -115,7 +115,7 @@
   grid-area: count;
   text-align: right;
   font-size: small;
-  margin-right: 20px;
+  /* margin-right: 20px; */
 }
 
 .ord-counter {
@@ -129,7 +129,6 @@
 .ord-price {
   grid-area: price;
   font-family: "Lato", sans-serif;
-
 }
 
 .ord-total {
