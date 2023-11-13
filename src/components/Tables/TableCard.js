@@ -1,3 +1,4 @@
+
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
@@ -36,7 +37,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler }) => {
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
                 <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
-                {table.ownerId && <div className='tb-title firstName'>{user.firstName.toUpperCase()}</div>}
+                {table.ownerId && <div className='tb-title firstName'>{user.firstName.toUpperCase() || user.email}</div>}
                 {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 <div className='tb-num'>{table.number}</div>
             </div>
