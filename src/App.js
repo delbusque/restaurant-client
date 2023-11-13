@@ -34,9 +34,9 @@ function App() {
 
   const [toggle, setToggle] = useState(false)
 
-  const handleScroll = (e) => {
-    console.log(window.scrollY);
-  }
+  // const handleScroll = (e) => {
+  //   console.log(window.scrollY);
+  // }
 
   useEffect(() => {
     let local_Tables = window.localStorage.getItem('tables');
@@ -51,8 +51,8 @@ function App() {
       apiService.fetchItems(setItems);
     }
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    // window.addEventListener("scroll", handleScroll);
+    // return () => window.removeEventListener("scroll", handleScroll);
   }, [])
 
   // useEffect(() => {
