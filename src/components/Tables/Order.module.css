@@ -225,12 +225,12 @@
 
   .button-53,
   .button-53-green {
-    padding-bottom: 3px;
+    padding-bottom: 7px;
   }
 
   .button-53-blue {
     grid-area: bluebtn;
-    padding-top: 1.5px;
-    padding-bottom: 2px;
+    padding-top: 3.5px;
+    padding-bottom: 5px;
   }
 }
