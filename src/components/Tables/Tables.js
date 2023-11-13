@@ -1,11 +1,27 @@
+import { useState, useContext, useEffect } from 'react';
+
 import { Link } from 'react-router-dom';
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 import TableError from './TableError';
 
+import { baseUrl } from '../../config.js';
+import { useQuery } from 'react-query'
+import axios from 'axios';
+
 const Tables = ({ tables }) => {
 
     const { user } = useAuthContext();
+
+    const fetchUsers = () => axios.get(`${baseUrl}/user`)
+
+    const { data } = useQuery('users', fetchUsers, {
+        select: data => data.data,
+        refetchOnWindowFocus: false,
+    })
+
+    console.log(data);
+    console.log(tables);
 
     return (
         <>
