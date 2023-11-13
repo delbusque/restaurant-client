@@ -54,13 +54,13 @@ const NavToggle = ({ setToggle }) => {
 
                     <Link id='u-email' className='links' to='/my-account'><span className='u-email'>{user.email}</span></Link>
 
-                    <button className="links nav__item-auth out" onClick={logoutHandler}>Изход</button>
+                    <button className="links nav__item-auth out" onClick={logoutHandler}>ИЗХОД</button>
                 </div>)}
 
                 {!user && <div className="nav__auth">
 
-                    <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">Регистрация</li></Link>
-                    <Link id='login' className='links' to='/login'><li className="nav__item-auth">Вход</li></Link>
+                    <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">РЕГИСТРАЦИЯ</li></Link>
+                    <Link id='login' className='links' to='/login'><li className="nav__item-auth">ВХОД</li></Link>
                 </div>}
             </div>
         </header>
