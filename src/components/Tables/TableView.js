@@ -116,7 +116,7 @@ const TableView = ({ tables, setTables }) => {
     useEffect(() => {
         const owner = data?.find(user => user._id === table.ownerId)
         setTableOwner(owner)
-    }, [])
+    }, [data, table.ownerId])
 
     return (
         < div className='table-card' >

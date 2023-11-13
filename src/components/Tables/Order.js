@@ -36,7 +36,7 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
     useEffect(() => {
         const owner = data?.find(user => user._id === table.ownerId)
         setTableOwner(owner)
-    }, [])
+    }, [data, setTableOwner, table.ownerId])
 
     return (
         <>
