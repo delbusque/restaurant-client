@@ -27,7 +27,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
         orders?.forEach(o => {
             o.name === waiting.name && setCount(old => old + 1)
         })
-    }, [data])
+    }, [data, orders, waiting.name])
 
     return (
         <>
