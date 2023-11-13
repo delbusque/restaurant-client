@@ -42,7 +42,8 @@
 .owner {
   font-size: 15px;
   color: #00896f;
-  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
 }
 
 .icon-wrap {
@@ -72,7 +73,6 @@
   position: absolute;
   right: 1px;
   font-family: "Lato", sans-serif;
-
 }
 
 .tb-foot {
@@ -294,4 +294,8 @@
   .btn-paid {
     margin-right: 15px;
   }
+}
+
+.firstName {
+  color: #797280;
 }
