@@ -46,9 +46,17 @@
   transition: 0.5s;
 }
 
+.other {
+  opacity: 0.1;
+  border-radius: 10px;
+  background-color: grey;
+  color: white;
+}
+
 .table-btn.opened {
   border: none;
-  background-color: rgba(46, 139, 86, 0.358);
+  background-color: rgba(220, 20, 60, 0.364);
+
   text-align: center;
   border-radius: 10px;
 }
@@ -56,12 +64,11 @@
 .table-btn.opened:hover {
   box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
   cursor: pointer;
-  background-color: rgba(46, 139, 86, 0.617);
 }
 
 .table-btn.unpaid {
   border: none;
-  background-color: rgba(220, 20, 60, 0.364);
+  background-color: rgba(46, 139, 86, 0.571);
   text-align: center;
   border-radius: 10px;
 }
@@ -99,7 +106,7 @@
   transform: scale(1.001);
 }
 
-.table-btn.away>.table-btn-text {
+.table-btn.away > .table-btn-text {
   font-size: 40px;
 }
 
@@ -142,8 +149,8 @@
     align-content: center;
   }
 
-  .inside-cont>.links,
-  .inside-cont>.add {
+  .inside-cont > .links,
+  .inside-cont > .add {
     justify-self: center;
   }
 
@@ -153,7 +160,7 @@
   }
 
   .table-btn-text,
-  .table-btn.away>.table-btn-text {
+  .table-btn.away > .table-btn-text {
     font-size: 36px;
     align-items: center;
   }
@@ -193,7 +200,6 @@
 }
 
 @media screen and (max-width: 290px) {
-
   .inside-cont,
   .inside-cont.away {
     grid-template-columns: repeat(2, 1fr);
@@ -206,7 +212,6 @@
 }
 
 @media screen and (max-width: 220px) {
-
   .inside-cont,
   .inside-cont.away {
     grid-template-columns: repeat(1, 1fr);

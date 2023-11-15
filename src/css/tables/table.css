@@ -101,6 +101,7 @@
   text-align: right;
   margin: 10px 10px;
   background-color: #00896f;
+  background-color: rgba(220, 20, 60, 0.727);
   color: antiquewhite;
   display: inline-block;
   border: none;
@@ -322,11 +323,17 @@
     margin-top: 5px;
   }
 
-  .btn-paid {
-    margin: 5px 10px 20px 10px;
+  .btn-paid,
+  .btn-tables,
+  .btn-clear {
+    margin: 5px 10px 10px 10px;
   }
 
   .btn-green {
     margin: auto;
+  }
+
+  .firstName {
+    display: none;
   }
 }
