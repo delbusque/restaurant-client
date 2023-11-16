@@ -34,36 +34,27 @@ function App() {
 
   const [toggle, setToggle] = useState(false)
 
-  // const handleScroll = (e) => {
-  //   console.log(window.scrollY);
-  // }
+
 
   useEffect(() => {
-    let local_Tables = window.localStorage.getItem('tables');
-    let local_Items = window.localStorage.getItem('items');
-
-    if (local_Tables && local_Items) {
-
-      setTables(JSON.parse(local_Tables));
-      setItems(JSON.parse(local_Items));
-    } else {
-      apiService.fetchTables(setTables);
-      apiService.fetchItems(setItems);
+    apiService.fetchTables().then(data => {
+      // window.localStorage.setItem('tables', JSON.stringify(data))
+      // setTables(JSON.parse(window.localStorage.getItem('tables')))
+      setTables(data)
     }
-
-    // window.addEventListener("scroll", handleScroll);
-    // return () => window.removeEventListener("scroll", handleScroll);
+    )
+    apiService.fetchItems().then(data => {
+      // window.localStorage.setItem('items', JSON.stringify(data))
+      // setItems(JSON.parse(window.localStorage.getItem('items')))
+      setItems(data)
+    }
+    )
   }, [])
 
   // useEffect(() => {
-  //   apiService.fetchTables(setTables);
-  //   apiService.fetchItems(setItems);
-  // }, [])
-
-  useEffect(() => {
-    window.localStorage.setItem('tables', JSON.stringify(tables));
-    window.localStorage.setItem('items', JSON.stringify(items));
-  }, [tables, items])
+  //   window.localStorage.setItem('tables', JSON.stringify(tables));
+  //   window.localStorage.setItem('items', JSON.stringify(items));
+  // }, [tables, items])
 
   return (
     <QueryClientProvider client={queryClient}>
