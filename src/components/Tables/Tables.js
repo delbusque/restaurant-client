@@ -1,11 +1,26 @@
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 import TableError from './TableError';
 
-const Tables = ({ tables }) => {
+import { useQuery } from 'react-query';
+import axios from 'axios';
+import { baseUrl } from '../../config.js';
+
+const Tables = ({ tables, setTables }) => {
 
     const { user } = useAuthContext();
+
+    const createTable = (type) => axios.post(`${baseUrl}/tables/create`, { type })
+
+    const createHandler = async (type) => {
+        const result = await createTable(type)
+
+        if (result.statusText === 'OK') {
+            setTables(oldState => [...oldState, result.data]);
+        }
+    }
 
     return (
         <>
@@ -30,7 +45,7 @@ const Tables = ({ tables }) => {
                                 }
                             </Link>
                         ))}
-                        <div className="table-btn add"><p className="table-btn-text">+</p></div>
+                        <div className="table-btn add" onClick={() => createHandler('table')}><p className="table-btn-text">+</p></div>
                     </div>
 
 
@@ -52,7 +67,7 @@ const Tables = ({ tables }) => {
                                     </div>}
                             </Link>
                         ))}
-                        <div className="table-btn add"><p className="table-btn-text">+</p></div>
+                        <div className="table-btn add" onClick={() => createHandler('away')}><p className="table-btn-text">+</p></div>
                     </div>
                 </section >
             }

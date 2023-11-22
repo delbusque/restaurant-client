@@ -1,23 +1,23 @@
 import { baseUrl } from "../config";
 
-export const fetchTables = async (setTables) => {
+export const fetchTables = async () => {
     try {
         let responce = await fetch(`${baseUrl}/tables`);
         let result = await responce.json();
         if (responce.ok) {
-            setTables(result);
+            return result;
         }
     } catch (error) {
         console.log(error.message);
     }
 }
 
-export const fetchItems = async (setItems) => {
+export const fetchItems = async () => {
     try {
         let responce = await fetch(`${baseUrl}/items`);
         let result = await responce.json();
         if (responce.ok) {
-            setItems(result);
+            return result;
         }
     } catch (error) {
         console.log(error.message);

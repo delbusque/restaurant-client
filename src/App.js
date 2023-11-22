@@ -29,41 +29,28 @@ function App() {
 
   const { user } = useAuthContext();
 
-  const [tables, setTables] = useState([]);
-  const [items, setItems] = useState([]);
+  const [tables, setTables] = useState(JSON.parse(window.localStorage.getItem('tables')));
+  const [items, setItems] = useState(JSON.parse(window.localStorage.getItem('items')));
 
   const [toggle, setToggle] = useState(false)
 
-  // const handleScroll = (e) => {
-  //   console.log(window.scrollY);
-  // }
 
   useEffect(() => {
-    let local_Tables = window.localStorage.getItem('tables');
-    let local_Items = window.localStorage.getItem('items');
 
-    if (local_Tables && local_Items) {
-
-      setTables(JSON.parse(local_Tables));
-      setItems(JSON.parse(local_Items));
+    if (tables && items) {
+      window.localStorage.setItem('tables', JSON.stringify(tables))
+      window.localStorage.setItem('items', JSON.stringify(items))
     } else {
-      apiService.fetchTables(setTables);
-      apiService.fetchItems(setItems);
+      apiService.fetchTables().then(data => {
+        setTables(data)
+      })
+      apiService.fetchItems().then(data => {
+        setItems(data)
+      })
     }
 
-    // window.addEventListener("scroll", handleScroll);
-    // return () => window.removeEventListener("scroll", handleScroll);
-  }, [])
-
-  // useEffect(() => {
-  //   apiService.fetchTables(setTables);
-  //   apiService.fetchItems(setItems);
-  // }, [])
-
-  useEffect(() => {
-    window.localStorage.setItem('tables', JSON.stringify(tables));
-    window.localStorage.setItem('items', JSON.stringify(items));
   }, [tables, items])
+
 
   return (
     <QueryClientProvider client={queryClient}>

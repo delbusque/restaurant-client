@@ -27,7 +27,7 @@
 }
 
 .table-btn.away {
-  border: 1px solid darkorange;
+  border: 1px solid rgba(255, 140, 0, 0.617);
 }
 
 .table-btn:hover {
@@ -63,12 +63,16 @@
 
 .table-btn.opened:hover {
   box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
+  background-color: rgba(220, 20, 60, 0.491);
+
   cursor: pointer;
 }
 
 .table-btn.unpaid {
   border: none;
-  background-color: rgba(46, 139, 86, 0.571);
+
+  background-color: rgba(83, 158, 116, 0.659);
+
   text-align: center;
   border-radius: 10px;
 }
@@ -76,18 +80,18 @@
 .table-btn.unpaid:hover {
   box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
   cursor: pointer;
-  background-color: rgba(220, 20, 60, 0.559);
+  background-color: rgba(46, 139, 86, 0.571);
 }
 
 .table-btn.unpaid.away {
-  background-color: rgba(255, 140, 0, 0.662);
+  background-color: rgba(255, 140, 0, 0.543);
   border: none;
 }
 
 .table-btn.unpaid.away:hover {
   box-shadow: 0px 1px 5px rgba(63, 63, 63, 0.5);
   cursor: pointer;
-  background-color: rgba(255, 140, 0, 0.815);
+  background-color: rgba(255, 140, 0, 0.718);
 }
 
 .table-btn.unpaid:active,
