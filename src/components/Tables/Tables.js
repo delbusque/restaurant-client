@@ -17,9 +17,8 @@ const Tables = ({ tables, setTables }) => {
     const createHandler = async (type) => {
         const result = await createTable(type)
 
-        if (result.statusText === 'OK') {
-            setTables(oldState => [...oldState, result.data]);
-        }
+        setTables(oldState => [...oldState, result.data]);
+
     }
 
     return (
