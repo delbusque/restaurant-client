@@ -29,32 +29,28 @@ function App() {
 
   const { user } = useAuthContext();
 
-  const [tables, setTables] = useState([]);
-  const [items, setItems] = useState([]);
+  const [tables, setTables] = useState(JSON.parse(window.localStorage.getItem('tables')));
+  const [items, setItems] = useState(JSON.parse(window.localStorage.getItem('items')));
 
   const [toggle, setToggle] = useState(false)
 
 
-
   useEffect(() => {
-    apiService.fetchTables().then(data => {
-      // window.localStorage.setItem('tables', JSON.stringify(data))
-      // setTables(JSON.parse(window.localStorage.getItem('tables')))
-      setTables(data)
-    }
-    )
-    apiService.fetchItems().then(data => {
-      // window.localStorage.setItem('items', JSON.stringify(data))
-      // setItems(JSON.parse(window.localStorage.getItem('items')))
-      setItems(data)
-    }
-    )
-  }, [])
 
-  // useEffect(() => {
-  //   window.localStorage.setItem('tables', JSON.stringify(tables));
-  //   window.localStorage.setItem('items', JSON.stringify(items));
-  // }, [tables, items])
+    if (tables && items) {
+      window.localStorage.setItem('tables', JSON.stringify(tables))
+      window.localStorage.setItem('items', JSON.stringify(items))
+    } else {
+      apiService.fetchTables().then(data => {
+        setTables(data)
+      })
+      apiService.fetchItems().then(data => {
+        setItems(data)
+      })
+    }
+
+  }, [tables, items])
+
 
   return (
     <QueryClientProvider client={queryClient}>
