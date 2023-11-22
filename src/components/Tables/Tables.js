@@ -16,9 +16,7 @@ const Tables = ({ tables, setTables }) => {
 
     const createHandler = async (type) => {
         const result = await createTable(type)
-
         setTables(oldState => [...oldState, result.data]);
-
     }
 
     return (
@@ -44,7 +42,9 @@ const Tables = ({ tables, setTables }) => {
                                 }
                             </Link>
                         ))}
-                        <div className="table-btn add" onClick={() => createHandler('table')}><p className="table-btn-text">+</p></div>
+                        {
+                            user.role === 1984 && <div className="table-btn add" onClick={() => createHandler('table')}><p className="table-btn-text">+</p></div>
+                        }
                     </div>
 
 
@@ -66,7 +66,9 @@ const Tables = ({ tables, setTables }) => {
                                     </div>}
                             </Link>
                         ))}
-                        <div className="table-btn add" onClick={() => createHandler('away')}><p className="table-btn-text">+</p></div>
+                        {
+                            user.role === 1984 && <div className="table-btn add" onClick={() => createHandler('away')}><p className="table-btn-text">+</p></div>
+                        }
                     </div>
                 </section >
             }
