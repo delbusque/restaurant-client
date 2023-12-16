@@ -80,21 +80,16 @@
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 900px) {
 
     .modal-background {
         display: flex;
-        height: 200%;
-        left: 8px;
-        right: 8px;
-    }
-
-    .modal-container {
-        width: 100%;
         position: fixed;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
+        left: 34%;
+        right: -31%;
+        top: 37%;
+        bottom: -49vh;
+        transform: translate(-34%, -43%);
     }
 
     .modal-buttons {
