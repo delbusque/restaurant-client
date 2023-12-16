@@ -164,7 +164,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                             <option value='Скара'>Скара</option>
                             <option value='Пици'>Пици</option>
                             <option value='Ядки'>Ядки</option>
-                            <option value='Други'>Други</option>
+                            <option value='Друго'>Друго</option>
                         </select>}
 
                     <div className={styles['label-input']}>

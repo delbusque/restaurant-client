@@ -13,8 +13,9 @@
 
 .deli {
   display: none;
-  font-family: "Dancing Script", cursive;
-  font-weight: 400;
+  font-family: 'Cormorant', serif;
+  font-weight: 500;
+  font-style: italic;
 }
 
 .deli-desktop {
@@ -130,7 +131,7 @@ button.nav__item-auth {
 
   .deli {
     display: block;
-    font-size: 32px;
+    font-size: 30px;
   }
 
   .btn-toggle {
