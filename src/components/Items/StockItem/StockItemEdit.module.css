@@ -182,27 +182,39 @@
 }
 
 @media screen and (max-width: 900px) {
+
   .msform {
-    width: 590px;
+    width: 98%;
     margin-right: 0px;
     text-align: center;
-    position: relative;
+    position: fixed;
+    top: 65px;
+    left: 6px;
     font-family: "Poppins", sans-serif;
     display: inline-block;
+    height: 100vh;
+  }
+
+  .msform fieldset {
+    background: rgba(5, 74, 35, 0.945);
+    padding: 30px;
+  }
+
+  .modal-close {
+    top: 28px;
+    right: 15px;
+  }
+
+  .fs-title {
+    font-size: 16px;
+    color: #dfd5d5;
+  }
+
+  .label {
+    color: #dfd5d5;
   }
 }
 
-@media screen and (max-width: 650px) {
-  .msform {
-    width: 390px;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .msform {
-    width: 290px;
-  }
-}
 
 @media screen and (max-width: 300px) {
   .msform {
