@@ -134,7 +134,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                             <option value='Скара'>Скара</option>
                             <option value='Пици'>Пици</option>
                             <option value='Ядки'>Ядки</option>
-                            <option value='Други'>Други</option>
+                            <option value='Друго'>Друго</option>
                         </select>}
 
 
