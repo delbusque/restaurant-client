@@ -68,7 +68,7 @@
 }
 
 .modal-buttons__cancel:hover {
-    box-shadow: 0 0 0 2px white, 0 0 0 3px crimson;
+    box-shadow: 0 0 0 2px white, 0 0 0 3px rgb(47, 27, 31);
 }
 
 .modal-buttons__proceed {
@@ -78,4 +78,32 @@
 
 .modal-buttons__proceed:hover {
     box-shadow: 0 0 0 2px white, 0 0 0 3px #27AE60;
+}
+
+@media screen and (max-width: 500px) {
+
+    .modal-background {
+        display: flex;
+        height: 200%;
+        left: 8px;
+        right: 8px;
+    }
+
+    .modal-container {
+        width: 100%;
+        position: fixed;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .modal-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .modal-buttons__cancel {
+        margin-right: 0px;
+    }
 }
