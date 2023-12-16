@@ -213,6 +213,12 @@
   .label {
     color: #dfd5d5;
   }
+
+  .msform .action-button {
+    margin-top: 55px;
+    margin-bottom: 55px;
+  }
+
 }
 
 
