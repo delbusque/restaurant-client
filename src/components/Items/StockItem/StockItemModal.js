@@ -11,7 +11,7 @@ const StockItemModal = ({ item, setOpenModal, deleteHandler }) => {
                         Наистина ли искате да изтриете {item.name} ?
                     </h1>
                     <p className={styles['modal-text']}>
-                        Продължете с изтриването чрез Потвърждавам или направете Отказ !
+                        Натиснете ПОТВЪРЖДАВАМ или направете Отказ !
                     </p>
                 </div>
                 <div className={styles['modal-buttons']}>
