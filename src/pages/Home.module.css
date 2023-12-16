@@ -19,7 +19,7 @@
 }
 
 .image span {
-  font-family: "Dancing Script", cursive;
+  font-family: 'Cormorant', serif;
   font-size: 58px;
 }
 
@@ -43,7 +43,7 @@
   }
 
   .image span {
-    font-family: "Dancing Script", cursive;
+    font-family: 'Cormorant', serif;
     font-size: 44px;
     animation: moveInRight 1s ease-out;
   }
@@ -59,21 +59,10 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 380px) {
   .title {
-    font-size: 24px;
+    font-size: 20px;
     padding-right: 30px;
-  }
-
-  .image span {
-    font-size: 38px;
-  }
-}
-
-@media screen and (max-width: 290px) {
-  .title {
-    font-size: 22px;
-    padding-right: 20px;
   }
 
   .image span {
@@ -81,23 +70,24 @@
   }
 }
 
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 290px) {
   .title {
-    font-size: 18px;
+    font-size: 20px;
+    padding-right: 20px;
   }
 
   .image span {
-    font-size: 22px;
+    font-size: 30px;
   }
 }
 
-@media screen and (max-width: 210px) {
+@media screen and (max-width: 270px) {
   .title {
-    font-size: 15px;
+    font-size: 18px;
     padding-right: 15px;
   }
 
   .image span {
-    font-size: 20px;
+    font-size: 24px;
   }
 }

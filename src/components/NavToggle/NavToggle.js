@@ -20,7 +20,7 @@ const NavToggle = ({ setToggle }) => {
 
     return (
         <header id='header' className={styles["header"]}>
-            <h1 className={styles["deli"]}><Link id='deli' className='links' to='/'>Deli</Link></h1>
+            <h1 className={styles["deli"]}><Link id='deli' className='links' to='/'>Вкусно</Link></h1>
 
             <FiMenu className={styles["btn-toggle"]}
                 onClick={toggleHandler} />
