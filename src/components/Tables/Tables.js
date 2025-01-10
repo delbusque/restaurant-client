@@ -10,6 +10,10 @@ import { baseUrl } from '../../config.js';
 
 const Tables = ({ tables, setTables }) => {
 
+    useEffect(() => {
+        setTables(JSON.parse(window.localStorage.getItem('tables')))
+    }, [])
+
     const { user } = useAuthContext();
 
     const createTable = (type) => axios.post(`${baseUrl}/tables/create`, { type })

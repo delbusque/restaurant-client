@@ -14,6 +14,7 @@ import ItemLine from './ItemLine.js';
 import TypeButton from '../Buttons/TypeButton.js';
 
 import familiesAndTypes from '../../services/familiesAndTypes.js';
+import { upload } from '@testing-library/user-event/dist/upload.js';
 
 const TableView = ({ tables, setTables }) => {
 
@@ -71,11 +72,19 @@ const TableView = ({ tables, setTables }) => {
                     if (table.orders.length > 0) { table.ownerId = user.id }
                     setTables(oldState => [...oldState], table);
 
+                    // Post request to edit table
+                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+
+
                 } else {
                     table.orders.find((order, i) => {
                         if (order._id === alreadyItem._id) {
                             table.orders[i].count++;
                             setTables(oldState => [...oldState], table);
+
+                            // Post request to edit table
+                            axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+
                         }
                     })
                 }
@@ -115,6 +124,7 @@ const TableView = ({ tables, setTables }) => {
 
     useEffect(() => {
         const owner = data?.find(user => user._id === table?.ownerId)
+
         setTableOwner(owner)
     }, [data, table.ownerId])
 

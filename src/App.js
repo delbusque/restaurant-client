@@ -29,7 +29,7 @@ function App() {
 
   const { user } = useAuthContext();
 
-  const [tables, setTables] = useState(JSON.parse(window.localStorage.getItem('tables')));
+  const [tables, setTables] = useState(null);
   const [items, setItems] = useState(JSON.parse(window.localStorage.getItem('items')));
 
   const [toggle, setToggle] = useState(false)
@@ -37,17 +37,17 @@ function App() {
 
   useEffect(() => {
 
-    if (tables && items) {
-      window.localStorage.setItem('tables', JSON.stringify(tables))
+    if (items) {
       window.localStorage.setItem('items', JSON.stringify(items))
     } else {
-      apiService.fetchTables().then(data => {
-        setTables(data)
-      })
       apiService.fetchItems().then(data => {
         setItems(data)
       })
     }
+
+    apiService.fetchTables().then(data => {
+      window.localStorage.setItem('tables', JSON.stringify(data))
+    })
 
   }, [tables, items])
 
