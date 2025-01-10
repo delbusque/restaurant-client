@@ -2,6 +2,8 @@ import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
+import axios from 'axios';
+import { baseUrl } from '../../config.js';
 
 const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableOwner }) => {
 
@@ -18,14 +20,16 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
     const payHandler = () => {
         table.paid = true;
         setTables(oldState => [...oldState], table);
+        axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
     }
 
     const clearHandler = () => {
         table.orders = [];
         table.paid = false;
         table.opened = false;
-        table.ownerId = undefined
+        table.ownerId = ''
         setTables(oldState => [...oldState], table);
+        axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
     }
 
     const tabHandler = () => {
