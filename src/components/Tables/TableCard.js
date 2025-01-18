@@ -20,6 +20,8 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
     const payHandler = () => {
         table.paid = true;
         setTables(oldState => [...oldState], table);
+        window.localStorage.setItem('currTable', JSON.stringify(table))
+
         axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
     }
 
@@ -29,6 +31,8 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
         table.opened = false;
         table.ownerId = ''
         setTables(oldState => [...oldState], table);
+        window.localStorage.setItem('currTable', JSON.stringify(table))
+
         axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
     }
 

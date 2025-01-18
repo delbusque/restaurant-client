@@ -29,7 +29,7 @@ function App() {
 
   const { user } = useAuthContext();
 
-  const [tables, setTables] = useState(null);
+  const [tables, setTables] = useState(JSON.parse(window.localStorage.getItem('tables')));
   const [items, setItems] = useState(JSON.parse(window.localStorage.getItem('items')));
 
   const [toggle, setToggle] = useState(false)

@@ -14,7 +14,6 @@ import ItemLine from './ItemLine.js';
 import TypeButton from '../Buttons/TypeButton.js';
 
 import familiesAndTypes from '../../services/familiesAndTypes.js';
-import { upload } from '@testing-library/user-event/dist/upload.js';
 
 const TableView = ({ tables, setTables }) => {
 
@@ -31,11 +30,7 @@ const TableView = ({ tables, setTables }) => {
 
     const [tableOwner, setTableOwner] = useState('')
 
-    let table;
-
-    if (tables) {
-        table = tables.find(t => t.number === number);
-    }
+    let table = JSON.parse(window.localStorage.getItem('currTable'))
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
     drinkTypes.sort((a, b) => a.localeCompare(b));
@@ -48,7 +43,15 @@ const TableView = ({ tables, setTables }) => {
         refetchOnWindowFocus: false,
     })
 
+    useEffect(() => {
+        let currTable = JSON.parse(window.localStorage.getItem('currTable'))
+        const owner = data?.find(user => user._id === currTable?.ownerId)
+        setTableOwner(owner)
+    }, [data, table.ownerId])
+
+
     const addItemHandler = (item) => {
+
         if (table.ownerId === user.id || table.ownerId === '') {
 
             table.opened = true;
@@ -67,11 +70,12 @@ const TableView = ({ tables, setTables }) => {
                         count: 1,
                         sent: 0
                     }
+
                     table.orders.unshift(alreadyItem);
 
                     if (table.orders.length > 0) { table.ownerId = user.id }
                     setTables(oldState => [...oldState], table);
-
+                    window.localStorage.setItem('currTable', JSON.stringify(table))
                     // Post request to edit table
                     axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
 
@@ -81,6 +85,7 @@ const TableView = ({ tables, setTables }) => {
                         if (order._id === alreadyItem._id) {
                             table.orders[i].count++;
                             setTables(oldState => [...oldState], table);
+                            window.localStorage.setItem('currTable', JSON.stringify(table))
 
                             // Post request to edit table
                             axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
@@ -111,7 +116,7 @@ const TableView = ({ tables, setTables }) => {
                     table.opened = false
                 }
                 setTables(oldState => [...oldState], table);
-                console.log(table);
+                window.localStorage.setItem('currTable', JSON.stringify(table))
                 axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
             }
 
@@ -119,24 +124,18 @@ const TableView = ({ tables, setTables }) => {
                 if (order._id === alreadyItem._id) {
                     table.orders[i].count--;
                     setTables(oldState => [...oldState], table);
-                    console.log(table);
+                    window.localStorage.setItem('currTable', JSON.stringify(table))
                     axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
                 }
             })
         }
     }
 
-    useEffect(() => {
-        const owner = data?.find(user => user._id === table?.ownerId)
-        setTableOwner(owner)
-    }, [data, table.ownerId])
-
     return (
         < div className='table-card' >
             {
                 table ?
                     <>
-
                         <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} />
 
                         <section className='family-sect'>
