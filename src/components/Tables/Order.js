@@ -20,14 +20,14 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                     table.orders[i].sent += o.count;
                     setTables(oldState => [...oldState], table);
                     window.localStorage.setItem('currTable', JSON.stringify(table))
-
+                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
                     return addOrders()
                 }
                 else {
                     table.orders[i].sent += (order.count - order.sent);
                     setTables(oldState => [...oldState], table);
                     window.localStorage.setItem('currTable', JSON.stringify(table))
-
+                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
                     return addOrders()
                 }
             } else {
