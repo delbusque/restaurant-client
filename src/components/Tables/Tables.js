@@ -1,10 +1,9 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useAuthContext } from "../../hooks/useAuthContext";
 import TableError from './TableError';
 
-import { useQuery } from 'react-query';
 import axios from 'axios';
 import { baseUrl } from '../../config.js';
 
@@ -54,7 +53,7 @@ const Tables = ({ tables, setTables }) => {
                             </Link>
                         ))}
                         {
-                            user.role === 1984 && <div className="table-btn add" onClick={() => createHandler('table')}><p className="table-btn-text">+</p></div>
+                            (user.role === 1984 || user.role === 400) && <div className="table-btn add" onClick={() => createHandler('table')}><p className="table-btn-text">+</p></div>
                         }
                     </div>
 
@@ -79,7 +78,7 @@ const Tables = ({ tables, setTables }) => {
                             </Link>
                         ))}
                         {
-                            user.role === 1984 && <div className="table-btn add" onClick={() => createHandler('away')}><p className="table-btn-text">+</p></div>
+                            (user.role === 1984 || user.role === 400) && <div className="table-btn add" onClick={() => createHandler('away')}><p className="table-btn-text">+</p></div>
                         }
                     </div>
                 </section >
