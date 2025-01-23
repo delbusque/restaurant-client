@@ -14,6 +14,7 @@ import ItemLine from './ItemLine.js';
 import TypeButton from '../Buttons/TypeButton.js';
 
 import familiesAndTypes from '../../services/familiesAndTypes.js';
+import * as apiService from '../../services/apiService.js'
 
 const TableView = ({ tables, setTables }) => {
 
@@ -44,6 +45,10 @@ const TableView = ({ tables, setTables }) => {
     })
 
     useEffect(() => {
+        apiService.fetchTables().then(data => {
+            let [{ ...currTableOnRefresh }] = data.filter(t => t.number == number)
+            window.localStorage.setItem('currTable', JSON.stringify(currTableOnRefresh))
+        })
         let currTable = JSON.parse(window.localStorage.getItem('currTable'))
         const owner = data?.find(user => user._id === currTable?.ownerId)
         setTableOwner(owner)
