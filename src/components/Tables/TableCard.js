@@ -42,7 +42,7 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
     }
 
     useEffect(() => {
-        window.localStorage.setItem('currTable', JSON.stringify(table))
+        table = JSON.parse(window.localStorage.getItem('currTable'))
     }, [])
 
     return (
