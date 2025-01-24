@@ -36,7 +36,6 @@ function App() {
 
 
   useEffect(() => {
-
     if (items) {
       window.localStorage.setItem('items', JSON.stringify(items))
     } else {

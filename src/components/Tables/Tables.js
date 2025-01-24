@@ -6,11 +6,17 @@ import TableError from './TableError';
 
 import axios from 'axios';
 import { baseUrl } from '../../config.js';
+import * as apiService from './../../services/apiService.js'
 
 const Tables = ({ tables, setTables }) => {
 
     useEffect(() => {
-        setTables(JSON.parse(window.localStorage.getItem('tables')))
+        apiService.fetchTables().then(data => {
+            window.localStorage.setItem('tables', JSON.stringify(data))
+            setTables(JSON.parse(window.localStorage.getItem('tables')))
+        })
+
+        // setTables(JSON.parse(window.localStorage.getItem('tables')))
     }, [])
 
     const { user } = useAuthContext();
