@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
@@ -40,10 +39,6 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
     const tabHandler = () => {
         navigate('/tables')
     }
-
-    useEffect(() => {
-        table = JSON.parse(window.localStorage.getItem('currTable'))
-    }, [])
 
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
