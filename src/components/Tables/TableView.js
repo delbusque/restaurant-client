@@ -48,10 +48,12 @@ const TableView = ({ tables, setTables }) => {
         apiService.fetchTables().then(data => {
             let [{ ...currTableOnRefresh }] = data.filter(t => t.number == number)
             window.localStorage.setItem('currTable', JSON.stringify(currTableOnRefresh))
+        }).then(() => {
+            let currTable = JSON.parse(window.localStorage.getItem('currTable'))
+            const owner = data?.find(user => user._id === currTable?.ownerId)
+            setTableOwner(owner)
         })
-        let currTable = JSON.parse(window.localStorage.getItem('currTable'))
-        const owner = data?.find(user => user._id === currTable?.ownerId)
-        setTableOwner(owner)
+
     }, [data, table.ownerId])
 
 
@@ -94,7 +96,6 @@ const TableView = ({ tables, setTables }) => {
 
                             // Post request to edit table
                             axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
-
                         }
                     })
                 }
