@@ -15,7 +15,6 @@ const Tables = ({ tables, setTables }) => {
             window.localStorage.setItem('tables', JSON.stringify(data))
             setTables(JSON.parse(window.localStorage.getItem('tables')))
         })
-
         // setTables(JSON.parse(window.localStorage.getItem('tables')))
     }, [])
 
