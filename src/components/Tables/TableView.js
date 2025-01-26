@@ -18,20 +18,12 @@ import * as apiService from '../../services/apiService.js'
 
 const TableView = ({ tables, setTables }) => {
 
-    const [drinkIsActive, setDrinkIsActive] = useState(true);
-    const [foodIsActive, setFoodIsActive] = useState(false);
-    const [typeIsActive, setTypeIsActive] = useState(false);
+    const { user } = useAuthContext()
 
-    const [byType, setByType] = useState('');
+    let table = JSON.parse(window.localStorage.getItem('currTable'))
 
     const { items } = useContext(ItemsContext);
     const { number } = useParams();
-
-    const { user } = useAuthContext()
-
-    const [tableOwner, setTableOwner] = useState('')
-
-    let table = JSON.parse(window.localStorage.getItem('currTable'))
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
     drinkTypes.sort((a, b) => a.localeCompare(b));
@@ -44,15 +36,24 @@ const TableView = ({ tables, setTables }) => {
         refetchOnWindowFocus: false,
     })
 
+    const [tableOwner, setTableOwner] = useState(data?.find(user => user._id === table.ownerId))
+
+    const [drinkIsActive, setDrinkIsActive] = useState(true);
+    const [foodIsActive, setFoodIsActive] = useState(false);
+    const [typeIsActive, setTypeIsActive] = useState(false);
+
+    const [byType, setByType] = useState('');
+
     useEffect(() => {
         apiService.fetchTables().then(data => {
             let [{ ...currTableOnRefresh }] = data.filter(t => t.number == number)
             window.localStorage.setItem('currTable', JSON.stringify(currTableOnRefresh))
-        }).then(() => {
-            let currTable = JSON.parse(window.localStorage.getItem('currTable'))
-            const owner = data?.find(user => user._id === currTable?.ownerId)
-            setTableOwner(owner)
         })
+            .then(() => {
+                let currTable = JSON.parse(window.localStorage.getItem('currTable'))
+                const owner = data?.find(user => user._id === currTable?.ownerId)
+                setTableOwner(owner)
+            })
 
     }, [data, table.ownerId])
 
