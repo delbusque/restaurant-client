@@ -14,7 +14,7 @@ const Navigation = () => {
 
     return (
         <header id='header' className="header">
-            <h1 className="deli"><Link id='deli' className='links' to='/'>Deli</Link></h1>
+            <h1 className="deli"><Link id='deli' className='links' to='/tables'>Deli</Link></h1>
 
             <div className="nav__auth">
                 <Link id='tables' className='links' to='/tables'>

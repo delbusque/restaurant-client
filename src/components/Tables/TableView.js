@@ -60,9 +60,9 @@ const TableView = ({ tables, setTables }) => {
 
     const addItemHandler = (item) => {
 
-        if (table.ownerId === user.id || table.ownerId === '') {
+        if (table.ownerId === user.id) {
 
-            table.opened = true;
+            // table.opened = true;
 
             if (!table.paid) {
 
@@ -117,11 +117,11 @@ const TableView = ({ tables, setTables }) => {
 
             if (alreadyItem.count === 1) {
                 table.orders.splice(index, 1);
-                if (table.orders.length === 0) {
-                    table.ownerId = ''
-                    setTableOwner('')
-                    table.opened = false
-                }
+                // if (table.orders.length === 0) {
+                //     table.ownerId = ''
+                //     setTableOwner('')
+                //     table.opened = false
+                // }
                 setTables(oldState => [...oldState], table);
                 window.localStorage.setItem('currTable', JSON.stringify(table))
                 axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
@@ -143,7 +143,7 @@ const TableView = ({ tables, setTables }) => {
             {
                 table ?
                     <>
-                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} />
+                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} number={number} />
 
                         <section className='family-sect'>
                             {families.length > 0 && user.role !== 5051 &&
