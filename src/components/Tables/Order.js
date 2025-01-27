@@ -41,7 +41,8 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
             {window.innerWidth > 900
                 ? < div className={styles['tb-orders']} >
                     <div className={styles['ord-name']}>{order.name}</div>
-                    {(user?.role !== 5051 && user.id === tableOwner?._id) && <button className={styles['button-53']} onClick={() => deleteItemHandler(order)}>-</button>}
+                    {(user?.role !== 5051 && user.id === tableOwner?._id) &&
+                        <button className={styles['button-53']} onClick={() => deleteItemHandler(order)}>-</button>}
 
                     {(user?.role !== 5051 && user.id === tableOwner?._id) && <button className={styles['button-53-green']} onClick={() => addItemHandler(order)}>+</button>}
                     <div className={styles['ord-count']}>
@@ -56,7 +57,8 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                 : <>
                     <div className={styles['ord-name']}>{order.name}</div>
                     < div className={styles['tb-orders']} >
-                        {(user?.role !== 5051 && user.id === tableOwner?._id) && <button className={styles['button-53']} onClick={() => deleteItemHandler(order)}>-</button>}
+                        {(user?.role !== 5051 && user.id === tableOwner?._id) &&
+                            <button className={table.type == 'table' ? styles['button-53'] : styles['button-54']} onClick={() => deleteItemHandler(order)}>-</button>}
                         {(user?.role !== 5051 && user.id === tableOwner?._id) && <button className={styles['button-53-green']} onClick={() => addItemHandler(order)}>+</button>}
                         <div className={styles['ord-count']}>
                             <span className={styles['ord-counter']}>{order.count} </span> x {order.price.toFixed(2)}
