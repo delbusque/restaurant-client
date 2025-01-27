@@ -43,7 +43,9 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
-                <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div>
+                <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
+                {/* <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div> */}
+
                 {table.ownerId && <div className='tb-title firstName'>{tableOwner?.firstName || tableOwner?.email}</div>}
                 {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 <div className='tb-num'>{table.number}</div>
@@ -52,15 +54,16 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
             <div className='ord-footer'>
                 <div className='tb-foot'>СМЕТКА</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
-                {(user.role !== 5051 && user.id === tableOwner?._id) &&
-                    <div className="btn-cont">
-                        <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
-                        {!table.paid
-                            ? <button className={table.orders.length > 0 ? 'btn-paid' : 'btn-dis'} onClick={payHandler}>ПЛАТИ</button>
-                            : <button className='btn-clear' onClick={clearHandler}>ИЗЧИСТИ</button>
-                        }
-                    </div>
+
+                {table.opened && <div className="btn-cont">
+                    {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
+                        ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
+                        : <button className='btn-clear' onClick={clearHandler}>ИЗЧИСТИ</button>
+                    }
+                </div>
                 }
+
+
 
             </div>
 
