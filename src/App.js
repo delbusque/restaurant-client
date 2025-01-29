@@ -34,21 +34,17 @@ function App() {
 
   const [toggle, setToggle] = useState(false)
 
-
   useEffect(() => {
-    if (items) {
-      window.localStorage.setItem('items', JSON.stringify(items))
-    } else {
-      apiService.fetchItems().then(data => {
-        setItems(data)
-      })
-    }
-
     apiService.fetchTables().then(data => {
       window.localStorage.setItem('tables', JSON.stringify(data))
     })
+  }, [tables])
 
-  }, [tables, items])
+  useEffect(() => {
+    apiService.fetchItems().then(data => {
+      window.localStorage.setItem('items', JSON.stringify(data))
+    })
+  }, [items])
 
 
   return (

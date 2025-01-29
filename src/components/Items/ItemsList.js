@@ -50,7 +50,7 @@ const ItemsList = () => {
     }
 
     useEffect(() => {
-        items.sort((a, b) => a.name.localeCompare(b.name));
+        items?.sort((a, b) => a.name.localeCompare(b.name));
     }, [])
 
     return (
