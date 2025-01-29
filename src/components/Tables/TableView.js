@@ -14,13 +14,13 @@ import ItemLine from './ItemLine.js';
 import TypeButton from '../Buttons/TypeButton.js';
 
 import familiesAndTypes from '../../services/familiesAndTypes.js';
-import * as apiService from '../../services/apiService.js'
 
 const TableView = ({ tables, setTables }) => {
 
     const { user } = useAuthContext()
 
-    let table = JSON.parse(window.localStorage.getItem('currTable'))
+    // let table = JSON.parse(window.localStorage.getItem('currTable'))
+    const [table, setTable] = useState(JSON.parse(window.localStorage.getItem('currTable')))
 
     const { items } = useContext(ItemsContext);
     const { number } = useParams();
@@ -45,15 +45,8 @@ const TableView = ({ tables, setTables }) => {
     const [byType, setByType] = useState('');
 
     useEffect(() => {
-        apiService.fetchTables().then(data => {
-            let [{ ...currTableOnRefresh }] = data.filter(t => t.number == number)
-            window.localStorage.setItem('currTable', JSON.stringify(currTableOnRefresh))
-        })
-            .then(() => {
-                let currTable = JSON.parse(window.localStorage.getItem('currTable'))
-                const owner = data?.find(user => user._id === currTable?.ownerId)
-                setTableOwner(owner)
-            })
+        const owner = data?.find(user => user._id === table?.ownerId)
+        setTableOwner(owner)
 
     }, [data, table.ownerId])
 
@@ -143,7 +136,7 @@ const TableView = ({ tables, setTables }) => {
             {
                 table ?
                     <>
-                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} number={number} />
+                        <TableCard table={table} setTable={setTable} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} number={number} />
 
                         <section className='family-sect'>
                             {families.length > 0 && user.role !== 5051 &&

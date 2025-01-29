@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom'
+import { useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
@@ -6,9 +7,10 @@ import axios from 'axios';
 import { baseUrl } from '../../config.js';
 import * as apiService from './../../services/apiService.js'
 
-const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableOwner, number }) => {
-
+const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteItemHandler, tableOwner, number }) => {
     const { user } = useAuthContext();
+
+    const [flag, setFlag] = useState(false)
 
     const navigate = useNavigate();
 
@@ -37,34 +39,42 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
         axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
     }
 
-    const tabHandler = () => {
-        navigate('/tables')
-    }
-
     const openHandler = () => {
         if (user.role !== 5051) {
+
             apiService.fetchTables().then(data => {
-                let [{ ...currTable }] = data.filter(t => t.number == number)
-                window.localStorage.setItem('currTable', JSON.stringify(currTable))
-                return currTable
-            }).then(currTable => {
+                window.localStorage.setItem('tables', JSON.stringify(data))
+                let [currTable] = data.filter(t => t.number == number)
+                setTable(currTable)
+
                 if (!currTable.opened) {
                     table.opened = true;
                     table.ownerId = user.id;
+
+                    setTable(table)
+                    console.log(table);
+
                     setTables(oldState => [...oldState], table);
+
+                    window.localStorage.setItem('tables', JSON.stringify(tables))
                     window.localStorage.setItem('currTable', JSON.stringify(table))
 
-                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table }).then(() => setFlag(old => !old))
                 }
-            });
+            })
         }
     }
 
+    useEffect(() => {
+        window.localStorage.setItem('tables', JSON.stringify(tables))
+    }, [tables, flag])
 
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
             <div className="tb-head">
-                <button className='btn-tables' onClick={tabHandler}>МАСИ</button>
+                <Link to={'/tables'}>
+                    <button className='btn-tables'>МАСИ</button>
+                </Link>
                 {/* <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div> */}
 
                 {table.ownerId && <div className='tb-title firstName'>{tableOwner?.firstName || tableOwner?.email}</div>}
@@ -97,9 +107,6 @@ const TableCard = ({ table, setTables, addItemHandler, deleteItemHandler, tableO
                     }
                 </div>
                 }
-
-
-
             </div>
 
             {

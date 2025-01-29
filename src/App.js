@@ -46,6 +46,7 @@ function App() {
     })
   }, [items])
 
+  console.log(tables);
 
   return (
     <QueryClientProvider client={queryClient}>
