@@ -10,14 +10,6 @@ import * as apiService from './../../services/apiService.js'
 
 const Tables = ({ tables, setTables }) => {
 
-    useEffect(() => {
-        apiService.fetchTables().then(data => {
-            window.localStorage.setItem('tables', JSON.stringify(data))
-            setTables(JSON.parse(window.localStorage.getItem('tables')))
-        })
-        // setTables(JSON.parse(window.localStorage.getItem('tables')))
-    }, [])
-
     const { user } = useAuthContext();
 
     const createTable = (type) => axios.post(`${baseUrl}/tables/create`, { type })
@@ -30,6 +22,17 @@ const Tables = ({ tables, setTables }) => {
     const clickHandler = (table) => {
         window.localStorage.setItem('currTable', JSON.stringify(table))
     }
+
+    useEffect(() => {
+        apiService.fetchTables().then(data => {
+            window.localStorage.setItem('tables', JSON.stringify(data))
+            return data
+        }).then((data) => {
+            setTables(data)
+            console.log(JSON.parse(window.localStorage.getItem('tables')));
+        })
+
+    }, [])
 
     return (
         <>
