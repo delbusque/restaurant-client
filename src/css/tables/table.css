@@ -107,7 +107,7 @@
   display: inline-block;
   font-size: larger;
   margin: 5px 5px;
-  margin-left: 25px;
+  margin-left: 13px;
   margin-bottom: 5px;
   padding: 5px;
 }
@@ -118,7 +118,8 @@
 
 .btn-cont {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  margin: auto 15px;
 }
 
 .btn-dis {
@@ -142,7 +143,7 @@
 /* setting new button styles */
 
 .btn-paid {
-  margin: 10px 20px;
+  margin: 10px 0px;
   padding: 5px 10px;
   background-color: rgba(220, 20, 60, 0.727);
   color: antiquewhite;
@@ -156,7 +157,7 @@
 }
 
 .btn-paid-ta {
-  margin: 10px 20px;
+  margin: 10px 0px;
   padding: 5px 10px;
   background-color: #ff8c00b7;
   color: antiquewhite;
@@ -257,7 +258,6 @@
   margin: 10px 0px;
   padding: 5px 10px;
   position: relative;
-  right: 220px;
   background-color: #845ec2e6;
   color: antiquewhite;
   border: 0 solid #e5e7eb;
@@ -272,7 +272,6 @@
   margin: 10px 0px;
   padding: 5px 10px;
   position: relative;
-  right: 220px;
   background-color: #ff8c00b7;
   color: antiquewhite;
   border: 0 solid #e5e7eb;
@@ -285,11 +284,14 @@
 
 .tb-money {
   margin: 10px 0px;
+  width: 80px;
+  text-align: center;
+  font-size: 18px;
   position: relative;
-  right: 220px;
   background-color: #faebd7;
   color: #7f848b;
-  border: 2px solid #7f848b;
+
+  border: 0px solid #7f848b;
   font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -306,29 +308,36 @@
     inset 0px 4px 8px rgba(0, 0, 0, 0.15),
     inset 0px 8px 16px rgba(0, 0, 0, 0.15);
   color: #faebd7;
-  background-color: #677381;
+  /* background-color: #6773815c; */
+
 }
 
 .tb-money:focus {
   color: #faebd7;
-  background-color: #677381;
-
+  /* background-color: #677381; */
+  background-color: #8b9581;
 }
 
 .tb-change {
   margin: 10px 0px;
-  position: relative;
-  right: 220px;
-  background-color: #7f848b;
-  color: antiquewhite;
-  border: 0 solid #e5e7eb;
+  width: 80px;
+  text-align: center;
+  font-size: 18px;
+  align-content: center;
+  background-color: #faebd7;
+  color: #7f848b;
+  border: 0px solid #7f848b;
   font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   cursor: pointer;
   border-radius: 2px;
-
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 0px rgba(0, 0, 0, 0.15);
+  position: relative;
+  right: 10%;
 }
 
 .btn-clear:focus,
@@ -372,6 +381,10 @@
 }
 
 @media screen and (max-width: 1200px) {
+  .tb-change {
+    right: 20%;
+  }
+
   .table-card {
     display: flex;
     flex-direction: column;
@@ -434,7 +447,13 @@
   color: #797280;
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 700px) {
+  .tb-change {
+    right: 15%;
+  }
+}
+
+@media screen and (max-width: 500px) {
 
   .btn-paid,
   .btn-paid-ta,
@@ -447,33 +466,39 @@
     padding: 5px 11px 6px 13px;
   }
 
+  /* 
   .btn-clear,
   .btn-clear-ta {
     right: 15px;
-  }
+  } */
 
   .tb-money {
-    margin-right: 40px;
-    width: 85px;
-    right: 36px;
+    /* margin-right: 40px; */
+    width: 75px;
+    /* right: 36px; */
     text-align: center;
     font-size: 18px;
   }
 
   .tb-change {
-    margin-right: 20px;
-    width: 70px;
-    right: 40px;
-    text-align: center;
-    align-content: center;
-    font-size: 18px;
+    width: 60px;
+    right: 5%;
   }
 }
 
-@media screen and (max-width: 310px) {
-  .btn-cont {
-    flex-direction: column;
+@media screen and (max-width: 330px) {
+
+  .tb-money {
+    /* margin-right: 40px; */
+    width: 55px;
+    /* right: 36px; */
+    text-align: center;
+    font-size: 18px;
   }
+
+  /* .btn-cont {
+    flex-direction: column;
+  } */
 
   .btn-clear,
   .btn-clear-ta,
@@ -486,9 +511,17 @@
   .btn-paid-ta,
   .btn-tables,
   .btn-clear,
-  .btn-clear-ta,
-  .tb-money {
+  .btn-clear-ta {
     margin: 5px 10px 10px 10px;
+  }
+
+  .tb-money,
+  .tb-change {
+    margin: 5px 20px 10px 0px;
+  }
+
+  .tb-change {
+    margin-left: 2px;
   }
 
   .btn-green {
