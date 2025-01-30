@@ -100,6 +100,7 @@
   position: absolute;
   right: 1px;
   font-family: "Lato", sans-serif;
+  font-size: 20px;
 }
 
 .tb-foot {
@@ -282,6 +283,54 @@
   cursor: pointer;
 }
 
+.tb-money {
+  margin: 10px 0px;
+  position: relative;
+  right: 220px;
+  background-color: #faebd7;
+  color: #7f848b;
+  border: 2px solid #7f848b;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+.tb-money:active {
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0px 8px 16px rgba(0, 0, 0, 0.15);
+  color: #faebd7;
+  background-color: #677381;
+}
+
+.tb-money:focus {
+  color: #faebd7;
+  background-color: #677381;
+
+}
+
+.tb-change {
+  margin: 10px 0px;
+  position: relative;
+  right: 220px;
+  background-color: #7f848b;
+  color: antiquewhite;
+  border: 0 solid #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 2px;
+
+}
+
 .btn-clear:focus,
 .btn-clear-ta:focus {
   outline: 0;
@@ -350,7 +399,7 @@
   }
 
   .tb-total {
-    font-size: 18px;
+    font-size: 20px;
   }
 
   .tb-total-lv {
@@ -389,15 +438,35 @@
 
   .btn-paid,
   .btn-paid-ta,
-  .btn-tables,
-  .btn-clear,
-  .btn-clear-ta {
+  .btn-tables {
     padding: 4px 11px 6px 13px;
   }
 
   .btn-clear,
   .btn-clear-ta {
-    right: 120px;
+    padding: 5px 11px 6px 13px;
+  }
+
+  .btn-clear,
+  .btn-clear-ta {
+    right: 15px;
+  }
+
+  .tb-money {
+    margin-right: 40px;
+    width: 85px;
+    right: 36px;
+    text-align: center;
+    font-size: 18px;
+  }
+
+  .tb-change {
+    margin-right: 20px;
+    width: 70px;
+    right: 40px;
+    text-align: center;
+    align-content: center;
+    font-size: 18px;
   }
 }
 
@@ -407,7 +476,8 @@
   }
 
   .btn-clear,
-  .btn-clear-ta {
+  .btn-clear-ta,
+  .tb-money {
     right: auto;
     margin-top: 5px;
   }
@@ -416,7 +486,8 @@
   .btn-paid-ta,
   .btn-tables,
   .btn-clear,
-  .btn-clear-ta {
+  .btn-clear-ta,
+  .tb-money {
     margin: 5px 10px 10px 10px;
   }
 

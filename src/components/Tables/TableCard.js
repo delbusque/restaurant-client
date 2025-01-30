@@ -94,12 +94,22 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                     }
                 </div>
                 } */}
-                {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) && <div className="btn-cont">
-                    {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
-                        ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
-                        : <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
-                    }
-                </div>
+
+                {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) &&
+                    <div className="btn-cont">
+                        {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
+                            ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
+                            : <>
+                                <input className='tb-money' />
+
+                                <div className='tb-change'>{totalSum.toFixed(2)}</div>
+
+                                <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
+
+
+                            </>
+                        }
+                    </div>
                 }
                 {(table.opened && table.orders.length < 1) && <div className="btn-cont">
                     {(user.role !== 5051 && user.id === tableOwner?._id) && table.opened
