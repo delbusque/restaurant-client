@@ -16,6 +16,9 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
 
     let totalSum = 0;
 
+    const [givenSum, setGivenSum] = useState('')
+    const [changeSum, setChangeSum] = useState(0)
+
     if (table) {
         table.orders.map(o => totalSum += (o.price * o.count))
     }
@@ -37,6 +40,7 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
         window.localStorage.setItem('currTable', JSON.stringify(table))
 
         axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+        setChangeSum(0)
     }
 
     const openHandler = () => {
@@ -63,6 +67,10 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 }
             })
         }
+    }
+
+    const changeHandler = () => {
+        givenSum && setChangeSum(givenSum - totalSum);
     }
 
     useEffect(() => {
@@ -94,12 +102,25 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                     }
                 </div>
                 } */}
-                {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) && <div className="btn-cont">
-                    {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
-                        ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
-                        : <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
-                    }
-                </div>
+
+                {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) &&
+                    <div className="btn-cont">
+                        {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
+                            ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
+                            : <>
+                                <input className='tb-money' onChange={(e) => {
+                                    setGivenSum(e.target.value)
+                                }} />
+
+                                <div className='tb-change'
+                                    onClick={changeHandler}>{changeSum.toFixed(2)}</div>
+
+                                <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
+
+
+                            </>
+                        }
+                    </div>
                 }
                 {(table.opened && table.orders.length < 1) && <div className="btn-cont">
                     {(user.role !== 5051 && user.id === tableOwner?._id) && table.opened
