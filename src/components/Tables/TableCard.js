@@ -75,6 +75,8 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
 
     useEffect(() => {
         window.localStorage.setItem('tables', JSON.stringify(tables))
+        setChangeSum(0)
+        setGivenSum('')
     }, [tables, flag])
 
     return (
@@ -88,25 +90,20 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 {table.ownerId && <div className='tb-title firstName'>{tableOwner?.firstName || tableOwner?.email}</div>}
                 {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
-
             </div>
 
-            <div className='ord-footer'>
+            <div className='ord-footer' onClick={changeHandler}>
                 <div className='tb-foot'>СМЕТКА</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
-
-                {/* {table.opened && <div className="btn-cont">
-                    {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
-                        ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
-                        : <button className='btn-clear' onClick={clearHandler}>ИЗЧИСТИ</button>
-                    }
-                </div>
-                } */}
 
                 {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) &&
                     <div className="btn-cont">
                         {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
-                            ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
+                            ? <>
+                                <div className='tb-money-hidden'></div>
+                                <div className='tb-change-hidden'></div>
+                                <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
+                            </>
                             : <>
                                 <input className='tb-money'
                                     type='text' inputMode='numeric' pattern='[0-9]'
@@ -114,17 +111,15 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                                         setGivenSum(e.target.value)
                                     }} />
 
-                                <div className='tb-change'
-                                    onClick={changeHandler}>{changeSum.toFixed(2)}</div>
+                                {givenSum && <><div className='tb-change-cont'><div className='tb-change'>{changeSum.toFixed(2)}</div><div class="vertical-text">ресто</div></div></>
+                                }
 
                                 <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
-
-
                             </>
                         }
                     </div>
                 }
-                {(table.opened && table.orders.length < 1) && <div className="btn-cont">
+                {(table.opened && table.orders.length < 1) && <div className="btn-cont-0">
                     {(user.role !== 5051 && user.id === tableOwner?._id) && table.opened
                         && <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
                     }
