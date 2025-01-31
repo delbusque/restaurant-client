@@ -108,9 +108,11 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                         {(user.role !== 5051 && user.id === tableOwner?._id) && !table.paid
                             ? <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
                             : <>
-                                <input className='tb-money' onChange={(e) => {
-                                    setGivenSum(e.target.value)
-                                }} />
+                                <input className='tb-money'
+                                    type='text' inputMode='numeric' pattern='[0-9]'
+                                    onChange={(e) => {
+                                        setGivenSum(e.target.value)
+                                    }} />
 
                                 <div className='tb-change'
                                     onClick={changeHandler}>{changeSum.toFixed(2)}</div>
