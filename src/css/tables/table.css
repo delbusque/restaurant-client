@@ -87,7 +87,7 @@
   position: absolute;
   right: 1px;
   font-weight: 700;
-  font-size: 26px;
+  font-size: 22px;
   box-shadow: inset 0px 5px 9px 0px rgba(0, 255, 255, 0.7);
 }
 
@@ -303,7 +303,7 @@
   /* background-color: #faebd7;
   color: #7f848b; */
   color: #faebd7;
-  background-color: #8b9581;
+  background-color: #8b9581b1;
 
   border: 0px solid #7f848b;
   font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
@@ -328,7 +328,7 @@
 
 .tb-money:focus {
   color: #faebd7;
-  background-color: #8b9581;
+  background-color: #8b9581d6;
   /* background-color: #677381; */
 
 }
