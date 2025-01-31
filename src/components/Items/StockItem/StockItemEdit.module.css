@@ -34,7 +34,7 @@
   width: 100%;
   box-sizing: border-box;
   color: hsl(210, 29%, 24%);
-  font-size: 14px;
+  font-size: 16px;
   font-family: "Lato", sans-serif;
 }
 
@@ -169,7 +169,7 @@
 }
 
 .label {
-  font-size: small;
+  font-size: medium;
   padding-left: 1px;
   line-height: 1.1;
   color: #666;

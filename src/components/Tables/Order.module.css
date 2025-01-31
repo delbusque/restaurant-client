@@ -137,7 +137,7 @@
 .ord-count {
   grid-area: count;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .ord-counter {
@@ -230,14 +230,14 @@
   }
 
   .ord-counter {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .ord-total {
     grid-area: total;
     margin-right: 0;
     text-align: right;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .ord-name {
@@ -249,7 +249,7 @@
   .button-53,
   .button-54,
   .button-53-green {
-    padding-bottom: 8px;
+    padding-bottom: 7px;
   }
 
   .button-53-blue {
