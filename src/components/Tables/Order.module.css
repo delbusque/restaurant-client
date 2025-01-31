@@ -237,7 +237,7 @@
     grid-area: total;
     margin-right: 0;
     text-align: right;
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .ord-name {
@@ -249,7 +249,7 @@
   .button-53,
   .button-54,
   .button-53-green {
-    padding-bottom: 7px;
+    padding-bottom: 8px;
   }
 
   .button-53-blue {
