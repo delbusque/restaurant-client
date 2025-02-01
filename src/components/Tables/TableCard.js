@@ -56,8 +56,6 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                     table.ownerId = user.id;
 
                     setTable(table)
-                    console.log(table);
-
                     setTables(oldState => [...oldState], table);
 
                     window.localStorage.setItem('tables', JSON.stringify(tables))
@@ -70,7 +68,9 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
     }
 
     const changeHandler = () => {
-        givenSum && setChangeSum(givenSum - totalSum);
+        if (givenSum[0] !== 0 && givenSum > totalSum) {
+            setChangeSum(givenSum - totalSum);
+        }
     }
 
     useEffect(() => {
@@ -92,8 +92,8 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
             </div>
 
-            <div className='ord-footer' onClick={changeHandler}>
-                <div className='tb-foot'>СМЕТКА</div>
+            <div className='ord-footer'>
+                <div className='tb-foot' onClick={changeHandler}>СМЕТКА</div>
                 <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
 
                 {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) &&
@@ -105,13 +105,14 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                                 <button className={table.type == 'table' ? (table.orders.length > 0 ? 'btn-paid' : 'btn-dis') : (table.orders.length > 0 ? 'btn-paid-ta' : 'btn-dis')} onClick={payHandler}>ПЛАТИ</button>
                             </>
                             : <>
-                                <input className='tb-money'
+                                <input className={givenSum == 0 ? 'tb-money' : 'tb-money-fill'}
                                     type='text' inputMode='numeric' pattern='[0-9]'
                                     onChange={(e) => {
+                                        !givenSum && setChangeSum(0)
                                         setGivenSum(e.target.value)
                                     }} />
 
-                                {givenSum && <><div className='tb-change-cont'><div className='tb-change'>{changeSum.toFixed(2)}</div><div class="vertical-text">ресто</div></div></>
+                                {(givenSum && (givenSum[0] != 0 && givenSum > totalSum)) && <><div className='tb-change-cont' onClick={changeHandler}><div className='tb-change'>{changeSum.toFixed(2)}</div><div className="vertical-text">ресто</div></div></>
                                 }
 
                                 <button className={table.type == 'table' ? 'btn-clear' : 'btn-clear-ta'} onClick={clearHandler}>ИЗЧИСТИ</button>
