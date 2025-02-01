@@ -160,7 +160,7 @@
   font-weight: 700;
   position: relative;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-paid-ta {
@@ -175,7 +175,7 @@
   font-weight: 700;
   position: relative;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-paid:focus,
@@ -232,7 +232,7 @@
   font-weight: 700;
   position: relative;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-tables:focus {
@@ -275,7 +275,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .btn-clear-ta {
@@ -290,7 +290,7 @@
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 700;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 18px;
 }
 
 .tb-money {
@@ -302,8 +302,8 @@
   position: relative;
   /* background-color: #faebd7;
   color: #7f848b; */
-  color: #faebd7;
-  background-color: #8b9581b1;
+  color: #696e75;
+  background-color: #faebd7;
 
   border: 0px solid #7f848b;
   font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
@@ -326,13 +326,6 @@
 
 }
 
-.tb-money:focus {
-  color: #faebd7;
-  background-color: #8b9581d6;
-  /* background-color: #677381; */
-
-}
-
 .tb-money-hidden,
 .tb-change-hidden {
   visibility: hidden;
@@ -344,8 +337,8 @@
   text-align: center;
   font-size: 22px;
   align-content: center;
-  background-color: #faebd7;
-  color: #7f848b;
+  background-color: #efeeed;
+  color: #5b5f66;
   border: 0px solid #7f848b;
   font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
     Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
