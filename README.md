@@ -16,7 +16,7 @@ This is a web-based Restaurant Management System built with React. The applicati
 ## Technologies Used
 
 - **Frontend**: React.js
-- **Backend**: Express.js
+- **Backend**: Node.js
 - **Database**: MongoDB
 - **State Management**: Context API
 - **Styling**: CSS
