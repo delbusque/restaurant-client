@@ -81,7 +81,7 @@ This project is licensed under the MIT License.
 
 ## Contributors
 
-- [delbusque](https://github.com/yourusername)
+- [delbusque](https://github.com/delbusque)
 - [Ventsislav Peychev](https://www.linkedin.com/in/ventsislav-peychev/)
 
 ## Contact
