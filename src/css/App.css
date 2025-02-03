@@ -162,8 +162,10 @@ button.nav__item-auth {
 }
 
 .u-email {
-  padding: 30px 40px;
+  padding: 26px 40px;
   cursor: pointer;
+  font-family: "Exo 2", sans-serif;
+  font-weight: 300;
 }
 
 /* .u-email:hover {
@@ -238,11 +240,34 @@ button.nav__item-auth {
   background-color: #d3d3d3;
 }
 
+.sel-email {
+  height: 100%;
+}
+
+.email {
+  font-size: 18px;
+}
+
+.link-sel-email {
+  color: black;
+  background-color: #d3d3d3;
+  font-size: 18px;
+  height: 100%;
+  align-content: center;
+}
+
 .tables:hover {
   color: white;
   background-color: cadetblue;
   border-radius: 0px;
 }
+
+.items:hover {
+  color: white;
+  background-color: #ff8066;
+  border-radius: 0px;
+}
+
 
 .out:hover {
   color: white;
@@ -259,7 +284,10 @@ button.nav__item-auth {
   box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
   border-radius: 0px;
+  color: white;
+  background-color: #0089ba;
 }
+
 .in:hover {
   color: white;
   background-color: rgb(46, 139, 86);
@@ -267,10 +295,12 @@ button.nav__item-auth {
 }
 
 @media screen and (max-width: 1100px) {
+
   .nav__item,
   .nav__item-auth {
     width: 140px;
   }
+
   .reg {
     width: 100%;
   }

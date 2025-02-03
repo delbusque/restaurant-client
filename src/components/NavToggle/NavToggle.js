@@ -46,15 +46,17 @@ const NavToggle = ({ setToggle }) => {
                         </Link>}
                         {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
                         {(user && user?.role === 1984) &&
-                            <Link id='staff' className='links' to='/staff'>
-                                <li className="nav__item">ЕКИП</li></Link>}
+                            <Link id='staff' className='links' to='/staff' onClick={() => setSelectedLink('team')}>
+                                <li className={selectedLink === 'team' ? "nav__item link-sel" : "nav__item"}>ЕКИП</li></Link>}
                     </>
                 </div>
 
                 {user &&
                     <div id='auth' className="nav__auth">
-                        <Link id='u-email' className='links' to='/my-account'>
-                            <span className='u-email'>{user.email}</span></Link>
+                        <Link id='u-email' className={selectedLink === 'user' ? 'links sel-email' : "links email"} to='/my-account' onClick={() => setSelectedLink('user')}>
+                            <span className={selectedLink === 'user' ? "nav__item link-sel-email" : "u-email"}>{user.email.slice(0, 10)}</span>
+                        </Link>
+
                         <button className="links nav__item-auth out" onClick={logoutHandler}>ИЗХОД</button>
                     </div>}
 
