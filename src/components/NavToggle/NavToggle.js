@@ -20,7 +20,7 @@ const NavToggle = ({ setToggle }) => {
 
     return (
         <header id='header' className={styles["header"]}>
-            <h1 className={styles["deli"]}><Link id='deli' className='links' to='/'>Вкусно</Link></h1>
+            <h1 className={styles["deli"]}><Link id='deli' className='links' to='/tables'>Deli</Link></h1>
 
             <FiMenu className={styles["btn-toggle"]}
                 onClick={toggleHandler} />
@@ -33,7 +33,7 @@ const NavToggle = ({ setToggle }) => {
                         <li className="nav__item tables">МАСИ</li>
                     </Link>}
                     <Link id='items' className='links' to='/items'>
-                        <li className="nav__item">МЕНЮ</li>
+                        <li className="nav__item items">МЕНЮ</li>
                     </Link>
                 </div>
 
@@ -41,7 +41,7 @@ const NavToggle = ({ setToggle }) => {
                 <div className="nav__auth">
                     <>
                         {user && user?.role !== 401 &&
-                            <Link id='chef' className='links' to='/chef'><li className="nav__item chef">КУХНЯ</li></Link>
+                            <Link id='chef' className='links nav-chef' to='/chef'><li className="nav__item chef">КУХНЯ</li></Link>
                         }
                         {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
                         {(user && user?.role === 1984) &&
@@ -59,8 +59,8 @@ const NavToggle = ({ setToggle }) => {
 
                 {!user && <div className="nav__auth">
 
-                    <Link id='signup' className='links' to='/signup'><li className="nav__item-auth">РЕГИСТРАЦИЯ</li></Link>
-                    <Link id='login' className='links' to='/login'><li className="nav__item-auth">ВХОД</li></Link>
+                    <Link id='signup' className='links' to='/signup'><li className="nav__item-auth reg">РЕГИСТРАЦИЯ</li></Link>
+                    <Link id='login' className='links' to='/login'><li className="nav__item-auth in">ВХОД</li></Link>
                 </div>}
             </div>
         </header>

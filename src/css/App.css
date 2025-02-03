@@ -42,28 +42,28 @@
 
 .nav__auth {
   display: flex;
-  align-self: flex-start;
+  /* align-self: flex-start; */
 }
 
 .nav__item,
 .nav__item-auth {
   font-size: 24px;
   /* border: 1px solid grey; */
-  padding: 5px 0;
+  padding: 20px 0;
   /* font-family: "Dosis", sans-serif; */
   font-family: "Exo 2", sans-serif;
   font-weight: 300;
   border-radius: 2px;
   display: inline-block;
   /* margin-right: 40px; */
-  margin-bottom: 5px;
-  width: 140px;
+  /* margin-bottom: 5px; */
+  width: 200px;
   text-align: center;
 }
 
 .nav__item-auth {
-  padding: 5px 15px;
-  width: 160px;
+  padding: 20px 15px;
+  width: 200px;
   border: none;
 }
 
@@ -71,13 +71,17 @@ button.nav__item-auth {
   /* border: 1px solid black; */
   border-radius: 2px;
   font-style: normal;
-  margin-left: 10px;
 }
 
 .nav__item:hover:nth-child(1) {
   box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5);
   cursor: pointer;
+  border-radius: 0px;
   /* background-color: rgba(255, 255, 255, 0.24); */
+}
+
+.nav-chef:hover:nth-child(3) {
+  border-radius: 0px;
 }
 
 .nav__item-on {
@@ -112,9 +116,9 @@ button.nav__item-auth {
   cursor: pointer;
 }
 
-.nav__auth>.links {
+/* .nav__auth > .links {
   margin: auto;
-}
+} */
 
 .main {
   height: 100%;
@@ -159,15 +163,13 @@ button.nav__item-auth {
 }
 
 .u-email {
-  margin: auto;
-  padding: 10px 20px;
+  padding: 30px 40px;
   cursor: pointer;
 }
 
-.u-email:hover {
+/* .u-email:hover {
   box-shadow: 2px 0px 0px rgba(0, 0, 0, 0.5);
-  /* background-color: rgba(255, 255, 255, 0.24); */
-}
+} */
 
 /* User Details*/
 
@@ -234,14 +236,39 @@ button.nav__item-auth {
 
 .tables:hover {
   color: white;
+  background-color: darkgoldenrod;
+  border-radius: 0px;
+}
+
+.out:hover {
+  color: white;
+  background-color: rgba(220, 20, 60, 0.945);
+  border-radius: 0px;
+}
+
+.reg {
+  width: 250px;
+  padding-right: 30px;
+}
+
+.reg:hover {
+  box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  border-radius: 0px;
+}
+.in:hover {
+  color: white;
   background-color: rgb(46, 139, 86);
+  border-radius: 0px;
 }
 
 @media screen and (max-width: 1100px) {
-
   .nav__item,
   .nav__item-auth {
     width: 140px;
+  }
+  .reg {
+    width: 100%;
   }
 }
 

@@ -1,6 +1,6 @@
 import styles from './ItemsList.module.css';
 
-import { useState, useContext } from 'react';
+import { useState, useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 import ItemsContext from '../../contexts/ItemsContext.js';
@@ -20,8 +20,6 @@ const ItemsList = () => {
     const { user } = useAuthContext();
 
     const { items } = useContext(ItemsContext);
-
-    items.sort((a, b) => a.name.localeCompare(b.name));
 
     const [drinkIsActive, setDrinkIsActive] = useState(true);
     const [foodIsActive, setFoodIsActive] = useState(false);
@@ -50,6 +48,10 @@ const ItemsList = () => {
         setShowInfo(false);
         setCurrentItem(item);
     }
+
+    useEffect(() => {
+        items?.sort((a, b) => a.name.localeCompare(b.name));
+    }, [])
 
     return (
         <>

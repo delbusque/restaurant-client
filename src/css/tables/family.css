@@ -132,7 +132,7 @@
 
   .family-btn-food,
   .family-btn-drinks {
-    width: 100px;
+    width: 115px;
     margin-left: 0;
   }
 
@@ -150,13 +150,13 @@
   .type-btn-food,
   .type-btn-drinks {
     width: 90px;
-    font-size: 16px;
+    font-size: 18px;
   }
 
   .family-btn-drinks,
   .family-btn-food {
     margin: 30px 0px 0px 0px;
-    font-size: 17px;
+    font-size: 19px;
   }
 
   .family-btn-food {

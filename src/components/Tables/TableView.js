@@ -17,24 +17,13 @@ import familiesAndTypes from '../../services/familiesAndTypes.js';
 
 const TableView = ({ tables, setTables }) => {
 
-    const [drinkIsActive, setDrinkIsActive] = useState(true);
-    const [foodIsActive, setFoodIsActive] = useState(false);
-    const [typeIsActive, setTypeIsActive] = useState(false);
+    const { user } = useAuthContext()
 
-    const [byType, setByType] = useState('');
+    // let table = JSON.parse(window.localStorage.getItem('currTable'))
+    const [table, setTable] = useState(JSON.parse(window.localStorage.getItem('currTable')))
 
     const { items } = useContext(ItemsContext);
     const { number } = useParams();
-
-    const { user } = useAuthContext()
-
-    const [tableOwner, setTableOwner] = useState('')
-
-    let table;
-
-    if (tables) {
-        table = tables.find(t => t.number === number);
-    }
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
     drinkTypes.sort((a, b) => a.localeCompare(b));
@@ -47,10 +36,26 @@ const TableView = ({ tables, setTables }) => {
         refetchOnWindowFocus: false,
     })
 
-    const addItemHandler = (item) => {
-        if (table.ownerId === user.id || table.ownerId === undefined) {
+    const [tableOwner, setTableOwner] = useState(data?.find(user => user._id === table.ownerId))
 
-            table.opened = true;
+    const [drinkIsActive, setDrinkIsActive] = useState(true);
+    const [foodIsActive, setFoodIsActive] = useState(false);
+    const [typeIsActive, setTypeIsActive] = useState(false);
+
+    const [byType, setByType] = useState('');
+
+    useEffect(() => {
+        const owner = data?.find(user => user._id === table?.ownerId)
+        setTableOwner(owner)
+
+    }, [data, table.ownerId])
+
+
+    const addItemHandler = (item) => {
+
+        if (table.ownerId === user.id) {
+
+            // table.opened = true;
 
             if (!table.paid) {
 
@@ -66,16 +71,25 @@ const TableView = ({ tables, setTables }) => {
                         count: 1,
                         sent: 0
                     }
+
                     table.orders.unshift(alreadyItem);
 
                     if (table.orders.length > 0) { table.ownerId = user.id }
                     setTables(oldState => [...oldState], table);
+                    window.localStorage.setItem('currTable', JSON.stringify(table))
+                    // Post request to edit table
+                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+
 
                 } else {
                     table.orders.find((order, i) => {
                         if (order._id === alreadyItem._id) {
                             table.orders[i].count++;
                             setTables(oldState => [...oldState], table);
+                            window.localStorage.setItem('currTable', JSON.stringify(table))
+
+                            // Post request to edit table
+                            axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
                         }
                     })
                 }
@@ -96,35 +110,33 @@ const TableView = ({ tables, setTables }) => {
 
             if (alreadyItem.count === 1) {
                 table.orders.splice(index, 1);
-                if (table.orders.length === 0) {
-                    table.ownerId = undefined
-                    setTableOwner('')
-                    table.opened = false
-                }
+                // if (table.orders.length === 0) {
+                //     table.ownerId = ''
+                //     setTableOwner('')
+                //     table.opened = false
+                // }
                 setTables(oldState => [...oldState], table);
+                window.localStorage.setItem('currTable', JSON.stringify(table))
+                axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
             }
 
             table.orders.find((order, i) => {
                 if (order._id === alreadyItem._id) {
                     table.orders[i].count--;
                     setTables(oldState => [...oldState], table);
+                    window.localStorage.setItem('currTable', JSON.stringify(table))
+                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
                 }
             })
         }
     }
-
-    useEffect(() => {
-        const owner = data?.find(user => user._id === table?.ownerId)
-        setTableOwner(owner)
-    }, [data, table.ownerId])
 
     return (
         < div className='table-card' >
             {
                 table ?
                     <>
-
-                        <TableCard table={table} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} />
+                        <TableCard table={table} setTable={setTable} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} number={number} />
 
                         <section className='family-sect'>
                             {families.length > 0 && user.role !== 5051 &&

@@ -34,23 +34,17 @@ function App() {
 
   const [toggle, setToggle] = useState(false)
 
+  useEffect(() => {
+    apiService.fetchTables().then(data => {
+      window.localStorage.setItem('tables', JSON.stringify(data))
+    })
+  }, [tables])
 
   useEffect(() => {
-
-    if (tables && items) {
-      window.localStorage.setItem('tables', JSON.stringify(tables))
-      window.localStorage.setItem('items', JSON.stringify(items))
-    } else {
-      apiService.fetchTables().then(data => {
-        setTables(data)
-      })
-      apiService.fetchItems().then(data => {
-        setItems(data)
-      })
-    }
-
-  }, [tables, items])
-
+    apiService.fetchItems().then(data => {
+      window.localStorage.setItem('items', JSON.stringify(data))
+    })
+  }, [items])
 
   return (
     <QueryClientProvider client={queryClient}>
