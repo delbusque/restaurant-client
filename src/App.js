@@ -49,7 +49,6 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <div className="body" >
-        {/* <Navigation /> */}
 
         {!toggle && <NavToggle setToggle={setToggle} />}
 
