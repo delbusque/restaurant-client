@@ -73,7 +73,7 @@ button.nav__item-auth {
 }
 
 .nav__item:hover:nth-child(1) {
-  box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5);
+  /* box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5); */
   cursor: pointer;
   border-radius: 0px;
   /* background-color: rgba(255, 255, 255, 0.24); */
@@ -230,12 +230,17 @@ button.nav__item-auth {
 
 .chef:hover {
   color: white;
-  background-color: darkgoldenrod;
+  background-color: #cab068;
+}
+
+.link-sel {
+  color: black;
+  background-color: #d3d3d3;
 }
 
 .tables:hover {
   color: white;
-  background-color: darkgoldenrod;
+  background-color: cadetblue;
   border-radius: 0px;
 }
 
