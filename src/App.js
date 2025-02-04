@@ -34,6 +34,8 @@ function App() {
 
   const [toggle, setToggle] = useState(false)
 
+  const [selectedLink, setSelectedLink] = useState('')
+
   useEffect(() => {
     apiService.fetchTables().then(data => {
       window.localStorage.setItem('tables', JSON.stringify(data))
@@ -50,7 +52,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <div className="body" >
 
-        {!toggle && <NavToggle setToggle={setToggle} />}
+        {!toggle && <NavToggle setToggle={setToggle} selectedLink={selectedLink} setSelectedLink={setSelectedLink} />}
 
         {toggle && <NavSidebar setToggle={setToggle} />}
 
@@ -61,22 +63,19 @@ function App() {
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/items' element={<ItemsList />} />
-                {user?.role !== 401 && <Route path='/tables' element={<Tables tables={tables} setTables={setTables} />} />}
+                {user?.role !== 401 && <Route path='/tables' element={<Tables tables={tables} setTables={setTables} setSelectedLink={setSelectedLink} />} />}
                 {user && user?.role !== 401 && <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />}
 
                 {user && user?.role !== 401 && <Route path='/chef' element={<Chef />} />}
                 {user && <Route path='/staff' element={user?.role === 1984 ? <Users /> : <Navigate to='/my-account' />} />}
                 {user && user?.role !== 401 && <Route path='/messages' element={<Messages />} />}
 
-
                 <Route path='/my-account' element={user && <Account />} />
 
-                <Route path='/login' element={!user ? <Login /> : <Navigate to='/' />} />
-                <Route path='/signup' element={!user ? <Signup /> : <Navigate to='/' />} />
+                <Route path='/login' element={!user ? <Login setSelectedLink={setSelectedLink} /> : <Navigate to='/' />} />
+                <Route path='/signup' element={!user ? <Signup setSelectedLink={setSelectedLink} /> : <Navigate to='/' />} />
 
                 <Route path='/*' element={!user ? <Login /> : <Navigate to='/' />} />
-
-
               </Routes>
             </ItemsContext.Provider>
           </div>}
