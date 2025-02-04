@@ -8,7 +8,7 @@ import axios from 'axios';
 import { baseUrl } from '../../config.js';
 import * as apiService from './../../services/apiService.js'
 
-const Tables = ({ tables, setTables }) => {
+const Tables = ({ tables, setTables, setSelectedLink }) => {
 
     const { user } = useAuthContext();
 
@@ -90,7 +90,7 @@ const Tables = ({ tables, setTables }) => {
                     </div>
                 </section >
             }
-            {!user && <TableError />}
+            {!user && <TableError setSelectedLink={setSelectedLink} />}
         </>
     )
 }

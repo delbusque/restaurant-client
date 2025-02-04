@@ -3,7 +3,7 @@ import styles from './Login.module.css'
 import { useState } from "react";
 import { useLogin } from '../hooks/useLogin';
 
-const Login = () => {
+const Login = ({ setSelectedLink }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -11,8 +11,8 @@ const Login = () => {
 
     const loginHandler = async (e) => {
         e.preventDefault();
-
         await login(email, password);
+        setSelectedLink('tables')
     }
 
     return (
