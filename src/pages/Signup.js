@@ -3,7 +3,7 @@ import styles from './Signup.module.css'
 import { useState } from "react";
 import { useSignup } from '../hooks/useSignup';
 
-const Signup = () => {
+const Signup = ({ setSelectedLink }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
@@ -18,7 +18,7 @@ const Signup = () => {
             setError('Passwords do not match !');
             return null;
         }
-
+        setSelectedLink('user')
         await signup(email, password);
     }
 

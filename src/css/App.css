@@ -301,6 +301,10 @@ button.nav__item-auth {
     width: 140px;
   }
 
+  .reg-sel {
+    width: 200px;
+  }
+
   .reg {
     width: 100%;
   }
