@@ -18,7 +18,8 @@
 }
 
 .iL-main {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-template-columns: 70% 30%;
   margin-bottom: 30px;
 }
@@ -55,8 +56,8 @@
 }
 
 .iL-form {
-  margin-top: 33px;
-  justify-self: left;
+  margin-top: 20px;
+  justify-self: center;
 }
 
 @media screen and (max-width: 1200px) {
@@ -108,7 +109,8 @@
 
   .iL-form {
     margin: 25px auto;
-    justify-self: start;
+    display: flex;
+    justify-content: center;
   }
 }
 
