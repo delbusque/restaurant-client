@@ -9,11 +9,10 @@ import { useAuthContext } from '../../hooks/useAuthContext.js';
 import FamilyButton from '../Buttons/FamilyButton.js';
 import TypeButton from '../Buttons/TypeButton.js';
 import StockItem from './StockItem/StockItem.js';
-import AddItemForm from './AddItemForm/AddItemForm';
 
 import familiesAndTypes from "../../services/familiesAndTypes.js";
-import StockItemInfo from './StockItem/StockItemInfo.js';
-import StockItemEdit from './StockItem/StockItemEdit.js';
+
+import FormModal from './FormModal.js';
 
 const ItemsList = () => {
 
@@ -55,7 +54,13 @@ const ItemsList = () => {
 
     return (
         <>
+            <FormModal item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setShowAddItem={setShowAddItem} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} editInfo={editInfo} showInfo={showInfo} showAddItem={showAddItem} />
+
+
+
             <div className='iL-main'>
+                {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Добави нов артикул</button>}
+
                 {(!typeIsActive && drinkIsActive) &&
                     <section>
                         <div className='iL-buttons-sect'>
@@ -63,6 +68,7 @@ const ItemsList = () => {
                                 {families.length > 0 &&
                                     families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
                                         setTypeIsActive={setTypeIsActive} />)}
+
                             </section>
 
                             {drinkIsActive && <section className='iL-type-sect'>
@@ -71,12 +77,14 @@ const ItemsList = () => {
                                     setByType={setByType} />)}
                             </section>}
 
+
+
                             {foodIsActive && <section className='iL-type-sect'>
                                 {foodTypes.length > 0 && foodTypes.map(t => <TypeButton key={t} type={t}
                                     setTypeIsActive={setTypeIsActive} setByType={setByType} />)}
-
                             </section>}
                         </div>
+
                         <section className='iL-items'>
                             {(!user && items.length < 1) && <div className={styles['table-error']}>Please add an item after <Link to='/login' className={styles['err-login']}> login</Link> or <Link to='/signup' className={styles['err-signup']}> sign up</Link> !</div>}
 
@@ -118,6 +126,8 @@ const ItemsList = () => {
                             }</section>
                     </section>}
 
+
+
                 {typeIsActive &&
                     <section>
                         <div className='iL-buttons-sect'>
@@ -150,21 +160,8 @@ const ItemsList = () => {
 
                     </section>}
 
-                <section id='iL-form' className='iL-form'>
-                    {
-                        showInfo && <StockItemInfo item={currentItem} setShowInfo={setShowInfo}
-                            setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} />
-                    }
-                    {
-                        editInfo && <StockItemEdit item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} />
-                    }
 
-                    {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Добави нов артикул</button>}
 
-                    {
-                        (user && !showInfo && !editInfo && showAddItem) && <AddItemForm setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} setShowAddItem={setShowAddItem} />
-                    }
-                </section>
 
                 {/* 
                 <section id='iL-form' className='iL-form'>
