@@ -164,41 +164,45 @@
   color: #666;
 }
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 700px) {
   .msform {
-    width: 590px;
+    width: 490px;
   }
 }
 
-@media screen and (max-width: 900px) {
-  .msform {
-    margin-right: 0px;
-    display: block;
-    width: 590px;
-  }
-}
-
-@media screen and (max-width: 650px) {
+@media screen and (max-width: 580px) {
   .msform {
     width: 390px;
   }
 }
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 480px) {
+  .msform {
+    width: 340px;
+  }
+}
+
+@media screen and (max-width: 420px) {
   .msform {
     width: 290px;
   }
 }
 
-@media screen and (max-width: 300px) {
+@media screen and (max-width: 380px) {
   .msform {
-    width: 250px;
+    width: 240px;
   }
 }
 
-@media screen and (max-width: 260px) {
+@media screen and (max-width: 330px) {
   .msform {
     width: 220px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .msform {
+    width: 180px;
   }
 }
 
