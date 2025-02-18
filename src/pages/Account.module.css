@@ -5,7 +5,7 @@
   grid-template-areas: "blog blog form form details";
   margin-left: 100px;
   font-family: "Exo 2", sans-serif;
-
+  overflow: hidden;
 }
 
 .acc-details {
@@ -141,6 +141,8 @@
     "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   width: 90%;
   margin: 50px auto 20px 40px;
+  overflow: auto;
+  max-height: 80vh;
 }
 
 .blog-list-row {

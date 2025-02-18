@@ -8,15 +8,7 @@ import axios from 'axios';
 import { baseUrl } from '../../config.js';
 import * as apiService from './../../services/apiService.js'
 
-const Tables = ({ tables, setTables }) => {
-
-    useEffect(() => {
-        apiService.fetchTables().then(data => {
-            window.localStorage.setItem('tables', JSON.stringify(data))
-            setTables(JSON.parse(window.localStorage.getItem('tables')))
-        })
-        // setTables(JSON.parse(window.localStorage.getItem('tables')))
-    }, [])
+const Tables = ({ tables, setTables, setSelectedLink }) => {
 
     const { user } = useAuthContext();
 
@@ -30,6 +22,16 @@ const Tables = ({ tables, setTables }) => {
     const clickHandler = (table) => {
         window.localStorage.setItem('currTable', JSON.stringify(table))
     }
+
+    useEffect(() => {
+        apiService.fetchTables().then(data => {
+            window.localStorage.setItem('tables', JSON.stringify(data))
+            return data
+        }).then((data) => {
+            setTables(data)
+        })
+
+    }, [])
 
     return (
         <>
@@ -88,7 +90,7 @@ const Tables = ({ tables, setTables }) => {
                     </div>
                 </section >
             }
-            {!user && <TableError />}
+            {!user && <TableError setSelectedLink={setSelectedLink} />}
         </>
     )
 }

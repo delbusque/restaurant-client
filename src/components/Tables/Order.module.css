@@ -2,7 +2,7 @@
 
 .tb-orders {
   margin: 2px 5px;
-  margin-left: 25px;
+  margin-left: 15px;
   padding: 1px 5px;
   display: grid;
   gap: 5px;
@@ -30,11 +30,24 @@
   cursor: pointer;
 }
 
-.button-53:focus {
+.button-54 {
+  background-color: #ff8c008a;
+  border: 0 solid #e5e7eb;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  position: relative;
+  cursor: pointer;
+}
+
+.button-53:focus,
+.button-54:focus {
   outline: 0;
 }
 
-.button-53:after {
+.button-53:after,
+.button-54:after {
   content: "";
   position: absolute;
   border: 1px solid #000000;
@@ -44,7 +57,8 @@
   height: calc(100% - 1px);
 }
 
-.button-53:hover:after {
+.button-53:hover:after,
+.button-54:hover:after {
   bottom: 1px;
   left: 1px;
 }
@@ -56,6 +70,15 @@
   transition: 0.2s;
   transform: translateY(2px);
   background-color: crimson;
+}
+
+.button-54:active {
+  box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 4px 8px rgba(0, 0, 0, 0.15),
+    inset 0px 8px 16px rgba(0, 0, 0, 0.15);
+  transition: 0.2s;
+  transform: translateY(2px);
+  background-color: #ff8c008a;
 }
 
 .button-53-green {
@@ -114,7 +137,7 @@
 .ord-count {
   grid-area: count;
   text-align: center;
-  font-size: 11px;
+  font-size: 13px;
 }
 
 .ord-counter {
@@ -207,14 +230,14 @@
   }
 
   .ord-counter {
-    font-size: 15px;
+    font-size: 17px;
   }
 
   .ord-total {
     grid-area: total;
     margin-right: 0;
     text-align: right;
-    font-size: 14px;
+    font-size: 17px;
   }
 
   .ord-name {
@@ -224,6 +247,7 @@
   }
 
   .button-53,
+  .button-54,
   .button-53-green {
     padding-bottom: 7px;
   }

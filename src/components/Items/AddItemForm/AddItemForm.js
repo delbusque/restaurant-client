@@ -5,7 +5,7 @@ import ItemsContext from "../../../contexts/ItemsContext";
 import { useAuthContext } from "../../../hooks/useAuthContext";
 import { baseUrl } from "../../../config";
 
-const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
+const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem, modalCloser }) => {
 
     const { items, setItems } = useContext(ItemsContext);
     const { user } = useAuthContext();
@@ -79,16 +79,15 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem }) => {
                 setDrinkIsActive(false);
                 setFoodIsActive(true);
             }
+            modalCloser()
         }
     }
 
-
-
     return (
         <>
-
             <form className={styles['msform']} onSubmit={addNewStockItemHandler}>
                 <fieldset>
+                    <div className={styles['modal-close']} onClick={modalCloser}> x </div>
                     <h2 className={styles['fs-title']}>Добави нов артикул</h2>
 
                     <div className={styles['label-input']}>

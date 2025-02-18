@@ -1,0 +1,9 @@
+.modal-close {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  border: none;
+  background-color: #d1cdc2f6;
+  cursor: pointer;
+  font-size: smaller;
+}

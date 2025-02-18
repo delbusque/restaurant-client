@@ -36,7 +36,7 @@
   border-radius: 3px;
   cursor: pointer;
   font-family: "Exo 2", sans-serif;
-  font-size: 17px;
+  font-size: 20px;
 }
 
 .item:hover {
@@ -116,6 +116,6 @@
   .item-quantity,
   .item-quantityType,
   .item-price {
-    font-size: 16px;
+    font-size: 18px;
   }
 }

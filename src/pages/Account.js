@@ -28,6 +28,7 @@ const Account = () => {
                 <div className={styles['acc__name']}>
                     <div className={styles['acc__name-icon']}>
                         {user?.role === 1984 && <i className="fa-regular fa-user"></i>}
+                        {user?.role === 402 && <i className="fa-regular fa-user"></i>}
                         {user?.role === 401 && <i className="fa-solid fa-lock"></i>}
                         {user?.role === 5051 && <i className="fa-solid fa-chess-bishop"></i>}
                     </div>
@@ -39,6 +40,12 @@ const Account = () => {
                     <div className={styles['acc__name-icon']}><i className="fa-solid fa-mobile-retro"></i></div>
                     <div className={styles['acc__name-label']}>Телефон:</div>
                     <div className={styles['acc__name-name']}>{user.phone}</div>
+                </div>
+
+                <div className={styles['acc__name']}>
+                    <div className={styles['acc__name-icon']}><i className="fa-regular fa-envelope-open"></i></div>
+                    <div className={styles['acc__name-label']}>Ел. поща:</div>
+                    <div className={styles['acc__name-name']}>{user.email}</div>
                 </div>
 
 
