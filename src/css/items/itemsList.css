@@ -59,7 +59,7 @@
   margin: auto;
   justify-self: center;
   border: none;
-  border-radius: 6px;
+  border-radius: 1px;
   flex-direction: column;
   align-items: center;
 }
