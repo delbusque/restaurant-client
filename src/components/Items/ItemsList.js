@@ -1,6 +1,6 @@
 import styles from './ItemsList.module.css';
 
-import { useState, useContext, useEffect } from 'react';
+import { useState, useContext, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 import ItemsContext from '../../contexts/ItemsContext.js';
@@ -36,6 +36,8 @@ const ItemsList = () => {
     const [editInfo, setEditInfo] = useState(false);
     const [currentItem, setCurrentItem] = useState(null);
 
+    const dialog = useRef();
+
     const infoHandler = (item) => {
         setShowInfo(true);
         setEditInfo(false);
@@ -48,18 +50,28 @@ const ItemsList = () => {
         setCurrentItem(item);
     }
 
+    const modalHandler = () => {
+        setShowAddItem(true)
+        dialog.current.showModal()
+    }
+
+    const modalCloser = () => {
+        setShowAddItem(false)
+        setEditInfo(false);
+        dialog.current.close()
+    }
+
     useEffect(() => {
         items?.sort((a, b) => a.name.localeCompare(b.name));
     }, [])
 
     return (
         <>
-            <FormModal item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setShowAddItem={setShowAddItem} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} editInfo={editInfo} showInfo={showInfo} showAddItem={showAddItem} />
-
-
+            <FormModal item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setShowAddItem={setShowAddItem} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} editInfo={editInfo} showInfo={showInfo} showAddItem={showAddItem}
+                ref={dialog} modalCloser={modalCloser} />
 
             <div className='iL-main'>
-                {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={() => setShowAddItem(true)}>Добави нов артикул</button>}
+                {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={modalHandler}>Добави нов артикул</button>}
 
                 {(!typeIsActive && drinkIsActive) &&
                     <section>
@@ -91,7 +103,7 @@ const ItemsList = () => {
                             {(user && !items) && <div className={styles['table-error']}>Please add an item to stock !</div>}
 
                             {
-                                items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo}
+                                items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo} modalHandler={modalHandler}
                                     setEditInfo={setEditInfo} infoHandler={infoHandler} editHandler={editHandler} />)
                             }
                         </section>
@@ -120,9 +132,7 @@ const ItemsList = () => {
                         </div>
                         <section className='iL-items'>
                             {
-                                items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i}
-                                    setShowInfo={setShowInfo} setEditInfo={setEditInfo}
-                                    infoHandler={infoHandler} editHandler={editHandler} />)
+                                items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i} infoHandler={infoHandler} editHandler={editHandler} modalHandler={modalHandler} />)
                             }</section>
                     </section>}
 
@@ -152,7 +162,7 @@ const ItemsList = () => {
 
                         <section className='iL-items'>
                             {
-                                items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setShowInfo={setShowInfo}
+                                items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setShowInfo={setShowInfo} modalHandler={modalHandler}
                                     setEditInfo={setEditInfo}
                                     infoHandler={infoHandler} editHandler={editHandler} />)
                             }

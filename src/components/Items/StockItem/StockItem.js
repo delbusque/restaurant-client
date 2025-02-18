@@ -5,7 +5,7 @@ import { useAuthContext } from '../../../hooks/useAuthContext';
 import StockItemModal from './StockItemModal';
 import { baseUrl } from '../../../config';
 
-const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo }) => {
+const StockItem = ({ item, modalHandler, editHandler, setShowInfo, setEditInfo }) => {
 
     const { items, setItems } = useContext(ItemsContext);
     const [error, setError] = useState(null);
@@ -15,8 +15,8 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
 
     const deleteHandler = async () => {
 
-        setShowInfo(false);
-        setEditInfo(false);
+        // setShowInfo(false);
+        // setEditInfo(false);
 
         if (!user) {
             setError('You aren`t authorized to delete this item !');
@@ -43,6 +43,11 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
         }
     }
 
+    const handleEdit = () => {
+        modalHandler()
+        editHandler(item)
+    }
+
     return (
         <>
             {openModal && <StockItemModal item={item} setOpenModal={setOpenModal} deleteHandler={deleteHandler} />}
@@ -61,12 +66,11 @@ const StockItem = ({ item, infoHandler, editHandler, setShowInfo, setEditInfo })
                 </button> */}
                 {(user && user.role === 1984) &&
                     <>
-                        <button className={styles['stock-item__edit']} onClick={() => editHandler(item)}>
+                        <button className={styles['stock-item__edit']} onClick={handleEdit}>
                             <i className="fa-solid fa-marker marker"></i>
                         </button>
-                        {window.innerWidth > 900 && <button className={styles['stock-item__delete']} onClick={() => setOpenModal(true)}>
-                            <i className="fa-solid fa-trash-arrow-up trash"></i>
-                        </button>}
+                        <button className={styles['stock-item__delete']} onClick={() => setOpenModal(true)}><i className="fa-solid fa-trash-arrow-up trash"></i>
+                        </button>
 
                     </>}
             </div>

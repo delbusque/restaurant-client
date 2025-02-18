@@ -7,22 +7,21 @@ import StockItemEdit from './StockItem/StockItemEdit.js';
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 
-const FormModal = ({ item, setEditInfo, setShowInfo, setShowAddItem, setDrinkIsActive, setFoodIsActive, editInfo, showInfo, showAddItem }) => {
+const FormModal = ({ item, setEditInfo, setShowInfo, setShowAddItem, setDrinkIsActive, setFoodIsActive, editInfo, showInfo, showAddItem, ref, modalCloser }) => {
 
     const { user } = useAuthContext();
 
     return (
-        <section id='iL-form' className='iL-form'>
+        <dialog ref={ref} className='iL-form'>
             {
-                editInfo && <StockItemEdit item={item} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} />
+                editInfo && <StockItemEdit item={item} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} modalCloser={modalCloser} setShowAddItem={setShowAddItem} />
             }
 
-
-
             {
-                (user && !showInfo && !editInfo && showAddItem) && <AddItemForm setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} setShowAddItem={setShowAddItem} />
+                (user && !showInfo && !editInfo && showAddItem) && <AddItemForm ref={ref} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} setShowAddItem={setShowAddItem}
+                    modalCloser={modalCloser} />
             }
-        </section>
+        </dialog>
     )
 }
 
