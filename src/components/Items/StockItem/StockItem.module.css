@@ -45,10 +45,10 @@
 .stock-item__quantity {
   display: inline;
   grid-area: quantity;
-  margin: 5px 10px;
+  margin: 5px;
   font-style: italic;
   font-weight: 300;
-  text-align: right;
+  text-align: center;
 }
 
 .stock-item__quantityType {
@@ -59,8 +59,8 @@
 .stock-item__price {
   display: inline;
   grid-area: price;
-  margin: 5px 10px;
-  text-align: right;
+  margin: 5px;
+  text-align: center;
 }
 
 @media screen and (max-width: 900px) {
@@ -80,21 +80,22 @@
   .stock-item__quantity,
   .stock-item__quantityType,
   .stock-item__price {
-    font-size: 16px;
+    font-size: 17px;
   }
 }
 
 @media screen and (max-width: 460px) {
+  .stock-item__quantity {
+    font-size: 15px;
+  }
+
   .stock-item__price {
     font-size: 17px;
   }
 
-  .stock-item__quantity {
-    font-size: 16px;
-  }
-
   .stock-item__edit {
-    font-size: 18px;
+    font-size: 16px;
+    padding: 4px;
   }
 
   .lv,
@@ -103,13 +104,14 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 380px) {
 
   .stock-item__name {
     margin: 5px 10px;
   }
 
   .stock-item__quantity {
+    font-size: 15px;
     margin: 5px 0px;
   }
 
@@ -117,19 +119,19 @@
     margin: 5px 4px;
   }
 
-  .stock-item__price {
-    margin: 5px;
+  .lv {
+    display: none;
   }
 
   .stock-item__edit {
     display: flex;
     flex-direction: column;
     justify-content: start;
-    padding-top: 7px;
+    /* padding-top: 7px; */
   }
 }
 
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 310px) {
   .stock-item {
     grid-template-columns: repeat(6, 1fr);
     grid-template-areas: "name name name price price";
@@ -140,7 +142,8 @@
   }
 
   .stock-item__quantity,
-  .stock-item__quantityType {
+  .stock-item__quantityType,
+  .stock-item__delete {
     display: none;
   }
 
