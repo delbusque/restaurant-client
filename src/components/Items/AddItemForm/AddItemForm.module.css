@@ -10,7 +10,7 @@
   border: 0 none;
   border-radius: 3px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.152);
-  padding: 25px 30px 15px 30px;
+  padding: 20px 30px 10px 30px;
   box-sizing: border-box;
   /*stacking fieldsets above each other*/
   position: relative;
@@ -49,7 +49,7 @@
   margin: 10px 5px;
   margin-top: 20px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .msform .action-button:hover,
@@ -135,7 +135,7 @@
   color: crimson;
   border-radius: 3px;
   /* box-shadow: 0 0px 3px 1px rgba(21, 23, 20, 0.185); */
-  font-size: smaller;
+  font-size: medium;
   display: inline-block;
   width: 300px;
   background-color: white;
@@ -164,48 +164,6 @@
   color: #666;
 }
 
-@media screen and (max-width: 700px) {
-  .msform {
-    width: 490px;
-  }
-}
-
-@media screen and (max-width: 580px) {
-  .msform {
-    width: 390px;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .msform {
-    width: 340px;
-  }
-}
-
-@media screen and (max-width: 420px) {
-  .msform {
-    width: 290px;
-  }
-}
-
-@media screen and (max-width: 380px) {
-  .msform {
-    width: 240px;
-  }
-}
-
-@media screen and (max-width: 330px) {
-  .msform {
-    width: 220px;
-  }
-}
-
-@media screen and (max-width: 300px) {
-  .msform {
-    width: 180px;
-  }
-}
-
 .modal-close {
   position: absolute;
   right: 10px;
@@ -220,4 +178,52 @@
 
 .modal-close:hover {
   box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (max-width: 700px) {
+  .msform {
+    width: 520px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  .msform {
+    width: 420px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .msform {
+    width: 370px;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .msform {
+    width: 320px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .msform {
+    width: 290px;
+  }
+}
+
+@media screen and (max-width: 350px) {
+  .msform {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .msform {
+    width: 240px;
+  }
+}
+
+@media screen and (max-width: 300px) {
+  .msform {
+    width: 200px;
+  }
 }
