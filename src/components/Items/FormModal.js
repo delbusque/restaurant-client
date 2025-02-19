@@ -1,18 +1,17 @@
-import styles from './ItemsList.module.css';
-
 import AddItemForm from './AddItemForm/AddItemForm';
-import StockItemInfo from './StockItem/StockItemInfo.js';
 import StockItemEdit from './StockItem/StockItemEdit.js';
+import StockItemModal from './StockItem/StockItemModal.js';
 
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
-
-const FormModal = ({ item, setEditInfo, setShowInfo, setShowAddItem, setDrinkIsActive, setFoodIsActive, editInfo, showInfo, showAddItem, ref, modalCloser }) => {
+const FormModal = ({ item, setEditInfo, setShowInfo, setDeleteInfo, setShowAddItem, setDrinkIsActive, setFoodIsActive, editInfo, showInfo, deleteInfo, deleteHandler, showAddItem, ref, modalCloser, setError }) => {
 
     const { user } = useAuthContext();
 
     return (
         <dialog ref={ref} className='iL-form'>
+            {deleteInfo && <StockItemModal item={item} setOpenModal={setDeleteInfo} deleteHandler={deleteHandler} modalCloser={modalCloser} setError={setError} />}
+
             {
                 editInfo && <StockItemEdit item={item} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} modalCloser={modalCloser} setShowAddItem={setShowAddItem} />
             }
