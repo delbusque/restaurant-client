@@ -49,7 +49,7 @@
   padding: 10px;
   margin: 5px;
   text-decoration: none;
-  font-size: 14px;
+  font-size: 16px;
   margin-top: 25px;
 }
 
@@ -60,7 +60,7 @@
 
 /*headings*/
 .fs-title {
-  font-size: 15px;
+  font-size: 16px;
   text-transform: uppercase;
   color: #2c3e50;
   margin-bottom: 25px;
@@ -136,7 +136,7 @@
   color: crimson;
   border-radius: 3px;
   /* box-shadow: 0 0px 3px 1px rgba(21, 23, 20, 0.185); */
-  font-size: smaller;
+  font-size: medium;
   /* display: inline-block; */
   width: 100%;
   background-color: white;
@@ -181,42 +181,48 @@
 
 @media screen and (max-width: 700px) {
   .msform {
-    width: 490px;
+    width: 520px;
   }
 }
 
 @media screen and (max-width: 580px) {
   .msform {
-    width: 390px;
+    width: 420px;
   }
 }
 
 @media screen and (max-width: 480px) {
   .msform {
-    width: 340px;
+    width: 370px;
   }
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 430px) {
   .msform {
-    width: 290px;
+    width: 320px;
   }
 }
 
 @media screen and (max-width: 380px) {
   .msform {
-    width: 240px;
+    width: 290px;
   }
 }
 
-@media screen and (max-width: 330px) {
+@media screen and (max-width: 350px) {
   .msform {
-    width: 220px;
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .msform {
+    width: 240px;
   }
 }
 
 @media screen and (max-width: 300px) {
   .msform {
-    width: 180px;
+    width: 200px;
   }
 }

@@ -24,8 +24,6 @@ const ItemsList = () => {
     const [foodIsActive, setFoodIsActive] = useState(false);
     const [typeIsActive, setTypeIsActive] = useState(false);
 
-    const [showAddItem, setShowAddItem] = useState(false)
-
     const [byType, setByType] = useState('');
 
     const { families, drinkTypes, foodTypes } = familiesAndTypes(items);
@@ -33,7 +31,13 @@ const ItemsList = () => {
     foodTypes.sort((a, b) => a.localeCompare(b));
 
     const [showInfo, setShowInfo] = useState(false);
+
+    const [error, setError] = useState(null);
+
+
+    const [showAddItem, setShowAddItem] = useState(false)
     const [editInfo, setEditInfo] = useState(false);
+    const [deleteInfo, setDeleteInfo] = useState(false);
     const [currentItem, setCurrentItem] = useState(null);
 
     const dialog = useRef();
@@ -41,14 +45,31 @@ const ItemsList = () => {
     const infoHandler = (item) => {
         setShowInfo(true);
         setEditInfo(false);
+        setDeleteInfo(false)
+        setCurrentItem(item);
+    }
+
+    const addHandler = (item) => {
+        setShowAddItem(true);
+        setEditInfo(false);
+        setDeleteInfo(false)
         setCurrentItem(item);
     }
 
     const editHandler = (item) => {
         setEditInfo(true);
-        setShowInfo(false);
+        setShowAddItem(false);
+        setDeleteInfo(false)
         setCurrentItem(item);
     }
+
+    const deleteHandler = (item) => {
+        setDeleteInfo(true)
+        setEditInfo(false);
+        setShowAddItem(false);
+        setCurrentItem(item);
+    }
+
 
     const modalHandler = () => {
         setShowAddItem(true)
@@ -58,6 +79,7 @@ const ItemsList = () => {
     const modalCloser = () => {
         setShowAddItem(false)
         setEditInfo(false);
+        setDeleteInfo(false)
         dialog.current.close()
     }
 
@@ -67,8 +89,8 @@ const ItemsList = () => {
 
     return (
         <>
-            <FormModal item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setShowAddItem={setShowAddItem} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} editInfo={editInfo} showInfo={showInfo} showAddItem={showAddItem}
-                ref={dialog} modalCloser={modalCloser} />
+            <FormModal item={currentItem} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setShowAddItem={setShowAddItem} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} editInfo={editInfo} showInfo={showInfo} showAddItem={showAddItem} deleteInfo={deleteInfo} setDeleteInfo={setDeleteInfo}
+                ref={dialog} modalCloser={modalCloser} addHandler={addHandler} setError={setError} />
 
             <div className='iL-main'>
                 {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={modalHandler}>Добави нов артикул</button>}
@@ -103,8 +125,8 @@ const ItemsList = () => {
                             {(user && !items) && <div className={styles['table-error']}>Please add an item to stock !</div>}
 
                             {
-                                items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo} modalHandler={modalHandler}
-                                    setEditInfo={setEditInfo} infoHandler={infoHandler} editHandler={editHandler} />)
+                                items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo} setEditInfo={setEditInfo} setDeleteInfo={setDeleteInfo}
+                                    modalHandler={modalHandler} infoHandler={infoHandler} editHandler={editHandler} deleteHandler={deleteHandler} />)
                             }
                         </section>
                     </section>}
@@ -132,7 +154,8 @@ const ItemsList = () => {
                         </div>
                         <section className='iL-items'>
                             {
-                                items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i} infoHandler={infoHandler} editHandler={editHandler} modalHandler={modalHandler} />)
+                                items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i} infoHandler={infoHandler} editHandler={editHandler} modalHandler={modalHandler}
+                                    deleteHandler={deleteHandler} />)
                             }</section>
                     </section>}
 
@@ -162,31 +185,12 @@ const ItemsList = () => {
 
                         <section className='iL-items'>
                             {
-                                items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setShowInfo={setShowInfo} modalHandler={modalHandler}
-                                    setEditInfo={setEditInfo}
-                                    infoHandler={infoHandler} editHandler={editHandler} />)
+                                items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDeleteInfo={setDeleteInfo}
+                                    modalHandler={modalHandler} infoHandler={infoHandler} editHandler={editHandler} deleteHandler={deleteHandler} />)
                             }
                         </section>
 
                     </section>}
-
-
-
-
-                {/* 
-                <section id='iL-form' className='iL-form'>
-
-                    {
-                        (user && !showInfo)
-                            ? <AddItemForm setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} />
-                            : <StockItemInfo item={currentItem} setShowInfo={setShowInfo} />
-                    }
-                    {
-                        (user && !editInfo)
-                            ? <StockItemEdit item={currentItem} setEditInfo={setEditInfo} />
-                            : <StockItemInfo item={currentItem} setShowInfo={setShowInfo} />
-                    }
-                </section> */}
             </div>
         </>
     )
