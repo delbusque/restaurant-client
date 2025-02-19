@@ -5,7 +5,7 @@ import { useAuthContext } from "../../../hooks/useAuthContext";
 import { baseUrl } from '../../../config';
 
 
-const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFoodIsActive }) => {
+const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFoodIsActive, setShowAddItem, modalCloser }) => {
     const { items, setItems } = useContext(ItemsContext);
     const { user } = useAuthContext();
 
@@ -82,6 +82,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
 
             setEditInfo(false);
             setShowInfo(false);
+            modalCloser()
             setError(null);
             setInputName('');
             setFamily('');
@@ -105,7 +106,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
         <>
             <form className={styles['msform']} onSubmit={editItemHandler}>
                 <fieldset>
-                    <button className={styles['modal-close']} onClick={() => setEditInfo(false)}> x </button>
+                    <button className={styles['modal-close']} onClick={modalCloser}> x </button>
                     <h2 className={styles['fs-title']}>{item.name}</h2>
 
                     <div className={styles['label-input']}>
