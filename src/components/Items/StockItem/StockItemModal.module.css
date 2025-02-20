@@ -35,8 +35,9 @@
   background-color: #d6d3ca6a;
   cursor: pointer;
   font-weight: 600;
-  padding: 1px 4px;
+  padding: 4px;
   border-radius: 1px;
+  border-bottom-left-radius: 9px;
   font-size: small;
   background-color: #d1cdc244;
   border: 4px solid #d1cdc200;
