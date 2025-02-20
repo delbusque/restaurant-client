@@ -155,11 +155,12 @@
   position: absolute;
   right: 10px;
   top: 10px;
-  border: none;
   background-color: #d1cdc2ac;
   cursor: pointer;
   font-size: large;
   border: 4px solid #d1cdc26f;
+  padding: 1px 4px;
+  border-radius: 1px;
 }
 
 .modal-close:hover {

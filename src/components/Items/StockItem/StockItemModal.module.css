@@ -30,12 +30,17 @@
 
 .modal-close {
   position: absolute;
-  right: 20px;
-  top: 20px;
-  border: none;
-  background-color: #d1cdc2f6;
+  right: 28px;
+  top: 26px;
+  background-color: #d6d3ca6a;
   cursor: pointer;
-  font-size: large;
+  font-weight: 600;
+  padding: 1px 4px;
+  border-radius: 1px;
+  font-size: small;
+  background-color: #d1cdc244;
+  border: 4px solid #d1cdc200;
+  font-family: "Exo 2", sans-serif;
 }
 
 .modal-close:hover {
@@ -44,7 +49,7 @@
 
 .modal {
   padding: 20px 10px 70px 10px;
-  background-color: #d3d3d3;
+  background-color: #e5e3e3;
   border-radius: 3px;
   box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.152);
 }
