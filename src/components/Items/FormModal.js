@@ -1,3 +1,5 @@
+import { createPortal } from 'react-dom'
+
 import AddItemForm from './AddItemForm/AddItemForm';
 import StockItemEdit from './StockItem/StockItemEdit.js';
 import StockItemModal from './StockItem/StockItemModal.js';
@@ -9,7 +11,7 @@ const FormModal = ({ item, setEditInfo, setShowInfo, setDeleteInfo, setShowAddIt
     const { user } = useAuthContext();
 
     return (
-        <dialog ref={ref} className='iL-form'>
+        createPortal(<dialog ref={ref} className='iL-form'>
             {deleteInfo && <StockItemModal item={item} setOpenModal={setDeleteInfo} deleteHandler={deleteHandler} modalCloser={modalCloser} setError={setError} />}
 
             {
@@ -20,7 +22,7 @@ const FormModal = ({ item, setEditInfo, setShowInfo, setDeleteInfo, setShowAddIt
                 (user && !showInfo && !editInfo && showAddItem) && <AddItemForm ref={ref} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive} setShowAddItem={setShowAddItem}
                     modalCloser={modalCloser} />
             }
-        </dialog>
+        </dialog>, document.getElementById('modal'))
     )
 }
 
