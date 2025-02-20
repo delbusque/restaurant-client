@@ -30,8 +30,8 @@
 
 .modal-close {
   position: absolute;
-  right: 28px;
-  top: 26px;
+  right: 25px;
+  top: 25px;
   background-color: #d6d3ca6a;
   cursor: pointer;
   font-weight: 600;
@@ -46,6 +46,7 @@
 
 .modal-close:hover {
   box-shadow: 1px 0px 2px 0px rgba(0, 0, 0, 0.5);
+
 }
 
 .modal {
