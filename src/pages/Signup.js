@@ -7,6 +7,7 @@ const Signup = ({ setSelectedLink }) => {
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [name, setName] = useState('');
     const [repeatPassword, setRepeatPassword] = useState('');
 
     const { signup, error, setError, isLoading } = useSignup();
@@ -19,12 +20,17 @@ const Signup = ({ setSelectedLink }) => {
             return null;
         }
         setSelectedLink('user')
-        await signup(email, password);
+        await signup(email, password, name);
     }
 
     return (
         <form className={styles['signup']} onSubmit={signupHandler}>
             <h3>Регистрирай се</h3>
+
+            <label>Име:</label>
+            <input type='text'
+                onChange={(e) => setName(e.target.value)}
+                value={name} />
 
             <label>Имейл:</label>
             <input type='email'
