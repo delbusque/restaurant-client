@@ -50,7 +50,7 @@ const StockItemModal = ({ item, setError, modalCloser }) => {
                 </div>
                 <div className={styles['modal-buttons']}>
                     <button className={styles['modal-buttons__cancel']} onClick={modalCloser}>Отказ</button>
-                    <button className={styles['modal-buttons__proceed']} onClick={deleteHandler}>Потвърждавам</button>
+                    <button className={styles['modal-buttons__proceed']} onClick={deleteHandler}>Изтривам</button>
                 </div>
             </div>
         </div>
