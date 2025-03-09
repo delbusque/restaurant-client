@@ -48,7 +48,7 @@
   margin: 5px;
   font-style: italic;
   font-weight: 300;
-  text-align: center;
+  text-align: right;
 }
 
 .stock-item__quantityType {
@@ -60,7 +60,7 @@
   display: inline;
   grid-area: price;
   margin: 5px;
-  text-align: center;
+  text-align: right;
 }
 
 @media screen and (max-width: 900px) {
