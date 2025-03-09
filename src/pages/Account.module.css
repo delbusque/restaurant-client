@@ -1,9 +1,10 @@
 .acc {
   font-family: Dosis, sans-serif;
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   grid-template-areas: "blog blog form form details";
   margin-left: 100px;
+  margin-right: 34px;
   font-family: "Exo 2", sans-serif;
   overflow: hidden;
 }

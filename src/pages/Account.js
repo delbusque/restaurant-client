@@ -9,16 +9,16 @@ const Account = () => {
 
     const { editUser, error, emptyFields, setEmptyFields } = useEditUser();
 
-    const [firstName, setFirstName] = useState('');
-    const [lastName, setLastName] = useState('');
+    // const [firstName, setFirstName] = useState('');
+    // const [lastName, setLastName] = useState('');
     const [phone, setPhone] = useState('');
 
     const editUserHandler = async (e) => {
         e.preventDefault();
 
-        await editUser(user.email, firstName, lastName, phone);
-        setFirstName('');
-        setLastName('');
+        await editUser(user.email, phone);
+        // setFirstName('');
+        // setLastName('');
         setPhone('');
     }
 
@@ -33,44 +33,26 @@ const Account = () => {
                         {user?.role === 5051 && <i className="fa-solid fa-chess-bishop"></i>}
                     </div>
                     <div className={styles['acc__name-label']}>Име:</div>
-                    <div className={styles['acc__name-name']}>{user.firstName} {user.lastName}</div>
+                    <div className={styles['acc__name-name']}>{user.name}</div>
                 </div>
 
-                <div className={styles['acc__phone']}>
+                {/* <div className={styles['acc__phone']}>
                     <div className={styles['acc__name-icon']}><i className="fa-solid fa-mobile-retro"></i></div>
                     <div className={styles['acc__name-label']}>Телефон:</div>
                     <div className={styles['acc__name-name']}>{user.phone}</div>
-                </div>
+                </div> */}
 
                 <div className={styles['acc__name']}>
                     <div className={styles['acc__name-icon']}><i className="fa-regular fa-envelope-open"></i></div>
                     <div className={styles['acc__name-label']}>Ел. поща:</div>
                     <div className={styles['acc__name-name']}>{user.email}</div>
                 </div>
-
-
             </div>
 
-            <div className={styles['acc-form']}>
+            {/* <div className={styles['acc-form']}>
                 <form className={styles['msform']} onSubmit={editUserHandler}>
                     <fieldset>
-                        <h2 className={styles['fs-title']}>Добави / Промени данни</h2>
-                        <input className={emptyFields.includes('firstName') ? styles['input-error'] : ''}
-                            type="text" name="firstName" placeholder="Име"
-                            onChange={(e) => {
-                                setFirstName(e.target.value)
-                                setEmptyFields(old => old.filter(f => f !== 'firstName'));
-                            }}
-                            value={firstName}
-                        />
-                        <input className={emptyFields.includes('lastName') ? styles['input-error'] : ''}
-                            type="text" name="lastName" placeholder="Фамилия"
-                            onChange={(e) => {
-                                setLastName(e.target.value)
-                                setEmptyFields(old => old.filter(f => f !== 'lastName'));
-                            }}
-                            value={lastName}
-                        />
+                        <h2 className={styles['fs-title']}>Добави</h2>
                         <input className={emptyFields.includes('phone') ? styles['input-error'] : ''}
                             type="text" name="phone" placeholder="Телефонен номер"
                             onChange={(e) => {
@@ -87,8 +69,7 @@ const Account = () => {
                     </fieldset>
                 </form>
                 {error && <div className={styles['error']}>{error}</div>}
-
-            </div>
+            </div> */}
 
             <div className={styles['posts-cont']}>
                 <div className={styles["blog-list-row"]}>
