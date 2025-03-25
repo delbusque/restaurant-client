@@ -14,7 +14,7 @@ const Chef = () => {
             {window.innerWidth > 900 ?
                 <>
                     <div className={styles["ready"]}>
-                        {readyData?.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).map(order => <ReadyOrder orders={readyData} key={order._id} ready={order} refetch={refetch} />)}
+                        {readyData?.sort((a, b) => a.updatedAt.localeCompare(b.updatedAt)).map(order => <ReadyOrder orders={readyData} key={order._id} ready={order} refetch={refetch} />)}
 
                     </div>
                     <div className={styles["waiting"]}>
@@ -26,7 +26,7 @@ const Chef = () => {
                         {data?.map(order => order.waiting && <ChefOrder data={data} orders={waitingData} key={order._id} waiting={order} refetch={refetch} />)}
                     </div>
                     <div className={styles["ready"]}>
-                        {readyData?.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt)).map(order => <ReadyOrder orders={readyData} key={order._id} ready={order} refetch={refetch} />)}
+                        {readyData?.sort((a, b) => a.updatedAt.localeCompare(b.updatedAt)).map(order => <ReadyOrder orders={readyData} key={order._id} ready={order} refetch={refetch} />)}
 
                     </div>
                 </>}
