@@ -120,7 +120,7 @@ const ItemsList = () => {
                         </div>
 
                         <section className='iL-items'>
-                            {(!user && items.length < 1) && <div className={styles['table-error']}>Please add an item after <Link to='/login' className={styles['err-login']}> login</Link> or <Link to='/signup' className={styles['err-signup']}> sign up</Link> !</div>}
+                            {(!user && items?.length < 1) && <div className={styles['table-error']}>Please add an item after <Link to='/login' className={styles['err-login']}> login</Link> or <Link to='/signup' className={styles['err-signup']}> sign up</Link> !</div>}
 
                             {(user && !items) && <div className={styles['table-error']}>Please add an item to stock !</div>}
 

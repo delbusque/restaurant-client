@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import Order from './Order.js';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
@@ -11,8 +11,6 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
     const { user } = useAuthContext();
 
     const [flag, setFlag] = useState(false)
-
-    const navigate = useNavigate();
 
     let totalSum = 0;
 
@@ -87,7 +85,7 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 </Link>
                 {/* <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div> */}
 
-                {table.ownerId && <div className='tb-title firstName'>{tableOwner?.firstName || tableOwner?.email}</div>}
+                {table.ownerId && <div className='tb-title firstName'>{tableOwner?.name}</div>}
                 {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
             </div>
