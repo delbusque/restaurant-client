@@ -46,7 +46,7 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
 
                 </div>
                 {(user?.role === 1984 || user?.role === 402) &&
-                    <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}>ИЗТРИЙ</button>
+                    <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}>ДАДЕНА</button>
                 }
 
             </div>
