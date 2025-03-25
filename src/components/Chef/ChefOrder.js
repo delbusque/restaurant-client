@@ -31,13 +31,11 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
     return (
         <>
-            <div className={`${styles['order-cont']} ${
-                waiting.tableNum < 100 
-                    ? (time > 5 ? styles['delayed'] : '') 
-                    : (time > 8 ? styles['delayed'] : '')
-                } ${
-                waiting.tableNum < 100 ? "" : styles['order-cont-away']
-            }`}>
+            <div className={`${styles['order-cont']} ${waiting.tableNum < 100
+                    ? (time > 7 ? styles['delayed'] : '')
+                    : (time > 10 ? styles['delayed'] : '')
+                } ${waiting.tableNum < 100 ? "" : styles['order-cont-away']
+                }`}>
                 <div className={styles['order-info']}>
                     <div className={styles['order-table']}>
                         {waiting.tableNum < 100 ? waiting.tableNum : <RiTakeawayLine />}
