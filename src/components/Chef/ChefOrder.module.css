@@ -83,6 +83,7 @@
   font-weight: 600;
   grid-area: tabl;
 }
+
 .order-table-num {
   font-size: 12px;
 }
@@ -123,6 +124,7 @@
 }
 
 @media screen and (max-width: 1100px) {
+
   .order-ready,
   .order-ready-away {
     background-color: #fff;
@@ -136,6 +138,7 @@
 }
 
 @media screen and (max-width: 900px) {
+
   .order-cont,
   .order-cont-away {
     border-radius: 10px;
@@ -214,6 +217,7 @@
 }
 
 @media screen and (max-width: 340px) {
+
   .order-cont,
   .order-cont-away {
     flex-direction: column;
