@@ -32,7 +32,7 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
 
     return (
         <>
-            <div className={ready.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']}>
+            <div className={`${ready.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']} ${time > 20 ? styles['old-ready'] : ''}`}>
                 <div className={styles['order-info']}>
                     <div className={styles['order-table']}>
                         {ready.tableNum < 100 ? ready.tableNum : <RiTakeawayLine />}
