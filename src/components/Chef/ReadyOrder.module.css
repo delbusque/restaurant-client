@@ -132,7 +132,6 @@
 
   .order-cont,
   .order-cont-away {
-    flex-direction: column;
     padding-bottom: 15px;
     border-radius: 3px;
     border-top-left-radius: 20px;
@@ -149,6 +148,14 @@
     font-weight: 500;
     padding: 4px;
     margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 340px) {
+
+  .order-cont,
+  .order-cont-away {
+    flex-direction: column;
   }
 }
 
