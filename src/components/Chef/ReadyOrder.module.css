@@ -1,23 +1,32 @@
 .order-cont {
   border-radius: 7px;
-  margin-bottom: 7px;
-  padding: 10px;
-  padding-bottom: 20px;
+  margin-bottom: 13px;
+  padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
   border: solid 2px grey;
   border-top-left-radius: 20px;
+  transition: background-color 0.3s ease;
+}
+
+.order-cont.old-ready {
+  border: none;
+  background-color: rgba(144, 205, 244, 0.7);
 }
 
 .order-cont-away {
   border-radius: 7px;
-  margin-bottom: 7px;
-  padding: 10px;
-  padding-bottom: 20px;
+  margin-bottom: 13px;
+  padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
   border: solid 2px darkgoldenrod;
   border-top-left-radius: 20px;
+}
+
+.order-cont-away.old-ready {
+  border: none;
+  background-color: rgba(173, 216, 230, 0.7);
 }
 
 .order-info {
@@ -91,6 +100,7 @@
 }
 
 @media screen and (max-width: 900px) {
+
   .order-cont,
   .order-cont-away {
     border-radius: 5px;
@@ -119,6 +129,7 @@
 }
 
 @media screen and (max-width: 430px) {
+
   .order-cont,
   .order-cont-away {
     flex-direction: column;
