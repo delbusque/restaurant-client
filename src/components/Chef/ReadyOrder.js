@@ -4,6 +4,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
 import { RiTakeawayLine, RiCheckFill } from 'react-icons/ri'
+import { MdOutlineTableBar } from "react-icons/md";
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 
@@ -46,7 +47,7 @@ const ReadyOrder = ({ ready, refetch, orders }) => {
 
                 </div>
                 {(user?.role === 1984 || user?.role === 402) &&
-                    <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}><RiCheckFill /></button>
+                    <button className={styles['order-ready']} onClick={() => deleteReadyOrder(ready)}><MdOutlineTableBar /></button>
                 }
 
             </div>

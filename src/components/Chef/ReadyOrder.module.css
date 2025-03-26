@@ -46,16 +46,18 @@
 .order-ready {
   background-color: #fff;
   border-color: transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
+  font-size: 20px;
   font-weight: 500;
-  padding: 3px 20px;
-  /* box-shadow: 0px -2px 5px 1px rgba(255, 0, 72, 0.7); */
+  padding: 8px 13px;
+  padding-bottom: 6px;
+  box-shadow: 0px -1px 3px 1px rgba(0, 255, 136, 0.7);
+
 }
 
 .order-ready:hover {
-  background-color: rgba(220, 20, 60, 0.829);
+  background-color: rgba(12, 140, 80, 0.7);
   color: white;
   box-shadow: none;
 }
@@ -66,7 +68,7 @@
     inset 0px 8px 16px rgba(0, 0, 0, 0.15);
   transition: 0.2s;
   transform: translateY(2px);
-  background-color: crimson;
+  background-color: rgba(6, 108, 61, 0.911);
 }
 
 .order-table {
@@ -89,17 +91,6 @@
   .order-info {
     gap: 10px;
   }
-
-  .order-ready {
-    background-color: #fff;
-    border-color: transparent;
-    border-radius: 5px;
-    box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0 10px;
-    /* box-shadow: 0px -2px 5px 1px rgba(255, 0, 72, 0.7); */
-  }
 }
 
 @media screen and (max-width: 900px) {
@@ -118,17 +109,6 @@
     font-size: 18px;
     text-align: left;
   }
-
-  .order-ready {
-    background-color: #fff;
-    border-color: transparent;
-    border-radius: 5px;
-    box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2);
-    font-size: 14px;
-    font-weight: 500;
-    padding: 0 10px;
-    /* box-shadow: 0px -2px 5px 1px rgba(255, 0, 72, 0.7); */
-  }
 }
 
 @media screen and (max-width: 430px) {
@@ -143,14 +123,6 @@
   .order-name {
     font-size: 18px;
     font-weight: 600;
-  }
-
-  .order-ready {
-    border-radius: 4px;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 10px 15px;
-    margin-bottom: 10px;
   }
 }
 
