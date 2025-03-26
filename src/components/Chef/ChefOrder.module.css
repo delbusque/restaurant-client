@@ -41,11 +41,12 @@
 .order-ready-away {
   background-color: #fff;
   border-color: transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
   font-size: 18px;
   font-weight: 500;
-  padding: 0 20px;
+  padding: 8px 13px;
+  padding-bottom: 6px;
   box-shadow: 0px -2px 5px 1px rgba(0, 255, 255, 0.7);
 }
 
@@ -99,6 +100,7 @@
   font-size: 18px;
   font-weight: 600;
   grid-area: tabl;
+  margin-right: 10px;
 }
 
 .order-table-num {
@@ -108,6 +110,7 @@
 .order-time {
   grid-area: time;
   font-size: 15px;
+  margin-right: 10px;
 }
 
 .order-quantity {
@@ -139,7 +142,7 @@
     grid-template-areas: "tabl time time  quant quant info info info info info";
     align-items: baseline;
     gap: 5px;
-    width: 80%;
+    width: 90%;
   }
 
   .order-cont-away .order-info {
@@ -147,19 +150,6 @@
   }
 }
 
-@media screen and (max-width: 1100px) {
-
-  .order-ready,
-  .order-ready-away {
-    background-color: #fff;
-    border-color: transparent;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0 10px;
-    box-shadow: 0px -1px 1px 1px rgba(0, 255, 255, 0.7);
-  }
-}
 
 @media screen and (max-width: 900px) {
 
@@ -181,17 +171,6 @@
   .order-ingr {
     text-align: left;
     width: 200px;
-  }
-
-  .order-ready,
-  .order-ready-away {
-    background-color: #fff;
-    border-color: transparent;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0 10px;
-    box-shadow: 0px -1px 1px 1px rgba(0, 255, 255, 0.7);
   }
 }
 
@@ -218,12 +197,6 @@
 
   .order-ingr {
     width: 120px;
-  }
-
-  .order-ready,
-  .order-ready-away {
-    font-size: 20px;
-    padding: 10px 15px;
   }
 }
 
@@ -257,7 +230,6 @@
     grid-template-areas: "tabl time time info info info info info info info";
     align-items: baseline;
     gap: 7px;
-    width: 90%;
   }
 
   .order-ingr {

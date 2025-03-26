@@ -4,6 +4,8 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
 import { RiTakeawayLine, RiCheckFill } from 'react-icons/ri'
+import { LuChefHat } from "react-icons/lu";
+import { PiCookingPotBold } from "react-icons/pi";
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 
@@ -51,7 +53,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
                 </div>
                 {(user?.role === 1984 || user?.role === 5051) &&
-                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}><RiCheckFill /></button>
+                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}><PiCookingPotBold /></button>
                 }
 
             </div>
