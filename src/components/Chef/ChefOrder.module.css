@@ -4,7 +4,9 @@
   padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
-  background-color: rgb(190, 190, 190);
+  /* background-color: rgb(190, 190, 190); */
+  background-color: #27ae605e;
+  
   border-bottom-left-radius: 40px;
   transition: background-color 0.3s ease;
 }
@@ -220,8 +222,8 @@
 
   .order-ready,
   .order-ready-away {
-    font-size: 14px;
-    padding: 0 4px;
+    font-size: 20px;
+    padding: 10px 15px;
   }
 }
 

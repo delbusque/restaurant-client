@@ -3,7 +3,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
-import { RiTakeawayLine } from 'react-icons/ri'
+import { RiTakeawayLine, RiCheckFill } from 'react-icons/ri'
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
 
@@ -51,7 +51,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
                 </div>
                 {(user?.role === 1984 || user?.role === 5051) &&
-                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>ГОТОВА</button>
+                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}><RiCheckFill /></button>
                 }
 
             </div>
