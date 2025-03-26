@@ -29,24 +29,39 @@ function App() {
 
   const { user } = useAuthContext();
 
-  const [tables, setTables] = useState(JSON.parse(window.localStorage.getItem('tables')));
-  const [items, setItems] = useState(JSON.parse(window.localStorage.getItem('items')));
+  const [tables, setTables] = useState(() => JSON.parse(window.localStorage.getItem('tables')) || []);
+  const [items, setItems] = useState(() => JSON.parse(window.localStorage.getItem('items')) || []);
 
   const [toggle, setToggle] = useState(false)
 
   const [selectedLink, setSelectedLink] = useState('')
 
   useEffect(() => {
-    apiService.fetchTables().then(data => {
-      window.localStorage.setItem('tables', JSON.stringify(data))
-    })
-  }, [tables])
+    const fetchInitialData = async () => {
+      try {
+        const tablesData = await apiService.fetchTables();
+        setTables(tablesData);
+        window.localStorage.setItem('tables', JSON.stringify(tablesData));
+
+        const itemsData = await apiService.fetchItems();
+        setItems(itemsData);
+        window.localStorage.setItem('items', JSON.stringify(itemsData));
+      } catch (error) {
+        console.error('Error fetching initial data:', error);
+      }
+    };
+
+    fetchInitialData();
+  }, []); // Run only once on component mount
+
+  // Save to localStorage whenever tables or items change
+  useEffect(() => {
+    window.localStorage.setItem('tables', JSON.stringify(tables));
+  }, [tables]);
 
   useEffect(() => {
-    apiService.fetchItems().then(data => {
-      window.localStorage.setItem('items', JSON.stringify(data))
-    })
-  }, [items])
+    window.localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   return (
     <QueryClientProvider client={queryClient}>
