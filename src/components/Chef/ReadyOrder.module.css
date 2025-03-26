@@ -4,14 +4,15 @@
   padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
-  border: solid 2px grey;
+  /* border: solid 2px grey; */
   border-top-left-radius: 20px;
   transition: background-color 0.3s ease;
+  background-color: #77cb9a70;
 }
 
 .order-cont.old-ready {
   border: none;
-  background-color: rgba(144, 205, 244, 0.7);
+  background-color: rgba(101, 187, 240, 0.7);
 }
 
 .order-cont-away {
@@ -20,13 +21,14 @@
   padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
-  border: solid 2px darkgoldenrod;
+  /* border: solid 2px darkgoldenrod; */
   border-top-left-radius: 20px;
+  background-color: #e4d17d5e;
 }
 
 .order-cont-away.old-ready {
   border: none;
-  background-color: rgba(230, 197, 173, 0.7);
+  background-color: #4aa1c130;
 }
 
 .order-info {
@@ -70,10 +72,11 @@
 .order-table {
   font-family: "Dosis", sans-serif;
   font-weight: 600;
+  font-size: 18px;
 }
 
 .order-table-num {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 1300px) {

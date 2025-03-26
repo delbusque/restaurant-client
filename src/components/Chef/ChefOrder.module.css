@@ -84,7 +84,6 @@
   grid-template-areas: "tabl time quant info info info info";
   align-items: baseline;
   gap: 10px;
-  width: 80%;
   text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
   color: #000;
 }
@@ -101,15 +100,17 @@
 }
 
 .order-table-num {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .order-time {
   grid-area: time;
+  font-size: 15px;
 }
 
 .order-quantity {
   grid-area: quant;
+  margin-right: 10px;
 }
 
 .order-count {
@@ -122,6 +123,7 @@
   display: flex;
   flex-direction: column;
   grid-area: info;
+  width: 92%;
 }
 
 .order-ingr {
@@ -194,18 +196,10 @@
 @media screen and (max-width: 510px) {
   .order-info {
     display: grid;
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-areas: "tabl time time quant quant quant quant info info info info info info info";
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: "tabl time quant info info info info info";
     align-items: baseline;
-    gap: 8px;
-    width: 90%;
-  }
-
-  .order-name {
-    font-size: 18px;
-    font-weight: 600;
-    text-align: left;
-    width: 145px;
+    width: 80%;
   }
 
   .order-ingr {
@@ -214,15 +208,10 @@
 }
 
 @media screen and (max-width: 440px) {
-  .order-table {
-    font-size: 15px;
-  }
-
   .order-name {
     font-size: 18px;
     font-weight: 600;
     text-align: left;
-    width: 110px;
   }
 
   .order-ingr {
@@ -241,10 +230,6 @@
   .order-cont,
   .order-cont-away {
     flex-direction: column;
-  }
-
-  .order-table {
-    font-size: 16px;
   }
 
   .order-ready,
