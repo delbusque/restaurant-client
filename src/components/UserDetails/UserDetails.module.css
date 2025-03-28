@@ -1,5 +1,62 @@
+.role-cont {
+    display: flex;
+    margin-top: 5px;
+    color: rgb(59, 59, 59);
+}
+
+.role {
+    display: flex;
+    color: rgb(59, 59, 59);
+    margin-left: 15px;
+    font-weight: 400;
+}
+
+.role-select {
+    margin-left: 15px;
+    padding: 2px 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: white;
+    color: rgb(59, 59, 59);
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.contact-cont {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 6px;
+    color: #333;
+}
+
+.email-cont {
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.email-cont span {
+    background: #f1f1f1;
+    padding: 6px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.phone-cont {
+    cursor: pointer;
+}
+
+.phone-cont i {
+    background: #f1f1f1;
+    padding: 8px;
+    border-radius: 50%;
+}
+
 .phone-link {
     text-decoration: none;
     color: rgb(59, 59, 59);
-    margin-left: 10px;
 }

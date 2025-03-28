@@ -205,16 +205,7 @@ button.nav__item-auth {
   color: #555;
 }
 
-.user-details span {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  cursor: pointer;
-  background: #f1f1f1;
-  padding: 6px;
-  border-radius: 50%;
-  color: #333;
-}
+
 
 .anchor-mail {
   text-decoration: none;
