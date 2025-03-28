@@ -39,14 +39,17 @@ const NavSidebar = ({ setToggle }) => {
                             <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Кухня</Link>
                             </li>
-                            {/* <li className={styles['sidebar-item']}>
-                                <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>Staff</Link>
-                            </li> */}
+                            
                         </>}
 
-                    {user && (<div>
+                    {user && (<div className={styles['user-cont']}>
                         <li className={styles['sidebar-user']}>
-                            <Link className={styles['sidebar-link']} to='/my-account' onClick={toggleHandler}><span>{user.email}</span></Link>
+                            <div className={styles['team']}>
+                                <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>екип</Link>
+                            </div>
+                            <div className={styles['team']}>
+                                <Link className={styles['sidebar-link']} to='/my-account' onClick={toggleHandler}><span>{user.email}</span></Link>
+                            </div>
                         </li>
 
                         <div className={styles['sidebar-btn-cont']}>

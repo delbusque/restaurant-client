@@ -5,7 +5,7 @@ const ROLES = [
     { id: 1984, name: 'Manager' },
     { id: 5051, name: 'Chef' },
     { id: 402, name: 'Waiter' },
-    { id: 0, name: 'User' }
+    { id: 401, name: 'User' }
 ];
 
 const UserDetails = ({ user, onRoleChange }) => {

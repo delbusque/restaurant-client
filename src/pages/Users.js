@@ -15,7 +15,7 @@ const Users = () => {
             .then(data => setUsers(data));
     };
 
-    const handleRoleChange = async (newRole, userId) => {
+    const handleRoleChange = async (newRole, userId) => {  
         try {
             const response = await fetch(`${baseUrl}/staff/${userId}`, {
                 method: 'PATCH',
