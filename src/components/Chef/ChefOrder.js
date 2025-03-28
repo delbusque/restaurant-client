@@ -3,8 +3,7 @@ import { useQuery } from 'react-query';
 import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
-import { RiTakeawayLine, RiCheckFill } from 'react-icons/ri'
-import { LuChefHat } from "react-icons/lu";
+import { RiTakeawayLine } from 'react-icons/ri'
 import { PiCookingPotBold } from "react-icons/pi";
 import { useAuthContext } from '../../hooks/useAuthContext.js';
 
@@ -34,8 +33,8 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
     return (
         <>
             <div className={`${styles['order-cont']} ${waiting.tableNum < 100
-                    ? (time > 7 ? styles['delayed'] : '')
-                    : (time > 10 ? styles['delayed'] : '')
+                ? (time > 7 ? styles['delayed'] : '')
+                : (time > 10 ? styles['delayed'] : '')
                 } ${waiting.tableNum < 100 ? "" : styles['order-cont-away']
                 }`}>
                 <div className={styles['order-info']}>
