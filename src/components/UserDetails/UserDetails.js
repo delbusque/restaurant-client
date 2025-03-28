@@ -11,6 +11,7 @@ const ROLES = [
 const UserDetails = ({ user, onRoleChange, onDelete }) => {
     const [isEditingRole, setIsEditingRole] = useState(false);
     const [selectedRole, setSelectedRole] = useState(user.role);
+    const [isConfirmingDelete, setIsConfirmingDelete] = useState(false);
 
     const handleRoleClick = () => {
         setIsEditingRole(prev => !prev);
@@ -39,15 +40,22 @@ const UserDetails = ({ user, onRoleChange, onDelete }) => {
     };
 
     const handleDelete = () => {
-        if (window.confirm('Are you sure you want to delete this user?')) {
-            onDelete(user._id);
-        }
+        setIsConfirmingDelete(true);
+    };
+
+    const handleConfirmDelete = () => {
+        onDelete(user._id);
+        setIsConfirmingDelete(false);
+    };
+
+    const handleCancelDelete = () => {
+        setIsConfirmingDelete(false);
     };
 
     return (
         <div className="user-details">
-            {user.firstName || user.lastName
-                ? <h4>{user.firstName} {user.lastName}</h4>
+            {user.name
+                ? <h4>{user.name}</h4>
                 : <h4>{user.email}</h4>
             }
             
@@ -111,13 +119,37 @@ const UserDetails = ({ user, onRoleChange, onDelete }) => {
                         </a>
                     </div>
                 )}
+
+                {user.role !== 1984 && (
+                <>
                 <button 
-                className={styles['delete-btn']}
-                onClick={handleDelete}
-                title="Delete user"
-            >
-                <i className="fa-solid fa-trash"></i>
-            </button>
+                    className={`${styles['delete-btn']} ${isConfirmingDelete ? styles['delete-btn-confirm'] : ''}`}
+                    onClick={handleDelete}
+                    title="Delete user"
+                >
+                    <i className="fa-solid fa-trash"></i>
+                </button>
+                
+                {isConfirmingDelete && (
+                    <button 
+                        className={styles['delete-btn']}
+                        onClick={handleCancelDelete}
+                        title="Cancel delete"
+                    >
+                        <i className="fa-solid fa-rotate-left"></i>
+                    </button>
+                )}
+                {isConfirmingDelete && (
+                    <button 
+                        className={`${styles['delete-btn']} ${styles['delete-btn-confirm']}`}
+                        onClick={handleConfirmDelete}
+                        title="Confirm delete"
+                    >
+                        <i className="fa-solid fa-user-slash"></i>
+                    </button>
+                )}
+                </>
+            )}
             </div>
         </div>
     );

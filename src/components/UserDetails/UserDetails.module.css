@@ -71,7 +71,7 @@
 
 .email-cont {
     cursor: pointer;
-    margin-right: 10px;
+    margin-right: 8px;
 }
 
 .email-cont span {
@@ -100,6 +100,7 @@
 
 .delete-btn {
     background-color: #dc3545;
+    background-color: #6c757d;
     color: white;
     border: none;
     margin-left: 35px;
@@ -113,5 +114,19 @@
 }
 
 .delete-btn:hover {
+    background-color: #c82333;
+    background-color: #5a6268;
+
+}
+
+.delete-btn-confirm {
+    background-color: #6c757d;
+    background-color: #dc3545;
+    color: white;
+    margin-left: 8px;
+}
+
+.delete-btn-confirm:hover {
+    background-color: #5a6268;
     background-color: #c82333;
 }
