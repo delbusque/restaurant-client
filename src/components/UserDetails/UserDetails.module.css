@@ -97,3 +97,21 @@
     text-decoration: none;
     color: rgb(59, 59, 59);
 }
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    margin-left: 35px;
+    padding: 8px;
+    border-radius: 160px;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}

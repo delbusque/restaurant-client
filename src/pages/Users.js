@@ -37,6 +37,26 @@ const Users = () => {
         }
     };
 
+    const deleteUser = async (userId) => {
+        try {
+            const response = await fetch(`${baseUrl}/staff/${userId}`, {
+                method: 'DELETE',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to delete user');
+            }
+
+            // Refresh the users list to remove the deleted user
+            fetchUsers();
+        } catch (error) {
+            console.error('Error deleting user:', error);
+        }
+    };
+
     return (
         <div className='users'>
             {users.map(u => (
@@ -44,6 +64,7 @@ const Users = () => {
                     key={u._id} 
                     user={u} 
                     onRoleChange={handleRoleChange}
+                    onDelete={deleteUser}
                 />
             ))}
         </div>

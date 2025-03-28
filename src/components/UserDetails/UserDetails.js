@@ -8,7 +8,7 @@ const ROLES = [
     { id: 401, name: 'User' }
 ];
 
-const UserDetails = ({ user, onRoleChange }) => {
+const UserDetails = ({ user, onRoleChange, onDelete }) => {
     const [isEditingRole, setIsEditingRole] = useState(false);
     const [selectedRole, setSelectedRole] = useState(user.role);
 
@@ -38,12 +38,19 @@ const UserDetails = ({ user, onRoleChange }) => {
         return role ? role.name : 'User';
     };
 
+    const handleDelete = () => {
+        if (window.confirm('Are you sure you want to delete this user?')) {
+            onDelete(user._id);
+        }
+    };
+
     return (
         <div className="user-details">
             {user.firstName || user.lastName
                 ? <h4>{user.firstName} {user.lastName}</h4>
                 : <h4>{user.email}</h4>
             }
+            
             {user.role !== undefined && (
                 <div className={styles['role-cont']}>
                     <strong><i className="fa-solid fa-user"></i> </strong>
@@ -77,6 +84,7 @@ const UserDetails = ({ user, onRoleChange }) => {
                             </button>
                         </div>
                     ) : (
+                        <>
                         <div
                             className={styles['role']}
                             onClick={handleRoleClick}
@@ -84,9 +92,11 @@ const UserDetails = ({ user, onRoleChange }) => {
                         >
                             {getRoleName(user.role)}
                         </div>
+                       </>
                     )}
                 </div>
             )}
+            
 
             <div className={styles['contact-cont']}>
                 <div className={styles['email-cont']}>
@@ -101,6 +111,13 @@ const UserDetails = ({ user, onRoleChange }) => {
                         </a>
                     </div>
                 )}
+                <button 
+                className={styles['delete-btn']}
+                onClick={handleDelete}
+                title="Delete user"
+            >
+                <i className="fa-solid fa-trash"></i>
+            </button>
             </div>
         </div>
     );
