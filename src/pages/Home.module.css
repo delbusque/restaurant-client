@@ -19,7 +19,7 @@
 }
 
 .image span {
-  font-family: "Dancing Script", cursive;
+  font-family: "Alegreya Sans", sans-serif;
   font-size: 58px;
 }
 
@@ -43,7 +43,7 @@
   }
 
   .image span {
-    font-family: "Dancing Script", cursive;
+    font-family: "Exo 2", sans-serif;
     font-size: 44px;
     animation: moveInRight 1s ease-out;
   }

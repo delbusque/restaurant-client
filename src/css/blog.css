@@ -76,7 +76,7 @@
   cursor: pointer;
 }
 
-#deli,
+
 #u-email,
 #tables,
 #items,
@@ -90,6 +90,13 @@
   color: black;
   cursor: pointer;
   align-self: center;
+}
+
+#deli {
+  cursor: pointer;
+  align-self: center;
+  font-family: "Exo 2", sans-serif;
+  font-size: 26px;
 }
 
 #err-login {
