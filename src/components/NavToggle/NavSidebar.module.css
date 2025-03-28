@@ -51,6 +51,8 @@
 }
 
 .sidebar-user {
+  display: flex;
+  flex-direction: column;
   list-style: none;
   height: 60px;
   text-align: center;
@@ -59,8 +61,13 @@
   font-weight: 300;
 }
 
+.team {
+  margin-bottom: 10px;
+}
+
 .sidebar-btn-cont,
 .sidebar-btn-login-cont {
+  margin-top: 15px;
   text-align: center;
 }
 
