@@ -10,16 +10,26 @@ const ROLES = [
 
 const UserDetails = ({ user, onRoleChange }) => {
     const [isEditingRole, setIsEditingRole] = useState(false);
+    const [selectedRole, setSelectedRole] = useState(user.role);
 
     const handleRoleClick = () => {
         setIsEditingRole(prev => !prev);
+        setSelectedRole(user.role); // Reset to current role when opening
     };
 
-    const handleRoleChange = (e) => {
-        const newRole = Number(e.target.value);
-        if (onRoleChange) {
-            onRoleChange(newRole, user._id);
+    const handleRoleSelect = (e) => {
+        setSelectedRole(Number(e.target.value));
+    };
+
+    const handleRoleSubmit = () => {
+        if (onRoleChange && selectedRole !== user.role) {
+            onRoleChange(selectedRole, user._id);
         }
+        setIsEditingRole(false);
+    };
+
+    const handleCancel = () => {
+        setSelectedRole(user.role);
         setIsEditingRole(false);
     };
 
@@ -38,19 +48,34 @@ const UserDetails = ({ user, onRoleChange }) => {
                 <div className={styles['role-cont']}>
                     <strong><i className="fa-solid fa-user"></i> </strong>
                     {isEditingRole ? (
-                        <select
-                            className={styles['role-select']}
-                            value={user.role}
-                            onChange={handleRoleChange}
-                            autoFocus
-                            onBlur={() => setIsEditingRole(false)}
-                        >
-                            {ROLES.map(role => (
-                                <option key={role.id} value={role.id}>
-                                    {role.name}
-                                </option>
-                            ))}
-                        </select>
+                        <div className={styles['role-edit-cont']}>
+                            <select
+                                className={styles['role-select']}
+                                value={selectedRole}
+                                onChange={handleRoleSelect}
+                                autoFocus
+                            >
+                                {ROLES.map(role => (
+                                    <option key={role.id} value={role.id}>
+                                        {role.name}
+                                    </option>
+                                ))}
+                            </select>
+                            <button 
+                                className={styles['role-confirm']}
+                                onClick={handleRoleSubmit}
+                                title="Confirm"
+                            >
+                                <i className="fa-solid fa-check"></i>
+                            </button>
+                            <button 
+                                className={styles['role-cancel']}
+                                onClick={handleCancel}
+                                title="Cancel"
+                            >
+                                <i className="fa-solid fa-xmark"></i>
+                            </button>
+                        </div>
                     ) : (
                         <div
                             className={styles['role']}
