@@ -76,13 +76,7 @@ const UserDetails = ({ user, onRoleChange, onDelete }) => {
                                     </option>
                                 ))}
                             </select>
-                            <button 
-                                className={styles['role-confirm']}
-                                onClick={handleRoleSubmit}
-                                title="Confirm"
-                            >
-                                <i className="fa-solid fa-check"></i>
-                            </button>
+                            
                             <button 
                                 className={styles['role-cancel']}
                                 onClick={handleCancel}
@@ -90,6 +84,13 @@ const UserDetails = ({ user, onRoleChange, onDelete }) => {
                             >
                                 <i className="fa-solid fa-xmark"></i>
                             </button>
+                            {user.role !== 1984 &&                    <button 
+                                    className={styles['role-confirm']}
+                                    onClick={handleRoleSubmit}
+                                    title="Confirm"
+                                >
+                                    <i className="fa-solid fa-check"></i>
+                            </button>}
                         </div>
                     ) : (
                         <>
