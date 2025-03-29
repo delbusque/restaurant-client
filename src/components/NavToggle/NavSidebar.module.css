@@ -61,8 +61,15 @@
   font-weight: 300;
 }
 
-.team {
+.team-user {
   margin-bottom: 10px;
+}
+
+.team {
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 24px;
 }
 
 .sidebar-btn-cont,

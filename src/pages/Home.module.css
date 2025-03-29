@@ -19,7 +19,9 @@
 }
 
 .image span {
-  font-family: "Alegreya Sans", sans-serif;
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
   font-size: 58px;
 }
 
@@ -43,7 +45,9 @@
   }
 
   .image span {
-    font-family: "Exo 2", sans-serif;
+    font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
     font-size: 44px;
     animation: moveInRight 1s ease-out;
   }
@@ -59,10 +63,11 @@
   }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 430px) {
   .title {
     font-size: 24px;
     padding-right: 30px;
+    text-align: right;
   }
 
   .image span {
@@ -70,7 +75,7 @@
   }
 }
 
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 360px) {
   .title {
     font-size: 22px;
     padding-right: 20px;
@@ -81,13 +86,13 @@
   }
 }
 
-@media screen and (max-width: 250px) {
+@media screen and (max-width: 320px) {
   .title {
     font-size: 18px;
   }
 
   .image span {
-    font-size: 22px;
+    font-size: 28px;
   }
 }
 
@@ -98,6 +103,6 @@
   }
 
   .image span {
-    font-size: 20px;
+    font-size: 24px;
   }
 }

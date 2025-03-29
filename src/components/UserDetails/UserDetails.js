@@ -125,22 +125,14 @@ const UserDetails = ({ user, onRoleChange, onDelete }) => {
                 {user.role !== 1984 && (
                 <>
                 <button 
-                    className={`${styles['delete-btn']} ${isConfirmingDelete ? styles['delete-btn-confirm'] : ''}`}
+                    className={`${styles['delete-btn']} ${isConfirmingDelete ? '' : styles['delete-btn-confirm']}`}
                     onClick={handleDelete}
                     title="Delete user"
                 >
                     <i className="fa-solid fa-trash"></i>
                 </button>
                 
-                {isConfirmingDelete && (
-                    <button 
-                        className={styles['delete-btn']}
-                        onClick={handleCancelDelete}
-                        title="Cancel delete"
-                    >
-                        <i className="fa-solid fa-rotate-left"></i>
-                    </button>
-                )}
+                
                 {isConfirmingDelete && (
                     <button 
                         className={`${styles['delete-btn']} ${styles['delete-btn-confirm']}`}
@@ -148,6 +140,15 @@ const UserDetails = ({ user, onRoleChange, onDelete }) => {
                         title="Confirm delete"
                     >
                         <i className="fa-solid fa-user-slash"></i>
+                    </button>
+                )}
+                {isConfirmingDelete && (
+                    <button 
+                        className={styles['delete-btn']}
+                        onClick={handleCancelDelete}
+                        title="Cancel delete"
+                    >
+                        <i className="fa-solid fa-rotate-left"></i>
                     </button>
                 )}
                 </>
