@@ -298,7 +298,7 @@
 .tb-client-dis-away {
   position: absolute;
   right: 50px;
-  width: 155px;
+  width: 200px;
   text-align: center;
   padding: 5px;
   font-size: 16px;
@@ -317,7 +317,7 @@
 
 .tb-client-away,
 .tb-client-dis-away{
-  width: 140px;
+  width: 200px;
   right: 71px;
 }
 
@@ -506,11 +506,11 @@
 .firstName {
   color: #797280;
   font-size: 17px;
+  margin-top: 5px;
+  margin-left: 12px;
 }
 
 @media screen and (max-width: 500px) {
-
-  .btn-paid,
   .btn-paid-ta,
   .btn-tables {
     padding: 4px 7px 6px 10px;
@@ -531,8 +531,26 @@
   }
 }
 
-@media screen and (max-width: 370px) {
+@media screen and (max-width: 420px) {
+  .tb-client,
+  .tb-client-dis {
+    width: 175px;
+  }
+  .tb-client-away,
+.tb-client-dis-away{
+  width: 160px;
+}
+}
 
+@media screen and (max-width: 370px) {
+  .tb-client,
+  .tb-client-dis {
+    width: 155px;
+  }
+  .tb-client-away,
+.tb-client-dis-away{
+  width: 140px;
+}
   .tb-money,
   .tb-money-fill,
   .tb-change {
@@ -557,8 +575,10 @@
   }
 
   .btn-tables,
-  .firstName {
+  .firstName,
+  .tb-foot {
     margin-right: 6px;
+    margin-left: 8px;
   }
 
   .tb-money,
@@ -576,12 +596,17 @@
   }
 }
 
-@media screen and (max-width: 320px) {
-
-  .tb-client {
-    width: 110px;
+@media screen and (max-width: 330px) {
+  .tb-client,
+  .tb-client-dis {
+    width: 140px;
     font-size: 14px;
   }
+  .tb-client-away,
+.tb-client-dis-away{
+  width: 130px;
+  font-size: 14px;
+}
 
   .btn-paid,
   .btn-paid-ta,
@@ -606,4 +631,35 @@
 
 .tb-change-cont {
   display: flex;
+}
+
+@media screen and (max-width: 300px) {
+  .tb-client,
+  .tb-client-dis {
+    width: 110px;
+    font-size: 14px;
+  }
+  .tb-client-away,
+  .tb-client-dis-away{
+  width: 100px;
+  font-size: 14px;
+}}
+
+@media screen and (max-width: 270px) {
+  .tb-client,
+  .tb-client-dis,
+  .tb-client-away,
+  .tb-client-dis-away{
+  width: 100px;
+  font-size: 12px;
+  right: 60px;
+}
+
+.btn-tables {
+  font-size: 10px;
+}
+.tb-num,
+.tb-num-op{
+  font-size: 18px;
+}
 }
