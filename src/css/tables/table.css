@@ -82,7 +82,7 @@
   /* border: 1px solid grey; */
   margin: 0 5px;
   margin-right: 10px;
-  padding: 1px 15px;
+  padding: 1px 10px;
   position: absolute;
   right: 1px;
   font-weight: 700;
@@ -293,9 +293,11 @@
 }
 
 .tb-client,
-.tb-client-dis {
+.tb-client-dis,
+.tb-client-away,
+.tb-client-dis-away {
   position: absolute;
-  right: 57px;
+  right: 50px;
   width: 155px;
   text-align: center;
   padding: 5px;
@@ -313,9 +315,18 @@
     inset 0px 0px 0px rgba(0, 0, 0, 0.15);
 }
 
-.tb-client-dis{
+.tb-client-away,
+.tb-client-dis-away{
+  width: 140px;
+  right: 71px;
+}
+
+.tb-client-dis,
+.tb-client-dis-away{
   pointer-events: none;
 }
+
+
 
 .tb-money {
   margin: 10px 0px;
@@ -522,8 +533,10 @@
 
 @media screen and (max-width: 370px) {
 
-  .tb-money {
-    width: 55px;
+  .tb-money,
+  .tb-money-fill,
+  .tb-change {
+    width: 60px;
     text-align: center;
   }
 

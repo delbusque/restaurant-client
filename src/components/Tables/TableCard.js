@@ -83,10 +83,10 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 <Link to={'/tables'}>
                     <button className='btn-tables'>МАСИ</button>
                 </Link>
-                {/* <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div> */}
-
                
-            {table.opened && <input className={(table.opened && !table.paid) && 'tb-client' || (table.opened && table.paid) && 'tb-client-dis'} type='text'/>}
+            {(table.opened && table.type==='table') && <input className={(table.opened && !table.paid) && 'tb-client' || (table.opened && table.paid) && 'tb-client-dis'} type='text'/>}
+
+            {(table.opened && table.type==='away') && <input className={(table.opened && !table.paid) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away'} type='text'/>}
 
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
             </div>
