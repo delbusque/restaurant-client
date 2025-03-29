@@ -49,7 +49,7 @@ const NavSidebar = ({ setToggle }) => {
                                 <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>екип</Link>
                             </div>}
                             
-                            <div className={styles['team']}>
+                            <div className={styles['team-user']}>
                                 <Link className={styles['sidebar-link']} to='/my-account' onClick={toggleHandler}><span>{user.email}</span></Link>
                             </div>
                         </li>
