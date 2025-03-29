@@ -63,7 +63,7 @@
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 430px) {
   .title {
     font-size: 24px;
     padding-right: 30px;
@@ -86,13 +86,13 @@
   }
 }
 
-@media screen and (max-width: 290px) {
+@media screen and (max-width: 320px) {
   .title {
     font-size: 18px;
   }
 
   .image span {
-    font-size: 22px;
+    font-size: 28px;
   }
 }
 
@@ -103,6 +103,6 @@
   }
 
   .image span {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
