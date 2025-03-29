@@ -11,6 +11,7 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
     const { user } = useAuthContext();
 
     const [flag, setFlag] = useState(false)
+    const [clientName, setClientName] = useState('')
 
     let totalSum = 0;
 
@@ -33,7 +34,9 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
         table.orders = [];
         table.paid = false;
         table.opened = false;
-        table.ownerId = ''
+        table.ownerId = '';
+        table.clientName = '';
+        
         setTables(oldState => [...oldState], table);
         window.localStorage.setItem('currTable', JSON.stringify(table))
 
@@ -71,11 +74,35 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
         }
     }
 
+    const handleClientNameChange = (e) => {
+        const value = e.target.value
+        setClientName(value)
+        
+        // Update table object
+        table.clientName = value
+        setTables(oldState => [...oldState])
+        
+        // Update localStorage
+        window.localStorage.setItem('currTable', JSON.stringify(table))
+    }
+
+    const handleClientNameBlur = async () => {
+        try {
+            await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+        } catch (error) {
+            console.error('Error updating table:', error)
+        }
+    }
+
     useEffect(() => {
         window.localStorage.setItem('tables', JSON.stringify(tables))
         setChangeSum(0)
         setGivenSum('')
-    }, [tables, flag])
+        // Initialize client name from localStorage
+        if (table && table.clientName) {
+            setClientName(table.clientName)
+        }
+    }, [tables, flag, table])
 
     return (
         <section className={!table.paid ? 'orders-sect' : 'orders-sect-paid'}>
@@ -84,9 +111,21 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                     <button className='btn-tables'>МАСИ</button>
                 </Link>
                
-            {(table.opened && table.type==='table') && <input className={(table.opened && !table.paid) && 'tb-client' || (table.opened && table.paid) && 'tb-client-dis'} type='text'/>}
+            {(table.opened && table.type==='table') && <input 
+                className={(table.opened && !table.paid) && 'tb-client' || (table.opened && table.paid) && 'tb-client-dis'} 
+                type='text'
+                value={clientName}
+                onChange={handleClientNameChange}
+                onBlur={handleClientNameBlur}
+            />}
 
-            {(table.opened && table.type==='away') && <input className={(table.opened && !table.paid) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away'} type='text'/>}
+            {(table.opened && table.type==='away') && <input 
+                className={(table.opened && !table.paid) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away'} 
+                type='text'
+                value={clientName}
+                onChange={handleClientNameChange}
+                onBlur={handleClientNameBlur}
+            />}
 
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
             </div>
