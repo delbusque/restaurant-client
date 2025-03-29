@@ -85,13 +85,21 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 </Link>
                 {/* <div className='tb-title'>{table.type === 'table' ? 'МАСА' : <div className='icon-wrap'><RiTakeawayLine /></div>}</div> */}
 
-                {table.ownerId && <div className='tb-title firstName'>{tableOwner?.name}</div>}
-                {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
+               
+            {table.opened && <input className={(table.opened && !table.paid) && 'tb-client' || (table.opened && table.paid) && 'tb-client-dis'} type='text'/>}
+
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
             </div>
 
+            {table.ownerId && <div className='tb-title firstName'>{tableOwner?.name}</div>}
+            {table.paid && <button className='btn-green'>ПЛАТЕНО</button>}
+
             <div className='ord-footer'>
                 <div className='tb-foot' onClick={changeHandler}>СМЕТКА</div>
+
+                
+                
+
                 <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
 
                 {(table.opened && table.orders.length > 0 && user.id === tableOwner?._id) &&

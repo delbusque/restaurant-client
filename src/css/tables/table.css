@@ -30,7 +30,6 @@
 
 .tb-head {
   margin-top: 10px;
-  margin-bottom: 20px;
 }
 
 .tb-title {
@@ -293,6 +292,31 @@
   font-size: 18px;
 }
 
+.tb-client,
+.tb-client-dis {
+  position: absolute;
+  right: 57px;
+  width: 155px;
+  text-align: center;
+  padding: 5px;
+  font-size: 16px;
+  color: #464a4fe4;
+  background-color: #faebd7;
+  border: 0px solid #7f848b;
+  font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
+    Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-weight: 700;
+  border-radius: 6px;
+  box-shadow: inset 0px 2px 1px 2px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 0px rgba(0, 0, 0, 0.15),
+    inset 0px 0px 0px rgba(0, 0, 0, 0.15);
+}
+
+.tb-client-dis{
+  pointer-events: none;
+}
+
 .tb-money {
   margin: 10px 0px;
   padding: 3px;
@@ -470,7 +494,7 @@
 
 .firstName {
   color: #797280;
-  font-size: 19px;
+  font-size: 17px;
 }
 
 @media screen and (max-width: 500px) {
@@ -478,7 +502,7 @@
   .btn-paid,
   .btn-paid-ta,
   .btn-tables {
-    padding: 4px 11px 6px 13px;
+    padding: 4px 7px 6px 10px;
   }
 
   .btn-clear,
@@ -540,6 +564,11 @@
 }
 
 @media screen and (max-width: 320px) {
+
+  .tb-client {
+    width: 110px;
+    font-size: 14px;
+  }
 
   .btn-paid,
   .btn-paid-ta,
