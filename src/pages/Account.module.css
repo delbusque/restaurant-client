@@ -25,11 +25,13 @@
 .acc__name {
   margin-bottom: 30px;
   margin-top: 50px;
+  text-align: center;
 }
 
 .acc__name-icon {
   display: inline-block;
   margin-right: 10px;
+  cursor: pointer;
 }
 
 .acc__name-label {
@@ -201,21 +203,52 @@
 }
 
 .save-btn {
-  background: none;
+  background: #ffffff;
   border: none;
   cursor: pointer;
-  padding: 0;
-  color: #27ae60;
-  font-size: 18px;
-  transition: color 0.3s ease;
+  padding: 6px;
+  color: #4CAF50;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.cancel-btn {
+  background: #ffffff;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  color: #f44336;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
 }
 
 .save-btn:hover {
-  color: #1a8740;
+  color: #45a049;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.save-btn i {
-  font-size: 18px;
+.cancel-btn:hover {
+  color: #da1e11;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.save-btn i,
+.cancel-btn i {
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1400px) {
