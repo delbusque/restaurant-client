@@ -64,7 +64,7 @@ const Account = () => {
         <div className={styles['acc']}>
             <div className={styles['acc-details']}>
                 <div className={styles['acc__name']}>
-                    <div className={styles['acc__name-icon']} onClick={() => handleIconClick('name')}>
+                    <div className={styles['acc__name-icon']} title="Промени" onClick={() => handleIconClick('name')}>
                         {user?.role === 1984 && <i className="fa-regular fa-user"></i>}
                         {user?.role === 402 && <i className="fa-regular fa-user"></i>}
                         {user?.role === 401 && <i className="fa-solid fa-lock"></i>}
@@ -93,7 +93,7 @@ const Account = () => {
                 </div>
 
                 <div className={styles['acc__name']}>
-                    <div className={styles['acc__name-icon']} onClick={() => handleIconClick('lastName')}>
+                    <div className={styles['acc__name-icon']} title="Промени"onClick={() => handleIconClick('lastName')}>
                         <i className="fa-regular fa-user"></i>
                     </div>
                     <div className={styles['acc__name-label']}>Фамилия:</div>
@@ -119,7 +119,7 @@ const Account = () => {
                 </div>
 
                 <div className={styles['acc__name']}>
-                    <div className={styles['acc__name-icon']} onClick={() => handleIconClick('phone')}>
+                    <div className={styles['acc__name-icon']} title="Промени"onClick={() => handleIconClick('phone')}>
                         <i className="fa-solid fa-mobile-retro"></i>
                     </div>
                     <div className={styles['acc__name-label']}>Телефон:</div>
@@ -145,7 +145,7 @@ const Account = () => {
                 </div>
 
                 <div className={styles['acc__name']}>
-                    <div className={styles['acc__name-icon']}>
+                    <div className={styles['acc__name-icon-email']}>
                         <i className="fa-regular fa-envelope-open"></i>
                     </div>
                     <div className={styles['acc__name-label']}>Ел. поща:</div>
