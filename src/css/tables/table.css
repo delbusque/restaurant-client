@@ -295,7 +295,9 @@
 .tb-client,
 .tb-client-dis,
 .tb-client-away,
-.tb-client-dis-away {
+.tb-client-dis-away,
+.tb-client-none,
+.tb-client-none-away {
   position: absolute;
   right: 50px;
   width: 200px;
@@ -317,8 +319,14 @@
     inset 0px 0px 0px rgba(0, 0, 0, 0.15);
 }
 
+.tb-client-none,
+.tb-client-none-away{
+  pointer-events: none;
+}
+
 .tb-client-away,
-.tb-client-dis-away{
+.tb-client-dis-away,
+.tb-client-none-away{
   width: 200px;
   right: 71px;
 }

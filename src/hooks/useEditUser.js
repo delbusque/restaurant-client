@@ -11,7 +11,7 @@ export const useEditUser = () => {
     const { dispatch } = useAuthContext();
 
     const editUser = async (name, lastName, email, phone) => {
-
+        
         setIsLoading(true);
         setError(null);
 
