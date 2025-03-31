@@ -28,20 +28,17 @@ export const useEditUser = () => {
             setError(result.error);
             setEmptyFields(result.emptyFields);
             setIsLoading(false);
-            return null;
         }
 
         if (!response.ok) {
             setIsLoading(false);
             setError(result.error);
-            return null;
         }
 
         if (response.ok) {
             localStorage.setItem('user', JSON.stringify(result));
             dispatch({ type: 'EDIT', payload: result });
             setIsLoading(false);
-            return result;
         }
     }
     return { editUser, isLoading, error, setError, emptyFields, setEmptyFields }
