@@ -112,7 +112,8 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 </Link>
                
             {(table.opened && table.type==='table') && <input 
-                className={(table.opened && !table.paid) && 'tb-client' || (table.opened && table.paid) && 'tb-client-dis'} 
+                className={((table.opened && !table.paid && user.id === table.ownerId) && 'tb-client' || (table.opened && !table.paid && user.id !== table.ownerId) && 'tb-client-none')|| 
+                    ((table.opened && table.paid) && 'tb-client-dis')} 
                 type='text'
                 value={clientName}
                 onChange={handleClientNameChange}
@@ -120,7 +121,7 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
             />}
 
             {(table.opened && table.type==='away') && <input 
-                className={(table.opened && !table.paid) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away'} 
+                className={(table.opened && !table.paid && user.id === table.ownerId) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away' || (table.opened && !table.paid && user.id !== table.ownerId) && 'tb-client-none-away'} 
                 type='text'
                 value={clientName}
                 onChange={handleClientNameChange}
