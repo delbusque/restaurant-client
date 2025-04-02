@@ -76,7 +76,7 @@
   cursor: pointer;
 }
 
-#deli,
+
 #u-email,
 #tables,
 #items,
@@ -90,6 +90,15 @@
   color: black;
   cursor: pointer;
   align-self: center;
+}
+
+#deli {
+  cursor: pointer;
+  align-self: center;
+  font-family: "Marck Script", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 34px;
 }
 
 #err-login {

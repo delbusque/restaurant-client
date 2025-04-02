@@ -10,8 +10,8 @@ export const useEditUser = () => {
 
     const { dispatch } = useAuthContext();
 
-    const editUser = async (email, phone) => {
-
+    const editUser = async (name, lastName, email, phone) => {
+        
         setIsLoading(true);
         setError(null);
 
@@ -20,7 +20,7 @@ export const useEditUser = () => {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ email, phone })
+            body: JSON.stringify({ name, lastName, email, phone })
         })
 
         const result = await response.json();

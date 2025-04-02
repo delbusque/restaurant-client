@@ -20,6 +20,7 @@ import Signup from './pages/Signup';
 import Users from './pages/Users';
 import Messages from './pages/Messages';
 import Chef from './pages/Chef/Chef.js';
+import ChefFryer from './pages/Chef/ChefFryer.js';
 import NavToggle from './components/NavToggle/NavToggle';
 import NavSidebar from './components/NavToggle/NavSidebar';
 
@@ -29,24 +30,39 @@ function App() {
 
   const { user } = useAuthContext();
 
-  const [tables, setTables] = useState(JSON.parse(window.localStorage.getItem('tables')));
-  const [items, setItems] = useState(JSON.parse(window.localStorage.getItem('items')));
+  const [tables, setTables] = useState(() => JSON.parse(window.localStorage.getItem('tables')) || []);
+  const [items, setItems] = useState(() => JSON.parse(window.localStorage.getItem('items')) || []);
 
   const [toggle, setToggle] = useState(false)
 
   const [selectedLink, setSelectedLink] = useState('')
 
   useEffect(() => {
-    apiService.fetchTables().then(data => {
-      window.localStorage.setItem('tables', JSON.stringify(data))
-    })
-  }, [tables])
+    const fetchInitialData = async () => {
+      try {
+        const tablesData = await apiService.fetchTables();
+        setTables(tablesData);
+        window.localStorage.setItem('tables', JSON.stringify(tablesData));
+
+        const itemsData = await apiService.fetchItems();
+        setItems(itemsData);
+        window.localStorage.setItem('items', JSON.stringify(itemsData));
+      } catch (error) {
+        console.error('Error fetching initial data:', error);
+      }
+    };
+
+    fetchInitialData();
+  }, []); // Run only once on component mount
+
+  // Save to localStorage whenever tables or items change
+  useEffect(() => {
+    window.localStorage.setItem('tables', JSON.stringify(tables));
+  }, [tables]);
 
   useEffect(() => {
-    apiService.fetchItems().then(data => {
-      window.localStorage.setItem('items', JSON.stringify(data))
-    })
-  }, [items])
+    window.localStorage.setItem('items', JSON.stringify(items));
+  }, [items]);
 
   return (
     <QueryClientProvider client={queryClient}>
@@ -67,6 +83,8 @@ function App() {
                 {user && user?.role !== 401 && <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />}
 
                 {user && user?.role !== 401 && <Route path='/chef' element={<Chef />} />}
+                {user && user?.role !== 401 && <Route path='/chef-fryer' element={<ChefFryer />} />}
+
                 {user && <Route path='/staff' element={user?.role === 1984 ? <Users /> : <Navigate to='/my-account' />} />}
                 {user && user?.role !== 401 && <Route path='/messages' element={<Messages />} />}
 

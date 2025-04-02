@@ -4,9 +4,15 @@
   padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
-  /* border: solid 2px darkolivegreen; */
-  background-color: rgb(190, 190, 190);
+  /* background-color: rgb(190, 190, 190); */
+  background-color: #27ae605e;
+  
   border-bottom-left-radius: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.order-cont.delayed {
+  background-color: rgb(255, 134, 146);
 }
 
 .order-cont-away {
@@ -15,9 +21,15 @@
   padding: 10px 15px 25px 15px;
   display: flex;
   justify-content: space-between;
-  /* border: solid 2px darkgoldenrod; */
-  background-color: rgba(184, 135, 11, 0.444);
+  background-color: rgba(255, 222, 139, 0.653);
   border-bottom-left-radius: 40px;
+  transition: background-color 0.3s ease;
+}
+
+.order-cont-away.delayed {
+  background: linear-gradient(135deg,
+      rgba(255, 193, 7, 0.8) 0%,
+      rgba(253, 126, 20, 0.8) 100%);
 }
 
 .order-name {
@@ -29,11 +41,12 @@
 .order-ready-away {
   background-color: #fff;
   border-color: transparent;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
-  font-size: 18px;
+  font-size: 28px;
   font-weight: 500;
-  padding: 0 20px;
+  padding: 4px 10px;
+  padding-bottom: 0px;
   box-shadow: 0px -2px 5px 1px rgba(0, 255, 255, 0.7);
 }
 
@@ -74,7 +87,12 @@
   grid-template-areas: "tabl time quant info info info info";
   align-items: baseline;
   gap: 10px;
-  width: 80%;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  color: #000;
+}
+
+.order-cont-away .order-info {
+  text-shadow: none;
 }
 
 .order-table {
@@ -82,17 +100,22 @@
   font-size: 18px;
   font-weight: 600;
   grid-area: tabl;
+  margin-right: 10px;
 }
+
 .order-table-num {
-  font-size: 12px;
+  font-size: 14px;
 }
 
 .order-time {
   grid-area: time;
+  font-size: 15px;
+  margin-right: 10px;
 }
 
 .order-quantity {
   grid-area: quant;
+  margin-right: 10px;
 }
 
 .order-count {
@@ -105,6 +128,7 @@
   display: flex;
   flex-direction: column;
   grid-area: info;
+  width: 92%;
 }
 
 .order-ingr {
@@ -118,24 +142,17 @@
     grid-template-areas: "tabl time time  quant quant info info info info info";
     align-items: baseline;
     gap: 5px;
-    width: 80%;
+    width: 90%;
+  }
+
+  .order-cont-away .order-info {
+    text-shadow: none;
   }
 }
 
-@media screen and (max-width: 1100px) {
-  .order-ready,
-  .order-ready-away {
-    background-color: #fff;
-    border-color: transparent;
-    border-radius: 5px;
-    font-size: 16px;
-    font-weight: 500;
-    padding: 0 10px;
-    box-shadow: 0px -1px 1px 1px rgba(0, 255, 255, 0.7);
-  }
-}
 
 @media screen and (max-width: 900px) {
+
   .order-cont,
   .order-cont-away {
     border-radius: 10px;
@@ -155,34 +172,15 @@
     text-align: left;
     width: 200px;
   }
-
-  .order-ready,
-  .order-ready-away {
-    background-color: #fff;
-    border-color: transparent;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 500;
-    padding: 0 10px;
-    box-shadow: 0px -1px 1px 1px rgba(0, 255, 255, 0.7);
-  }
 }
 
 @media screen and (max-width: 510px) {
   .order-info {
     display: grid;
-    grid-template-columns: repeat(14, 1fr);
-    grid-template-areas: "tabl time time quant quant quant quant info info info info info info info";
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-areas: "tabl time quant info info info info info";
     align-items: baseline;
-    gap: 8px;
-    width: 90%;
-  }
-
-  .order-name {
-    font-size: 18px;
-    font-weight: 600;
-    text-align: left;
-    width: 145px;
+    width: 80%;
   }
 
   .order-ingr {
@@ -191,44 +189,31 @@
 }
 
 @media screen and (max-width: 440px) {
-  .order-table {
-    font-size: 15px;
-  }
-
   .order-name {
     font-size: 18px;
     font-weight: 600;
     text-align: left;
-    width: 110px;
   }
 
   .order-ingr {
     width: 120px;
   }
-
-  .order-ready,
-  .order-ready-away {
-    font-size: 14px;
-    padding: 0 4px;
-  }
 }
 
 @media screen and (max-width: 340px) {
+
   .order-cont,
   .order-cont-away {
     flex-direction: column;
   }
 
-  .order-table {
-    font-size: 16px;
-  }
-
   .order-ready,
   .order-ready-away {
     border-radius: 3px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 500;
-    padding: 8px;
+    padding: 6px 0;
+    padding-bottom: 0px;
     margin-top: 20px;
     margin-right: 5px;
     width: 79%;
@@ -246,7 +231,6 @@
     grid-template-areas: "tabl time time info info info info info info info";
     align-items: baseline;
     gap: 7px;
-    width: 90%;
   }
 
   .order-ingr {

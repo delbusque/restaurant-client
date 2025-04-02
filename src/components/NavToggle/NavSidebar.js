@@ -3,6 +3,7 @@ import { useLogout } from '../../hooks/useLogout';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import styles from './NavSidebar.module.css'
 import { MdClose } from 'react-icons/md'
+import { CiFries } from "react-icons/ci";
 
 const NavSidebar = ({ setToggle }) => {
 
@@ -39,14 +40,21 @@ const NavSidebar = ({ setToggle }) => {
                             <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Кухня</Link>
                             </li>
-                            {/* <li className={styles['sidebar-item']}>
-                                <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>Staff</Link>
-                            </li> */}
+                            <li className={styles['sidebar-item']}>
+                                <Link className={styles['sidebar-link']} to='/chef-fryer' onClick={toggleHandler}>Fries </Link><CiFries />
+                            </li>
                         </>}
 
-                    {user && (<div>
+                    {user && (<div className={styles['user-cont']}>
                         <li className={styles['sidebar-user']}>
-                            <Link className={styles['sidebar-link']} to='/my-account' onClick={toggleHandler}><span>{user.email}</span></Link>
+                            
+                            {user.role === 1984 && <div className={styles['team']}>
+                                <Link className={styles['sidebar-link']} to='/staff' onClick={toggleHandler}>екип</Link>
+                            </div>}
+                            
+                            <div className={styles['team-user']}>
+                                <Link className={styles['sidebar-link']} to='/my-account' onClick={toggleHandler}><span>{user.email}</span></Link>
+                            </div>
                         </li>
 
                         <div className={styles['sidebar-btn-cont']}>

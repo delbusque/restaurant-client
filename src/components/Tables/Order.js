@@ -6,10 +6,10 @@ import { useAuthContext } from '../../hooks/useAuthContext'
 const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setTables, tableOwner }) => {
 
     const { user } = useAuthContext()
-    const { name, ingredients, quantity, quantityType, count, sent } = order
+    const { name, ingredients, quantity, quantityType, count, sent, family, type, fryer } = order
 
     const addOrders = () => {
-        axios.post(`${baseUrl}/chef/add-orders`, { name, ingredients, quantity, quantityType, count: (count - sent), tableNum })
+        axios.post(`${baseUrl}/chef/add-orders`, { name, ingredients, quantity, quantityType, count: (count - sent), tableNum, family, type, fryer })
     }
 
     const toChefHandler = () => {

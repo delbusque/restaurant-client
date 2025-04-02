@@ -4,8 +4,10 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 import { baseUrl } from '../../config';
 import { RiTakeawayLine } from 'react-icons/ri'
+import { PiCookingPotBold } from "react-icons/pi";
 import { useAuthContext } from '../../hooks/useAuthContext.js';
-
+import { CiFries } from "react-icons/ci";
+import { GiFrenchFries } from "react-icons/gi";
 
 const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
@@ -31,7 +33,11 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
     return (
         <>
-            <div className={waiting.tableNum < 100 ? styles['order-cont'] : styles['order-cont-away']}>
+            <div className={`${styles['order-cont']} ${waiting.tableNum < 100
+                ? (time > 7 ? styles['delayed'] : '')
+                : (time > 10 ? styles['delayed'] : '')
+                } ${waiting.tableNum < 100 ? "" : styles['order-cont-away']
+                }`}>
                 <div className={styles['order-info']}>
                     <div className={styles['order-table']}>
                         {waiting.tableNum < 100 ? waiting.tableNum : <RiTakeawayLine />}
@@ -47,7 +53,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
                 </div>
                 {(user?.role === 1984 || user?.role === 5051) &&
-                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>ГОТОВА</button>
+                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>{waiting.fryer ? <CiFries /> : <PiCookingPotBold />}</button>
                 }
 
             </div>

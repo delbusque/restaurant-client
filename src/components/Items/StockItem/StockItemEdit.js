@@ -12,6 +12,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
     const [inputName, setInputName] = useState('');
     const [family, setFamily] = useState('');
     const [type, setType] = useState('');
+    const [fryer, setFryer] = useState(false);
     const [inputIngredients, setInputIngredients] = useState('');
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState('');
@@ -30,6 +31,11 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
         setInputIngredients(item.ingredients?.join(', '))
         setFamily(item.family)
         setType(item.type)
+        if(item.fryer !==undefined) {
+            setFryer(item.fryer)
+        }else{
+            setFryer(false)
+        }
     }, [item])
 
     const editItemHandler = async (e) => {
@@ -50,7 +56,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
         }
 
         let ingredients = inputIngredients?.split(/[,./';]/).map(i => (i.trim())).filter(i => i)
-        const editedItem = { name, family, ingredients, price, type, quantity, quantityType, _id: item._id }
+        const editedItem = { name, family, ingredients, price, type, quantity, quantityType, _id: item._id, fryer }
 
         const response = await fetch(`${baseUrl}/items/edit/${item._id}`, {
             method: 'POST',
@@ -128,7 +134,7 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                             setType('');
                             setEmptyFields(old => old.filter(f => f !== 'family'));
                         }}>
-                        <option selected disabled>Избери тук :</option>
+                        <option selected disabled>Избери :</option>
                         <option value='drinks'>Напитки</option>
                         <option value='food'>Хапване</option>
                     </select>
@@ -167,6 +173,20 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                             <option value='Ядки'>Ядки</option>
                             <option value='Други'>Други</option>
                         </select>}
+
+                        
+                        {family === 'food' && type === 'Топла' && 
+                        <div className={styles['label-input']}>
+                        <label className={styles["label"]}>Фритюрник</label><select
+                        value={fryer}
+                        onChange={(e) => {
+                            setFryer(e.target.value)
+                        }}>
+                        <option selected disabled>Избери :</option>
+                        <option value={true}>ДА</option>
+                        <option value={false}>НЕ</option>
+                    </select></div>}
+                        
 
                     <div className={styles['label-input']}>
                         <label className={styles["label"]}>Продукти / Състав</label>
