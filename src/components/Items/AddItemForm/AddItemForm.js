@@ -16,6 +16,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem, modalC
     const [inputIngredients, setInputIngredients] = useState('');
     const [price, setPrice] = useState('');
     const [quantity, setQuantity] = useState('');
+    const [fryer, setFryer] = useState(false);
     const [error, setError] = useState(null);
     const [emptyFields, setEmptyFields] = useState([]);
     const [negZero, setNegZero] = useState([]);
@@ -36,7 +37,7 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem, modalC
         let ingredients = ingredientsTemp.map(i => i.charAt(0).toUpperCase() + i.slice(1).toLowerCase())
 
         let name = inputName.charAt(0).toUpperCase() + inputName.slice(1).toLowerCase();
-        const newItem = { name, family, ingredients, price, type, quantity }
+        const newItem = { name, family, ingredients, price, type, quantity, fryer }
 
         const response = await fetch(`${baseUrl}/items/add`, {
             method: 'POST',
@@ -136,6 +137,19 @@ const AddItemForm = ({ setDrinkIsActive, setFoodIsActive, setShowAddItem, modalC
                             <option value='Други'>Други</option>
                         </select>}
 
+                        
+                        {family === 'food' && type === 'Топла' && 
+                        <div className={styles['label-input']}>
+                        <label className={styles["label"]}>Фритюрник</label><select
+                        onChange={(e) => {
+                            setFryer(e.target.value)
+                        }}>
+                        <option selected disabled>Избери :</option>
+                        <option value={true}>ДА</option>
+                        <option value={false}>НЕ</option>
+                    </select>
+                    </div>}
+                        
 
                     <div className={styles['label-input']}>
                         <label className={styles["label"]}>Продукти / Състав</label>
