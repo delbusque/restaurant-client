@@ -5,14 +5,14 @@
   display: flex;
   justify-content: space-between;
   /* background-color: rgb(190, 190, 190); */
-  background-color: #27ae605e;
+  background-color: #83e9ae99;
   
   border-bottom-left-radius: 40px;
   transition: background-color 0.3s ease;
 }
 
 .order-cont.delayed {
-  background-color: rgb(255, 134, 146);
+  background-color: rgba(255, 134, 146, 0.71);
 }
 
 .order-cont-away {
@@ -28,8 +28,8 @@
 
 .order-cont-away.delayed {
   background: linear-gradient(135deg,
-      rgba(255, 193, 7, 0.8) 0%,
-      rgba(253, 126, 20, 0.8) 100%);
+      rgba(255, 193, 7, 0.797) 0%,
+      rgba(250, 147, 63, 0.881) 100%);
 }
 
 .order-name {
@@ -87,7 +87,7 @@
   grid-template-areas: "tabl time quant info info info info";
   align-items: baseline;
   gap: 10px;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  /* text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5); */
   color: #000;
 }
 
@@ -100,7 +100,7 @@
   font-size: 18px;
   font-weight: 600;
   grid-area: tabl;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .order-table-num {
@@ -110,7 +110,7 @@
 .order-time {
   grid-area: time;
   font-size: 16px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 .order-quantity {
@@ -191,7 +191,7 @@
 
 @media screen and (max-width: 440px) {
   .order-name {
-    font-size: 18px;
+    /* font-size: 18px; */
     font-weight: 600;
     text-align: left;
   }
