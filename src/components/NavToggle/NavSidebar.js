@@ -3,6 +3,7 @@ import { useLogout } from '../../hooks/useLogout';
 import { useAuthContext } from '../../hooks/useAuthContext';
 import styles from './NavSidebar.module.css'
 import { MdClose } from 'react-icons/md'
+import { CiFries } from "react-icons/ci";
 
 const NavSidebar = ({ setToggle }) => {
 
@@ -39,7 +40,9 @@ const NavSidebar = ({ setToggle }) => {
                             <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/chef' onClick={toggleHandler}>Кухня</Link>
                             </li>
-                            
+                            <li className={styles['sidebar-item']}>
+                                <Link className={styles['sidebar-link']} to='/chef-fryer' onClick={toggleHandler}>Fries </Link><CiFries />
+                            </li>
                         </>}
 
                     {user && (<div className={styles['user-cont']}>

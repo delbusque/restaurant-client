@@ -40,9 +40,15 @@ const NavToggle = ({ setToggle, selectedLink, setSelectedLink }) => {
 
                 <div className="nav__auth">
                     <>{user && user?.role !== 401 &&
+                    <>
                         <Link id='chef' className='links nav-chef' to='/chef' onClick={() => setSelectedLink('chef')}>
                             <li className={selectedLink === 'chef' ? "nav__item link-sel" : "nav__item chef"}>КУХНЯ</li>
-                        </Link>}
+                        </Link>
+                        <Link id='chef' className='links nav-chef' to='/chef-fryer' onClick={() => setSelectedLink('chef-fryer')}>
+                            <li className={selectedLink === 'chef-fryer' ? "nav__item link-sel" : "nav__item chef"}>FRIES </li>
+                        </Link>
+                        </>
+                        }
                         {/* <Link id='messages' className='links' to='/messages'><li className="nav__item deli-blog">Messages</li></Link> */}
                         {(user && user?.role === 1984) &&
                             <Link id='staff' className='links' to='/staff' onClick={() => setSelectedLink('team')}>
