@@ -6,7 +6,8 @@ import { baseUrl } from '../../config';
 import { RiTakeawayLine } from 'react-icons/ri'
 import { PiCookingPotBold } from "react-icons/pi";
 import { useAuthContext } from '../../hooks/useAuthContext.js';
-
+import { CiFries } from "react-icons/ci";
+import { GiFrenchFries } from "react-icons/gi";
 
 const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
@@ -52,7 +53,7 @@ const ChefOrder = ({ waiting, refetch, orders, data }) => {
 
                 </div>
                 {(user?.role === 1984 || user?.role === 5051) &&
-                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}><PiCookingPotBold /></button>
+                    <button className={waiting.tableNum < 100 ? styles['order-ready'] : styles['order-ready-away']} onClick={() => updateWaitingStatus(waiting)}>{waiting.fryer ? <CiFries /> : <PiCookingPotBold />}</button>
                 }
 
             </div>
