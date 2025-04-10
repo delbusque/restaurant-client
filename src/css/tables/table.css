@@ -320,19 +320,19 @@
 }
 
 .tb-client-none,
-.tb-client-none-away{
+.tb-client-none-away {
   pointer-events: none;
 }
 
 .tb-client-away,
 .tb-client-dis-away,
-.tb-client-none-away{
+.tb-client-none-away {
   width: 200px;
   right: 71px;
 }
 
 .tb-client-dis,
-.tb-client-dis-away{
+.tb-client-dis-away {
   pointer-events: none;
 }
 
@@ -459,7 +459,7 @@
   background-color: #ff8c00b7;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1500px) {
   .table-card {
     display: flex;
     flex-direction: column;
@@ -521,6 +521,7 @@
 }
 
 @media screen and (max-width: 500px) {
+
   .btn-paid-ta,
   .btn-tables {
     padding: 4px 7px 6px 10px;
@@ -542,25 +543,30 @@
 }
 
 @media screen and (max-width: 420px) {
+
   .tb-client,
   .tb-client-dis {
     width: 175px;
   }
+
   .tb-client-away,
-.tb-client-dis-away{
-  width: 160px;
-}
+  .tb-client-dis-away {
+    width: 160px;
+  }
 }
 
 @media screen and (max-width: 370px) {
+
   .tb-client,
   .tb-client-dis {
     width: 155px;
   }
+
   .tb-client-away,
-.tb-client-dis-away{
-  width: 140px;
-}
+  .tb-client-dis-away {
+    width: 140px;
+  }
+
   .tb-money,
   .tb-money-fill,
   .tb-change {
@@ -607,16 +613,18 @@
 }
 
 @media screen and (max-width: 330px) {
+
   .tb-client,
   .tb-client-dis {
     width: 140px;
     font-size: 14px;
   }
+
   .tb-client-away,
-.tb-client-dis-away{
-  width: 130px;
-  font-size: 14px;
-}
+  .tb-client-dis-away {
+    width: 130px;
+    font-size: 14px;
+  }
 
   .btn-paid,
   .btn-paid-ta,
@@ -644,32 +652,37 @@
 }
 
 @media screen and (max-width: 300px) {
+
   .tb-client,
   .tb-client-dis {
     width: 110px;
     font-size: 14px;
   }
+
   .tb-client-away,
-  .tb-client-dis-away{
-  width: 100px;
-  font-size: 14px;
-}}
+  .tb-client-dis-away {
+    width: 100px;
+    font-size: 14px;
+  }
+}
 
 @media screen and (max-width: 270px) {
+
   .tb-client,
   .tb-client-dis,
   .tb-client-away,
-  .tb-client-dis-away{
-  width: 100px;
-  font-size: 12px;
-  right: 60px;
-}
+  .tb-client-dis-away {
+    width: 100px;
+    font-size: 12px;
+    right: 60px;
+  }
 
-.btn-tables {
-  font-size: 10px;
-}
-.tb-num,
-.tb-num-op{
-  font-size: 18px;
-}
+  .btn-tables {
+    font-size: 10px;
+  }
+
+  .tb-num,
+  .tb-num-op {
+    font-size: 18px;
+  }
 }

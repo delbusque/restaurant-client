@@ -2,7 +2,7 @@
   background-color: #ddd7c6;
   display: grid;
   /* grid-template-columns: repeat(4, 1fr); */
-  grid-template-columns: 40px 2fr 2fr 1fr 1.7fr;
+  grid-template-columns: 40px 2fr 2fr 2fr 1.7fr;
   grid-template-areas: "inStock name name quantity price . . .";
   margin-bottom: 2.5px;
   /* position: sticky; */
@@ -43,6 +43,7 @@
   color: rgb(36, 81, 81);
   background-color: #ddd7c6;
   padding-right: 7px;
+  margin-left: 30px;
 }
 
 .stock-item__delete {
@@ -79,6 +80,12 @@
   margin: 5px;
   text-align: right;
   margin-right: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+  .stock-item__stock {
+    margin-left: 0px;
+  }
 }
 
 @media screen and (max-width: 900px) {
@@ -129,9 +136,13 @@
 
 @media screen and (max-width: 450px) {
 
+  .stock-item {
+    grid-template-columns: 40px 2fr 2fr 1fr 2fr;
+    /* grid-template-areas: "inStock name name quantity price . . ."; */
+  }
+
   .stock-item__price {
     text-align: center;
-
   }
 
   .lv {
@@ -163,15 +174,17 @@
 }
 
 @media screen and (max-width: 350px) {
-  .stock-item__delete {
+
+  .stock-item__delete,
+  .stock-item__edit {
     display: none;
   }
 }
 
 @media screen and (max-width: 310px) {
   .stock-item {
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-areas: "inStock name name price";
+    /* grid-template-columns: repeat(5, 1fr);
+    grid-template-areas: "inStock name name price"; */
     margin-bottom: 2.5px;
     /* position: sticky; */
     border: 1px solid rgba(128, 128, 128, 0.479);
@@ -180,8 +193,7 @@
 
   .stock-item__quantity,
   .stock-item__quantityType,
-  .stock-item__delete,
-  .stock-item__edit {
+  .stock-item__delete {
     display: none;
   }
 

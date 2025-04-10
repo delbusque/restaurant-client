@@ -75,7 +75,7 @@
 .item-price {
   display: inline;
   grid-area: price;
-  margin: 5px 5px;
+  margin: 5px 10px;
   text-align: right;
 }
 
@@ -117,5 +117,33 @@
   .item-quantityType,
   .item-price {
     font-size: 18px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .item {
+    grid-template-columns: 1fr 1fr 1fr 1.3fr;
+  }
+}
+
+@media screen and (max-width: 310px) {
+
+  .item-name {
+    font-size: 14px;
+  }
+
+  .item-quantity,
+  .item-price {
+    font-size: 14px;
+  }
+
+  .item-quantityType {
+    font-size: 11px;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  .lv {
+    display: none;
   }
 }
