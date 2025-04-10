@@ -16,6 +16,7 @@ import TypeButton from '../Buttons/TypeButton.js';
 import familiesAndTypes from '../../services/familiesAndTypes.js';
 
 const TableView = ({ tables, setTables, setItems }) => {
+    const [toast, setToast] = useState(null);
 
     const { user } = useAuthContext()
 
@@ -51,9 +52,14 @@ const TableView = ({ tables, setTables, setItems }) => {
     }, [data, table.ownerId])
 
 
+    const showToast = (message) => {
+        setToast(message);
+        setTimeout(() => setToast(null), 4000);
+    };
+
     const updateBackendStock = async (itemId, newStock) => {
         try {
-            await fetch(`${baseUrl}/items/${itemId}/stock`, {
+            const response = await fetch(`${baseUrl}/items/${itemId}/stock`, {
                 method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
@@ -61,8 +67,14 @@ const TableView = ({ tables, setTables, setItems }) => {
                 },
                 body: JSON.stringify({ stock: newStock })
             });
+
+            if (!response.ok) {
+                throw new Error('Failed to update stock');
+            }
         } catch (error) {
             console.error('Error updating stock:', error);
+            showToast('Failed to update stock. Please try again.');
+            throw error;
         }
     };
 
@@ -109,8 +121,24 @@ const TableView = ({ tables, setTables, setItems }) => {
             setItems(updatedItems);
             window.localStorage.setItem('items', JSON.stringify(updatedItems));
 
-            // Update backend stock
-            await updateBackendStock(item._id, newStock);
+            try {
+                // Update backend stock
+                await updateBackendStock(item._id, newStock);
+            } catch (error) {
+                // Revert local changes if backend update fails
+                const revertedItems = items.map(i => {
+                    if (i._id === item._id) {
+                        return {
+                            ...i,
+                            stock: currentItem.stock
+                        };
+                    }
+                    return i;
+                });
+                setItems(revertedItems);
+                window.localStorage.setItem('items', JSON.stringify(revertedItems));
+                return; // Stop further processing
+            }
 
             // Update table
             setTables(oldState => [...oldState], table);
@@ -154,8 +182,24 @@ const TableView = ({ tables, setTables, setItems }) => {
                 setItems(updatedItems);
                 window.localStorage.setItem('items', JSON.stringify(updatedItems));
 
-                // Update backend stock
-                await updateBackendStock(item._id, newStock);
+                try {
+                    // Update backend stock
+                    await updateBackendStock(item._id, newStock);
+                } catch (error) {
+                    // Revert local changes if backend update fails
+                    const revertedItems = items.map(i => {
+                        if (i._id === item._id) {
+                            return {
+                                ...i,
+                                stock: currentItem.stock
+                            };
+                        }
+                        return i;
+                    });
+                    setItems(revertedItems);
+                    window.localStorage.setItem('items', JSON.stringify(revertedItems));
+                    return; // Stop further processing
+                }
 
                 // Update table
                 setTables(oldState => [...oldState], table);
@@ -166,7 +210,8 @@ const TableView = ({ tables, setTables, setItems }) => {
     }
 
     return (
-        < div className='table-card' >
+        <div className='table-card'>
+            {toast && <div className='toast-notification'>{toast}</div>}
             {
                 table ?
                     <>
