@@ -36,7 +36,7 @@ const StockItem = ({ item, modalHandler, editHandler, deleteHandler, isInactive,
 
         try {
             const response = await fetch(`${baseUrl}/items/${item._id}/stock`, {
-                method: 'POST',
+                method: 'PATCH',
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${user.token}`
