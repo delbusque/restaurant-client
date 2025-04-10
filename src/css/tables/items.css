@@ -28,8 +28,8 @@
 .item {
   background-color: #ddd7c6;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "name name quantity price";
+  grid-template-columns: 40px 1fr 1fr 1fr 1fr;
+    grid-template-areas: "inStock name name quantity price";
   margin-bottom: 2px;
   /* position: sticky; */
   border: 1px solid rgba(128, 128, 128, 0.479);
@@ -50,6 +50,20 @@
 .item:active {
   transition: all ease 0.2s;
   box-shadow: inset 0px 15px 9px 0px rgba(0, 255, 255, 0.7);
+}
+
+.stock-item__inStock,
+.stock-item__nonStock {
+  grid-area: inStock;
+  text-align: center;
+  margin: 5px;
+  color: rgb(36, 81, 81);
+  margin-left: 10px;
+  font-size: 18px;
+  align-self: center;
+}
+.stock-item__nonStock{
+  color: crimson;
 }
 
 .item .item-name {
