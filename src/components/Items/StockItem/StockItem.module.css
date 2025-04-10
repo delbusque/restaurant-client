@@ -110,7 +110,7 @@
 
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
   .stock-item__quantity {
     font-size: 15px;
   }
@@ -124,11 +124,10 @@
     padding: 4px;
   }
 
-  /* .lv {
+  .lv {
     display: none;
-  } */
+  }
 
-  .lv,
   .stock-item__quantityType {
     font-size: 10px;
   }
@@ -143,10 +142,6 @@
 
   .stock-item__price {
     text-align: center;
-  }
-
-  .lv {
-    display: none;
   }
 }
 
