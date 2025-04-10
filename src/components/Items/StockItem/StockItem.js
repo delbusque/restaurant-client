@@ -1,6 +1,4 @@
 import styles from './StockItem.module.css'
-import { useState, useContext } from 'react';
-import ItemsContext from '../../../contexts/ItemsContext';
 import { useAuthContext } from '../../../hooks/useAuthContext';
 
 const StockItem = ({ item, modalHandler, editHandler, deleteHandler }) => {
@@ -19,8 +17,12 @@ const StockItem = ({ item, modalHandler, editHandler, deleteHandler }) => {
     return (
         <>
             <div className={styles['stock-item']}>
+                <div className={styles['stock-item__inStock']}>{item.stock}</div>
+
 
                 <div className={styles['stock-item__name']}>{item.name}</div>
+
+
                 <div className={styles['stock-item__quantity']}>{item.quantity < 1000 ? item.quantity : item.quantity / 1000}
                     <span className={styles['stock-item__quantityType']}>{item.quantityType}</span>
                 </div>
@@ -29,6 +31,9 @@ const StockItem = ({ item, modalHandler, editHandler, deleteHandler }) => {
 
                 {(user && user.role === 1984) &&
                     <>
+                        <button className={styles['stock-item__stock']}>
+                            <i class="fa-solid fa-layer-group"></i>
+                        </button>
                         <button className={styles['stock-item__edit']} onClick={handleEdit}>
                             <i className="fa-solid fa-marker marker"></i>
                         </button>
