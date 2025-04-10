@@ -73,13 +73,13 @@ const TableView = ({ tables, setTables, setItems }) => {
             }
         } catch (error) {
             console.error('Error updating stock:', error);
-            showToast('Failed to update stock. Please try again.');
+            showToast('Failed to update stock!');
             throw error;
         }
     };
 
     const addItemHandler = async (item) => {
-        if (table.ownerId === user.id && !table.paid) {
+        if (item.stock > 0 && (table.ownerId === user.id && !table.paid)) {
             // Check if item has stock available
             const currentItem = items.find(i => i._id === item._id);
             if (!currentItem || currentItem.stock <= 0) {
@@ -144,6 +144,8 @@ const TableView = ({ tables, setTables, setItems }) => {
             setTables(oldState => [...oldState], table);
             window.localStorage.setItem('currTable', JSON.stringify(table));
             await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
+        }else {
+            showToast(`Моля заредете ${item.name} !`);
         }
     }
 
