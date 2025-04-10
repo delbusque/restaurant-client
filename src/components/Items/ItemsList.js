@@ -39,6 +39,7 @@ const ItemsList = () => {
     const [editInfo, setEditInfo] = useState(false);
     const [deleteInfo, setDeleteInfo] = useState(false);
     const [currentItem, setCurrentItem] = useState(null);
+    const [activeStockItemId, setActiveStockItemId] = useState(null);
 
     const dialog = useRef();
 
@@ -93,11 +94,18 @@ const ItemsList = () => {
                 ref={dialog} modalCloser={modalCloser} addHandler={addHandler} setError={setError} />
 
             <div className='iL-main'>
-                {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && <button className={styles['show-form']} onClick={modalHandler}>Добави нов артикул</button>}
+                {(user && user.role === 1984 && !showInfo && !editInfo && !showAddItem) && 
+                    <button 
+                        className={`${styles['show-form']} ${activeStockItemId !== null ? styles['inactive'] : ''}`} 
+                        onClick={modalHandler}
+                    >
+                        Добави нов артикул
+                    </button>
+                }
 
                 {(!typeIsActive && drinkIsActive) &&
                     <section>
-                        <div className='iL-buttons-sect'>
+                        <div className={`iL-buttons-sect ${activeStockItemId !== null ? styles['buttons-sect-inactive'] : ''}`}>
                             <section className='iL-family-sect'>
                                 {families.length > 0 &&
                                     families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
@@ -125,15 +133,26 @@ const ItemsList = () => {
                             {(user && !items) && <div className={styles['table-error']}>Please add an item to stock !</div>}
 
                             {
-                                items && items.map(i => i.family === 'drinks' && <StockItem key={i._id} item={i} setShowInfo={setShowInfo} setEditInfo={setEditInfo} setDeleteInfo={setDeleteInfo}
-                                    modalHandler={modalHandler} infoHandler={infoHandler} editHandler={editHandler} deleteHandler={deleteHandler} />)
+                                items && items.map(i => i.family === 'drinks' && <StockItem 
+                                    key={i._id} 
+                                    item={i} 
+                                    setShowInfo={setShowInfo} 
+                                    setEditInfo={setEditInfo} 
+                                    setDeleteInfo={setDeleteInfo}
+                                    modalHandler={modalHandler} 
+                                    infoHandler={infoHandler} 
+                                    editHandler={editHandler} 
+                                    deleteHandler={deleteHandler}
+                                    isInactive={activeStockItemId !== null && activeStockItemId !== i._id}
+                                    onStockClick={() => setActiveStockItemId(prev => prev === i._id ? null : i._id)}
+                                />)
                             }
                         </section>
                     </section>}
 
                 {(!typeIsActive && foodIsActive) &&
                     <section>
-                        <div className='iL-buttons-sect'>
+                        <div className={`iL-buttons-sect ${activeStockItemId !== null ? styles['buttons-sect-inactive'] : ''}`}>
                             <section className='iL-family-sect'>
                                 {families.length > 0 &&
                                     families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
@@ -154,8 +173,16 @@ const ItemsList = () => {
                         </div>
                         <section className='iL-items'>
                             {
-                                items && items.map(i => i.family === 'food' && <StockItem key={i._id} item={i} infoHandler={infoHandler} editHandler={editHandler} modalHandler={modalHandler}
-                                    deleteHandler={deleteHandler} />)
+                                items && items.map(i => i.family === 'food' && <StockItem 
+                                    key={i._id} 
+                                    item={i} 
+                                    infoHandler={infoHandler} 
+                                    editHandler={editHandler} 
+                                    modalHandler={modalHandler}
+                                    deleteHandler={deleteHandler}
+                                    isInactive={activeStockItemId !== null && activeStockItemId !== i._id}
+                                    onStockClick={() => setActiveStockItemId(prev => prev === i._id ? null : i._id)}
+                                />)
                             }</section>
                     </section>}
 
@@ -163,7 +190,7 @@ const ItemsList = () => {
 
                 {typeIsActive &&
                     <section>
-                        <div className='iL-buttons-sect'>
+                        <div className={`iL-buttons-sect ${activeStockItemId !== null ? styles['buttons-sect-inactive'] : ''}`}>
                             <section className='iL-family-sect'>
                                 {families.length > 0 &&
                                     families.sort((a, b) => a.localeCompare(b)).map(f => <FamilyButton family={f} key={f} setDrinkIsActive={setDrinkIsActive} setFoodIsActive={setFoodIsActive}
@@ -185,8 +212,19 @@ const ItemsList = () => {
 
                         <section className='iL-items'>
                             {
-                                items && items.map(i => i.type === byType && <StockItem key={i._id} item={i} setEditInfo={setEditInfo} setShowInfo={setShowInfo} setDeleteInfo={setDeleteInfo}
-                                    modalHandler={modalHandler} infoHandler={infoHandler} editHandler={editHandler} deleteHandler={deleteHandler} />)
+                                items && items.map(i => i.type === byType && <StockItem 
+                                    key={i._id} 
+                                    item={i} 
+                                    setEditInfo={setEditInfo} 
+                                    setShowInfo={setShowInfo} 
+                                    setDeleteInfo={setDeleteInfo}
+                                    modalHandler={modalHandler} 
+                                    infoHandler={infoHandler} 
+                                    editHandler={editHandler} 
+                                    deleteHandler={deleteHandler}
+                                    isInactive={activeStockItemId !== null && activeStockItemId !== i._id}
+                                    onStockClick={() => setActiveStockItemId(prev => prev === i._id ? null : i._id)}
+                                />)
                             }
                         </section>
 
