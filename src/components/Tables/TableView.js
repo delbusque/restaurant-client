@@ -79,6 +79,9 @@ const TableView = ({ tables, setTables, setItems }) => {
     };
 
     const addItemHandler = async (item) => {
+        if((!item.stock || item.stock < 1) && table.opened) {
+            showToast(`Моля заредете ${item.name.toUpperCase()} !`);
+         }
         if (item.stock > 0 && (table.ownerId === user.id && !table.paid)) {
             // Check if item has stock available
             const currentItem = items.find(i => i._id === item._id);
@@ -144,9 +147,8 @@ const TableView = ({ tables, setTables, setItems }) => {
             setTables(oldState => [...oldState], table);
             window.localStorage.setItem('currTable', JSON.stringify(table));
             await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
-        }else {
-            showToast(`Моля заредете ${item.name.toUpperCase()} !`);
         }
+        
     }
 
     const deleteItemHandler = async (item) => {
