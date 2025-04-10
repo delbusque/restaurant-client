@@ -61,11 +61,11 @@
   margin-left: 10px;
   font-size: 16px;
   align-self: center;
-  background-color: antiquewhite;
+  background-color: rgba(250, 235, 215, 0.422);
   border-radius: 3px;
 }
 .stock-item__nonStock{
-  color: crimson;
+  color: rgba(220, 20, 60, 0.728);
   font-weight: 600;
 }
 
