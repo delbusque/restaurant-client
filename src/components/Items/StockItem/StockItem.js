@@ -27,7 +27,8 @@ const StockItem = ({ item, modalHandler, editHandler, deleteHandler }) => {
                     <span className={styles['stock-item__quantityType']}>{item.quantityType}</span>
                 </div>
                 <div className={styles['stock-item__price']}>{item.price.toFixed(2)}
-                    <span className={styles['lv']}> лв.</span></div>
+                    <span className={user && user.role === 1984 ? styles['lv'] : styles['']}> лв.</span>
+                </div>
 
                 {(user && user.role === 1984) &&
                     <>
