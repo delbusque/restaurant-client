@@ -98,7 +98,7 @@ const StockItem = ({ item, modalHandler, editHandler, deleteHandler, isInactive,
                                         value={stockValue}
                                         onChange={(e) => setStockValue(e.target.value)}
                                         className={styles['stock-item__stock-input']}
-                                        placeholder="Налично"
+                                        placeholder="стока +"
                                         onKeyDown={(e) => e.key === 'Enter' && handleStockSubmit()} 
                                     />
                                     <div className={styles['stock-item__stock-buttons']}>

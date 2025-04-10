@@ -88,11 +88,11 @@
   margin: 5px;
   color: rgb(36, 81, 81);
   margin-left: 10px;
-  background-color: antiquewhite;
+  background-color: rgba(250, 235, 215, 0.422);
   border-radius: 3px;
 }
 .stock-item__nonStock {
-  color: crimson;
+  color: rgba(220, 20, 60, 0.728);
   font-weight: 600;
 }
 
@@ -134,7 +134,12 @@
   padding: 4px;
   border: 1px solid #ccc;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 18px;
+  text-align: center;
+}
+
+.stock-item__stock-input:focus::placeholder {
+  color: transparent;
 }
 
 .stock-item__stock-buttons {
@@ -146,10 +151,10 @@
 .stock-item__stock-submit,
 .stock-item__stock-cancel {
   border: none;
-  background: none;
+  background: rgba(250, 235, 215, 0.721);
   cursor: pointer;
   padding: 4px 8px;
-  border-radius: 3px;
+  border-radius: 30px;
   width: 32px;
 }
 
@@ -223,7 +228,7 @@
 @media screen and (max-width: 450px) {
 
   .stock-item {
-    grid-template-columns: 40px 2fr 2fr 1fr 2fr;
+    grid-template-columns: 45px 2fr 2fr 1fr 2fr;
     /* grid-template-areas: "inStock name name quantity price . . ."; */
   }
 
@@ -255,9 +260,15 @@
   }
 }
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 360px) {
 
-  .stock-item__delete,
+  .stock-item__delete{
+    display: none;
+  }
+}
+
+@media screen and (max-width: 340px) {
+
   .stock-item__edit {
     display: none;
   }
