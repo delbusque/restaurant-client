@@ -145,7 +145,7 @@ const TableView = ({ tables, setTables, setItems }) => {
             window.localStorage.setItem('currTable', JSON.stringify(table));
             await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
         }else {
-            showToast(`Моля заредете ${item.name} !`);
+            showToast(`Моля заредете ${item.name.toUpperCase()} !`);
         }
     }
 

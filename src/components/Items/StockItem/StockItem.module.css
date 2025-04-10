@@ -88,9 +88,12 @@
   margin: 5px;
   color: rgb(36, 81, 81);
   margin-left: 10px;
+  background-color: antiquewhite;
+  border-radius: 3px;
 }
 .stock-item__nonStock {
   color: crimson;
+  font-weight: 600;
 }
 
 .stock-item__quantityType {
@@ -114,7 +117,7 @@
 .stock-item__stock-input-container {
   position: absolute;
   top: -24%;
-  left: -4px;
+  left: -6px;
   z-index: 1000;
   display: flex;
   flex-direction: column;
@@ -127,7 +130,7 @@
 }
 
 .stock-item__stock-input {
-  width: 80px;
+  width: 83px;
   padding: 4px;
   border: 1px solid #ccc;
   border-radius: 3px;
