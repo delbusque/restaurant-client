@@ -84,6 +84,14 @@
   grid-area: inStock;
   text-align: center;
   margin: 5px;
+  color: rgb(36, 81, 81);
+  margin-left: 10px;
+}
+.stock-item__nonStock {
+  grid-area: inStock;
+  text-align: center;
+  margin: 5px;
+  color: crimson;
 }
 
 .stock-item__quantityType {
