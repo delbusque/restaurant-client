@@ -1,6 +1,7 @@
 const ItemLine = ({ item, addItemHandler }) => {
     return (
         <div className='item' onClick={() => addItemHandler(item)}>
+            <div className={item.stock < 5 ? 'stock-item__nonStock' : 'stock-item__inStock'}>{item.stock}</div>
             <div className='item-name'>{item.name}</div>
 
             <div className='item-quantity'>{item.quantity < 1000 ? item.quantity : item.quantity / 1000}

@@ -1,6 +1,8 @@
 import styles from './StockItem.module.css'
 import { useAuthContext } from '../../../hooks/useAuthContext';
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import ItemsContext from '../../../contexts/ItemsContext';
+import { baseUrl } from '../../../config';
 
 const StockItem = ({ item, modalHandler, editHandler, deleteHandler, isInactive, onStockClick }) => {
     const [showStockInput, setShowStockInput] = useState(false);
@@ -22,17 +24,59 @@ const StockItem = ({ item, modalHandler, editHandler, deleteHandler, isInactive,
         onStockClick();
     }
 
-    const handleStockSubmit = () => {
-        // TODO: Add stock update logic here
-        setShowStockInput(false);
-        setStockValue('');
-        onStockClick(); // Clear active item
+    const { items, setItems } = useContext(ItemsContext);
+
+    const handleStockSubmit = async () => {
+        const stockNum = parseInt(stockValue);
+        if (isNaN(stockNum) || stockNum < 0) {
+            return;
+        }
+
+        const newStock = (item.stock || 0) + stockNum;
+
+        try {
+            const response = await fetch(`${baseUrl}/items/${item._id}/stock`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                },
+                body: JSON.stringify({ stock: newStock })
+            });
+
+            if (!response.ok) {
+                throw new Error('Failed to update stock');
+            }
+
+            // Update item in local storage
+            const updatedItems = items.map(i => {
+                if (i._id === item._id) {
+                    return {
+                        ...i,
+                        stock: newStock
+                    };
+                }
+                return i;
+            });
+
+            // Update local state
+            setItems(updatedItems);
+            window.localStorage.setItem('items', JSON.stringify(updatedItems));
+
+            // Close input
+            setShowStockInput(false);
+            setStockValue('');
+            onStockClick(); // Clear active item
+        } catch (error) {
+            console.error('Error updating stock:', error);
+            // You might want to show an error message to the user here
+        }
     }
 
     return (
         <>
             <div className={`${styles['stock-item']} ${isInactive ? styles['inactive'] : ''}`}>
-                <div className={styles['stock-item__inStock']}>{item.stock}</div>
+                <div className={item.stock < 5 ? styles['stock-item__nonStock'] : styles['stock-item__inStock']}>{item.stock}</div>
                 <div className={styles['stock-item__name']}>{item.name}</div>
                 <div className={styles['stock-item__quantity']}>{item.quantity < 1000 ? item.quantity : item.quantity / 1000}
                     <span className={styles['stock-item__quantityType']}>{item.quantityType}</span>
