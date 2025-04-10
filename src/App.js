@@ -80,7 +80,7 @@ function App() {
                 <Route path='/' element={<Home />} />
                 <Route path='/items' element={<ItemsList />} />
                 {user?.role !== 401 && <Route path='/tables' element={<Tables tables={tables} setTables={setTables} setSelectedLink={setSelectedLink} />} />}
-                {user && user?.role !== 401 && <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} />} />}
+                {user && user?.role !== 401 && <Route path='/tables/:number' element={<TableView tables={tables} setTables={setTables} setItems={setItems}/>} />}
 
                 {user && user?.role !== 401 && <Route path='/chef' element={<Chef />} />}
                 {user && user?.role !== 401 && <Route path='/chef-fryer' element={<ChefFryer />} />}

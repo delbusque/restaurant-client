@@ -15,7 +15,7 @@ import TypeButton from '../Buttons/TypeButton.js';
 
 import familiesAndTypes from '../../services/familiesAndTypes.js';
 
-const TableView = ({ tables, setTables }) => {
+const TableView = ({ tables, setTables, setItems }) => {
 
     const { user } = useAuthContext()
 
@@ -51,54 +51,75 @@ const TableView = ({ tables, setTables }) => {
     }, [data, table.ownerId])
 
 
-    const addItemHandler = (item) => {
+    const updateBackendStock = async (itemId, newStock) => {
+        try {
+            await fetch(`${baseUrl}/items/${itemId}/stock`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': `Bearer ${user.token}`
+                },
+                body: JSON.stringify({ stock: newStock })
+            });
+        } catch (error) {
+            console.error('Error updating stock:', error);
+        }
+    };
 
-        if (table.ownerId === user.id) {
-
-            // table.opened = true;
-
-            if (!table.paid) {
-
-                let alreadyItem = table.orders.find(order => {
-                    if (order.name === item.name) {
-                        return order;
-                    }
-                })
-
-                if (!alreadyItem) {
-                    alreadyItem = {
-                        ...item,
-                        count: 1,
-                        sent: 0
-                    }
-
-                    table.orders.unshift(alreadyItem);
-
-                    if (table.orders.length > 0) { table.ownerId = user.id }
-                    setTables(oldState => [...oldState], table);
-                    window.localStorage.setItem('currTable', JSON.stringify(table))
-                    // Post request to edit table
-                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
-
-
-                } else {
-                    table.orders.find((order, i) => {
-                        if (order._id === alreadyItem._id) {
-                            table.orders[i].count++;
-                            setTables(oldState => [...oldState], table);
-                            window.localStorage.setItem('currTable', JSON.stringify(table))
-
-                            // Post request to edit table
-                            axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
-                        }
-                    })
-                }
+    const addItemHandler = async (item) => {
+        if (table.ownerId === user.id && !table.paid) {
+            // Check if item has stock available
+            const currentItem = items.find(i => i._id === item._id);
+            if (!currentItem || currentItem.stock <= 0) {
+                return; // No stock available
             }
+
+            let alreadyItem = table.orders.find(order => order.name === item.name);
+
+            if (!alreadyItem) {
+                alreadyItem = {
+                    ...item,
+                    count: 1,
+                    sent: 0
+                }
+                table.orders.unshift(alreadyItem);
+                if (table.orders.length > 0) { table.ownerId = user.id }
+            } else {
+                table.orders.find((order, i) => {
+                    if (order._id === alreadyItem._id) {
+                        table.orders[i].count++;
+                    }
+                });
+            }
+
+            const newStock = currentItem.stock - 1;
+
+            // Update stock in local storage
+            const updatedItems = items.map(i => {
+                if (i._id === item._id) {
+                    return {
+                        ...i,
+                        stock: newStock
+                    };
+                }
+                return i;
+            });
+
+            // Update items context and localStorage
+            setItems(updatedItems);
+            window.localStorage.setItem('items', JSON.stringify(updatedItems));
+
+            // Update backend stock
+            await updateBackendStock(item._id, newStock);
+
+            // Update table
+            setTables(oldState => [...oldState], table);
+            window.localStorage.setItem('currTable', JSON.stringify(table));
+            await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
         }
     }
 
-    const deleteItemHandler = (item) => {
-
+    const deleteItemHandler = async (item) => {
         if (!table.paid) {
             let index;
             let alreadyItem = table.orders.find((order, i) => {
@@ -106,28 +127,41 @@ const TableView = ({ tables, setTables }) => {
                     index = i;
                     return order;
                 }
-            })
+            });
 
-            if (alreadyItem.count === 1) {
-                table.orders.splice(index, 1);
-                // if (table.orders.length === 0) {
-                //     table.ownerId = ''
-                //     setTableOwner('')
-                //     table.opened = false
-                // }
-                setTables(oldState => [...oldState], table);
-                window.localStorage.setItem('currTable', JSON.stringify(table))
-                axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
-            }
-
-            table.orders.find((order, i) => {
-                if (order._id === alreadyItem._id) {
-                    table.orders[i].count--;
-                    setTables(oldState => [...oldState], table);
-                    window.localStorage.setItem('currTable', JSON.stringify(table))
-                    axios.post(`${baseUrl}/tables/edit/${table._id}`, { table })
+            if (alreadyItem) {
+                if (alreadyItem.count === 1) {
+                    table.orders.splice(index, 1);
+                } else {
+                    table.orders[index].count--;
                 }
-            })
+
+                const currentItem = items.find(i => i._id === item._id);
+                const newStock = (currentItem?.stock || 0) + 1;
+
+                // Update stock in local storage
+                const updatedItems = items.map(i => {
+                    if (i._id === item._id) {
+                        return {
+                            ...i,
+                            stock: newStock
+                        };
+                    }
+                    return i;
+                });
+
+                // Update items context and localStorage
+                setItems(updatedItems);
+                window.localStorage.setItem('items', JSON.stringify(updatedItems));
+
+                // Update backend stock
+                await updateBackendStock(item._id, newStock);
+
+                // Update table
+                setTables(oldState => [...oldState], table);
+                window.localStorage.setItem('currTable', JSON.stringify(table));
+                await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
+            }
         }
     }
 
