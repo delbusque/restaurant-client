@@ -7,12 +7,14 @@
   /* border: solid 2px grey; */
   border-top-left-radius: 20px;
   transition: background-color 0.3s ease;
-  background-color: #77cb9a70;
+  /* background-color: #77cb9a70; */
+  background-color: #6ee49f99;
+
 }
 
 .order-cont.old-ready {
   border: none;
-  background-color: rgba(101, 187, 240, 0.7);
+  background-color: rgba(116, 198, 248, 0.329);
 }
 
 .order-cont-away {
@@ -23,12 +25,17 @@
   justify-content: space-between;
   /* border: solid 2px darkgoldenrod; */
   border-top-left-radius: 20px;
-  background-color: #e4d17d5e;
+  /* background-color: #e4d17d5e; */
+  background-color: rgba(243, 222, 171, 0.795);
+  
 }
 
 .order-cont-away.old-ready {
   border: none;
-  background-color: #4aa1c130;
+  /* background-color: rgba(64, 179, 250, 0.523); */
+  background: linear-gradient(135deg,
+  rgba(116, 198, 248, 0.329) 70%,
+  rgba(250, 147, 63, 0.881) 100%);
 }
 
 .order-info {
@@ -78,7 +85,7 @@
 }
 
 .order-table-num {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 1300px) {
