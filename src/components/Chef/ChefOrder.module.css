@@ -5,8 +5,7 @@
   display: flex;
   justify-content: space-between;
   /* background-color: rgb(190, 190, 190); */
-  background-color: #83e9ae99;
-  
+  background-color: rgb(201, 198, 198);
   border-bottom-left-radius: 40px;
   transition: background-color 0.3s ease;
 }
@@ -22,14 +21,17 @@
   display: flex;
   justify-content: space-between;
   background-color: rgba(255, 222, 139, 0.653);
+  background: linear-gradient(135deg,
+  rgb(201, 198, 198) 60%,
+  rgba(250, 147, 63, 0.881) 100%);
   border-bottom-left-radius: 40px;
   transition: background-color 0.3s ease;
 }
 
 .order-cont-away.delayed {
   background: linear-gradient(135deg,
-      rgba(255, 193, 7, 0.797) 0%,
-      rgba(250, 147, 63, 0.881) 100%);
+      rgba(231, 216, 172, 0.797) 0%,
+      rgba(250, 141, 52, 0.881) 100%);
 }
 
 .order-name {
@@ -104,7 +106,7 @@
 }
 
 .order-table-num {
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .order-time {
