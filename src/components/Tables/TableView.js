@@ -79,9 +79,9 @@ const TableView = ({ tables, setTables, setItems }) => {
     };
 
     const addItemHandler = async (item) => {
-        if((!item.stock || item.stock < 1) && table.opened) {
+        if ((!item.stock || item.stock < 1) && table.opened) {
             showToast(`Моля заредете ${item.name.toUpperCase()} !`);
-         }
+        }
         if (item.stock > 0 && (table.ownerId === user.id && !table.paid)) {
             // Check if item has stock available
             const currentItem = items.find(i => i._id === item._id);
@@ -95,7 +95,8 @@ const TableView = ({ tables, setTables, setItems }) => {
                 alreadyItem = {
                     ...item,
                     count: 1,
-                    sent: 0
+                    sent: 0,
+                    leftCount: 1  // Add leftCount initialization
                 }
                 table.orders.unshift(alreadyItem);
                 if (table.orders.length > 0) { table.ownerId = user.id }
@@ -103,6 +104,7 @@ const TableView = ({ tables, setTables, setItems }) => {
                 table.orders.find((order, i) => {
                     if (order._id === alreadyItem._id) {
                         table.orders[i].count++;
+                        table.orders[i].leftCount++;  // Add this line
                     }
                 });
             }
@@ -148,7 +150,7 @@ const TableView = ({ tables, setTables, setItems }) => {
             window.localStorage.setItem('currTable', JSON.stringify(table));
             await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
         }
-        
+
     }
 
     const deleteItemHandler = async (item) => {
@@ -166,6 +168,7 @@ const TableView = ({ tables, setTables, setItems }) => {
                     table.orders.splice(index, 1);
                 } else {
                     table.orders[index].count--;
+                    table.orders[index].leftCount--;  // Add this line
                 }
 
                 const currentItem = items.find(i => i._id === item._id);
@@ -213,13 +216,29 @@ const TableView = ({ tables, setTables, setItems }) => {
         }
     }
 
+    const serveItemHandler = async (item) => {
+        if (!table.paid) {
+            const orderIndex = table.orders.findIndex(order => order._id === item._id);
+            if (orderIndex !== -1 && table.orders[orderIndex].leftCount > 0) {
+                table.orders[orderIndex].leftCount--;
+
+                // Update the table
+                setTables(oldState => [...oldState], table);
+                window.localStorage.setItem('currTable', JSON.stringify(table));
+                await axios.post(`${baseUrl}/tables/edit/${table._id}`, { table });
+            }
+        }
+    };
+
     return (
         <div className='table-card'>
             {toast && <div className='toast-notification'>{toast}</div>}
             {
                 table ?
                     <>
-                        <TableCard table={table} setTable={setTable} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} number={number} />
+                        <TableCard table={table} setTable={setTable} setTables={setTables} tables={tables} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} tableOwner={tableOwner} number={number}
+                            serveItemHandler={serveItemHandler}
+                        />
 
                         <section className='family-sect'>
                             {families.length > 0 && user.role !== 5051 &&

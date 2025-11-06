@@ -7,7 +7,7 @@ import axios from 'axios';
 import { baseUrl } from '../../config.js';
 import * as apiService from './../../services/apiService.js'
 
-const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteItemHandler, tableOwner, number }) => {
+const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteItemHandler, tableOwner, number, serveItemHandler }) => {
     const { user } = useAuthContext();
 
     const [flag, setFlag] = useState(false)
@@ -36,7 +36,7 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
         table.opened = false;
         table.ownerId = '';
         table.clientName = '';
-        
+
         setTables(oldState => [...oldState], table);
         window.localStorage.setItem('currTable', JSON.stringify(table))
 
@@ -77,11 +77,11 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
     const handleClientNameChange = (e) => {
         const value = e.target.value
         setClientName(value)
-        
+
         // Update table object
         table.clientName = value
         setTables(oldState => [...oldState])
-        
+
         // Update localStorage
         window.localStorage.setItem('currTable', JSON.stringify(table))
     }
@@ -110,23 +110,23 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
                 <Link to={'/tables'}>
                     <button className='btn-tables'>МАСИ</button>
                 </Link>
-               
-            {(table.opened && table.type==='table') && <input 
-                className={((table.opened && !table.paid && user.id === table.ownerId) && 'tb-client' || (table.opened && !table.paid && user.id !== table.ownerId) && 'tb-client-none')|| 
-                    ((table.opened && table.paid) && 'tb-client-dis')} 
-                type='text'
-                value={clientName}
-                onChange={handleClientNameChange}
-                onBlur={handleClientNameBlur}
-            />}
 
-            {(table.opened && table.type==='away') && <input 
-                className={(table.opened && !table.paid && user.id === table.ownerId) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away' || (table.opened && !table.paid && user.id !== table.ownerId) && 'tb-client-none-away'} 
-                type='text'
-                value={clientName}
-                onChange={handleClientNameChange}
-                onBlur={handleClientNameBlur}
-            />}
+                {(table.opened && table.type === 'table') && <input
+                    className={((table.opened && !table.paid && user.id === table.ownerId) && 'tb-client' || (table.opened && !table.paid && user.id !== table.ownerId) && 'tb-client-none') ||
+                        ((table.opened && table.paid) && 'tb-client-dis')}
+                    type='text'
+                    value={clientName}
+                    onChange={handleClientNameChange}
+                    onBlur={handleClientNameBlur}
+                />}
+
+                {(table.opened && table.type === 'away') && <input
+                    className={(table.opened && !table.paid && user.id === table.ownerId) && 'tb-client-away' || (table.opened && table.paid) && 'tb-client-dis-away' || (table.opened && !table.paid && user.id !== table.ownerId) && 'tb-client-none-away'}
+                    type='text'
+                    value={clientName}
+                    onChange={handleClientNameChange}
+                    onBlur={handleClientNameBlur}
+                />}
 
                 {table.opened ? <div className='tb-num-op'>{table.number}</div> : <div className='tb-num' onClick={openHandler}>{table.number}</div>}
             </div>
@@ -137,8 +137,8 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
             <div className='ord-footer'>
                 <div className='tb-foot' onClick={changeHandler}>СМЕТКА</div>
 
-                
-                
+
+
 
                 <div className='tb-total'>{totalSum.toFixed(2)} <span className='tb-total-lv'>лв.</span></div>
 
@@ -175,7 +175,8 @@ const TableCard = ({ table, setTable, tables, setTables, addItemHandler, deleteI
             </div>
 
             {
-                table.orders && table.orders.map((o, i) => <Order tableNum={table.number} order={o} key={i} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} table={table} setTables={setTables} tableOwner={tableOwner} />)
+                table.orders && table.orders.map((o, i) => <Order tableNum={table.number} order={o} key={i} addItemHandler={addItemHandler} deleteItemHandler={deleteItemHandler} table={table} setTables={setTables} tableOwner={tableOwner}
+                    serveItemHandler={serveItemHandler} />)
             }
             <br />
 
