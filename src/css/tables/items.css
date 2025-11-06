@@ -29,7 +29,7 @@
   background-color: #ddd7c6;
   display: grid;
   grid-template-columns: 40px 1fr 1fr 1fr 1fr;
-    grid-template-areas: "inStock name name quantity price";
+  grid-template-areas: "inStock name name quantity price";
   margin-bottom: 2px;
   /* position: sticky; */
   border: 1px solid rgba(128, 128, 128, 0.479);
@@ -64,7 +64,8 @@
   background-color: rgba(250, 235, 215, 0.422);
   border-radius: 3px;
 }
-.stock-item__nonStock{
+
+.stock-item__nonStock {
   color: rgba(220, 20, 60, 0.728);
   font-weight: 600;
 }
@@ -77,7 +78,7 @@
   color: white;
   padding: 12px 24px;
   border-radius: 4px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
   z-index: 1000;
   animation: slideIn 0.3s ease-out, fadeOut 0.3s ease-out 3.7s;
   font-size: 18px;
@@ -88,6 +89,7 @@
     transform: translateX(100%);
     opacity: 0;
   }
+
   to {
     transform: translateX(0);
     opacity: 1;
@@ -98,6 +100,7 @@
   from {
     opacity: 1;
   }
+
   to {
     opacity: 0;
   }
@@ -146,7 +149,7 @@
 @media screen and (max-width: 900px) {
   .items-sect {
     overflow: unset;
-    margin: 30px 15px;
+    margin: 30px 10px;
     max-height: fit-content;
   }
 
