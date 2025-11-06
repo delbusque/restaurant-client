@@ -6,8 +6,8 @@
   padding: 1px 5px;
   display: grid;
   gap: 5px;
-  grid-template-columns: repeat(8, 1fr);
-  grid-template-areas: "name name . . count count . total";
+  grid-template-columns: repeat(9, 1fr);
+  grid-template-areas: "name name . . count count . total serv";
   font-family: "Exo 2", sans-serif;
   align-items: center;
 }
@@ -138,6 +138,7 @@
   grid-area: count;
   text-align: center;
   font-size: 13px;
+  margin-left: 15px;
 }
 
 .ord-counter {
@@ -215,6 +216,32 @@
   font-size: 14px;
 }
 
+.ord-serv {
+  grid-area: serv;
+  /* margin-right: 15px; */
+  text-align: right;
+}
+
+.serve-btn {
+  margin-left: 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+  font-weight: bold;
+}
+
+.serve-btn:hover {
+  background-color: #45a049;
+}
+
 @media screen and (max-width: 900px) {
   .tb-orders {
     margin: 0 10px;
@@ -223,7 +250,7 @@
     gap: 5px;
     grid-template-columns: 35px 35px 10px 50px;
     /* grid-template-columns: repeat(7, 1fr); */
-    grid-template-areas: " . . . bluebtn bluebtn count count total";
+    grid-template-areas: " . . . bluebtn bluebtn count count total serv";
     font-family: "Lato", sans-serif;
     align-items: center;
     margin-bottom: 8px;

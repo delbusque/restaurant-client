@@ -3,7 +3,7 @@ import axios from 'axios'
 import { baseUrl } from '../../config'
 import { useAuthContext } from '../../hooks/useAuthContext'
 
-const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setTables, tableOwner }) => {
+const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setTables, tableOwner, serveItemHandler }) => {
 
     const { user } = useAuthContext()
     const { name, ingredients, quantity, quantityType, count, sent, family, type, fryer } = order
@@ -53,6 +53,19 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
 
                     <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}<span className={styles['lv']}>лв.</span>
                     </div>
+
+                    <div className={styles['ord-serv']}>
+                        {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) && (
+                            <button
+                                className={`${styles['serve-btn']}`}
+                                onClick={() => serveItemHandler(order)}
+                            >
+                                {order.leftCount}
+                            </button>
+                        )}
+                    </div>
+
+
                 </div >
                 : <>
                     <div className={styles['ord-name']}>{order.name}</div>
@@ -68,6 +81,17 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
 
                         <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}
                             <span className={styles['lv']}>лв.</span>
+                        </div>
+
+                        <div className={styles['ord-serv']}>
+                            {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) && (
+                                <button
+                                    className={`${styles['serve-btn']}`}
+                                    onClick={() => serveItemHandler(order)}
+                                >
+                                    {order.leftCount}
+                                </button>
+                            )}
                         </div>
                     </div >
                 </>}
