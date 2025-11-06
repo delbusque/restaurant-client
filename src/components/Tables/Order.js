@@ -68,7 +68,26 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
 
                 </div >
                 : <>
-                    <div className={styles['ord-name']}>{order.name}</div>
+                    <div className={styles['ord-name-cont']}>
+                        <div className={styles['ord-name']}>{order.name}</div>
+                        <div className={styles['ord-serv']}>
+                            {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) ? (
+                                <button
+                                    className={`${styles['serve-btn']}`}
+                                    onClick={() => serveItemHandler(order)}
+                                >
+                                    {order.leftCount}
+                                </button>
+                            ) :
+                                <button
+                                    className={`${styles['serve-btn-null']}`}
+                                    onClick={() => serveItemHandler(order)}
+                                >
+                                    {order.leftCount}
+                                </button>}
+                        </div>
+                    </div>
+
                     < div className={styles['tb-orders']} >
                         {(user?.role !== 5051 && user.id === tableOwner?._id) &&
                             <button className={table.type == 'table' ? styles['button-53'] : styles['button-54']} onClick={() => deleteItemHandler(order)}>-</button>}
@@ -83,16 +102,22 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                             <span className={styles['lv']}>лв.</span>
                         </div>
 
-                        <div className={styles['ord-serv']}>
-                            {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) && (
+                        {/* <div className={styles['ord-serv']}>
+                            {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) ? (
                                 <button
                                     className={`${styles['serve-btn']}`}
                                     onClick={() => serveItemHandler(order)}
                                 >
                                     {order.leftCount}
                                 </button>
-                            )}
-                        </div>
+                            ) :
+                                <button
+                                    className={`${styles['serve-btn-null']}`}
+                                    onClick={() => serveItemHandler(order)}
+                                >
+                                    {order.leftCount}
+                                </button>}
+                        </div> */}
                     </div >
                 </>}
 
