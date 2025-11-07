@@ -71,20 +71,14 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                     <div className={styles['ord-name-cont']}>
                         <div className={styles['ord-name']}>{order.name}</div>
                         <div className={styles['ord-serv']}>
-                            {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) ? (
+                            {(order.leftCount > 0 && user?.role !== 5051 && user.id === tableOwner?._id) && (
                                 <button
                                     className={`${styles['serve-btn']}`}
                                     onClick={() => serveItemHandler(order)}
                                 >
                                     {order.leftCount}
                                 </button>
-                            ) :
-                                <button
-                                    className={`${styles['serve-btn-null']}`}
-                                    onClick={() => serveItemHandler(order)}
-                                >
-                                    {order.leftCount}
-                                </button>}
+                            ) }
                         </div>
                     </div>
 
@@ -96,7 +90,7 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                             <span className={styles['ord-counter']}>{order.count} </span> x {order.price.toFixed(2)}
                         </div>
 
-                        {(order.family === 'food' && user?.role !== 5051 && user.id === tableOwner?._id) && <button className={styles['button-53-blue']} onClick={toChefHandler}> {sent} / {count}</button>}
+                        {(order.family === 'food' || (order.family === 'drinks' && order.type !== 'Бира' && order.type !== "Студени") && user?.role !== 5051 && user.id === tableOwner?._id) && <button className={order.family === 'food' ? styles['button-53-blue'] : styles['button-53-orange']} onClick={toChefHandler}> {sent} / {count}</button>}
 
                         <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}
                             <span className={styles['lv']}>лв.</span>

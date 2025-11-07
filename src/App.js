@@ -21,6 +21,7 @@ import Users from './pages/Users';
 import Messages from './pages/Messages';
 import Chef from './pages/Chef/Chef.js';
 import ChefFryer from './pages/Chef/ChefFryer.js';
+import Bar from './pages/Chef/Bar.js';
 import NavToggle from './components/NavToggle/NavToggle';
 import NavSidebar from './components/NavToggle/NavSidebar';
 
@@ -84,6 +85,7 @@ function App() {
 
                 {user && user?.role !== 401 && <Route path='/chef' element={<Chef />} />}
                 {user && user?.role !== 401 && <Route path='/chef-fryer' element={<ChefFryer />} />}
+                {user && user?.role !== 401 && <Route path='/bar' element={<Bar />} />}
 
                 {user && <Route path='/staff' element={user?.role === 1984 ? <Users /> : <Navigate to='/my-account' />} />}
                 {user && user?.role !== 401 && <Route path='/messages' element={<Messages />} />}
