@@ -43,6 +43,9 @@ const NavSidebar = ({ setToggle }) => {
                             <li className={styles['sidebar-item']}>
                                 <Link className={styles['sidebar-link']} to='/chef-fryer' onClick={toggleHandler}>Fries </Link><CiFries />
                             </li>
+                            <li className={styles['sidebar-item']}>
+                                <Link className={styles['sidebar-link']} to='/bar' onClick={toggleHandler}>Бар</Link>
+                            </li>
                         </>}
 
                     {user && (<div className={styles['user-cont']}>
