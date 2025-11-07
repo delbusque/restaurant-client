@@ -186,6 +186,18 @@ const StockItemEdit = ({ item, setEditInfo, setShowInfo, setDrinkIsActive, setFo
                         <option value={true}>ДА</option>
                         <option value={false}>НЕ</option>
                     </select></div>}
+
+                    {family === 'drinks' && type !== 'Бира' && type !== "Студени" &&
+                        <div className={styles['label-input']}>
+                        <label className={styles["label"]}>Бар</label><select
+                        value={fryer}
+                        onChange={(e) => {
+                            setFryer(e.target.value)
+                        }}>
+                        <option selected disabled>Избери :</option>
+                        <option value={true}>ДА</option>
+                        <option value={false}>НЕ</option>
+                    </select></div>}
                         
 
                     <div className={styles['label-input']}>
