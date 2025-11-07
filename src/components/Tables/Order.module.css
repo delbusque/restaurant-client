@@ -160,8 +160,8 @@
   text-align: right;
 }
 
-.button-53-blue {
-  background-color: steelblue;
+.button-53-blue,
+.button-53-orange {
   border: 0 solid #e5e7eb;
   color: #fff;
   display: flex;
@@ -182,11 +182,13 @@
   font-size: 14px;
 }
 
-.button-53-blue:focus {
+.button-53-blue:focus,
+.button-53-orange:focus {
   outline: 0;
 }
 
-.button-53-blue:after {
+.button-53-blue:after,
+.button-53-orange:after {
   content: "";
   position: absolute;
   border: 1px solid #000000;
@@ -196,18 +198,33 @@
   height: calc(100% - 1px);
 }
 
-.button-53-blue:hover:after {
+.button-53-blue:hover:after,
+.button-53-orange:hover:after{
   bottom: 1px;
   left: 1px;
 }
 
-.button-53-blue:active {
+.button-53-blue:active,
+.button-53-orange:active {
   box-shadow: inset 0px 2px 4px 2px rgba(0, 0, 0, 0.15),
     inset 0px 4px 8px rgba(0, 0, 0, 0.15),
     inset 0px 8px 16px rgba(0, 0, 0, 0.15);
   transition: 0.2s;
   transform: translateY(2px);
+}
+
+.button-53-blue,
+.button-53-blue:active,
+.button-53-blue:hover,
+.button-53-blue:focus{
   background-color: steelblue;
+}
+
+.button-53-orange,
+.button-53-orange:active,
+.button-53-orange:hover,
+.button-53-orange:focus{
+  background-color:rgb(235, 104, 56);
 }
 
 .lv {
@@ -323,7 +340,8 @@
     padding-bottom: 7px;
   }
 
-  .button-53-blue {
+  .button-53-blue,
+  .button-53-orange {
     grid-area: bluebtn;
     padding-top: 3.5px;
     padding-bottom: 5px;
