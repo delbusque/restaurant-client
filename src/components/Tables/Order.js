@@ -90,7 +90,7 @@ const Order = ({ order, addItemHandler, deleteItemHandler, tableNum, table, setT
                             <span className={styles['ord-counter']}>{order.count} </span> x {order.price.toFixed(2)}
                         </div>
 
-                        {(order.family === 'food' || order.family === 'drinks' && user?.role !== 5051 && user.id === tableOwner?._id) && <button className={order.family === 'food' ? styles['button-53-blue'] : styles['button-53-orange']} onClick={toChefHandler}> {sent} / {count}</button>}
+                        {(order.family === 'food' || (order.family === 'drinks' && order.type !== 'Бира' && order.type !== "Студени") && user?.role !== 5051 && user.id === tableOwner?._id) && <button className={order.family === 'food' ? styles['button-53-blue'] : styles['button-53-orange']} onClick={toChefHandler}> {sent} / {count}</button>}
 
                         <div className={styles['ord-total']}>{(order.count * order.price).toFixed(2)}
                             <span className={styles['lv']}>лв.</span>
